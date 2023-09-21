@@ -50,11 +50,15 @@ document.addEventListener("DOMContentLoaded", function() {
     var footnoteBox = document.getElementById("footnote-box");
 
     footnotes.forEach(function(footnote) {
-        footnote.addEventListener("click", function(event) {
+        footnote.addEventListener("mouseover", function(event) {
             var content = footnote.getAttribute("data-content");
+
+            // Replace newline characters with <br> tags
+            content = content.replace(/\n/g, "<br>");
+
             document.getElementById("footnote-content").innerHTML = content;
 
-            // Set the position of the footnote box based on the clicked footnote's position
+            // Set the position of the footnote box based on the hovered footnote's position
             var rect = footnote.getBoundingClientRect();
             footnoteBox.style.left = rect.left + "px";
             footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
@@ -62,17 +66,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Rerender MathJax after setting the content
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        });
 
-            // Prevent this click from being captured by the document click event below
-            event.stopPropagation();
+        footnote.addEventListener("mouseout", function() {
+            // Use setTimeout to add a small delay before hiding, giving the user time to hover over the box
+            setTimeout(() => {
+                if (!footnoteBox.matches(':hover')) {
+                    closeFootnote();
+                }
+            }, 100);
         });
     });
 
-    // Close the footnote box when clicking outside
-    document.addEventListener("click", function(event) {
-        if (!footnoteBox.contains(event.target)) {
-            closeFootnote();
-        }
+    footnoteBox.addEventListener("mouseover", function() {
+        // Cancel the hiding action if the user hovers over the box
+        clearTimeout(closeFootnote);
+    });
+
+    footnoteBox.addEventListener("mouseout", function() {
+        closeFootnote();
     });
 });
 
