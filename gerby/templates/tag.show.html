@@ -96,6 +96,8 @@ $(function () {
 
   {% if footnotes %}
     <section id="footnotes">
+      <hr class="rounded">
+      <h2>Footnotes</h2>
     {% for footnote in footnotes %}
       <div><a id="footnote-{{ loop.index }}" class="footnote-offset"></a><a href="#footnote-{{ loop.index }}-mark">[{{ loop.index }}]</a> {{ footnote.html | safe }}</div>
     {% endfor %}

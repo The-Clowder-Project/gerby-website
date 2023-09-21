@@ -211,22 +211,22 @@ def show_tag(tag):
     tree = combine(sorted(tags))
 
   # dealing with comments
-  commentsEnabled = tag.type not in hideComments and Comment.table_exists()
-  comments = []
-  parentComments = []
-  if commentsEnabled:
-    comments = Comment.select().where(Comment.tag == tag.tag, Comment.active)
-    for comment in comments:
-      comment.comment = sfm(comment.comment)
+  #commentsEnabled = tag.type not in hideComments and Comment.table_exists()
+  #comments = []
+  #parentComments = []
+  #if commentsEnabled:
+  #  comments = Comment.select().where(Comment.tag == tag.tag, Comment.active)
+  #  for comment in comments:
+  #    comment.comment = sfm(comment.comment)
 
-    # looking for comments higher up in the breadcrumb
-    parentComments = []
-    for parent in breadcrumb:
-      if parent.tag == tag.tag:
-        continue
-      count = Comment.select().where(Comment.tag == parent.tag, Comment.active).count() # this could be done in a single JOIN
-      if count > 0:
-        parentComments.append([parent, count])
+  #  # looking for comments higher up in the breadcrumb
+  #  parentComments = []
+  #  for parent in breadcrumb:
+  #    if parent.tag == tag.tag:
+  #      continue
+  #    count = Comment.select().where(Comment.tag == parent.tag, Comment.active).count() # this could be done in a single JOIN
+  #    if count > 0:
+  #      parentComments.append([parent, count])
 
   if tag.type == "part":
     filename = "part-" + tag.label.split("-part-")[1]
@@ -243,10 +243,10 @@ def show_tag(tag):
                          footnotes=footnotes,
                          dependencies=tag.incoming,
                          tree=tree,
-                         commentsEnabled=commentsEnabled,
+                         commentsEnabled=False,
                          comments=comments,
                          filename=filename,
-                         parentComments=parentComments,
+                         parentComments=False,
                          depth=gerby.configuration.DEPTH)
 
 @app.route("/tag/<string:tag>/cite")

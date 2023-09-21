@@ -8,7 +8,7 @@ import pickle
 import pybtex.database, pybtex.richtext
 import collections
 
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 
 from gerby.database import *
 import gerby.configuration
@@ -378,8 +378,8 @@ def computeBookStats():
 
   # try to get pdf page counts
   if os.path.isfile(gerby.configuration.PDF):
-    book_pdf = PdfFileReader(open(gerby.configuration.PDF, "rb"))
-    BookStatistic.create(statistic="pages", value=book_pdf.getNumPages())
+    book_pdf = PdfReader(open(gerby.configuration.PDF, "rb"))
+    BookStatistic.create(statistic="pages", value=len(book_pdf.pages))
   else:
     log.warning("  Cannot find file '%s; skipping." % gerby.configuration.PDF)
 

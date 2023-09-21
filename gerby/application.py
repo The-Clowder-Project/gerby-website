@@ -33,14 +33,9 @@ app.config.from_object(__name__)
 
 feeds = {
   "github": {
-    "url": "https://github.com/stacks/stacks-project/commits/master.atom",
+    "url": "https://github.com/topological-modular-forms/mess-project-gerby/commits/main.atom",
     "title": "Recent commits",
-    "link": "https://github.com/stacks/stacks-project/commits",
-  },
-  "blog": {
-    "url": "https://www.math.columbia.edu/~dejong/wordpress/?feed=rss2",
-    "title": "Recent blog posts",
-    "link": "https://www.math.columbia.edu/~dejong/wordpress",
+    "link": "https://github.com/topological-modular-forms/mess-project-gerby/commits",
   },
 }
 
@@ -105,11 +100,11 @@ def show_index():
     updates.append(update)
 
   comments = []
-  if Comment.table_exists():
-    comments = Comment.select().where(Comment.active).order_by(Comment.id.desc()).paginate(1, 5)
+  #if Comment.table_exists():
+  #  comments = Comment.select().where(Comment.active).order_by(Comment.id.desc()).paginate(1, 5)
 
-  for comment in comments:
-    comment.tag = Tag.get(Tag.tag == comment.tag)
+  #for comment in comments:
+  #  comment.tag = Tag.get(Tag.tag == comment.tag)
 
   return render_template(
       "index.html",
@@ -183,3 +178,4 @@ import gerby.views.tag
 
 # Stacks project specific pages
 import gerby.views.stacks
+from pathlib import Path

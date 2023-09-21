@@ -61,7 +61,7 @@ div.html h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
-
+/*
 div.html ul li p:only-child,
 div.html ol li p:only-child {
   margin-bottom: .3rem;
@@ -105,12 +105,12 @@ div.html ol ol > li:before {
 div.html ul.tree {
   text-align: left;
 }
-
 div.html article.env-theorem,
 div.html article.env-proposition,
 div.html article.env-lemma {
   font-style: italic;
 }
+*/
 
 div.html a.environment-identifier {
   font-style: normal;
@@ -263,17 +263,21 @@ li.tag-dependencies a {
   background-image: url("../images/dependency.svg");
 }
 
+/*
 li.custom-item {
   list-style-type: none;
 }
+*/
 
 li.custom-item[data-marker]:before {
   content: attr(data-marker) !important;
 }
 
+/*
 li.custom-item p {
   display: inline-block;
 }
+*/
 
 ul#citations {
   font-size: .9rem;
