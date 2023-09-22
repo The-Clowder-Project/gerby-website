@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Tags explained{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/tags">Tags explained</a>
+{% endblock %}
+
+{% block body %}
+  <h2>The tag system</h2>
+  <p>Each tag refers to a unique item (section, lemma, theorem, etc.) in order for this project to be referenceable. These tags don't change even if the item moves within the text.
+
+  <h2>How to use it?</h2>
+  <p>To find the tag for an item, hover/click on the item in the <a href="/download/book.pdf">pdf file</a> or find the item from the <a href="/browse">table of contents</a>. See below for LaTeX instructions on how to reference a tag.
+  <!-- TODO don't mention the pdf as a means to search for a tag! -->
+
+  <h2>More information</h2>
+  <p>The tag system provides <strong>stable</strong> references to definitions, lemmas, propositions, theorems, remarks, examples, exercises, situations and even equations, sections and items. As the project grows, each of these gets a tag which will always point to the same mathematical result. The place of the lemma in the document may change, the lemma may be moved to a different chapter, but its tag always keeps pointing to it.</p>
+  <p>If it ever turns out that a lemma, theorem, etc. was wrong then we may remove it from the project. However, we will keep the tag, and there will be an explanation for its disappearance (in the file tags mentioned below).
+
+  <h2 id="reference">How to reference tags</h2>
+  <p>In your BibTeX file put
+  <pre><code>@misc{mess-project,
+    shorthand    = {Mess},
+    author       = {Emily de Oliveira Santos},
+    title        = {\textit{The Gigantic Mess Project}},
+    howpublished = {\url{https://topological-modular-forms.github.io/the-gigantic-mess-project.github.io}},
+    year         = {2023},
+  }</code></pre>
+  <p>Then you can use the citation code we provide for every tag to <em>cite</em> and <em>link</em> the corresponding tag, for example by
+  <pre><code>\cite[\href{https://topological-modular-forms.github.io/the-gigantic-mess-project.github.io/tag/0123}{Tag 0123}]{mess-project}</code></pre>
+  <p>This can be changed according to your tastes. In order to make the <code>\url</code> and <code>\href</code> commands to work, one should use the <a href="https://ctan.org/pkg/hyperref"><code>hyperref</code></a> package.
+{% endblock %}
+
+{% block sidebar %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+
+

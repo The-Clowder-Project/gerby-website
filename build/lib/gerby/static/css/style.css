@@ -530,28 +530,3 @@ label.toggle-off:active {
   transition: color 0.2s ease;
   cursor: pointer;
 }
-ul {
-  list-style-type: disc;
-}
-ol {
-  list-style-type: none;
-}
-li {
-  position: relative;
-  cursor: default;
-}
-.counter {
-  position: relative;
-}
-.counter-inner {
-  display: inline-block;
-  cursor: pointer;
-  font-weight: bold;
-}
-.counter-link {
-  text-decoration: none;
-  color: black;
-}
-.counter-link:hover .counter-inner {
-  text-decoration: underline;
-}

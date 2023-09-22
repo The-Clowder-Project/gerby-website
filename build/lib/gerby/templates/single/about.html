@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block head %}
+  <style type="text/css">
+dl#history dt + dd {
+  border-left: 1px solid black;
+}
+  </style>
+{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/about">About</a>
+{% endblock %}
+
+{% block hamburger %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+
+{% block body %}
+<h2>About</h2>
+  <p>Welcome! This is the web version of my notes, including only the (mostly 100%) polished parts of them. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="Raymond Cheng">Raymond Cheng</a>.</p>
+
+  <p>This website is hosted via GitHub pages, and is thus completely static, in contrast to the <a href="https://stacks.math.columbia.edu/">Stacks project</a>, <a href="https://kerodon.net">Kerodon</a>, and the <a href="https://automorphic.jh.edu/">Automorphic project</a>. As such, certain features found in those projects are disabled for this site, including the search function and comments.</p>
+
+  <p>Comments are most welcome however; you can contact me by email at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com </a>.</p>
+
+  <p><div class="warning_container"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg" height="70px" width:"auto"><div><b>Warning: </b>These notes are quite informal and most likely contain lots of errors, so please use them at your own risk. There are also *lots* of nonstandard terminology in them, so please keep this in mind as well.</div></div></p> 
+{% endblock %}
+
+{% block sidebar %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}

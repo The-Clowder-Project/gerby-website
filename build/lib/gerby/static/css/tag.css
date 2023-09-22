@@ -30,7 +30,7 @@ div.html {
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  text-align: left;
+  text-align: justify;
   padding-right: 0.5rem;
 }
 
