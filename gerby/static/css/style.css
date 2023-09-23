@@ -555,3 +555,24 @@ li {
 .counter-link:hover .counter-inner {
   text-decoration: underline;
 }
+.env-proof {
+    padding-bottom: 8px
+}
+.env-proof p {
+    background-color: gray;
+    color: white;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px 0;
+    border-radius: 10px; /* Rounded Corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+}
+.env-proof a {
+    color: white;
+    text-decoration: none; /* Remove Underline from Links */
+}
+.env-proof a:hover {
+  text-decoration: underline;
+}
