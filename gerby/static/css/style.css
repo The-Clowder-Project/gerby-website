@@ -593,3 +593,15 @@ ul.star {
     width: 5px; /* Width of the strip */
     background-color: #5BC0BE; /* color for the strip */
 }
+.smallsize {
+  font-size: 11pt;
+}
+.footnotesize {
+  font-size: 10pt;
+}
+.scriptsize {
+  font-size: 8.5pt;
+}
+.tinysize {
+  font-size: 6pt;
+}
