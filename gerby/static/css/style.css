@@ -270,6 +270,7 @@ h2 {
 
 h3 {
   font-size: 1.3em;
+  font-weight: bold;
 }
 
 a[href^="https://github.com"],
@@ -570,7 +571,6 @@ li {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
 }
 .env-proof a {
-    color: white;
     text-decoration: none; /* Remove Underline from Links */
 }
 .env-proof a:hover {
@@ -578,6 +578,7 @@ li {
 }
 ul.star {
   list-style-type: "(★)";
+  margin-bottom: 20px;
 }
 .env-footnotes {
    background-color: #f2f2f2; /* Light grey background */
@@ -604,4 +605,7 @@ ul.star {
 }
 .tinysize {
   font-size: 6pt;
+}
+.webcompile {
+    text-align: center;
 }
