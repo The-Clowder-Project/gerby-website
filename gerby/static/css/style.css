@@ -584,6 +584,7 @@ ul.star {
    background-color: #f2f2f2; /* Light grey background */
    padding: 10px 15px 0.1px 15px; /* Space around the text */
    position: relative; /* Needed for the strip positioning */
+   padding-bottom: 10px;
 }
 .env-footnotes::before {
     content: ""; /* Empty content for the pseudo-element */
