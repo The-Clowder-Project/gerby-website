@@ -560,7 +560,7 @@ li {
 .env-proof {
     padding-bottom: 8px
 }
-.env-proof p {
+.env-proof div.p-proof {
     background-color: gray;
     color: white;
     padding-top: 7.5px;
@@ -570,6 +570,7 @@ li {
     margin: 5px 0;
     border-radius: 10px; /* Rounded Corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+    display: block;
 }
 .env-proof a {
     text-decoration: none; /* Remove Underline from Links */
