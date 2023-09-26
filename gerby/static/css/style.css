@@ -510,6 +510,7 @@ label.toggle-off:active {
     text-align: left;
     padding-left: 0;
     padding-right: 0;
+    align-items: flex-start;
 }
 .hidden {
     display: none;
@@ -609,4 +610,7 @@ ul.star {
 }
 .webcompile {
     text-align: center;
+}
+.text-block {
+    max-width: 600px;
 }

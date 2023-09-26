@@ -23,7 +23,7 @@
   {% endif %}
 {% endmacro %}
 
-{% block title %}Bibliography entry{% endblock %}
+{% block title %}Bibliography Entry {% endblock %}
 
 {% block breadcrumb %}
   <li><a href="/bibliography">Bibliography</a>
@@ -57,73 +57,73 @@
 {% endmacro %}
 
 {% block body %}
-  <h2>Bibliography entry <span class="tag">{{ entry.key }}</span></h2>
+  <h2>Bibliography Entry: <span class="tag">{{ entry.key }}</span></h2>
 
   <nav class="nav nav-tabs nav-fill" role="tablist">
-    <a class="nav-item nav-link active" data-toggle="tab" href="#entry-table" role="tab">entry</a>
-    <a class="nav-item nav-link" data-toggle="tab" href="#entry-code" role="tab">code</a>
+    <a class="nav-item nav-link active" data-toggle="tab" href="#entry-table" role="tab">Entry</a>
+    <a class="nav-item nav-link" data-toggle="tab" href="#entry-code" role="tab">Code</a>
   </nav>
 
   <div class="tab-content" id="entry-content">
     <div class="tab-pane show active " id="entry-table" role="tabpanel">
       <dl class="entry">
         {% if "author" in entry.fields %}
-          <dt>author</dt>
+          <dt>Author</dt>
           <dd>{{ entry.fields["author"] | safe }}</dd>
         {% endif %}
 
         {% if "title" in entry.fields %}
-          <dt>title</dt>
+          <dt>Title</dt>
           <dd>{{ entry.fields["title"] | safe }}</dd>
         {% endif %}
 
         {% if "year" in entry.fields %}
-          <dt>year</dt>
+          <dt>Year</dt>
           <dd>{{ entry.fields["year"] }}</dd>
         {% endif %}
 
         {% if "journal" in entry.fields and not "fjournal" in entry.fields %}
-          <dt>journal</dt>
+          <dt>Journal</dt>
           <dd>{{ entry.fields["journal"] | safe }}</dd>
         {% endif %}
 
         {% if "fjournal" in entry.fields %}
-          <dt>journal</dt>
+          <dt>Journal</dt>
           <dd>{{ entry.fields["fjournal"] | safe }}</dd>
         {% endif %}
 
         {% if "publisher" in entry.fields %}
-          <dt>publisher</dt>
+          <dt>Publisher</dt>
           <dd>{{ entry.fields["publisher"] | safe }}</dd>
         {% endif %}
 
         {% if "series" in entry.fields %}
-          <dt>series</dt>
+          <dt>Series</dt>
           <dd>{{ entry.fields["series"] | safe }}</dd>
         {% endif %}
 
         {% if "volume" in entry.fields %}
-          <dt>volume</dt>
+          <dt>Volume</dt>
           <dd>{{ entry.fields["volume"] }}</dd>
         {% endif %}
 
         {% if "number" in entry.fields %}
-          <dt>number</dt>
+          <dt>Number</dt>
           <dd>{{ entry.fields["number"] }}</dd>
         {% endif %}
 
         {% if "pages" in entry.fields %}
-          <dt>pages</dt>
+          <dt>Pages</dt>
           <dd>{{ entry.fields["pages"] | replace("--", "&ndash;") | safe }}</dd>
         {% endif %}
 
         {% if "eprint" in entry.fields %}{# assume it's arXiv #}
-          <dt>arXiv</dt>
+          <dt>ArXiv</dt>
           <dd><a href="https://arxiv.org/abs/{{ entry.fields["eprint"] }}">{{ entry.fields["eprint"] }}</a></dd>
         {% endif %}
 
         {% if "url" in entry.fields %}
-          <dt>url</dt>
+          <dt>URL</dt>
           <dd><a href="{{ entry.fields["url"] }}">{{ entry.fields["url"] }}</a></dd>
         {% endif %}
 
