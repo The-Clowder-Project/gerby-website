@@ -615,3 +615,7 @@ ul.star {
 .text-block {
     max-width: 600px;
 }
+.styles {
+    padding-left: 20px;
+    padding-right: 20px;
+}

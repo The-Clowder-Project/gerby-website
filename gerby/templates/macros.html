@@ -47,9 +47,15 @@
 
   <hr>
   {% if tag.type == "part" %}
-    {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
+    {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF</a>#}
   {% else %}
-    <a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
+  <ul>
+    <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF | Style 1</a></li>
+    <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF | Style 2</a></li>
+    <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF | Style 3</a></li>
+    <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF | Style 4</a></li>
+    <!--<li><a href="https://github.com/topological-modular-forms/mess-project-gerby-output/tags-chapters/darwin/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF, Style 5</a></li>-->
+  </ul>
   {% endif %}
 
   {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
