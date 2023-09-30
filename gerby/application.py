@@ -118,6 +118,9 @@ def show_index():
 def show_about():
   return render_template("single/about.html")
 
+@app.route("/changes")
+def show_changes():
+  return render_template("single/changes.html")
 
 @app.route("/statistics")
 def show_statistics():

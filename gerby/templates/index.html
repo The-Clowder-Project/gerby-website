@@ -41,7 +41,8 @@
     <li id="index-bibliography"><a href="/bibliography"><img src="/static/images/bibliography.svg">Bibliography</a>
     <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><img src="/static/images/github.svg">GitHub</a>
     <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
-    <!--<li id="index-changes"><a href="/recent-changes"><img src="/static/images/diff.svg">recent changes</a>-->
+    <li id="index-changes"><a href="/changes"><img src="/static/images/diff.svg">Changes</a>
+    <li><a href="https://topological-modular-forms.github.io/notes.html"><img src="/static/images/blog.svg">Nightly Ver.</a>
   </ul>
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>
@@ -60,7 +61,7 @@
       <li>{{ statistic | safe }}
     {% endfor %}
   </ul>
-  <h3><a href="/">Download the book as PDF</a></h3>
+  <h3><a href="/">Download the book as a PDF</a></h3>
   <ul>
       <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf">Style 1</a></li>
       <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf">Style 2</a></li>

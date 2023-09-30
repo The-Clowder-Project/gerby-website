@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}Recent Changes {% endblock %}
+
+{% block head %}
+  <script type="text/javascript" src="/static/js/toggle.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.css" integrity="sha384-U1uEPfU2/stCtBJ6oZS4XLX35g0MD+BZTTskUun0Vhv64RLEaTUXtcpxGScTbkUP" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.min.js" integrity="sha384-ZKch/OmPYYZT/9GpxSgMqUIDdBjwYYuJ3+CfQytRQElwdBsCMJkEmcsynJlFlsCS" crossorigin="anonymous"></script>
+  <style type="text/css">
+dl#history dt + dd {
+  border-left: 1px solid black;
+}
+  </style>
+{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/changes">Recent Changes</a>
+{% endblock %}
+
+{% block hamburger %}
+  <div class="interaction"></div>
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+
+{% block body %}
+<section>
+  <h1>Changes</h1>
+  <p>Below you find an overview of the major updates to the Gigantic Mess project.
+
+  <h1>2023</h1>
+    <dl id="changes" class="row">
+        <dt class="col-sm-3">October 03</dt>
+        <dd class="col-sm-9"><ul><li>Initial Version.</li></ul></dd>
+
+        <!--
+        <dt class="col-sm-3">January 24</dt>
+        <dd class="col-sm-9"><ul><li>Added Section <a href="/tag/043P" data-tag="043P">8.2</a> on couplings of <script type="math/tex">\infty</script>-categories.</li><li>Substantial revisions to Section <a href="/tag/03LZ" data-tag="03LZ">8.3</a>.</li></ul></dd>
+        -->
+    </dl>
+    </section>
+{% endblock %}
+
+{% block sidebar %}
+  <div class="interaction"></div>
+{% endblock %}
