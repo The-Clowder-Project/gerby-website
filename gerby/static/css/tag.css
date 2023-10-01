@@ -115,7 +115,7 @@ div.html article.env-lemma {
 div.html a.environment-identifier {
   font-style: normal;
   font-weight: bold;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -128,8 +128,8 @@ div.html a.environment-identifier span.named {
 }
 
 div.html article.env-proof {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 div.html article.env-proof span.qed {

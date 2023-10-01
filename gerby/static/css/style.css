@@ -430,7 +430,16 @@ label.toggle-off:active {
     top: 0; /* Align to the top of the div */
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
+    width: 3px; /* Width of the strip */
+    background-color: #4D4D80; /* color for the strip */
+}
+.env-definition::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
     background-color: #4D4D80; /* color for the strip */
 }
 .env-proposition {
@@ -444,7 +453,16 @@ label.toggle-off:active {
     top: 0; /* Align to the top of the div */
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
+    width: 3px; /* Width of the strip */
+    background-color: #A60D0D; /* color for the strip */
+}
+.env-proposition::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
     background-color: #A60D0D; /* color for the strip */
 }
 .env-example {
@@ -458,7 +476,16 @@ label.toggle-off:active {
     top: 0; /* Align to the top of the div */
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
+    width: 3px; /* Width of the strip */
+    background-color: #803300; /* color for the strip */
+}
+.env-example::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
     background-color: #803300; /* color for the strip */
 }
 .env-corollary {
@@ -472,7 +499,16 @@ label.toggle-off:active {
     top: 0; /* Align to the top of the div */
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
+    width: 3px; /* Width of the strip */
+    background-color: #52007A; /* color for the strip */
+}
+.env-corollary::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
     background-color: #52007A; /* color for the strip */
 }
 .env-remark {
@@ -486,7 +522,16 @@ label.toggle-off:active {
     top: 0; /* Align to the top of the div */
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
+    width: 3px; /* Width of the strip */
+    background-color: #338033; /* color for the strip */
+}
+.env-remark::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
     background-color: #338033; /* color for the strip */
 }
 .env-proof {
@@ -500,8 +545,147 @@ label.toggle-off:active {
     top: 0; /* Align to the top of the div */
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
+    width: 3px; /* Width of the strip */
     background-color: #595959; /* color for the strip */
+}
+.env-proof::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
+    background-color: #595959; /* color for the strip */
+}
+.env-proof p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-definition-header {
+    background-color: #4D4D80; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-definition-footer {
+    background-color: #4D4D80; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+}
+.env-definition-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-proposition-header {
+    background-color: #A60D0D; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-proposition-footer {
+    background-color: #A60D0D; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+}
+.env-proposition-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-example-header {
+    background-color: #803300; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-example-footer {
+    background-color: #803300; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+}
+.env-example-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-corollary-header {
+    background-color: #52007A; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-corollary-footer {
+    background-color: #52007A; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+}
+.env-corollary-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-remark-header {
+    background-color: #338033; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-remark-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-remark-footer {
+    background-color: #338033; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+}
+.env-proof-header {
+    background-color: #595959; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+    margin-top: 1rem;
+}
+.env-proof-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-proof-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
+}
+.env-proof-footer {
+    background-color: #595959; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
+}
+.env-proof-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
 }
 .warning_container {
     display: flex;
