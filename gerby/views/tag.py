@@ -233,7 +233,8 @@ def show_tag(tag):
   elif tag.type == "chapter":
     filename = tag.label.split("-section-")[0]
   else:
-    filename = tag.label.split("-" + tag.type)[0]
+    #filename = tag.label.split("-" + tag.type)[0]
+    filename = tag.label.split(":")[0]
 
   return render_template("tag.show.html",
                          tag=tag,
