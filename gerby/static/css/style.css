@@ -582,6 +582,14 @@ label.toggle-off:active {
     margin-top:    0px; /* Space around the text inside the div */
     margin-bottom: 0px; /* Space around the text inside the div */
 }
+.env-definition-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-definition-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
+}
 .env-proposition-header {
     background-color: #A60D0D; /* background color */
     color: #ffffff; /* White text color */
@@ -601,6 +609,14 @@ label.toggle-off:active {
     margin-top:    0px; /* Space around the text inside the div */
     margin-bottom: 0px; /* Space around the text inside the div */
 }
+.env-proposition-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-proposition-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
+}
 .env-example-header {
     background-color: #803300; /* background color */
     color: #ffffff; /* White text color */
@@ -613,6 +629,14 @@ label.toggle-off:active {
     background-color: #803300; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
+}
+.env-example-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-example-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
 }
 .env-example-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -627,6 +651,14 @@ label.toggle-off:active {
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-corollary-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-corollary-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
 }
 .env-corollary-footer {
     background-color: #52007A; /* background color */
@@ -652,6 +684,14 @@ label.toggle-off:active {
     padding-bottom: 0px; /* Space around the text inside the div */
     margin-top:    0px; /* Space around the text inside the div */
     margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-remark-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-remark-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
 }
 .env-remark-footer {
     background-color: #338033; /* background color */
