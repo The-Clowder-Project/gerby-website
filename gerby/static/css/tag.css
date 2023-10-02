@@ -45,6 +45,9 @@ div.html div.equation::-webkit-scrollbar {
 p + div.equation {
   margin-top: -1rem;
 }
+.env-footnotes p + div.equation {
+  margin-top: 0rem;
+}
 
 div.html h1 {
   font-size: 1.6rem;
