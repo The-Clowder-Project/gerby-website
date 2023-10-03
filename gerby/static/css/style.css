@@ -843,3 +843,15 @@ ul.book-styles {
     padding-left: 20px;
     padding-right: 20px;
 }
+article ol .equation {
+    margin-left: -40px;
+}
+article ol ul .equation {
+    margin-left: -80px;
+}
+article ol .webcompile {
+    margin-left: -40px;
+}
+article ol ul .webcompile {
+    margin-left: -80px;
+}
