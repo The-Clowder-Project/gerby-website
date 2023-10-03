@@ -216,6 +216,19 @@
         document.getElementById("footnote-box").classList.add("hidden");
     }
 </script>
+<script>
+    window.onload = function() {
+        // Select all img tags within divs with class webcompile or tikzcd
+        var images = document.querySelectorAll('.webcompile img, .tikz-cd img');
+        
+        // Loop through each selected image
+        images.forEach(function(img) {
+            // Resize the image to 300% of its original size
+            img.style.width = img.offsetWidth * 2.25 + 'px';
+            // img.style.height = img.offsetHeight * 3 + 'px';
+        });
+    };
+</script>
 {% endraw %}
 </body>
 </html>
