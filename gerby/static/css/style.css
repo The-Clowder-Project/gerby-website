@@ -1011,3 +1011,87 @@ div.env-footnotes ol ol ol .webcompile {
 div.env-footnotes ol ol ul .webcompile {
     margin-left: -120px;
 }
+ul .equation {
+    margin-left: -40px;
+}
+ul ul .equation {
+    margin-left: -80px;
+}
+ul ol .equation {
+    margin-left: -80px;
+}
+ul ul ul .equation {
+    margin-left: -120px;
+}
+ul ul ol .equation {
+    margin-left: -120px;
+}
+ul ol ol .equation {
+    margin-left: -120px;
+}
+ul ol ul .equation {
+    margin-left: -120px;
+}
+ol .equation {
+    margin-left: -40px;
+}
+ol ul .equation {
+    margin-left: -80px;
+}
+ol ol .equation {
+    margin-left: -80px;
+}
+ol ul ul .equation {
+    margin-left: -120px;
+}
+ol ul ol .equation {
+    margin-left: -120px;
+}
+ol ol ol .equation {
+    margin-left: -120px;
+}
+ol ol ul .equation {
+    margin-left: -120px;
+}
+ul .webcompile {
+    margin-left: -40px;
+}
+ul ul .webcompile {
+    margin-left: -80px;
+}
+ul ol .webcompile {
+    margin-left: -80px;
+}
+ul ul ul .webcompile {
+    margin-left: -120px;
+}
+ul ul ol .webcompile {
+    margin-left: -120px;
+}
+ul ol ol .webcompile {
+    margin-left: -120px;
+}
+ul ol ul .webcompile {
+    margin-left: -120px;
+}
+ol .webcompile {
+    margin-left: -40px;
+}
+ol ul .webcompile {
+    margin-left: -80px;
+}
+ol ol .webcompile {
+    margin-left: -80px;
+}
+ol ul ul .webcompile {
+    margin-left: -120px;
+}
+ol ul ol .webcompile {
+    margin-left: -120px;
+}
+ol ol ol .webcompile {
+    margin-left: -120px;
+}
+ol ol ul .webcompile {
+    margin-left: -120px;
+}
