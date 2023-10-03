@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% set index = true %}
+
+{% block title %}Index {% endblock %}
+
+{% block body %}
+  <p>Welcome! This is the web version of my <a href="https://topological-modular-forms.github.io/notes.html">notes</a><span class="footnote" data-content="The name “The Gigantic Mess Project” is a joke; I started calling my notes this because they originally started as <a href='https://apps.ankiweb.net/'>Anki</a> cards, and have always been a complete mess since."><a class="footnotemark footnote-offset" href="#footnote-example-1" id="footnote-example-1-mark"></a><a href="#footnote-example-1"><sup>[1]</sup></a></span>, including only the (mostly 100%) polished parts of them. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="Raymond Cheng">Raymond Cheng</a>.</p>
+
+  <p><b>Disabled Features. </b>This website is hosted via GitHub pages, and is thus completely static, in contrast to the <a href="https://stacks.math.columbia.edu/">Stacks project</a>, <a href="https://kerodon.net">Kerodon</a>, and the <a href="https://automorphic.jh.edu/">Automorphic project</a>. As such, certain features found in those projects are disabled for this site, including the search function and comments.</p>
+  <p><b>Comments. </b>Comments are most welcome however; in case you'd like to, you can contact me by email at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com </a>.</p>
+  <p><b>PDF Styles. </b>The PDFs for each chapter as well as for the whole book are generated using four different styles:
+    <ul class="book-styles">
+        <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf">Style 1</a> uses the <a href="https://fonts.google.com/specimen/Alegreya+Sans">Alegreya Sans</a> font, the book class, as well as <code>tcbtheorem</code> for stylising the theorem environments. It is the most readable version in my opinion.</li>
+        <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf">Style 2</a> uses the <a href="https://fonts.google.com/specimen/Alegreya+Sans">Alegreya Sans</a> font, the book class, and <code>amsthm</code> for handling theorem environments.</li>
+        <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf">Style 3</a> uses Arno, the book class, and <code>amsthm</code> for handling theorem environments.</li>
+        <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf">Style 4</a> uses the default Computer Modern font, the <code>stacks-project-book.cls</code> class used by the Stacks Project, and <code>amsthm</code> for handling theorem environments.</li>
+    </ul>
+  </p>
+  <p><b>Footnotes. </b>There are lots of footnotes, due to how the original PDFs were created. They automatically expand when you hover your mouse over them; here's an example<span class="footnote" data-content="Most of the footnotes are quite unimportant and can be ignored, though."><a class="footnotemark footnote-offset" href="#footnote-example-2" id="footnote-example-2-mark"></a><a href="#footnote-example-2"><sup>[2]</sup></a></span>.</p>
+  <p><b>Placeholder Symbols. </b>Currently, a number of macros have been defined using placeholder symbols, and look very ugly as a result. This is because I eventually plan to replace them using a custom font, which is however still WIP.</p>
+  <p><div class="warning_container"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg" height="70px" width:"auto"><div><b>Warning: </b>These notes are quite informal and most likely contain lots of errors, so please use them at your own risk. There are also <em>lots</em> of nonstandard terminology in them, so please keep this in mind as well.</div></div></p> 
+  <p>
+  <hr class="rounded">
+  <h2>Footnotes</h2>
+  <div><a id="footnote-example-1" class="footnote-offset"></a><a href="#footnote-example-1-mark">[1]</a> The name “The Gigantic Mess Project” is a joke; I started calling my notes this because they originally started as <a href="https://apps.ankiweb.net/">Anki</a> cards, and have always been a complete mess since.</div> 
+  <div><a id="footnote-example-2" class="footnote-offset"></a><a href="#footnote-example-2-mark">[2]</a> Most of the footnotes are quite unimportant and can be ignored, though.</div>
+  </p>
+{% endblock %}
+
+{% block tagline %}
+  <em style="display: block; margin: auto; text-align: center">a collection of personal notes on mathematics and physics</em>
+{% endblock %}
+
+{% block sidebar %}
+  <ul id="index-select">
+    <li id="index-browse"><a href="/browse"><img src="/static/images/list-ordered.svg">Contents</a>
+    <!--<li id="index-about"><a href="/about"><img src="/static/images/info.svg">About</a>-->
+    <!--<li id="index-search"><a href="/search">Search<img src="/static/images/search.svg"></a>-->
+    <!--<li id="index-blog"><a href="https://www.math.columbia.edu/~dejong/wordpress/"><img src="/static/images/blog.svg">blog</a>-->
+    <li id="index-bibliography"><a href="/bibliography"><img src="/static/images/bibliography.svg">Bibliography</a>
+    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><img src="/static/images/github.svg">GitHub</a>
+    <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
+    <li id="index-changes"><a href="/changes"><img src="/static/images/diff.svg">Changes</a>
+    <!--<li><a href="https://topological-modular-forms.github.io/notes.html"><img src="/static/images/blog.svg">Nightly Ver.</a>-->
+  </ul>
+  {% for update in updates %}
+    <h3>{{ update.title | safe }}</h3>
+    <ul>
+      {% for item  in update.entries %}
+        <li>{{ item | safe }}
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+  <h3><a href="/statistics">Statistics</a></h3>
+
+  <p class="mb-1">The Gigantic Mess project now consists of
+  <ul>
+    {% for statistic in statistics %}
+      <li>{{ statistic | safe }}
+    {% endfor %}
+  </ul>
+  <h3><a href="/">Download the book as a PDF</a></h3>
+  <ul>
+      <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf">Style 1</a></li>
+      <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf">Style 2</a></li>
+      <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf">Style 3</a></li>
+      <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf">Style 4</a></li>
+  </ul>
+
+{% endblock %}

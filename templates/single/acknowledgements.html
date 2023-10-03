@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Acknowledgements {% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/acknowledgements">Acknowledgements</a>
+{% endblock %}
+
+{% block body %}
+  <h2>Gerby</h2>
+  <p>This website uses <a href="https://gerby-project.github.io/">Gerby</a> as the underlying system. It was written by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="https://www.math.columbia.edu/~rcheng/">Raymond Cheng</a>. It is an open source system, which combines
+  <ul>
+    <li>a LaTeX processing tool built using <a href="https://github.com/tiarno/plastex">plastex</a>
+    <li>a website built using <a href="http://flask.pocoo.org/">Flask</a>
+  </ul>
+  <!--<p>Gerby is also used by-->
+{% endblock %}
+
+{% block sidebar %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
