@@ -272,7 +272,6 @@ h3 {
   font-size: 1.3em;
   font-weight: bold;
 }
-
 a[href^="https://github.com"],
 a[href^="https://doi.org"],
 a[href^="https://arxiv.org"],
@@ -575,6 +574,7 @@ label.toggle-off:active {
     background-color: #4D4D80; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
 }
 .env-definition-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -602,6 +602,7 @@ label.toggle-off:active {
     background-color: #A60D0D; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
 }
 .env-proposition-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -629,6 +630,7 @@ label.toggle-off:active {
     background-color: #803300; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
 }
 .env-example-header a {
   color: #ffffff;
@@ -664,6 +666,7 @@ label.toggle-off:active {
     background-color: #52007A; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
 }
 .env-corollary-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -697,6 +700,7 @@ label.toggle-off:active {
     background-color: #338033; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
 }
 .env-proof-header {
     background-color: #595959; /* background color */
