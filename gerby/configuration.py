@@ -1,7 +1,7 @@
 # configuration for the website
 COMMENTS = "comments.sqlite"
 DATABASE = "stacks.sqlite"
-UNIT = "section"
+UNIT = "subsection"
 DEPTH = 0
 
 # configuration for the import
