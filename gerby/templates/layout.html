@@ -218,14 +218,30 @@
 </script>
 <script>
     window.onload = function() {
+        // Maximum allowed width for images
+        var maxWidth = 550; // You can adjust this value as per your requirement
+        
         // Select all img tags within divs with class webcompile or tikzcd
-        var images = document.querySelectorAll('.webcompile img, .tikz-cd img');
+        var webcompile_images = document.querySelectorAll('.webcompile img');
         
         // Loop through each selected image
-        images.forEach(function(img) {
-            // Resize the image to 300% of its original size
-            img.style.width = img.offsetWidth * 2.25 + 'px';
-            // img.style.height = img.offsetHeight * 3 + 'px';
+        webcompile_images.forEach(function(img) {
+            // Resize the image to 225% of its original size
+            var newWidth = img.offsetWidth * 2.25;
+            
+            // Check if the new width exceeds the maximum allowed width
+            img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+        });
+
+        var tikzcd_images = document.querySelectorAll('.tikz-cd img');
+        
+        // Loop through each selected image
+        tikzcd_images.forEach(function(img) {
+            // Resize the image to 125% of its original size
+            var newWidth = img.offsetWidth * 1.25;
+            
+            // Check if the new width exceeds the maximum allowed width
+            img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
         });
     };
 </script>
