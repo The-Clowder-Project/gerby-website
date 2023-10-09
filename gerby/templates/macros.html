@@ -56,6 +56,8 @@
     <li><a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF | Style 4</a></li>
     <!--<li><a href="https://github.com/topological-modular-forms/mess-project-gerby-output/tags-chapters/darwin/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF, Style 5</a></li>-->
   </ul>
+  <hr>
+  Dark mode: <label class="switch"><input type="checkbox" id="darkModeToggle"><span class="slider round"></span></label>
   {% endif %}
 
   {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}

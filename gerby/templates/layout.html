@@ -245,6 +245,11 @@
         });
     };
 </script>
+<script>
+    document.getElementById('darkModeToggle').addEventListener('change', function(event) {
+    document.body.classList.toggle('dark-mode', event.target.checked);
+});
+</script>
 {% endraw %}
 </body>
 </html>
