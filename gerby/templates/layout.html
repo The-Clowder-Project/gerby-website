@@ -134,7 +134,7 @@
         function updateCounters(ol, counter = 1, listType = 'decimal') {
             for (const li of ol.children) {
                 if (li.tagName === 'LI') {
-                    const counterInner = li.querySelector('.counter-inner');
+                    const counterInner = li.querySelector('.counter-inner, .counter-inner-no-pointer');
                     if (counterInner) {
                         let counterText;
                         if (listType === 'decimal') {

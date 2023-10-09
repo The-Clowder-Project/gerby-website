@@ -773,6 +773,10 @@ li {
 .counter {
   position: relative;
 }
+.counter-inner-no-pointer {
+  display: inline-block;
+  font-weight: bold;
+}
 .counter-inner {
   display: inline-block;
   cursor: pointer;
@@ -807,7 +811,7 @@ li {
   text-decoration: underline;
 }
 ul.star {
-  list-style-type: "(★)";
+  list-style-type: "(★) ";
   margin-bottom: 20px;
 }
 .env-footnotes {
