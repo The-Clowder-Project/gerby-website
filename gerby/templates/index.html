@@ -35,14 +35,14 @@
 {% block sidebar %}
   <ul id="index-select">
     <li id="index-browse"><a href="/browse"><img src="/static/images/list-ordered.svg">Contents</a>
-    <!--<li id="index-about"><a href="/about"><img src="/static/images/info.svg">About</a>-->
+    <li id="index-about"><a href="/about"><img src="/static/images/info.svg">About</a>
     <!--<li id="index-search"><a href="/search">Search<img src="/static/images/search.svg"></a>-->
     <!--<li id="index-blog"><a href="https://www.math.columbia.edu/~dejong/wordpress/"><img src="/static/images/blog.svg">blog</a>-->
     <li id="index-bibliography"><a href="/bibliography"><img src="/static/images/bibliography.svg">Bibliography</a>
     <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><img src="/static/images/github.svg">GitHub</a>
     <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
     <li id="index-changes"><a href="/changes"><img src="/static/images/diff.svg">Changes</a>
-    <!--<li><a href="https://topological-modular-forms.github.io/notes.html"><img src="/static/images/blog.svg">Nightly Ver.</a>-->
+    <li><a href="https://topological-modular-forms.github.io/notes.html"><img src="/static/images/blog.svg">Nightly Ver.</a>
   </ul>
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>
