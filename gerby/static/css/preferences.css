@@ -1,0 +1,173 @@
+#settingsButton {
+    background: none;
+    border: none;
+    font-size: 10px;
+    color: #000000;
+    cursor: pointer;
+    outline: none;
+    transform: scale(1.25) translate(7px,-1px);
+}
+.preferences {
+    position: fixed;
+    top: 250px;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%,0%);
+    background-color: #f2f2f2; /* Light grey background */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: none;
+    z-index: 9999;
+    color: #333;
+    text-align: center;
+    padding-top: 50px;
+    position: absolute; /* To position child elements and pseudo-elements */
+    font-size: 16pt;
+}
+
+.preferences::before {
+    content: "";
+    position: relative;
+    left: -3px;
+    right: -3px;
+    top: -3px;
+    height: 50px; /* Matching the height of .preferences-header */
+    background-color: #4D4D80;
+    z-index: -1; /* Place behind .preferences-header */
+}
+
+.preferences::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    height: 3px;
+    background-color: #4D4D80;
+}
+
+.preferences-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* 80px tall header */
+    background-color: #4D4D80; /* background color */
+    color: #ffffff; /* White text color */
+    line-height: 50px; /* Center text vertically */
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.preferences::after {
+    bottom: -3px;
+}
+
+/* Left and right borders, using two additional nested divs */
+.preferences > div::before, .preferences > div::after {
+    content: "";
+    position: absolute;
+    top: -0px;
+    bottom: -3px;
+    width: 3px;
+    background-color: #4D4D80;
+}
+
+.preferences > div::before {
+    left: -3px;
+}
+
+.preferences > div::after {
+    right: -3px;
+}
+
+.close-btn {
+    position: absolute; /* Absolute positioning */
+    top: 5px;  /* Positioning to the top right corner */
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #b2bec3;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preferences h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.close-btn:hover {
+    color: #d63031;
+}
+
+.preferences label {
+    display: block;
+    margin: 15px 0;
+    font-weight: 500;
+    font-size: 16pt;
+}
+
+.preferences input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.preferences select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    background-color: #f5f6fa;
+    color: #2c3e50;
+    appearance: none;
+    cursor: pointer;
+}
+
+.preferences select:focus {
+    border-color: #0984e3;
+    outline: none;
+}
+.darkened::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(86,88,105,0.7);
+    pointer-events: none; /* to prevent interaction with this overlay */
+    z-index: 9997; /* Ensure it's below the preferences menu but above other content */
+}
+.lightened::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white */
+    pointer-events: none; /* to prevent interaction with this overlay */
+    z-index: 9997; /* Ensure it's below the preferences menu but above other content */
+}
+.preferences-title {
+    color: #ffffff;
+    z-index: 9998; /* Ensure it's below the preferences menu but above other content */
+}
+.disable-interaction {
+    pointer-events: none;
+}
+
+.preference-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* this ensures vertical alignment is centered */
+}

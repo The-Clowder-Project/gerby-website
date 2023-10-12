@@ -1,0 +1,274 @@
+div.btn-container{
+    display: flex;
+    align-items: center;
+}
+
+div.btn-container i{
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+
+label {
+    font-size: 13px;
+    color: #424242;
+    font-weight: 500;
+}
+
+.btn-color-mode-switch{
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+    height: 36px;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner{
+    margin: 0px;
+    width: 140px;
+    height: 36px;
+    background: #E0E0E0;
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+    display: block;
+    font-size: 12pt;
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:before{
+    content: attr(data-on);
+    position: absolute;
+    font-size: 12pt;
+    font-weight: 500;
+    top: 7px;
+    right: 20px;
+
+}
+
+.btn-color-mode-switch > label.btn-color-mode-switch-inner:after{
+    content: attr(data-off);
+    width: 70px;
+    height: 31.5px;
+    background: #fff;
+    border-radius: 26px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 6px -2px #111;
+    padding: 5px 0px;
+}
+
+.btn-color-mode-switch > .alert{
+    display: none;
+    background: #FF9800;
+    border: none;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"]{
+    cursor: pointer;
+    width: 50px;
+    height: 36px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin: 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    background: #151515;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:after{
+    content: attr(data-on);
+    left: 68px;
+    background: #3c3c3c;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before{
+    content: attr(data-off);
+    right: auto;
+    left: 20px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    /*background: #66BB6A; */
+    /*color: #fff;*/
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked ~ .alert{
+    display: block;
+}
+
+/*mode preview*/
+body.dark-preview {
+    background-color: #23242B; /* dark background color */
+    color: #FFFFFF; /* light text color for contrast */
+}
+.dark-preview .material-icons {
+    color: #FFFFFF; /* light text color for contrast */
+}
+.dark-preview a {
+    color: #FF7DF7; /* light text color for contrast */
+}
+.dark-preview a:hover {
+    color: #C75FC1; /* dark background color */
+}
+.dark-preview .counter-link {
+    color: #FFFFFF; /* dark background color */
+}
+.dark-preview .preferences {
+    background-color: #2D2F38; /* Light grey background */
+    color: #FFFFFF; /* Light grey background */
+}
+.dark-preview .preferences select {
+    background-color: #2D2F38; /* Light grey background */
+    color: #FFFFFF; /* Light grey background */
+}
+.dark-preview code {
+    color: #ff7373;  /* Semi-transparent white */
+}
+.dark-preview #first-bar {
+    background-color: #B0005B/*D60270;*/
+}
+.dark-preview #second-bar {
+    background-color: #002B80/*0038A8;*/
+}
+.dark-preview #first-bar a {
+    color: #FFFFFF; /* dark background color */
+}
+.dark-preview #second-bar a {
+    color: #FFFFFF; /* dark background color */
+}
+.dark-preview ul#crumbs li.active {
+    color: #C4C4C4; /* dark background color */
+}
+.dark-preview .preferences::before {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .preferences::after {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .preferences > div::before, .preferences > div::after {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .preferences-header {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .preferences-footer {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .env-definition {
+    background-color: #2D2F38; /* dark background color */
+}
+.dark-preview .env-definition::before {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .env-definition::after {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .env-definition-header {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .env-definition-footer {
+    background-color: #3A3A61; /* color for the strip */
+}
+.dark-preview .env-proposition {
+    background-color: #2D2F38; /* dark background color */
+}
+.dark-preview .env-proposition::before {
+    background-color: #730808; /* color for the strip */
+}
+.dark-preview .env-proposition::after {
+    background-color: #730808; /* color for the strip */
+}
+.dark-preview .env-proposition-header {
+    background-color: #730808; /* color for the strip */
+}
+.dark-preview .env-proposition-footer {
+    background-color: #730808; /* color for the strip */
+}
+.dark-preview .env-example {
+    background-color: #2D2F38; /* dark background color */
+}
+.dark-preview .env-corollary {
+    background-color: #2D2F38; /* dark background color */
+}
+.dark-preview .env-remark {
+    background-color: #2D2F38; /* dark background color */
+}
+.dark-preview .env-remark-header a {
+    color: #FFFFFF;
+}
+.dark-preview .env-remark::before {
+    background-color: #245E24; /* color for the strip */
+}
+.dark-preview .env-remark::after {
+    background-color: #245E24; /* color for the strip */
+}
+.dark-preview .env-remark-header {
+    background-color: #245E24; /* color for the strip */
+}
+.dark-preview .env-remark-footer {
+    background-color: #245E24; /* color for the strip */
+}
+.dark-preview .env-proof {
+    background-color: #2D2F38; /* dark background color */
+}
+.dark-preview .env-proof-header {
+    background-color: #404040; /* dark background color */
+}
+.dark-preview .env-proof-header a {
+    color: #FFFFFF;
+}
+.dark-preview .env-proof-footer {
+    background-color: #404040; /* dark background color */
+}
+.dark-preview .env-proof::before {
+    background-color: #404040; /* dark background color */
+}
+.dark-preview .env-proof::after {
+    background-color: #404040; /* dark background color */
+}
+.dark-preview .env-proof div.p-proof {
+    background-color: #595959;
+    color: white;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px 0;
+    border-radius: 10px; /* Rounded Corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
+    display: block;
+}
+.dark-preview .env-footnotes {
+    background-color: #2D2F38; /* dark background color */
+}
+
+.dark-preview div.btn-container i.fa-sun-o{
+    color: #777;
+}
+
+.dark-preview div.btn-container i.fa-moon-o{
+    color: #fff;
+    text-shadow: 0px 0px 11px #fff;
+}
+
+.white-preview{
+    background: #fff;
+}
+
+.white-preview div.btn-container i.fa-sun-o{
+    color: #ffa500;
+    text-shadow: 0px 0px 16px #ffa500;
+}
+
+.white-preview div.btn-container i.fa-moon-o{
+    color: #777;
+}

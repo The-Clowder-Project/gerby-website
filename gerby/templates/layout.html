@@ -15,11 +15,16 @@
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/theorem-environments.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/list-spacing.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/preferences.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/print.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dark-mode.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 {% raw %}
 <script src="https://kit.fontawesome.com/279c154e33.js" crossorigin="anonymous"></script>
@@ -74,9 +79,9 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-.style-column {
-  width: 40px;
-  white-space: nowrap;
+
+.dark-preview tr:nth-child(even) {
+  background-color: #1F1F1F;
 }
 </style>
 </head>
@@ -86,13 +91,16 @@ tr:nth-child(even) {
     <div>
         <div class="preferences-header">Preferences</div>
         <button id="closeButton" class="close-btn">&times;</button>
-        <label>
-            Dark Mode:
-            <input type="checkbox" id="darkModeToggle">
-        </label>
-        <label>
-            Font:
-            <select id="fontSelect">
+        <div class="btn-container">
+            <i class="fa fa-sun-o" aria-hidden="true"></i><div>  </div>
+            <label class="switch btn-color-mode-switch">
+                <input type="checkbox" name="color_mode" id="color_mode" value="0">
+                <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+            </label>
+            <div>  </div><i class="fa fa-moon-o" aria-hidden="true"></i>
+        </div>
+        <div class="preference-item"><div>Font: </div>
+            <select id="fontSelection">
                 <option value="Droid Sans">Droid Sans</option>
                 <option value="Alegreya Sans">Alegreya Sans</option>
                 <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
@@ -102,52 +110,50 @@ tr:nth-child(even) {
                 <option value="EB Garamond">EB Garamond</option>
                 <option value="PT Serif">PT Serif</option>
             </select>
-        </label>
-        <label>
-            PDF Style:
-            <select id="styleSelect">
+        </div>
+        <div class="preference-item"><div>PDF Style: </div>
+            <select id="styleSelection">
                 <option value="Style1">Style 1</option>
                 <option value="Style2">Style 2</option>
                 <option value="Style3">Style 3</option>
                 <option value="Style4">Style 4</option>
             </select>
-            <br>
-            <hr>
-            <p style="text-align:left;">Here's a breakdown of the differences between each PDF style:</p>
-            <table>
-              <tr>
-                <th>Style</th>
-                <th>Class</th>
-                <th>Font</th>
-                <th>Theorem Environments</th>
-              </tr>
-              <tr>
-                <td class="style-column">Style 1</td>
-                <td><code>book</code></td>
-                <td>Alegreya Sans</td>
-                <td><code>tcbthm</code></td>
-              </tr>
-              <tr>
-                <td class="style-column">Style 2</td>
-                <td><code>book</code></td>
-                <td>Alegreya Sans</td>
-                <td><code>amsthm</code></td>
-              </tr>
-              <tr>
-                <td class="style-column">Style 3</td>
-                <td><code>book</code></td>
-                <td>Arno*</td>
-                <td><code>amsthm</code></td>
-              </tr>
-              <tr>
-                <td class="style-column">Style 4</td>
-                <td><code>stacks-project.cls</code></td>
-                <td>Computer Modern</td>
-                <td><code>amsthm</code></td>
-              </tr>
-            </table>
-            <p style="text-align:left;">*To be replaced with Linus Romer's <a href="https://typedrawers.com/discussion/2630/elemaints-a-serif-family-with-optical-sizes">Elemaints</a> when it is released.</p>
-        </label>
+        </div>
+        <hr>
+        <p style="text-align:left;">Here's a breakdown of the differences between each PDF style:</p>
+        <table>
+          <tr>
+            <th>Style</th>
+            <th>Class</th>
+            <th>Font</th>
+            <th>Theorem Environments</th>
+          </tr>
+          <tr>
+            <td>Style 1</td>
+            <td><code>book</code></td>
+            <td>Alegreya Sans</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 2</td>
+            <td><code>book</code></td>
+            <td>Alegreya Sans</td>
+            <td><code>amsthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 3</td>
+            <td><code>book</code></td>
+            <td>Arno*</td>
+            <td><code>amsthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 4</td>
+            <td><code>stacks-project.cls</code></td>
+            <td>Computer Modern</td>
+            <td><code>amsthm</code></td>
+          </tr>
+        </table>
+        <p style="text-align:left;">*To be replaced with Linus Romer's <a href="https://typedrawers.com/discussion/2630/elemaints-a-serif-family-with-optical-sizes">Elemaints</a> when it is released.</p>
     </div>
 </div>
 <div class="main-content">
@@ -159,12 +165,11 @@ tr:nth-child(even) {
   
       <nav id="header">
         <ul id="quicklinks">
-          <li><a href="/">Homepage</a>
-          <li><a href="/about">About</a>
-          <li><a href="/changes">Changes</a>
-          <li><a href="/bibliography">Bibliography</a>
-          <!--<li>Dark mode: <label class="switch"><input type="checkbox" id="darkModeToggle"><span class="slider round"></span></label>-->
-          <li><button id="settingsButton"><i class="fa-solid fa-gear" style="color: #5e5c64;"></i></button> <!-- Gear Symbol -->
+          <li><div class="push-up"><a href="/">Home</a></div>
+          <li><div class="push-up"><a href="/about">About</a></div>
+          <li><div class="push-up"><a href="/changes">Changes</a></div>
+          <li><div class="push-up"><a href="/bibliography">Bibliography</a></div>
+          <li><button id="settingsButton"><div class="material-icons">settings</div></button> <!-- Gear Symbol -->
           <!--<li><a href="https://www.math.columbia.edu/~dejong/wordpress/">blog</a>-->
         </ul>
   
@@ -338,36 +343,6 @@ tr:nth-child(even) {
       };
   </script>
   <script>
-      document.getElementById('darkModeToggle').addEventListener('change', function(event) {
-      document.body.classList.toggle('dark-mode', event.target.checked);
-  });
-  </script>
-  <script>
-  // Check if preferences are set
-  if (localStorage.getItem('darkMode')) {
-      let darkMode = localStorage.getItem('darkMode');
-      setDarkMode(darkMode === 'enabled');
-      document.getElementById('darkModeToggle').checked = (darkMode === 'enabled');
-  }
-  
-  // Listener for dark mode toggle
-  document.getElementById('darkModeToggle').addEventListener('change', function() {
-      let darkModeEnabled = this.checked;
-      localStorage.setItem('darkMode', darkModeEnabled ? 'enabled' : 'disabled');
-      setDarkMode(darkModeEnabled);
-  });
-  
-  
-  // Apply dark mode
-  function setDarkMode(isEnabled) {
-      if (isEnabled) {
-          document.body.classList.add('dark-mode');
-      } else {
-          document.body.classList.remove('dark-mode');
-      }
-  }
-  
-  // Apply font
   function setFont(fontChoice) {
       document.body.style.fontFamily = fontChoice;
   }
@@ -424,11 +399,11 @@ tr:nth-child(even) {
   if (localStorage.getItem('font')) {
       let fontChoice = localStorage.getItem('font');
       setFont(fontChoice);
-      document.getElementById('fontSelect').value = fontChoice;
+      document.getElementById('fontSelection').value = fontChoice;
   }
   
   // Assuming you also have an event listener to change the font when the user selects a new font
-  document.getElementById('fontSelect').addEventListener('change', function() {
+  document.getElementById('fontSelection').addEventListener('change', function() {
       let selectedFont = this.value;
       setFont(selectedFont);
       localStorage.setItem('font', selectedFont);
@@ -441,7 +416,14 @@ tr:nth-child(even) {
   
       if (menu.style.display === "none" || menu.style.display === "") {
           menu.style.display = "block";
-          body.classList.add('lightened'); // Lighten the body
+          // Check if the body has the "dark-preview" class
+          if (body.classList.contains('dark-preview')) {
+              body.classList.add('darkened'); // Darken the body for dark mode
+          } else {
+              body.classList.add('lightened'); // Lighten the body for light mode
+          }
+          var mainContent = document.querySelector('.main-content');
+          mainContent.style.pointerEvents = "none";
           event.stopPropagation();
       }
   });
@@ -453,7 +435,10 @@ tr:nth-child(even) {
   
       if (!menu.contains(event.target) && !button.contains(event.target)) {
           menu.style.display = 'none';
+          body.classList.remove('darkened'); // Restore body's original look
           body.classList.remove('lightened'); // Restore body's original look
+          var mainContent = document.querySelector('.main-content');
+          mainContent.style.pointerEvents = "auto";
       }
   });
   
@@ -463,23 +448,59 @@ tr:nth-child(even) {
       let body = document.body;
       menu.style.display = 'none';
       body.classList.remove('lightened'); // Restore body's original look
+      body.classList.remove('darkened'); // Restore body's original look
+      var mainContent = document.querySelector('.main-content');
+      mainContent.style.pointerEvents = "auto";
   });
   </script>
   {% endraw %}
 </div>
 {% raw %}
 <script>
-document.getElementById('toggleMenu').addEventListener('click', function() {
-    var menu = document.getElementById('preferencesMenu');
-    var pageContent = document.getElementById('pageContent');
-    
-    if (menu.style.display === 'none' || menu.style.display === '') {
-        menu.style.display = 'block';
-        pageContent.style.pointerEvents = 'none';  // Disable interaction with the rest of the page
-    } else {
-        menu.style.display = 'none';
-        pageContent.style.pointerEvents = 'auto';  // Enable interaction with the rest of the page
+$(document).ready(function() {
+    // Check initial state
+    colorModePreview($("#color_mode"));
+
+    $("#color_mode").on("change", function () {
+        colorModePreview(this);
+        $('body').removeClass('lightened');
+        $('body').removeClass('darkened');
+    });
+});
+
+function colorModePreview(ele) {
+    if($(ele).prop("checked") == true){
+        $('body').addClass('dark-preview');
+        $('body').removeClass('white-preview');
+        //
+        let menu = document.getElementById('preferencesMenu');
+        if(menu.style.display == 'block') {
+            $('body').removeClass('lightened');
+            $('body').addClass('darkened');
+        }
     }
+    else if($(ele).prop("checked") == false){
+        $('body').addClass('white-preview');
+        $('body').removeClass('dark-preview');
+        //
+        //
+        let menu = document.getElementById('preferencesMenu');
+        if(menu.style.display == 'block') {
+            $('body').removeClass('darkened');
+            $('body').addClass('lightened');
+        }
+    }
+}
+$(document).ready(function() {
+    // Load user's theme preference from localStorage
+    const userPrefersDark = localStorage.getItem('theme') === 'dark';
+    $("#color_mode").prop("checked", userPrefersDark);
+    colorModePreview($("#color_mode"));
+
+    $("#color_mode").on("change", function () {
+        colorModePreview(this);
+        localStorage.setItem('theme', $(this).prop("checked") ? 'dark' : 'light');
+    });
 });
 </script>
 {% endraw %}
