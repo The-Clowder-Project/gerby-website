@@ -19,7 +19,7 @@
   </p>
   <p><b>Footnotes. </b>There are lots of footnotes, due to how the original PDFs were created. They automatically expand when you hover your mouse over them; here's an example<span class="footnote" data-content="Most of the footnotes are quite unimportant and can be ignored, though."><a class="footnotemark footnote-offset" href="#footnote-example-2" id="footnote-example-2-mark"></a><a href="#footnote-example-2"><sup>[2]</sup></a></span>.</p>
   <p><b>Placeholder Symbols. </b>Currently, a number of macros have been defined using placeholder symbols, and look very ugly as a result. This is because I eventually plan to replace them using a custom font, which is however still WIP.</p>
-  <p><div class="warning_container"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg" height="70px" width:"auto"><div><b>Warning: </b>These notes are quite informal and most likely contain lots of errors, so please use them at your own risk. There are also <em>lots</em> of nonstandard terminology in them, so please keep this in mind as well.</div></div></p> 
+  <p><div class="warning_container"><span class="dark-dbend"><img src="/static/images/dbend.svg" height="70px" width:"auto"></span><div><b>Warning: </b>These notes are quite informal and most likely contain lots of errors, so please use them at your own risk. There are also <em>lots</em> of nonstandard terminology in them, so please keep this in mind as well.</div></div></p> 
   <p>
   <hr class="rounded">
   <h2>Footnotes</h2>
@@ -34,15 +34,15 @@
 
 {% block sidebar %}
   <ul id="index-select">
-    <li id="index-browse"><a href="/browse"><img src="/static/images/list-ordered.svg">Contents</a>
-    <li id="index-about"><a href="/about"><img src="/static/images/info.svg">About</a>
+    <li id="index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a>
+    <li id="index-about"><a href="/about"><span class="dark-svg"><img src="/static/images/info.svg"></span>About</a>
     <!--<li id="index-search"><a href="/search">Search<img src="/static/images/search.svg"></a>-->
     <!--<li id="index-blog"><a href="https://www.math.columbia.edu/~dejong/wordpress/"><img src="/static/images/blog.svg">blog</a>-->
-    <li id="index-bibliography"><a href="/bibliography"><img src="/static/images/bibliography.svg">Bibliography</a>
-    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><img src="/static/images/github.svg">GitHub</a>
+    <li id="index-bibliography"><a href="/bibliography"><span class="dark-svg"><img src="/static/images/bibliography.svg"></span>Bibliography</a>
+    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a>
     <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
-    <li id="index-changes"><a href="/changes"><img src="/static/images/diff.svg">Changes</a>
-    <li><a href="https://topological-modular-forms.github.io/notes.html"><img src="/static/images/blog.svg">Nightly Ver.</a>
+    <li id="index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a>
+    <li><a href="https://topological-modular-forms.github.io/notes.html"><span class="dark-svg"><img src="/static/images/blog.svg"></span>Nightly Ver.</a>
   </ul>
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>

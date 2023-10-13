@@ -304,7 +304,7 @@ a[href^="https://mathscinet.ams.org"] {
 }
 
 a[href*=".pdf"] {
-  background-image: url("../images/icon.pdf.png");
+  background-image: url("../images/PDF.png");
 }
 
 a[href*=".rss"],

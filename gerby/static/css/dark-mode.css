@@ -110,6 +110,17 @@ body.dark-preview {
     background-color: #23242B; /* dark background color */
     color: #FFFFFF; /* light text color for contrast */
 }
+.dark-preview .dark-dbend {
+    content: url(/static/images/dark-dbend.svg);
+    height: 70px;
+    width: auto;
+}
+.dark-preview a[href*=".pdf"] {
+  background-image: url("../images/PDF-dark-mode.png");
+}
+.dark-preview .dark-svg {
+    filter: invert(100%);
+}
 .dark-preview .material-icons {
     color: #FFFFFF; /* light text color for contrast */
 }
