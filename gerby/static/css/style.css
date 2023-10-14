@@ -522,3 +522,6 @@ ul.book-styles {
 .push-up {
     transform: translate(0,-7.9px);
 }
+.title {
+    transform: translate(0,-2px);
+}

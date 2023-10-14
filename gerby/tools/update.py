@@ -37,7 +37,15 @@ def importTags(files):
       value = f.read()
 
     filename = filename[:-4]
-    pieces = filename.split("-")
+    #pieces = filename.split("-")
+    parts = re.split(":", filename)
+    #
+    chapter = parts[0]
+    chapter = re.split("-", chapter)
+    chapter = chapter[3:]
+    chapter = "-".join(chapter)
+    #
+    pieces = re.split("[-:]", filename)
 
     # Ensure that tags are always stored with letters uppercase.
     tag, created = Tag.get_or_create(tag=pieces[2].upper())
@@ -52,7 +60,8 @@ def importTags(files):
       if tag.type != pieces[0]:
         log.info("  Tag %s: type has changed", tag.tag)
 
-    tag.label = "-".join(pieces[3:])
+    #tag.label = "-".join(pieces[3:])
+    tag.label = chapter+":"+parts[1]
     tag.ref = pieces[1]
     tag.type = pieces[0]
     tag.html = value
@@ -96,7 +105,8 @@ def importProofs(files):
       value = f.read()
 
     filename = filename[:-6]
-    pieces = filename.split("-")
+    #pieces = filename.split("-")
+    pieces = re.split("[-:]", filename)
 
     proof, created = Proof.get_or_create(tag=pieces[0], number=int(pieces[1]))
 

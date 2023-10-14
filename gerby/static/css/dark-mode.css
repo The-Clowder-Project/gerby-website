@@ -106,147 +106,188 @@ label {
 }
 
 /*mode preview*/
-body.dark-preview {
-    background-color: #23242B; /* dark background color */
+body.dark-mode {
+    background-color: #2c2d36; /* dark background color */
     color: #FFFFFF; /* light text color for contrast */
 }
-.dark-preview .dark-dbend {
+.dark-mode #footnote-box {
+    background-color: #2c2d36;
+    border: 1px solid #474747;
+}
+.dark-mode .footnote {
+  color: #1d5cb4;
+}
+.dark-mode ul#toc ul li:hover {
+    background-color: #343541;
+}
+.dark-mode label.toggle-on, .dark-mode label.toggle-off {
+  background-color: #2b2b2b;
+  color: white;
+}
+.dark-mode label.toggle-on:hover, .dark-mode label.toggle-off:hover, .dark-mode label.toggle-on:active, .dark-mode label.toggle-off:active {
+  background-color: #404040 !important;
+  color: white !important;
+}
+.dark-mode .toggle-handle {
+  background-color: #1C1C1C;
+  border: thin rgba(255, 255, 255, .25) solid;
+}
+.dark-mode .dark-dbend {
     content: url(/static/images/dark-dbend.svg);
     height: 70px;
     width: auto;
 }
-.dark-preview a[href*=".pdf"] {
+.dark-mode a[href*=".pdf"] {
   background-image: url("../images/PDF-dark-mode.png");
 }
-.dark-preview .dark-svg {
+.dark-mode a[href^="https://github.com"] {
+  background-image: url("../images/icon.github-dark-mode.png");
+}
+.dark-mode .dark-svg {
     filter: invert(100%);
 }
-.dark-preview .material-icons {
+.dark-mode ul#index-select li {
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px #6a6a6a;
+}
+.dark-mode .material-icons {
     color: #FFFFFF; /* light text color for contrast */
 }
-.dark-preview a {
-    color: #FF7DF7; /* light text color for contrast */
+.dark-mode a {
+    color: #c46bff; /* light text color for contrast */
 }
-.dark-preview a:hover {
+.dark-mode a:hover {
     color: #C75FC1; /* dark background color */
 }
-.dark-preview .counter-link {
+.dark-mode .counter-link {
     color: #FFFFFF; /* dark background color */
 }
-.dark-preview .preferences {
-    background-color: #2D2F38; /* Light grey background */
+.dark-mode .preferences {
+    background-color: #343541; /* Light grey background */
     color: #FFFFFF; /* Light grey background */
 }
-.dark-preview .preferences select {
-    background-color: #2D2F38; /* Light grey background */
+.dark-mode .preferences select {
+    background-color: #343541; /* Light grey background */
     color: #FFFFFF; /* Light grey background */
 }
-.dark-preview code {
-    color: #ff7373;  /* Semi-transparent white */
+.dark-mode code {
+    color: #e3cc83;  /* Semi-transparent white */
 }
-.dark-preview #first-bar {
-    background-color: #B0005B/*D60270;*/
+.dark-mode #first-bar {
+    background-color: #91004B;/*#3D0C5D;/*#B0005B/*D60270;*/
 }
-.dark-preview #second-bar {
-    background-color: #002B80/*0038A8;*/
+.dark-mode #second-bar {
+    background-color: #002673;/*#350C4E;/*#002B80/*0038A8;*/
 }
-.dark-preview #first-bar a {
+.dark-mode #first-bar a {
     color: #FFFFFF; /* dark background color */
 }
-.dark-preview #second-bar a {
+.dark-mode #second-bar a {
     color: #FFFFFF; /* dark background color */
 }
-.dark-preview ul#crumbs li.active {
+.dark-mode ul#crumbs li.active {
     color: #C4C4C4; /* dark background color */
 }
-.dark-preview .preferences::before {
+.dark-mode .preferences::before {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .preferences::after {
+.dark-mode .preferences::after {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .preferences > div::before, .preferences > div::after {
+.dark-mode .preferences > div::before, .preferences > div::after {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .preferences-header {
+.dark-mode .preferences-header {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .preferences-footer {
+.dark-mode .preferences-footer {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .env-definition {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-definition {
+    background-color: #343541; /* dark background color */
 }
-.dark-preview .env-definition::before {
+.dark-mode .env-definition::before {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .env-definition::after {
+.dark-mode .env-definition::after {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .env-definition-header {
+.dark-mode .env-definition-header {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .env-definition-footer {
+.dark-mode .env-definition-footer {
     background-color: #3A3A61; /* color for the strip */
 }
-.dark-preview .env-proposition {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-proposition {
+    background-color: #343541; /* dark background color */
 }
-.dark-preview .env-proposition::before {
+.dark-mode .env-proposition::before {
     background-color: #730808; /* color for the strip */
 }
-.dark-preview .env-proposition::after {
+.dark-mode .env-proposition::after {
     background-color: #730808; /* color for the strip */
 }
-.dark-preview .env-proposition-header {
+.dark-mode .env-proposition-header {
     background-color: #730808; /* color for the strip */
 }
-.dark-preview .env-proposition-footer {
+.dark-mode .env-proposition-footer {
     background-color: #730808; /* color for the strip */
 }
-.dark-preview .env-example {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-example {
+    background-color: #343541; /* dark background color */
 }
-.dark-preview .env-corollary {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-example::before {
+    background-color: #632800; /* color for the strip */
 }
-.dark-preview .env-remark {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-example::after {
+    background-color: #632800; /* color for the strip */
 }
-.dark-preview .env-remark-header a {
+.dark-mode .env-example-header {
+    background-color: #632800; /* color for the strip */
+}
+.dark-mode .env-example-footer {
+    background-color: #632800; /* color for the strip */
+}
+.dark-mode .env-corollary {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-remark {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-remark-header a {
     color: #FFFFFF;
 }
-.dark-preview .env-remark::before {
+.dark-mode .env-remark::before {
     background-color: #245E24; /* color for the strip */
 }
-.dark-preview .env-remark::after {
+.dark-mode .env-remark::after {
     background-color: #245E24; /* color for the strip */
 }
-.dark-preview .env-remark-header {
+.dark-mode .env-remark-header {
     background-color: #245E24; /* color for the strip */
 }
-.dark-preview .env-remark-footer {
+.dark-mode .env-remark-footer {
     background-color: #245E24; /* color for the strip */
 }
-.dark-preview .env-proof {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-proof {
+    background-color: #343541; /* dark background color */
 }
-.dark-preview .env-proof-header {
+.dark-mode .env-proof-header {
     background-color: #404040; /* dark background color */
 }
-.dark-preview .env-proof-header a {
+.dark-mode .env-proof-header a {
     color: #FFFFFF;
 }
-.dark-preview .env-proof-footer {
+.dark-mode .env-proof-footer {
     background-color: #404040; /* dark background color */
 }
-.dark-preview .env-proof::before {
+.dark-mode .env-proof::before {
     background-color: #404040; /* dark background color */
 }
-.dark-preview .env-proof::after {
+.dark-mode .env-proof::after {
     background-color: #404040; /* dark background color */
 }
-.dark-preview .env-proof div.p-proof {
+.dark-mode .env-proof div.p-proof {
     background-color: #595959;
     color: white;
     padding-top: 7.5px;
@@ -258,28 +299,28 @@ body.dark-preview {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle Shadow */
     display: block;
 }
-.dark-preview .env-footnotes {
-    background-color: #2D2F38; /* dark background color */
+.dark-mode .env-footnotes {
+    background-color: #343541; /* dark background color */
 }
 
-.dark-preview div.btn-container i.fa-sun-o{
+.dark-mode div.btn-container i.fa-sun-o{
     color: #777;
 }
 
-.dark-preview div.btn-container i.fa-moon-o{
+.dark-mode div.btn-container i.fa-moon-o{
     color: #fff;
     text-shadow: 0px 0px 11px #fff;
 }
 
-.white-preview{
+.light-mode {
     background: #fff;
 }
 
-.white-preview div.btn-container i.fa-sun-o{
+.light-mode div.btn-container i.fa-sun-o{
     color: #ffa500;
     text-shadow: 0px 0px 16px #ffa500;
 }
 
-.white-preview div.btn-container i.fa-moon-o{
+.light-mode div.btn-container i.fa-moon-o{
     color: #777;
 }

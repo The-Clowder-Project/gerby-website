@@ -143,7 +143,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(86,88,105,0.7);
+    background-color: rgba(0,0,0,0.7);
     pointer-events: none; /* to prevent interaction with this overlay */
     z-index: 9997; /* Ensure it's below the preferences menu but above other content */
 }

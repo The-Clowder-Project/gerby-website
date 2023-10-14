@@ -231,7 +231,8 @@ def show_tag(tag):
   if tag.type == "part":
     filename = "part-" + tag.label.split("-part:")[1]
   elif tag.type == "chapter":
-    filename = tag.label.split("-section-")[0]
+    #filename = tag.label.split(":section-")[0]
+    filename = tag.label.split(":")[0]
   else:
     #filename = tag.label.split("-" + tag.type)[0]
     filename = tag.label.split(":")[0]

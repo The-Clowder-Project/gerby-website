@@ -80,7 +80,7 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark-preview tr:nth-child(even) {
+.dark-mode tr:nth-child(even) {
   background-color: #1F1F1F;
 }
 </style>
@@ -160,7 +160,7 @@ tr:nth-child(even) {
   <div class="container-fluid bounded">
     <div id="first-bar" class="row topbar inner-top top">
       <header class="col">
-        <h1><a href="/">The Gigantic Mess Project</a></h1>
+        <h1><a href="/"><div class="title">The Gigantic Mess Project</div></a></h1>
       </header>
   
       <nav id="header">
@@ -343,17 +343,24 @@ tr:nth-child(even) {
       };
   </script>
   <script>
-  function setFont(fontChoice) {
-      document.body.style.fontFamily = fontChoice;
-  }
-  
-  
   document.addEventListener('click', function(event) {
       let menu = document.getElementById('preferencesMenu');
       let button = document.getElementById('settingsButton');
   
       if (!menu.contains(event.target) && !button.contains(event.target)) {
           menu.style.display = 'none';
+      }
+  });
+  document.addEventListener('keydown', function(event) {
+      if (event.key == 'Escape') {
+          let menu = document.getElementById('preferencesMenu');
+          let body = document.body;
+          var mainContent = document.querySelector('.main-content');
+          //
+          menu.style.display = 'none';
+          body.classList.remove('darkened'); // Restore body's original look
+          body.classList.remove('lightened'); // Restore body's original look
+          mainContent.style.pointerEvents = "auto";
       }
   });
   </script>
@@ -416,8 +423,8 @@ tr:nth-child(even) {
   
       if (menu.style.display === "none" || menu.style.display === "") {
           menu.style.display = "block";
-          // Check if the body has the "dark-preview" class
-          if (body.classList.contains('dark-preview')) {
+          // Check if the body has the "dark-mode" class
+          if (body.classList.contains('dark-mode')) {
               body.classList.add('darkened'); // Darken the body for dark mode
           } else {
               body.classList.add('lightened'); // Lighten the body for light mode
@@ -470,8 +477,8 @@ $(document).ready(function() {
 
 function colorModePreview(ele) {
     if($(ele).prop("checked") == true){
-        $('body').addClass('dark-preview');
-        $('body').removeClass('white-preview');
+        $('body').addClass('dark-mode');
+        $('body').removeClass('light-mode');
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {
@@ -480,8 +487,8 @@ function colorModePreview(ele) {
         }
     }
     else if($(ele).prop("checked") == false){
-        $('body').addClass('white-preview');
-        $('body').removeClass('dark-preview');
+        $('body').addClass('light-mode');
+        $('body').removeClass('dark-mode');
         //
         //
         let menu = document.getElementById('preferencesMenu');
@@ -503,6 +510,223 @@ $(document).ready(function() {
     });
 });
 </script>
+<script>
+    // PDF Style Selection
+    if (localStorage.getItem('pdfStyle')) {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        setPDFStyle(pdfChoice);
+        document.getElementById('styleSelection').value = pdfChoice;
+    }
+    // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+    document.getElementById('styleSelection').addEventListener('change', function() {
+        let pdfChoice = this.value;
+        setPDFStyle(pdfChoice);
+        localStorage.setItem('pdfStyle', pdfChoice);
+    });
+    function setPDFStyle(pdfChoice) {
+        // Get the link element
+        var link = document.getElementById("book-pdf-link");
+
+        // Update the href attribute based on the selected value
+        if (pdfChoice === "Style1") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+        } else if (pdfChoice === "Style2") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+        } else if (pdfChoice === "Style3") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+        } else if (pdfChoice === "Style4") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+        }
+    }
+    // Get the dropdown menu element
+    var dropdown = document.getElementById("styleSelection");
+
+    // Add an event listener to detect changes in the selected value
+    dropdown.addEventListener("change", function() {
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("book-pdf-link");
+
+        // Update the href attribute based on the selected value
+        if (selectedValue === "Style1") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+        } else if (selectedValue === "Style2") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+        } else if (selectedValue === "Style3") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+        } else if (selectedValue === "Style4") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+        }
+    });
+    window.addEventListener('load', function() {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("book-pdf-link");
+
+        // Update the href attribute based on the selected value
+        if (selectedValue === "Style1") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+        } else if (selectedValue === "Style2") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+        } else if (selectedValue === "Style3") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+        } else if (selectedValue === "Style4") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+        }
+    });
+</script>
 {% endraw %}
+{% if tag is defined %}
+<script> // PDF Style Selection
+    if (localStorage.getItem('pdfStyle')) {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        setPDFStyle(pdfChoice);
+        document.getElementById('styleSelection').value = pdfChoice;
+    }
+    // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+    document.getElementById('styleSelection').addEventListener('change', function() {
+        let pdfChoice = this.value;
+        setPDFStyle(pdfChoice);
+        localStorage.setItem('pdfStyle', pdfChoice);
+    });
+    function setPDFStyle(pdfChoice) {
+        // Get the link element
+        var link = document.getElementById("chapter-pdf-link");
+
+        // Update the href attribute based on the selected value
+        if (pdfChoice === "Style1") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (pdfChoice === "Style2") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (pdfChoice === "Style3") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (pdfChoice === "Style4") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        }
+    }
+    // Get the dropdown menu element
+    var dropdown = document.getElementById("styleSelection");
+
+    // Add an event listener to detect changes in the selected value
+    dropdown.addEventListener("change", function() {
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("chapter-pdf-link");
+
+        // Update the href attribute based on the selected value
+        if (selectedValue === "Style1") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (selectedValue === "Style2") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (selectedValue === "Style3") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (selectedValue === "Style4") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        }
+    });
+    window.addEventListener('load', function() {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("chapter-pdf-link");
+
+        // Update the href attribute based on the selected value
+        if (selectedValue === "Style1") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (selectedValue === "Style2") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (selectedValue === "Style3") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        } else if (selectedValue === "Style4") {
+            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        }
+    });
+</script>
+{% endif %}
+<script> // PDF Style Selection
+    var links = document.querySelectorAll('[id^="chapter-pdf-link-in-toc-"]');
+
+    links.forEach(function(link) {
+        var href = link.getAttribute("href");
+        console.log(href)
+
+        if (localStorage.getItem('pdfStyle')) {
+            let pdfChoice = localStorage.getItem('pdfStyle');
+            setPDFStyle(pdfChoice);
+            document.getElementById('styleSelection').value = pdfChoice;
+        }
+        // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+        document.getElementById('styleSelection').addEventListener('change', function() {
+            let pdfChoice = this.value;
+            setPDFStyle(pdfChoice);
+            localStorage.setItem('pdfStyle', pdfChoice);
+        });
+        function setPDFStyle(pdfChoice) {
+            // Get the link element
+            //var link = document.getElementById("chapter-pdf-link-in-toc");
+
+            // Update the href attribute based on the selected value
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+            }
+        }
+        // Get the dropdown menu element
+        var dropdown = document.getElementById("styleSelection");
+
+        // Add an event listener to detect changes in the selected value
+        dropdown.addEventListener("change", function() {
+            // Get the selected value
+            var selectedValue = dropdown.value;
+
+            // Get the link element
+            //var link = document.getElementById("chapter-pdf-link-in-toc");
+
+            // Update the href attribute based on the selected value
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+            }
+        });
+        window.addEventListener('load', function() {
+            let pdfChoice = localStorage.getItem('pdfStyle');
+            // Get the selected value
+            var selectedValue = dropdown.value;
+
+            // Get the link element
+            //var link = document.getElementById("chapter-pdf-link-in-toc");
+
+            // Update the href attribute based on the selected value
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+            }
+        });
+    });
+</script>
 </body>
 </html>
