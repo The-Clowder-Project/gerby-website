@@ -140,7 +140,7 @@ div#burger-content div.interaction {
 
 div#burger-content div.toggle,
 section#meta div.toggle {
-  margin-top: 1rem;
+  margin-top: -2.5rem;
 }
 
 div#burger-content ul.tag-info {
@@ -203,6 +203,8 @@ div#first-bar {
   background-color: #f5a9b8;
   z-index: 2000;
   height: 50px;
+  position: sticky;
+  top: 0;
 }
 
 div.inner-top {
@@ -244,6 +246,8 @@ nav#second-bar {
   padding: calc(10rem / 14);
   background-color: #5bcefa;
   z-index: 2000;
+  position: sticky;
+  top: 50px;
 }
 
 div#content {
@@ -456,7 +460,6 @@ ol {
 }
 li {
   position: relative;
-  cursor: default;
 }
 .counter {
   position: relative;
@@ -524,4 +527,146 @@ ul.book-styles {
 }
 .title {
     transform: translate(0,-2px);
+}
+.equation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.equation img {
+    margin: 0 auto;
+}
+.math-content {
+    display: flex;
+    align-items: center;
+}
+
+.math-content .math-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.math-content p {
+    margin: 0;
+}
+.math-content p:last-child {
+    position: absolute;
+    right: 15px;
+}
+.triangleright {
+    position: relative;
+    bottom: 1.75px;
+}
+.right-interaction-box {
+    background-color: #f2f2f2;
+    border: 2px;
+    border-color: #000000;
+}
+.previous-next-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.sidebar-container-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.PDF-button {
+    background-color: #BF0C00;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.PDF-button-container {
+    align: center;
+    text-align: center;
+}
+.PDF-button-container a[href*=".pdf"] {
+  background-image: none;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.PDF-button-container a:hover{
+    background-image: none;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #B30B00;
+}
+.previous-button,.next-button {
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 26px;
+  font-weight: bold;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.previous-button:hover, .next-button:hover{
+    color: #000000;
+}
+.tag-info {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.previous-arrow-img {
+    transform: translate(0px,-0.5px);
+}
+.next-arrow-img {
+    transform: translate(0px,-0.5px);
+}
+.statistics-img {
+    transform: translate(0px,-1px);
+    padding-right: 2px;
+    height="10px";
+    width="auto";
+}
+div.information ul.tag-info li a {
+    padding-left: 5px;
+}
+.pdf-img {
+    transform: translate(0px,-1px);
+    filter: invert(100%);
+}
+section#meta {
+    margin-left: -10px;
+    margin-right: -10px;
+    position: sticky;
+    top: 130px;
+}
+.arrow-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+.arrow-text {
+    margin-top:8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.cite-img {
+    padding-left: 2px;
+    height: 14px;
+    width: auto;
+}
+.statistics-cite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dependencies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

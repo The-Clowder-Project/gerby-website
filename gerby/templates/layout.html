@@ -23,7 +23,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dark-mode.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 {% raw %}
@@ -104,6 +104,7 @@ tr:nth-child(even) {
                 <option value="Droid Sans">Droid Sans</option>
                 <option value="Alegreya Sans">Alegreya Sans</option>
                 <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
+                <option value="Alegreya">Alegreya</option>
                 <option value="Charis SIL">Charis SIL</option>
                 <option value="Crimson Pro">Crimson Pro</option>
                 <option value="Crimson Text">Crimson Text</option>
@@ -214,7 +215,7 @@ tr:nth-child(even) {
         {% block body %}{% endblock %}
       </section>
         <div class="col-lg-4 col-xl-4">
-          <section id="meta" class="row topbar sticky-top">
+          <section id="meta" class="row topbar sticky-top right-interaction-box">
           {% block sidebar %}{% endblock %}
         </section>
       </div>
@@ -370,6 +371,7 @@ tr:nth-child(even) {
       return {
           body: {
               'Alegreya Sans': '14pt',
+              'Alegreya': '13pt',
               'Atkinson Hyperlegible': '12.5pt',
               'Charis SIL': '12pt',
               'Crimson Pro': '14pt',
@@ -380,6 +382,7 @@ tr:nth-child(even) {
           },
           preferencesMenu: {
               'Alegreya Sans': '14pt',
+              'Alegreya': '13pt',
               'Atkinson Hyperlegible': '12.5pt',
               'Charis SIL': '12pt',
               'Crimson Pro': '14pt',
@@ -476,9 +479,54 @@ $(document).ready(function() {
 });
 
 function colorModePreview(ele) {
+    // Function to replace image src based on mode
+    function replaceImgSrc(content, isDarkMode) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(content, 'text/html');
+
+        doc.querySelectorAll('img').forEach(img => {
+            const tikzPath = '/static/tikzcd-images/';
+            const webCompilePath = '/static/webcompile-images/';
+
+            if (img.src.includes(tikzPath) && isDarkMode && !img.src.includes(tikzPath + 'dark-mode/')) {
+                img.src = img.src.replace(tikzPath, tikzPath + 'dark-mode/');
+            } else if (img.src.includes(tikzPath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(tikzPath + 'dark-mode/', tikzPath);
+            }
+
+            if (img.src.includes(webCompilePath) && isDarkMode && !img.src.includes(webCompilePath + 'dark-mode/')) {
+                img.src = img.src.replace(webCompilePath, webCompilePath + 'dark-mode/');
+            } else if (img.src.includes(webCompilePath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(webCompilePath + 'dark-mode/', webCompilePath);
+            }
+        });
+
+        const serializer = new XMLSerializer();
+        return serializer.serializeToString(doc.body);
+    }
+    function adjustImgSrcForDarkMode(selector, basePath, isDarkMode) {
+        $(selector).each(function() {
+            if (isDarkMode && this.src.includes(basePath) && !this.src.includes(basePath + 'dark-mode/')) {
+                this.src = this.src.replace(basePath, basePath + 'dark-mode/');
+            } else if (!isDarkMode && this.src.includes(basePath + 'dark-mode/')) {
+                this.src = this.src.replace(basePath + 'dark-mode/', basePath);
+            }
+        });
+    }
+
     if($(ele).prop("checked") == true){
         $('body').addClass('dark-mode');
         $('body').removeClass('light-mode');
+        // Modify data-content for footnotes
+        const footnotes = document.querySelectorAll('.footnote');
+        footnotes.forEach(footnote => {
+            const content = footnote.getAttribute('data-content');
+            const updatedContent = replaceImgSrc(content, true);
+            footnote.setAttribute('data-content', updatedContent);
+        });
+        // Adjust img src in the actual DOM
+        adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', true);
+        adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', true);
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {
@@ -489,7 +537,17 @@ function colorModePreview(ele) {
     else if($(ele).prop("checked") == false){
         $('body').addClass('light-mode');
         $('body').removeClass('dark-mode');
-        //
+        // Modify data-content for footnotes
+        const footnotes = document.querySelectorAll('.footnote');
+        footnotes.forEach(footnote => {
+            const content = footnote.getAttribute('data-content');
+            const updatedContent = replaceImgSrc(content, false);
+            footnote.setAttribute('data-content', updatedContent);
+        });
+        let imgElement = document.querySelector('.tikz-cd > img');
+        // Adjust img src in the actual DOM
+        adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', false);
+        adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', false);
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {
@@ -527,15 +585,19 @@ $(document).ready(function() {
         // Get the link element
         var link = document.getElementById("book-pdf-link");
 
-        // Update the href attribute based on the selected value
-        if (pdfChoice === "Style1") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
-        } else if (pdfChoice === "Style2") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
-        } else if (pdfChoice === "Style3") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
-        } else if (pdfChoice === "Style4") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+        try  {
+            // Update the href attribute based on the selected value
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+            }
+        } catch(err) {
+            //do nothing
         }
     }
     // Get the dropdown menu element
@@ -550,14 +612,18 @@ $(document).ready(function() {
         var link = document.getElementById("book-pdf-link");
 
         // Update the href attribute based on the selected value
-        if (selectedValue === "Style1") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
-        } else if (selectedValue === "Style2") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
-        } else if (selectedValue === "Style3") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
-        } else if (selectedValue === "Style4") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+            }
+        } catch(err) {
+            //do nothing
         }
     });
     window.addEventListener('load', function() {
@@ -569,14 +635,18 @@ $(document).ready(function() {
         var link = document.getElementById("book-pdf-link");
 
         // Update the href attribute based on the selected value
-        if (selectedValue === "Style1") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
-        } else if (selectedValue === "Style2") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
-        } else if (selectedValue === "Style3") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
-        } else if (selectedValue === "Style4") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+            }
+        } catch(err) {
+            //do nothing
         }
     });
 </script>
@@ -599,14 +669,18 @@ $(document).ready(function() {
         var link = document.getElementById("chapter-pdf-link");
 
         // Update the href attribute based on the selected value
-        if (pdfChoice === "Style1") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (pdfChoice === "Style2") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (pdfChoice === "Style3") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (pdfChoice === "Style4") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        try {
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
         }
     }
     // Get the dropdown menu element
@@ -621,14 +695,18 @@ $(document).ready(function() {
         var link = document.getElementById("chapter-pdf-link");
 
         // Update the href attribute based on the selected value
-        if (selectedValue === "Style1") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (selectedValue === "Style2") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (selectedValue === "Style3") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (selectedValue === "Style4") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
         }
     });
     window.addEventListener('load', function() {
@@ -640,14 +718,18 @@ $(document).ready(function() {
         var link = document.getElementById("chapter-pdf-link");
 
         // Update the href attribute based on the selected value
-        if (selectedValue === "Style1") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (selectedValue === "Style2") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (selectedValue === "Style3") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
-        } else if (selectedValue === "Style4") {
-            link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
         }
     });
 </script>
@@ -675,14 +757,18 @@ $(document).ready(function() {
             //var link = document.getElementById("chapter-pdf-link-in-toc");
 
             // Update the href attribute based on the selected value
-            if (pdfChoice === "Style1") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
-            } else if (pdfChoice === "Style2") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
-            } else if (pdfChoice === "Style3") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
-            } else if (pdfChoice === "Style4") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+            try {
+                if (pdfChoice === "Style1") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+                } else if (pdfChoice === "Style2") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+                } else if (pdfChoice === "Style3") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+                } else if (pdfChoice === "Style4") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+                }
+            } catch(err) {
+                //do nothing
             }
         }
         // Get the dropdown menu element
@@ -697,14 +783,18 @@ $(document).ready(function() {
             //var link = document.getElementById("chapter-pdf-link-in-toc");
 
             // Update the href attribute based on the selected value
-            if (selectedValue === "Style1") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
-            } else if (selectedValue === "Style2") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
-            } else if (selectedValue === "Style3") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
-            } else if (selectedValue === "Style4") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+            try {
+                if (selectedValue === "Style1") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+                } else if (selectedValue === "Style2") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+                } else if (selectedValue === "Style3") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+                } else if (selectedValue === "Style4") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+                }
+            } catch(err) {
+                //do nothing
             }
         });
         window.addEventListener('load', function() {
@@ -716,14 +806,18 @@ $(document).ready(function() {
             //var link = document.getElementById("chapter-pdf-link-in-toc");
 
             // Update the href attribute based on the selected value
-            if (selectedValue === "Style1") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
-            } else if (selectedValue === "Style2") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
-            } else if (selectedValue === "Style3") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
-            } else if (selectedValue === "Style4") {
-                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+            try {
+                if (selectedValue === "Style1") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+                } else if (selectedValue === "Style2") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+                } else if (selectedValue === "Style3") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+                } else if (selectedValue === "Style4") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+                }
+            } catch(err) {
+                //do nothing
             }
         });
     });

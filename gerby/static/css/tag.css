@@ -259,7 +259,8 @@ li.tag-history a {
 }
 
 li.tag-statistics a {
-  background-image: url("../images/graph.svg");
+  /*background-image: url("../images/graph.svg");*/
+  background-image: none
 }
 
 li.tag-dependencies a {

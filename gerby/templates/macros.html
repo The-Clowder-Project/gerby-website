@@ -5,25 +5,40 @@
   {% endif %}
   #}
 
-  <ul class="neighbours">
-  {% if neighbours[0] %}
-    <li class="left"><a href="/tag/{{ neighbours[0].tag }}{{ modifier }}">previous {{ neighbours[0].type }}</a>
-  {% endif %}
-  {% if neighbours[1] %}
-    <li class="right"><a href="/tag/{{ neighbours[1].tag }}{{ modifier }}">next {{ neighbours[1].type }}</a>
-  {% endif %}
-  </ul>
-  {% if neighbours[0] or neighbours[1] %}<br style="clear:both">{% endif %}
+  <div class="previous-next-nav">
+    {% if neighbours[0] %}
+      <div class="arrow-container">
+        <a class="previous-button" href="/tag/{{ neighbours[0].tag }}{{ modifier }}">
+          <span class="dark-svg"><img class="previous-arrow-img" height="30px" width="auto" src="/static/images/previous.svg"></span>
+          <div class="arrow-text">Previous</div>
+        </a>
+      </div>
+      <!--<a class="previous-button" href="/tag/{{ neighbours[0].tag }}{{ modifier }}"><span class="dark-svg"><img style="filter: invert(100%);" height="12px" width="auto" src="/static/images/previous.svg"></span> Previous</a>-->
+    {% endif %}
+    {% if neighbours[1] %}
+      <div class="arrow-container">
+        <a class="next-button" href="/tag/{{ neighbours[1].tag }}{{ modifier }}">
+          <span class="dark-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+          <div class="arrow-text">Next</div>
+        </a>
+      </div>
+      <!--<a class="next-button" href="/tag/{{ neighbours[1].tag }}{{ modifier }}">Next <span class="dark-svg"><img height="10px" width="auto" src="/static/images/next.svg"></span></a>-->
+    {% endif %}
+    <!--{% if neighbours[0] or neighbours[1] %}<br style="clear:both">{% endif %}-->
+  </div>
 {% endmacro %}
 
 {% macro tagInformation(tag, dependencies) %}
-  <ul class="tag-info">
-    <li class="tag-history"><a href="/tag/{{ tag.tag }}/history">history</a>
-    <li class="tag-statistics"><a href="/tag/{{ tag.tag }}/statistics">statistics</a>
-    {% if dependencies | length > 0 %}
-      <li class="tag-dependencies"><a href="/tag/{{ tag.tag }}/statistics#dependencies">{{ dependencies | length }} tag{% if dependencies | length > 1 %}s{% endif %} refer{% if dependencies | length == 1 %}s{% endif %} to this tag</a>
-    {% endif %}
-  </ul>
+  <br>
+  <div class="statistics-cite">
+    <a class="statistics-link" href="/tag/{{ tag.tag }}/statistics"><span class="dark-svg"><img class="statistics-img" src="/static/images/graph.svg"></span> Statistics</a>
+    <a class="cite-link" href="/tag/{{ tag.tag }}/cite">Cite  <span class="dark-svg"><img class="cite-img" src="/static/images/cite.svg"></span></a>
+  </div>
+  {% if dependencies | length > 0 %}
+  <div class="dependencies">
+    <a href="/tag/{{ tag.tag }}/statistics#dependencies">{{ dependencies | length }} tag{% if dependencies | length > 1 %}s{% endif %} refer{% if dependencies | length == 1 %}s{% endif %} to this tag</a>
+  </div>
+  {% endif %}
 {% endmacro %}
 
 {% macro tagHamburger(tag, neighboursList, neighboursModifier, dependencies) %}
@@ -41,25 +56,27 @@
 {% endmacro %}
 
 {% macro tagSidebar(tag, neighboursList, neighboursModifier, dependencies, filename) %}
-  <div class="interaction">
-    {{ neighbours(neighboursList, neighboursModifier, tag) }}
-  </div>
-
-  <hr>
-  {% if tag.type == "part" %}
-    {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF</a>#}
-  {% else %}
-  <a id="chapter-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF</a>
-  {% endif %}
-
-  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
-
-    <hr>
-
-    <div class="information">
-      {{ tagInformation(tag, dependencies) }}
+  <div class="sidebar-container-box">
+    <div class="interaction">
+      {{ neighbours(neighboursList, neighboursModifier, tag) }}
     </div>
-  {% endif %}
+    <br>
+    <hr style="height:5px">
+    <div class="PDF-button-container">
+      {% if tag.type == "part" %}
+        {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF</a>#}
+      {% else %}
+      <a class="PDF-button" id="chapter-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF <img class="pdf-img" height="15px" width="auto" src="/static/images/PDF-bold.png"></a>
+    </div>
+    {% endif %}
+
+    {% if tag.type in ["chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+
+      <div class="information">
+        {{ tagInformation(tag, dependencies) }}
+      </div>
+    {% endif %}
+  </div>
 {% endmacro %}
 
 {% macro breadcrumb(breadcrumb) %}
