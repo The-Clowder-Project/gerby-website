@@ -140,6 +140,9 @@ body.dark-mode {
 .dark-mode a[href*=".pdf"] {
   background-image: url("../images/PDF-dark-mode.png");
 }
+.dark-mode a[href*="gmail.com"] {
+  background-image: url("../images/email-dark-mode.svg");
+}
 .dark-mode a[href^="https://github.com"] {
   background-image: url("../images/icon.github-dark-mode.png");
 }
@@ -189,19 +192,19 @@ body.dark-mode {
     color: #C4C4C4; /* dark background color */
 }
 .dark-mode .preferences::before {
-    background-color: #3A3A61; /* color for the strip */
+    background-color: #91004B; /* color for the strip */
 }
 .dark-mode .preferences::after {
-    background-color: #3A3A61; /* color for the strip */
+    background-color: #91004B; /* color for the strip */
 }
 .dark-mode .preferences > div::before, .preferences > div::after {
-    background-color: #3A3A61; /* color for the strip */
+    background-color: #91004B; /* color for the strip */
 }
 .dark-mode .preferences-header {
-    background-color: #3A3A61; /* color for the strip */
+    background-color: #91004B; /* color for the strip */
 }
 .dark-mode .preferences-footer {
-    background-color: #3A3A61; /* color for the strip */
+    background-color: #91004B; /* color for the strip */
 }
 .dark-mode .env-definition {
     background-color: #343541; /* dark background color */
@@ -323,4 +326,19 @@ body.dark-mode {
 
 .light-mode div.btn-container i.fa-moon-o{
     color: #777;
+}
+.dark-mode .right-interaction-box {
+    background-color: #343541;
+    border: 2px;
+    border-color: #000000;
+}
+.dark-mode .PDF-button {
+    background-color: #91004B;
+}
+.dark-mode .PDF-button-container a[href*=".pdf"] {
+    background-image: none;
+}
+.dark-mode .PDF-button-container a:hover {
+    background-color: #B8005F;
+    color: #FFFFFF;
 }

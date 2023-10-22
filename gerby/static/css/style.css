@@ -141,6 +141,7 @@ div#burger-content div.interaction {
 div#burger-content div.toggle,
 section#meta div.toggle {
   margin-top: -2.5rem;
+  transform: translate(0px,-120px);
 }
 
 div#burger-content ul.tag-info {
@@ -283,6 +284,7 @@ a[href^="https://arxiv.org"],
 a[href^="https://mathscinet.ams.org"],
 a[href*=".pdf"],
 a[href*=".rss"],
+a[href*="@gmail.com"],
 a[href*=".atom"] {
   background-repeat: no-repeat;
   background-position: center right;
@@ -309,6 +311,9 @@ a[href^="https://mathscinet.ams.org"] {
 
 a[href*=".pdf"] {
   background-image: url("../images/PDF.png");
+}
+a[href*="gmail.com"] {
+  background-image: url("../images/email.svg");
 }
 
 a[href*=".rss"],
@@ -563,6 +568,7 @@ ul.book-styles {
     background-color: #f2f2f2;
     border: 2px;
     border-color: #000000;
+    padding-bottom: 5px;
 }
 .previous-next-nav {
     display: flex;
@@ -664,9 +670,17 @@ section#meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .dependencies {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.no-reference-popover-title {
+    font-size: 12pt;
+}
+.no-reference-popover-content {
+    font-size: 12pt;
 }

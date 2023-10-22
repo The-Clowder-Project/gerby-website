@@ -215,8 +215,14 @@ tr:nth-child(even) {
         {% block body %}{% endblock %}
       </section>
         <div class="col-lg-4 col-xl-4">
-          <section id="meta" class="row topbar sticky-top right-interaction-box">
+          <section id="meta" class="row topbar sticky-top">
+          {% if tag is defined %}
+            <div class="right-interaction-box">
+          {% endif %}
           {% block sidebar %}{% endblock %}
+          {% if tag is defined %}
+            </div>
+          {% endif %}
         </section>
       </div>
     </div>
@@ -369,6 +375,17 @@ tr:nth-child(even) {
   // This function returns the font size based on the font name
   function getFontSizeForFont(fontName) {
       return {
+          title: {
+              'Alegreya Sans': '16pt',
+              'Alegreya': '15pt',
+              'Atkinson Hyperlegible': '14.5pt',
+              'Charis SIL': '14pt',
+              'Crimson Pro': '16pt',
+              'Crimson Text': '16pt',
+              'Droid Sans': '14pt',
+              'EB Garamond': '16pt',
+              'PT Serif': '14pt',
+          },
           body: {
               'Alegreya Sans': '14pt',
               'Alegreya': '13pt',
@@ -821,6 +838,24 @@ $(document).ready(function() {
             }
         });
     });
+</script>
+<script>
+$(document).on('shown.bs.popover', '[data-toggle="popover"]', function() {
+    let fontChoice = localStorage.getItem('font');
+    var fontSizeBody = getFontSizeForFont(fontChoice).body;
+    var fontSizeTitle = getFontSizeForFont(fontChoice).title;
+    // Get the popover ID from aria-describedby attribute
+    var popoverId = $(this).attr('aria-describedby');
+    // Access the title and body elements and apply styles
+    $('#' + popoverId).find('.no-reference-popover-title').css({
+      'font-family': fontChoice,
+      'font-size': fontSizeTitle
+    });
+    $('#' + popoverId).find('.no-reference-popover-content').css({
+      'font-family': fontChoice,
+      'font-size': fontSizeBody
+    });
+});
 </script>
 </body>
 </html>
