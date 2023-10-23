@@ -56,7 +56,7 @@
     {{ neighbours(neighboursList, neighboursModifier, tag) }}
   </div>
 
-  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"] %}
     <hr>
 
     <div class="information">
@@ -80,7 +80,7 @@
     </div>
     {% endif %}
 
-    {% if tag.type in ["chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+    {% if tag.type in ["chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"] %}
 
       <div class="information">
         {{ tagInformation(tag, dependencies) }}

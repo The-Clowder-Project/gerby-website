@@ -173,7 +173,7 @@ def makeSearchTable():
     SearchTag.insert({SearchTag.tag: tag.tag,
                       SearchTag.html: tag.html + "".join([proof.html for proof in tag.proofs])}).execute()
 
-    if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"]:
+    if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"]:
       SearchStatement.insert({SearchStatement.tag: tag.tag,
                               SearchStatement.html: tag.html}).execute()
 
