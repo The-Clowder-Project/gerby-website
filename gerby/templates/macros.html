@@ -34,6 +34,22 @@
           </a>
         </div>
       {% endif %}
+      {% if not neighbours[0] and not neighbours[1] %}
+        <style>
+          /* Change the color of elements with the class 'text' */
+          div#burger-content div.toggle,
+          section#meta div.toggle {
+            margin-top: -2.5rem;
+            transform: translate(0px,-108.5px);
+          }
+        </style>
+        <div class="arrow-container">
+        </div>
+        <div class="arrow-container">
+            <span class="invisible-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+            <div class="arrow-text"> </div>
+        </div>
+      {% endif %}
       <!--{% if neighbours[0] or neighbours[1] %}<br style="clear:both">{% endif %}-->
 {% endmacro %}
 
@@ -74,13 +90,13 @@
     <hr style="height:5px">
     <div class="PDF-button-container">
       {% if tag.type == "part" %}
-        {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF</a>#}
+        <a class="PDF-button" id="part-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF <img class="pdf-img" height="15px" width="auto" src="/static/images/PDF-bold.png"></a>
       {% else %}
       <a class="PDF-button" id="chapter-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF <img class="pdf-img" height="15px" width="auto" src="/static/images/PDF-bold.png"></a>
     </div>
     {% endif %}
 
-    {% if tag.type in ["chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"] %}
+    {% if tag.type in ["part", "chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"] %}
 
       <div class="information">
         {{ tagInformation(tag, dependencies) }}

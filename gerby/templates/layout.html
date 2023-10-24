@@ -45,7 +45,6 @@
       inlineMath: [['$','$']],
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
     },
-    'HTML-CSS': {webFont: "Asana-Math"}
   });
 </script>
 {% endraw %}
@@ -585,6 +584,92 @@ $(document).ready(function() {
     });
 });
 </script>
+{% endraw %}
+{% if tag is defined %}
+<script>
+    // PDF Style Selection
+    if (localStorage.getItem('pdfStyle')) {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        setPDFStyle(pdfChoice);
+        document.getElementById('styleSelection').value = pdfChoice;
+    }
+    // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+    document.getElementById('styleSelection').addEventListener('change', function() {
+        let pdfChoice = this.value;
+        setPDFStyle(pdfChoice);
+        localStorage.setItem('pdfStyle', pdfChoice);
+    });
+    function setPDFStyle(pdfChoice) {
+        // Get the link element
+        var link = document.getElementById("part-pdf-link");
+
+        try  {
+            // Update the href attribute based on the selected value
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    }
+    // Get the dropdown menu element
+    var dropdown = document.getElementById("styleSelection");
+
+    // Add an event listener to detect changes in the selected value
+    dropdown.addEventListener("change", function() {
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("part-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+    window.addEventListener('load', function() {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("part-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+</script>
+{% endif %}
+{% raw %}
 <script>
     // PDF Style Selection
     if (localStorage.getItem('pdfStyle')) {

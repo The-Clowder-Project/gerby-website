@@ -693,3 +693,17 @@ section#meta {
 .no-reference-popover-content {
     font-size: 12pt;
 }
+.invisible-svg {
+    display: none;
+}
+p + div.equation {
+  margin-top: 0rem;
+  margin-bottom: 0.75rem;
+}
+p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.env-definition p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-remark p:first-child {
+    margin-top: 0rem;
+}

@@ -229,7 +229,8 @@ def show_tag(tag):
   #      parentComments.append([parent, count])
 
   if tag.type == "part":
-    filename = "part-" + tag.label.split("-part:")[1]
+    #filename = "part:" + tag.label.split("-part:")[1]
+    filename = "book.pdf"
   elif tag.type == "chapter":
     #filename = tag.label.split(":section-")[0]
     filename = tag.label.split(":")[0]
