@@ -340,8 +340,8 @@ tr:nth-child(even) {
   
           // Loop through each selected image
           tikzcd_images.forEach(function(img) {
-              // Resize the image to 125% of its original size
-              var newWidth = img.offsetWidth * 1.25;
+              // Resize the image
+              var newWidth = img.offsetWidth * 2.0;
   
               // Check if the new width exceeds the maximum allowed width
               img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';

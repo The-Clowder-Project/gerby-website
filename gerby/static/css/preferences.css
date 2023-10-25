@@ -8,7 +8,7 @@
     transform: scale(1.25) translate(7px,-1px);
 }
 .preferences {
-    position: fixed;
+    position: fixed; /* To position child elements and pseudo-elements */
     top: 250px;
     left: 50%;
     width: auto;
@@ -22,7 +22,6 @@
     color: #333;
     text-align: center;
     padding-top: 50px;
-    position: absolute; /* To position child elements and pseudo-elements */
     font-size: 16pt;
 }
 

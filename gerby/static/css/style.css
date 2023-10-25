@@ -513,9 +513,6 @@ ul.star {
 .webcompile {
     text-align: center;
 }
-.text-block {
-    max-width: 600px;
-}
 ul.book-styles {
     padding-left: 20px;
     padding-right: 20px;
@@ -706,4 +703,20 @@ p {
 }
 .env-definition p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-remark p:first-child {
     margin-top: 0rem;
+}
+.warning_container {
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: flex-start;
+}
+.text-block {
+    max-width: 600px;
+}
+.textdbend-content img {
+    width: 30px;
+    vertical-align: bottom;
 }
