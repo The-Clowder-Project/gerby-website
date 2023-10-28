@@ -498,6 +498,21 @@ ul.star {
   list-style-type: "(★) ";
   margin-bottom: 20px;
 }
+ul.UP {
+  list-style-type: none;
+}
+ul.UP > li:first-child::before {
+  content: "(UP) "; /* Customize list marker text */
+  font-family: Alegreya Sans; /* Customize font weight */
+  font-weight: bold; /* Customize font weight */
+  font-variant: small-caps; /* Customize font variant */
+  font-size: 90%; /* Customize font size */
+  width: 1.5em; /* Adjust width as needed for alignment */
+  margin-left: -2em; /* Negative margin to align the text properly */
+  position: relative;
+  top: -2.05px;
+  left: -1.5px;
+}
 .smallsize {
   font-size: 11pt;
 }
@@ -512,6 +527,8 @@ ul.star {
 }
 .webcompile {
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 ul.book-styles {
     padding-left: 20px;
@@ -701,7 +718,7 @@ p {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
 }
-.env-definition p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-remark p:first-child {
+.env-definition p:first-child, .env-construction p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-remark p:first-child {
     margin-top: 0rem;
 }
 .warning_container {
@@ -719,4 +736,47 @@ p {
 .textdbend-content img {
     width: 30px;
     vertical-align: bottom;
+}
+.contact-box {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+.email-icon {
+    height: 15px;
+    width: auto;
+}
+.twitter-icon {
+    height: 15px;
+    width: auto;
+}
+.discord-icon {
+    height: 15px;
+    width: auto;
+}
+.no-bg {
+  background-image: none !important;
+}
+.discord-link {
+  text-decoration: none !important;
+  color: #1d5cb4 !important;
+  transition: color 0.2s ease !important;
+  cursor: pointer !important;
+}
+.discord-link:hover {
+  text-decoration: underline !important;
+  color: #0D1CB4 !important;
+}
+.contact-form-submit-button {
+    background-color: #BF0C00;/*#DB637C;/*#EC7089;/*#B35082;/*#BF0C00;*/
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.contact-label {
+    font-size: 100%;
+    margin-bottom: 0rem;
 }

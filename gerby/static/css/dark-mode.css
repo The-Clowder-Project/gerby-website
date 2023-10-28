@@ -143,9 +143,6 @@ body.dark-mode {
 .dark-mode a[href*="gmail.com"] {
   background-image: url("../images/email-dark-mode.svg");
 }
-.dark-mode a[href^="https://github.com"] {
-  background-image: url("../images/icon.github-dark-mode.png");
-}
 .dark-mode .dark-svg {
     filter: invert(100%);
 }
@@ -161,6 +158,16 @@ body.dark-mode {
 }
 .dark-mode a:hover {
     color: #C75FC1; /* dark background color */
+}
+.dark-mode .discord-link {
+  text-decoration: none !important;
+  color: #c46bff !important;
+  transition: color 0.2s ease !important;
+  cursor: pointer !important;
+}
+.dark-mode .discord-link:hover {
+  text-decoration: underline !important;
+  color: #C75FC1 !important; /* dark background color */
 }
 .dark-mode .counter-link {
     color: #FFFFFF; /* dark background color */
@@ -341,4 +348,8 @@ body.dark-mode {
 .dark-mode .PDF-button-container a:hover {
     background-color: #B8005F;
     color: #FFFFFF;
+}
+.dark-mode .contact-box {
+    background-color: #343541; /* Light grey background */
+    color: #FFFFFF; /* Light grey background */
 }

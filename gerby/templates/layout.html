@@ -221,6 +221,47 @@ tr:nth-child(even) {
           {% block sidebar %}{% endblock %}
           {% if tag is defined %}
             </div>
+            <hr>
+            <div class="contact-box">
+                <p>Noticed something off, or have any comments? Feel free to reach out!</p>
+                <ul>
+                    <li><a class="no-bg" href="mailto:emily.de.oliveira.santos.tmf@gmail.com">Email <span class="dark-svg"><img class="email-icon" src="/static/images/email.svg"></span></a>
+                    <li><a href="https://twitter.com/emily_etale">Twitter <span class="dark-svg"><img class="twitter-icon" src="/static/images/twitter.svg"></span></a>
+                    <li><a class="discord-link" onclick="discord()">Discord <span class="dark-svg"><img class="discord-icon" src="/static/images/discord.svg"></span></a>
+                </ul>
+                <hr>
+                You can also use the contact form below:
+                <br>
+                <div class="contact-form-container">
+                  <div class="columns">
+                    <div class="column is-half">
+                      <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
+                        <input type="hidden" name="accessKey" value="406a3bad-091e-4921-87a3-1a564e044b6b">
+                        <input type="hidden" name="subject" value="New commend from the Gigantic Mess Project">
+                        <div class="field">
+                          <label class="contact-label">Name</label>
+                          <div class="control">
+                            <input class="input" type="text" name="name" placeholder="Enter Your Name" required>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <label class="contact-label">Email</label>
+                          <div class="control">
+                            <input class="input" type="email" name="email" placeholder="Enter Your Email" required>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <label class="contact-label">Message</label>
+                          <div class="control">
+                            <textarea class="textarea" name="message" placeholder="Enter Your Message" required></textarea>
+                          </div>
+                        </div>
+                        <button class="contact-form-submit-button button is-primary" type="Submit">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
           {% endif %}
         </section>
       </div>
@@ -940,6 +981,32 @@ $(document).on('shown.bs.popover', '[data-toggle="popover"]', function() {
       'font-family': fontChoice,
       'font-size': fontSizeBody
     });
+});
+</script>
+<script>
+function discord() {
+    navigator.clipboard.writeText('yui_emily');
+    alert('You can message me on Discord using my username, "yui_emily", which has been copied to your clipboard.');
+}
+</script>
+<script>
+// find elements
+$("#staticform").submit(function(event) {
+  event.preventDefault();
+  $.ajax({
+    url: 'https://api.staticforms.xyz/submit', // url where to submit the request
+    type: "POST", // type of action POST || GET
+    dataType: 'json', // data type
+    data: $("#staticform").serialize(), // post data || get data
+    success: function(result) {
+      // you can see the result from the console
+      // tab of the developer tools
+      alert(JSON.parse(result));
+    },
+    error: function(xhr, resp, text) {
+      alert(xhr, resp, text);
+    }
+  })
 });
 </script>
 </body>
