@@ -710,14 +710,6 @@ section#meta {
 .invisible-svg {
     display: none;
 }
-p + div.equation {
-  margin-top: 0rem;
-  margin-bottom: 0.75rem;
-}
-p {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
 .env-definition p:first-child, .env-construction p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-remark p:first-child {
     margin-top: 0rem;
 }
@@ -780,3 +772,75 @@ p {
     font-size: 100%;
     margin-bottom: 0rem;
 }
+ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ul ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ul ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ol ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ol ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ul ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ul ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ol ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ol ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+.env-definition p:last-child, .env-construction p:last-child, .env-proposition p:last-child, .env-example p:last-child, .env-corollary p:last-child, .env-remark p:last-child {
+    margin-bottom: 0.625rem;
+}
+/*
+p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+p + div.equation {
+  margin-top: -1rem;
+}
+*/
