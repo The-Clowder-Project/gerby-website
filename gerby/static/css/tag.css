@@ -61,6 +61,11 @@ div.html h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
+
+div.html h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
 /*
 div.html ul li p:only-child,
 div.html ol li p:only-child {
@@ -299,7 +304,9 @@ button.clipboard:hover {
   background-color: #f5f5dc;
 }
 
+/*
 ul + span.qed,
 ol + span.qed {
   margin-top: -2.5rem !important;
 }
+*/
