@@ -1,2 +1,6 @@
 gerby/tools/stacks.sqlite
 stacks.sqlite
+gerby/static/tikzcd-images/dark-mode/*.svg
+gerby/static/tikzcd-images/*.svg
+gerby/static/webcompile-images/dark-mode/*.svg
+gerby/static/webcompile-images/*.svg
