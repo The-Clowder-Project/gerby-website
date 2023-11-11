@@ -849,3 +849,6 @@ p + div.equation {
   margin-top: -1rem;
 }
 */
+h3 + p {
+    margin-bottom: 0.5rem;
+}

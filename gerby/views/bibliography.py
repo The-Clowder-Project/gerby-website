@@ -2,17 +2,48 @@ from flask import render_template
 
 from gerby.application import app
 from gerby.database import *
+import re
+
+def reformatAuthors(author_field, oxford_comma_on=False):
+    # Split the authors on ' and '
+    authors = author_field.split(" and ")
+
+    # Reformat each author name
+    reformatted_authors = []
+    for author in authors:
+        # Split the last name and first name and reverse them if they exist
+        parts = author.split(", ")
+        if len(parts) == 2:
+            reformatted_author = " ".join(parts[::-1])
+        else:
+            reformatted_author = parts[0]
+        reformatted_authors.append(reformatted_author)
+
+    # Join the reformatted author names with ', ' and 'and' for the last author
+    # Include Oxford comma if specified and if there are more than two authors
+    if len(reformatted_authors) > 2:
+        reformatted_author_field = ", ".join(reformatted_authors[:-1])
+        reformatted_author_field += ", and " if oxford_comma_on else " and "
+        reformatted_author_field += reformatted_authors[-1]
+    elif len(reformatted_authors) == 2:
+        reformatted_author_field = " and ".join(reformatted_authors)
+    else:
+        reformatted_author_field = reformatted_authors[0]
+
+    return reformatted_author_field
 
 def decorateEntries(entries):
   for entry in entries:
     fields = BibliographyField.select().where(BibliographyField.key == entry.key)
     # make the fields accessible in Jinja
     for field in fields:
-      setattr(entry, field.field, field.value)
+      if field.field == "author":
+        updated_author = reformatAuthors(field.value)
+        setattr(entry, field.field, updated_author)
+      else:
+        setattr(entry, field.field, field.value)
 
   return entries
-
-
 
 @app.route("/bibliography")
 def show_bibliography():
@@ -33,7 +64,11 @@ def show_entry(key):
   fields = BibliographyField.select().where(BibliographyField.key == entry.key)
   entry.fields = dict()
   for field in fields:
-    entry.fields[field.field] = field.value
+    if field.field == "author":
+        updated_author = reformatAuthors(field.value)
+        entry.fields[field.field] = updated_author
+    else:
+        entry.fields[field.field] = field.value
 
   # it's too unpleasant to sort in SQL so we do it here, but the result might be a bit slow
   entries = BibliographyEntry.select()
