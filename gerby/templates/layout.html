@@ -30,17 +30,17 @@
 <script src="https://kit.fontawesome.com/279c154e33.js" crossorigin="anonymous"></script>
 <script>
 window.MathJax = {
-  loader: {load: ['[tex]/mathtools','[tex]/configmacros']},
+  loader: {load: ['[tex]/mathtools','[tex]/require','[tex]/color','[tex]/configmacros']},
   tex: {
     macros: {
       linebreak: ["", 1, ""],
       webleft: ["\\mathopen{}\\left #1", 1],
       webright: ["\\right #1\\mathclose{}", 1]
     },
-    tagSide: 'left',
+    tagSide: 'right',
     inlineMath: [['$','$']],
     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-    packages: ['base', 'ams','mathtools','configmacros']
+    packages: ['base', 'ams','mathtools','configmacros','require','color']
   },
   options: {
     ignoreHtmlClass: 'tex2jax_ignore',

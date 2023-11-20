@@ -15,7 +15,7 @@
         </div>
         <!--<a class="previous-button" href="/tag/{{ neighbours[0].tag }}{{ modifier }}"><span class="dark-svg"><img style="filter: invert(100%);" height="12px" width="auto" src="/static/images/previous.svg"></span> Previous</a>-->
       {% endif %}
-      {% if neighbours[0] and neighbours[1] %}
+      {% if neighbours[0] and neighbours[1] and neighbours[1].name != "Secret Part" and neighbours[1].name != "To Do List" %}
         <div class="arrow-container">
           <a class="next-button" href="/tag/{{ neighbours[1].tag }}{{ modifier }}">
             <span class="dark-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>

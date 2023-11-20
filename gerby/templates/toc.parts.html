@@ -21,23 +21,27 @@
 
   <ul id="toc" class="tree">
     {% for part in parts %}
-      <li id="{{ part.tag }}" class="expanded">
-        <a class="header-offset" id="{{ part.label }}"></a>
-        <strong><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</strong>
+      {% if part.name != "Secret Part" %}
+        <li id="{{ part.tag }}" class="expanded">
+          <a class="header-offset" id="{{ part.label }}"></a>
+          <strong><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</strong>
 
-        {#
-        {% set filename = part.label.split("-part-")[1] %}
-        <a href="/download/part-{{ filename }}.pdf" class="pdf-link">pdf</a>
-        #}
+          {#
+          {% set filename = part.label.split("-part-")[1] %}
+          <a href="/download/part-{{ filename }}.pdf" class="pdf-link">pdf</a>
+          #}
 
-        <ul>
-          {% for chapter in part.chapters %}
-            <li><p><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}
-            {% set filename = chapter.label.split(":section-")[0] %}</p>
-            <a id="chapter-pdf-link-in-toc-{{ filename }}" class="pdf-link" href="{{ filename }}">PDF</a>
-          {% endfor %}
-        </ul>
-        <hr class="my-1">
+          <ul>
+            {% for chapter in part.chapters %}
+              {% if chapter.name != "To Do List" %}
+                <li><p><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}
+                {% set filename = chapter.label.split(":section-")[0] %}</p>
+                <a id="chapter-pdf-link-in-toc-{{ filename }}" class="pdf-link" href="{{ filename }}">PDF</a>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          <hr class="my-1">
+      {% endif %}
     {% endfor %}
   </ul>
   <script type="text/javascript">
@@ -70,7 +74,9 @@ $("div.expand-all").click(function() {
 
   <ul>
   {% for part in parts %}
-    <li><a class="sidebar-link" data-for="{{ part.tag }}" href="#{{ part.label }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}
+    {% if part.name != "Secret Part" %}
+      <li><a class="sidebar-link" data-for="{{ part.tag }}" href="#{{ part.label }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}
+    {% endif %}
   {% endfor %}
   <script type="text/javascript">
 $("a.sidebar-link").click(function() {

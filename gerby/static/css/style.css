@@ -852,3 +852,6 @@ p + div.equation {
 h3 + p {
     margin-bottom: 0.5rem;
 }
+.ptag {
+  font-size: 11pt;
+}
