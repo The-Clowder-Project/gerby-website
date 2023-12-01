@@ -20,7 +20,7 @@
   <h2>Table of contents</h2>
 
   <ul id="toc" class="tree">
-    {% for part in parts %}
+    {% for part in parts|sort_parts %}
       {% if part.name != "Secret Part" %}
         <li id="{{ part.tag }}" class="expanded">
           <a class="header-offset" id="{{ part.label }}"></a>
@@ -73,7 +73,7 @@ $("div.expand-all").click(function() {
   <hr>
 
   <ul>
-  {% for part in parts %}
+  {% for part in parts|sort_parts %}
     {% if part.name != "Secret Part" %}
       <li><a class="sidebar-link" data-for="{{ part.tag }}" href="#{{ part.label }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}
     {% endif %}

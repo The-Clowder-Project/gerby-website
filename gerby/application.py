@@ -182,3 +182,6 @@ import gerby.views.tag
 # Stacks project specific pages
 import gerby.views.stacks
 from pathlib import Path
+def sort_parts(parts):
+    return sorted(parts, key=lambda x: int(x.ref))  # Updated to use dot notation
+app.jinja_env.filters['sort_parts'] = sort_parts
