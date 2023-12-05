@@ -855,3 +855,77 @@ h3 + p {
 .ptag {
   font-size: 11pt;
 }
+.epigraph-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px; /* Adjust as needed */
+  width: 100%;
+  margin-bottom: 1em;
+}
+.epigraph {
+  text-align: left;
+  align-self: flex-end;
+  flex-basis: 45%;
+}
+.epigraph p {
+  margin: 0;
+  font-size: 16px;
+}
+.epigraph .line {
+  margin: 10px 0;
+  border-bottom: 1px solid #000;
+}
+.author-left {
+  margin-top: 5px;
+  font-style: italic;
+  text-align: left;
+}
+.author-right {
+  margin-top: 5px;
+  font-style: italic;
+  text-align: right;
+}
+#playButton {
+    background-color: transparent; /* Makes the button background transparent */
+    border: 2px solid black; /* Black border */
+    border-radius: 50%; /* Keeps the button a circle */
+    width: 15px;  /* Size of the button */
+    height: 15px; /* Size of the button */
+    cursor: pointer;
+    position: relative;
+    top: -7px;
+    left: 2px;
+}
+#playButton::before {
+    content: "";
+    position: absolute;
+    left: 4.25px;
+    top: 2.75px;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent; /* size of the triangle */
+    border-bottom: 3px solid transparent; /* size of the triangle */
+    border-left: 4.5px solid black; /* size and color of the triangle */
+}
+#playButton2 {
+    background-color: transparent; /* Makes the button background transparent */
+    border: 2px solid black; /* Black border */
+    border-radius: 50%; /* Keeps the button a circle */
+    width: 15px;  /* Size of the button */
+    height: 15px; /* Size of the button */
+    cursor: pointer;
+    position: relative;
+    top: -7px;
+    left: 2px;
+}
+#playButton2::before {
+    content: "";
+    position: absolute;
+    left: 4.25px;
+    top: 2.75px;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent; /* size of the triangle */
+    border-bottom: 3px solid transparent; /* size of the triangle */
+    border-left: 4.5px solid black; /* size and color of the triangle */
+}
