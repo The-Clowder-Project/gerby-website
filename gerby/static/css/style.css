@@ -929,3 +929,24 @@ h3 + p {
     border-bottom: 3px solid transparent; /* size of the triangle */
     border-left: 4.5px solid black; /* size and color of the triangle */
 }
+.OIorange {
+    color: #E69F00;
+}
+.OIskyBlue {
+    color: #56B4E9;
+}
+.OIgreen {
+    color: #009E73;
+}
+.OIyellow {
+    color: #F5C710;
+}
+.OIblue {
+    color: #0072B2;
+}
+.OIvermillion {
+    color: #D55E00;
+}
+.OIreddishPurple {
+    color: #CC79A7;
+}
