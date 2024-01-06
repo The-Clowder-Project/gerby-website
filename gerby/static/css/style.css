@@ -950,3 +950,52 @@ h3 + p {
 .OIreddishPurple {
     color: #CC79A7;
 }
+.p-proof a {
+  color: #ffffff;
+}
+.dark-mode .p-proof a {
+  color: #ffffff;
+}
+.tikz-cd img {
+    transition: transform 0.2s; /* Animation */
+    cursor: zoom-in;
+    background-color: #f2f2f2;
+    z-index: 1;
+    transform-origin: center; /* Ensure zoom centers on the image */
+    position: relative; /* Change position when zoomed */
+}
+.webcompile img {
+    transition: transform 0.2s; /* Animation */
+    cursor: zoom-in;
+    background-color: #f2f2f2;
+    z-index: 1;
+    transform-origin: center; /* Ensure zoom centers on the image */
+    position: relative; /* Change position when zoomed */
+}
+.webcompile img.zoomed {
+    position: relative; /* Change position when zoomed */
+    z-index: 1; /* Higher z-index to bring it to front */
+    cursor: zoom-out;
+}
+.zoomed-in {
+    z-index: 10000; /* Higher z-index to bring it to front */
+    cursor: zoom-out;
+}
+.zoom-container {
+  position: fixed; /* Fixed position to cover the screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 10000; /* High z-index */
+  cursor: zoom-out;
+}
+
+.zoom-container img {
+  transform: scale(2.0); /* Zoom the image */
+  background-color: #f2f2f2;
+}

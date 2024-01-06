@@ -84,7 +84,6 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-
 <body>
 <div id="preferencesMenu" class="preferences">
     <div>
@@ -1026,6 +1025,40 @@ $("#staticform").submit(function(event) {
           audio.currentTime = 0;
       }
   }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  let zoomedContainer = null;
+
+  // Select all div elements with class 'webcompile' or 'tikz-cd'
+  const divElements = document.querySelectorAll('.webcompile, .tikz-cd');
+
+  divElements.forEach(divElement => {
+    divElement.addEventListener('click', (event) => {
+      const image = divElement.querySelector('img');
+
+      if (!zoomedContainer) {
+        // Create a new container for the zoomed image
+        zoomedContainer = document.createElement('div');
+        zoomedContainer.className = 'zoom-container';
+        
+        // Move the image to the new container
+        const clonedImage = image.cloneNode(true);
+        zoomedContainer.appendChild(clonedImage);
+        document.body.appendChild(zoomedContainer);
+
+        // Add click listener to zoom out
+        zoomedContainer.addEventListener('click', () => {
+          // Restore the image to its original parent
+          divElement.appendChild(image);
+          document.body.removeChild(zoomedContainer);
+          zoomedContainer = null;
+        });
+      }
+      event.stopPropagation();
+    });
+  });
+});
 </script>
 </body>
 </html>
