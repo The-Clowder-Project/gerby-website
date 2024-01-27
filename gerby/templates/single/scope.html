@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}Scope {% endblock %}
+
+{% block head %}
+  <style type="text/css">
+dl#history dt + dd {
+  border-left: 1px solid black;
+}
+  </style>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 4px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .dark-mode tr:nth-child(even) {
+      background-color: #1F1F1F;
+    }
+  </style>
+{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/about">About</a>
+{% endblock %}
+
+{% block hamburger %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+
+{% block body %}
+<h2>Scope</h2>
+    <p style="margin-bottom:1em">This project started as a web version of a growing collection of notes on various areas of mathematics and physics I started writing on 2018.</p>
+
+    <p style="margin-bottom:1em">Although I plan to eventually convert all of them into web form as well as keep expanding and polishing their content here, <i>currently</i> this project's scope is a bit more restricted, aiming instead to essentially become a Stacks Project for category theory.</p>
+
+    <p style="margin-bottom:1em">Here we detail what content is planned to be first included and developed in this project.</p>
+    <ol class="main-list">
+        <li id="list-1"><span class="counter"><a class="counter-link" href="#list-1"><span class="counter-inner"></span></a></span>Elementary category theory, including e.g the basics of categories and functors, adjunctions, co/limits, co/ends, Kan extensions, monads, algebraic theories, operads, and monoidal categories.
+        <li id="list-2"><span class="counter"><a class="counter-link" href="#list-2"><span class="counter-inner"></span></a></span>A comprehensive and exhaustive account of fibred, enriched, and internal category theory.
+        <li id="list-3"><span class="counter"><a class="counter-link" href="#list-3"><span class="counter-inner"></span></a></span>A comprehensive account of topos theory, as developed in Johnstone's <i>Sketches of an Elephant</i>.
+        <li id="list-4"><span class="counter"><a class="counter-link" href="#list-4"><span class="counter-inner"></span></a></span>An account of abelian categories and homological algebra.
+        <li id="list-5"><span class="counter"><a class="counter-link" href="#list-5"><span class="counter-inner"></span></a></span>A comprehensive account of bicategories, bilimits, biadjunctions, etc.
+        <li id="list-6"><span class="counter"><a class="counter-link" href="#list-6"><span class="counter-inner"></span></a></span>A comprehensive account of the theory of double categories.
+        <li id="list-7"><span class="counter"><a class="counter-link" href="#list-7"><span class="counter-inner"></span></a></span>A comprehensive account of the theory of model categories.
+        <li id="list-8"><span class="counter"><a class="counter-link" href="#list-8"><span class="counter-inner"></span></a></span>A comprehensive and exhaustive account of $\infty$-categories.
+    </ol>
+    <p style="margin-bottom:1em">A signifcant part of the material outlined above has already been completed, but exists only in PDF form at the moment.</p>
+{% endblock %}
+
+{% block sidebar %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}

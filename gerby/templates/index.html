@@ -7,13 +7,17 @@
 {% block body %}
   <p style="margin-bottom:1em">Welcome! This is the web version of my <a href="https://topological-modular-forms.github.io/notes.html">notes</a>, including only the mostly polished parts of them. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="Raymond Cheng">Raymond Cheng</a>.</p>
 
-  <p style="margin-bottom:1em"><b>Comments. </b>Although the comments feature has been disable for this site, any and all comments, no matter how small (even things like bad typography or very small typos), are extremely welcome, as are contributions and feedback. If you'd like to get in touch, you can reach me at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com</a>.</p>
+  <p style="margin-bottom:1em"><b>Scope. </b>The scope and planned content of this project is outlined in detail in the <a href="/scope">Scope</a> page. Succintly, this project is currently aiming to become a Stacks Project for category theory, although material from other areas will also be added in the future.</p>
+
+  <p style="margin-bottom:1em"><b>Comments. </b>Although the comments feature has been disable for this site, any and all comments, no matter how small (even things like bad typography or very small typos), are extremely welcome. If you'd like to get in touch, you can reach me at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com</a>.</p>
+
+  <p style="margin-bottom:1em"><b>Contributions. </b>Contributions are also extremely welcome: this project is meant to be massively collaborative in the same was as the Automorphic Project or the Stacks Project are.</p>
 
   <p style="margin-bottom:1em"><b>Preferences. </b>You can change the font of the site, the style of the PDFs, as well as turn on dark mode by clicking the gear button at the top of the page.</p>
 
   <p style="margin-bottom:1em"><b>Mobile. </b>This site is unfortunately broken on mobile. Please use a desktop computer or laptop to browse it or, alternatively, download the <a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf">PDF version</a>.</p>
 
-  <p style="margin-bottom:1em">See the <a href="/about">About page</a> for more details on how the site is organised, as well as various notes on its content.</p>
+  <p style="margin-bottom:1em">See the <a href="/about">About</a> page for more details on how the site is organised, as well as various notes on its content.</p>
 
   <hr>
   <p style="margin-bottom:1em"><b>Notes on the Development Branch. </b>You are currently viewing the “development branch” of this project, which includes work in progress and is significantly more messy than the “stable branch”, the one that will eventually be publicly accessible and have more spaced and polished updates. Currently, most of the ongoing work is focused on:</p>
@@ -38,8 +42,9 @@
     <li id="index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a>
     <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a>
     <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
-    <li><a href="https://topological-modular-forms.github.io/notes.html"><span class="dark-svg"><img src="/static/images/blog.svg"></span>Nightly Ver.</a>
+    <!--<li><a href="https://topological-modular-forms.github.io/notes.html"><span class="dark-svg"><img src="/static/images/blog.svg"></span>Nightly Ver.</a>-->
     <li id="index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a>
+    <li id="index-invisible"><span></span>
   </ul>
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>

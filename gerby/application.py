@@ -114,6 +114,10 @@ def show_index():
       )
 
 
+@app.route("/scope")
+def show_scope():
+  return render_template("single/scope.html")
+
 @app.route("/about")
 def show_about():
   return render_template("single/about.html")
