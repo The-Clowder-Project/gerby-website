@@ -1,29 +1,70 @@
 {% macro neighbours(neighbours, modifier, tag) %}
-  {#
-  {% if neighbours[2] %}
-    <span style="display: block; text-align: center;"><a href="/tag/{{ neighbours[2].tag }}{{ modifier }}#{{ tag.tag }}">go to {{ neighbours[2].type }}</a></span>
-  {% endif %}
-  #}
+    {#
+    {% if neighbours[2] %}
+      <span style="display: block; text-align: center;"><a href="/tag/{{ neighbours[2].tag }}{{ modifier }}#{{ tag.tag }}">go to {{ neighbours[2].type }}</a></span>
+    {% endif %}
+    #}
 
-  <ul class="neighbours">
-  {% if neighbours[0] %}
-    <li class="left"><a href="/tag/{{ neighbours[0].tag }}{{ modifier }}">previous {{ neighbours[0].type }}</a>
-  {% endif %}
-  {% if neighbours[1] %}
-    <li class="right"><a href="/tag/{{ neighbours[1].tag }}{{ modifier }}">next {{ neighbours[1].type }}</a>
-  {% endif %}
-  </ul>
-  {% if neighbours[0] or neighbours[1] %}<br style="clear:both">{% endif %}
+    <div class="previous-next-nav">
+      {% if neighbours[0] %}
+        <div class="arrow-container">
+          <a class="previous-button" href="/tag/{{ neighbours[0].tag }}{{ modifier }}">
+            <span class="dark-svg"><img class="previous-arrow-img" height="30px" width="auto" src="/static/images/previous.svg"></span>
+            <div class="arrow-text">Previous</div>
+          </a>
+        </div>
+        <!--<a class="previous-button" href="/tag/{{ neighbours[0].tag }}{{ modifier }}"><span class="dark-svg"><img style="filter: invert(100%);" height="12px" width="auto" src="/static/images/previous.svg"></span> Previous</a>-->
+      {% endif %}
+      {% if neighbours[0] and neighbours[1] and neighbours[1].name != "Secret Part" and neighbours[1].name != "To Do List" %}
+        <div class="arrow-container">
+          <a class="next-button" href="/tag/{{ neighbours[1].tag }}{{ modifier }}">
+            <span class="dark-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+            <div class="arrow-text">Next</div>
+          </a>
+        </div>
+        <!--<a class="next-button" href="/tag/{{ neighbours[1].tag }}{{ modifier }}">Next <span class="dark-svg"><img height="10px" width="auto" src="/static/images/next.svg"></span></a>-->
+      {% endif %}
+      {% if not neighbours[0] and neighbours[1] %}
+        <div class="arrow-container">
+        </div>
+        <div class="arrow-container">
+          <a class="next-button" href="/tag/{{ neighbours[1].tag }}{{ modifier }}">
+            <span class="dark-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+            <div class="arrow-text">Next</div>
+          </a>
+        </div>
+      {% endif %}
+      {% if not neighbours[0] and not neighbours[1] %}
+        <style>
+          /* Change the color of elements with the class 'text' */
+          div#burger-content div.toggle,
+          section#meta div.toggle {
+            margin-top: -2.5rem;
+            transform: translate(0px,-108.5px);
+          }
+        </style>
+        <div class="arrow-container">
+        </div>
+        <div class="arrow-container">
+            <span class="invisible-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+            <div class="arrow-text"> </div>
+        </div>
+      {% endif %}
+      <!--{% if neighbours[0] or neighbours[1] %}<br style="clear:both">{% endif %}-->
 {% endmacro %}
 
 {% macro tagInformation(tag, dependencies) %}
-  <ul class="tag-info">
-    <li class="tag-history"><a href="/tag/{{ tag.tag }}/history">history</a>
-    <li class="tag-statistics"><a href="/tag/{{ tag.tag }}/statistics">statistics</a>
+    <br>
+    <div class="statistics-cite">
+      <a class="statistics-link" href="/tag/{{ tag.tag }}/statistics"><span class="dark-svg"><img class="statistics-img" src="/static/images/graph.svg"></span> Statistics</a>
+      <a class="cite-link" href="/tag/{{ tag.tag }}/cite">Cite  <span class="dark-svg"><img class="cite-img" src="/static/images/cite.svg"></span></a>
+    </div>
     {% if dependencies | length > 0 %}
-      <li class="tag-dependencies"><a href="/tag/{{ tag.tag }}/statistics#dependencies">{{ dependencies | length }} tag{% if dependencies | length > 1 %}s{% endif %} refer{% if dependencies | length == 1 %}s{% endif %} to this tag</a>
+    <div class="dependencies">
+      <a href="/tag/{{ tag.tag }}/statistics#dependencies">{{ dependencies | length }} tag{% if dependencies | length > 1 %}s{% endif %} refer{% if dependencies | length == 1 %}s{% endif %} to this tag</a>
+    </div>
     {% endif %}
-  </ul>
+  </div>
 {% endmacro %}
 
 {% macro tagHamburger(tag, neighboursList, neighboursModifier, dependencies) %}
@@ -31,7 +72,7 @@
     {{ neighbours(neighboursList, neighboursModifier, tag) }}
   </div>
 
-  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
+  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"] %}
     <hr>
 
     <div class="information">
@@ -41,25 +82,27 @@
 {% endmacro %}
 
 {% macro tagSidebar(tag, neighboursList, neighboursModifier, dependencies, filename) %}
-  <div class="interaction">
-    {{ neighbours(neighboursList, neighboursModifier, tag) }}
-  </div>
-
-  <hr>
-  {% if tag.type == "part" %}
-    {#<a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf">View Part <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>#}
-  {% else %}
-    <a href="https://stacks.math.columbia.edu/download/{{ filename }}.pdf#nameddest={{ tag.tag }}">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as pdf</a>
-  {% endif %}
-
-  {% if tag.type in ["definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem"] %}
-
-    <hr>
-
-    <div class="information">
-      {{ tagInformation(tag, dependencies) }}
+  <div class="sidebar-container-box">
+    <div class="interaction">
+      {{ neighbours(neighboursList, neighboursModifier, tag) }}
     </div>
-  {% endif %}
+    <br>
+    <hr style="height:5px">
+    <div class="PDF-button-container">
+      {% if tag.type == "part" %}
+        <a class="PDF-button" id="part-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF <img class="pdf-img" height="15px" width="auto" src="/static/images/PDF-bold.png"></a>
+      {% else %}
+      <a class="PDF-button" id="chapter-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF <img class="pdf-img" height="15px" width="auto" src="/static/images/PDF-bold.png"></a>
+    </div>
+    {% endif %}
+
+    {% if tag.type in ["part", "chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary"] %}
+
+      <div class="information">
+        {{ tagInformation(tag, dependencies) }}
+      </div>
+    {% endif %}
+  </div>
 {% endmacro %}
 
 {% macro breadcrumb(breadcrumb) %}
@@ -71,10 +114,11 @@
 
 {% macro singlePageLinks() %}
   <ul>
-    <li><a href="/about">about</a>
-    <li><a href="/acknowledgements">acknowledgements</a>
-    <li><a href="/statistics">statistics</a>
-    <li><a href="/tags">tags explained</a>
+    <!--<li><a href="/about">About</a>-->
+    <li><a href="/acknowledgements">Acknowledgements</a>
+    <li><a href="/scope">Scope</a>
+    <li><a href="/statistics">Statistics</a>
+    <li><a href="/tags">Tags explained</a>
   </ul>
 {% endmacro %}
 

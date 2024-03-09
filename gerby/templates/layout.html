@@ -165,7 +165,7 @@ tr:nth-child(even) {
       <nav id="header">
         <ul id="quicklinks">
           <li><div class="push-up"><a href="/">Home</a></div>
-          <li><div class="push-up"><a href="/about">About</a></div>
+          <!--<li><div class="push-up"><a href="/about">About</a></div>-->
           <li><div class="push-up"><a href="/changes">Changes</a></div>
           <li><div class="push-up"><a href="/bibliography">Bibliography</a></div>
           <li><button id="settingsButton"><div class="material-icons">settings</div></button> <!-- Gear Symbol -->
@@ -370,7 +370,7 @@ tr:nth-child(even) {
           // Loop through each selected image
           webcompile_images.forEach(function(img) {
               // Resize the image to 225% of its original size
-              var newWidth = img.offsetWidth * 2.25;
+              var newWidth = img.offsetWidth * 2.0;
   
               // Check if the new width exceeds the maximum allowed width
               img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';

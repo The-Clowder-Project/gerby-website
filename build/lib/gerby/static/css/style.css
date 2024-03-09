@@ -140,7 +140,8 @@ div#burger-content div.interaction {
 
 div#burger-content div.toggle,
 section#meta div.toggle {
-  margin-top: 1rem;
+  margin-top: -2.5rem;
+  transform: translate(0px,-120px);
 }
 
 div#burger-content ul.tag-info {
@@ -202,6 +203,9 @@ div.main {
 div#first-bar {
   background-color: #f5a9b8;
   z-index: 2000;
+  height: 50px;
+  position: sticky;
+  top: 0;
 }
 
 div.inner-top {
@@ -243,6 +247,8 @@ nav#second-bar {
   padding: calc(10rem / 14);
   background-color: #5bcefa;
   z-index: 2000;
+  position: sticky;
+  top: 50px;
 }
 
 div#content {
@@ -270,14 +276,20 @@ h2 {
 
 h3 {
   font-size: 1.3em;
+  font-weight: bold;
 }
 
+h4 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
 a[href^="https://github.com"],
 a[href^="https://doi.org"],
 a[href^="https://arxiv.org"],
 a[href^="https://mathscinet.ams.org"],
 a[href*=".pdf"],
 a[href*=".rss"],
+a[href*="@gmail.com"],
 a[href*=".atom"] {
   background-repeat: no-repeat;
   background-position: center right;
@@ -303,7 +315,10 @@ a[href^="https://mathscinet.ams.org"] {
 }
 
 a[href*=".pdf"] {
-  background-image: url("../images/icon.pdf.png");
+  background-image: url("../images/PDF.png");
+}
+a[href*="gmail.com"] {
+  background-image: url("../images/email.svg");
 }
 
 a[href*=".rss"],
@@ -418,90 +433,6 @@ label.toggle-off:active {
   background-color: #d9d8d1 !important;
   color: black !important;
 }
-.env-definition {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-definition::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
-    background-color: #4D4D80; /* color for the strip */
-}
-.env-proposition {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-proposition::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
-    background-color: #A60D0D; /* color for the strip */
-}
-.env-example {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-example::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
-    background-color: #803300; /* color for the strip */
-}
-.env-corollary {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-corollary::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
-    background-color: #52007A; /* color for the strip */
-}
-.env-remark {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-remark::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
-    background-color: #338033; /* color for the strip */
-}
-.env-proof {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-proof::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 5px; /* Width of the strip */
-    background-color: #595959; /* color for the strip */
-}
 .warning_container {
     display: flex;
     margin-left: 0;
@@ -509,6 +440,7 @@ label.toggle-off:active {
     text-align: left;
     padding-left: 0;
     padding-right: 0;
+    align-items: flex-start;
 }
 .hidden {
     display: none;
@@ -530,3 +462,601 @@ label.toggle-off:active {
   transition: color 0.2s ease;
   cursor: pointer;
 }
+ul {
+  list-style-type: disc;
+}
+ol {
+  list-style-type: none;
+}
+li {
+  position: relative;
+}
+.counter {
+  position: relative;
+}
+.counter-inner-no-pointer {
+  display: inline-block;
+  font-weight: bold;
+  text-align: right;
+  position: absolute;
+  left: -3em;
+  width: 2.5em;
+}
+.counter-inner {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: right;
+  position: absolute;
+  left: -2em;
+  width: 1.5em;
+  top: -0.125em;
+}
+.counter-link {
+  text-decoration: none;
+  color: black;
+}
+.counter-link:hover .counter-inner {
+  text-decoration: underline;
+}
+ul.star {
+  list-style-type: "(★) ";
+  margin-bottom: 20px;
+}
+ul.UP {
+  list-style-type: none;
+}
+ul.UP > li:first-child::before {
+  content: "(UP) "; /* Customize list marker text */
+  font-family: Alegreya Sans; /* Customize font weight */
+  font-weight: bold; /* Customize font weight */
+  font-variant: small-caps; /* Customize font variant */
+  font-size: 90%; /* Customize font size */
+  width: 1.5em; /* Adjust width as needed for alignment */
+  margin-left: -2em; /* Negative margin to align the text properly */
+  position: relative;
+  top: -2.05px;
+  left: -1.5px;
+}
+.smallsize {
+  font-size: 11pt;
+}
+.footnotesize {
+  font-size: 10pt;
+}
+.scriptsize {
+  font-size: 8.5pt;
+}
+.tinysize {
+  font-size: 8pt;
+}
+.webcompile {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+ul.book-styles {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+  url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+  url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+.push-up {
+    transform: translate(0,-7.9px);
+}
+.title {
+    transform: translate(0,-2px);
+}
+.equation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.equation img {
+    margin: 0 auto;
+}
+.math-content {
+    display: flex;
+    align-items: center;
+}
+
+.math-content .math-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.math-content p {
+    margin: 0;
+}
+.math-content p:last-child {
+    position: absolute;
+    right: 15px;
+}
+.triangleright {
+    position: relative;
+    bottom: 1.75px;
+}
+.right-interaction-box {
+    background-color: #f2f2f2;
+    border: 2px;
+    border-color: #000000;
+    padding-bottom: 5px;
+}
+.previous-next-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.sidebar-container-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.PDF-button {
+    background-color: #BF0C00;/*#DB637C;/*#EC7089;/*#B35082;/*#BF0C00;*/
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.PDF-button-container {
+    align: center;
+    text-align: center;
+}
+.PDF-button-container a[href*=".pdf"] {
+  background-image: none;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+.PDF-button-container a:hover{
+    background-image: none;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #B30B00;/*#DB637C;/*#A03C6E;/*#B30B00;*/
+}
+.previous-button,.next-button {
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 26px;
+  font-weight: bold;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.previous-button:hover, .next-button:hover{
+    color: #000000;
+}
+.tag-info {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.previous-arrow-img {
+    transform: translate(0px,-0.5px);
+}
+.next-arrow-img {
+    transform: translate(0px,-0.5px);
+}
+.statistics-img {
+    transform: translate(0px,-1px);
+    padding-right: 2px;
+    height="10px";
+    width="auto";
+}
+div.information ul.tag-info li a {
+    padding-left: 5px;
+}
+.pdf-img {
+    transform: translate(0px,-1px);
+    filter: invert(100%);
+}
+section#meta {
+    margin-left: -10px;
+    margin-right: -10px;
+    position: sticky;
+    top: 130px;
+}
+.arrow-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+.arrow-text {
+    margin-top:8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.cite-img {
+    padding-left: 2px;
+    height: 14px;
+    width: auto;
+}
+.statistics-cite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dependencies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.no-reference-popover-title {
+    font-size: 12pt;
+}
+.no-reference-popover-content {
+    font-size: 12pt;
+}
+.invisible-svg {
+    display: none;
+}
+.env-definition p:first-child, .env-construction p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-remark p:first-child {
+    margin-top: 0rem;
+}
+.warning_container {
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: flex-start;
+}
+.text-block {
+    max-width: 600px;
+}
+.textdbend-content img {
+    width: 30px;
+    vertical-align: bottom;
+}
+.contact-box {
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+.email-icon {
+    height: 15px;
+    width: auto;
+}
+.twitter-icon {
+    height: 15px;
+    width: auto;
+}
+.discord-icon {
+    height: 15px;
+    width: auto;
+}
+.no-bg {
+  background-image: none !important;
+}
+.discord-link {
+  text-decoration: none !important;
+  color: #1d5cb4 !important;
+  transition: color 0.2s ease !important;
+  cursor: pointer !important;
+}
+.discord-link:hover {
+  text-decoration: underline !important;
+  color: #0D1CB4 !important;
+}
+.contact-form-submit-button {
+    background-color: #BF0C00;/*#DB637C;/*#EC7089;/*#B35082;/*#BF0C00;*/
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+.contact-label {
+    font-size: 100%;
+    margin-bottom: 0rem;
+}
+ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ul ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ul ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ol ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ul ol ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ul ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ul ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ol ol {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+ol ol ul {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+}
+p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+.env-definition p:last-child, .env-construction p:last-child, .env-proposition p:last-child, .env-example p:last-child, .env-corollary p:last-child, .env-remark p:last-child {
+    margin-bottom: 0.625rem;
+}
+/*
+p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+p + div.equation {
+  margin-top: -1rem;
+}
+*/
+h3 + p {
+    margin-bottom: 0.5rem;
+}
+.ptag {
+  font-size: 11pt;
+}
+.epigraph-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px; /* Adjust as needed */
+  width: 100%;
+  margin-bottom: 1em;
+}
+.epigraph {
+  text-align: left;
+  align-self: flex-end;
+  flex-basis: 45%;
+}
+.epigraph p {
+  margin: 0;
+  font-size: 16px;
+}
+.epigraph .line {
+  margin: 10px 0;
+  border-bottom: 1px solid #000;
+}
+.author-left {
+  margin-top: 5px;
+  font-style: italic;
+  text-align: left;
+}
+.author-right {
+  margin-top: 5px;
+  font-style: italic;
+  text-align: right;
+}
+#playButton {
+    background-color: transparent; /* Makes the button background transparent */
+    border: 2px solid black; /* Black border */
+    border-radius: 50%; /* Keeps the button a circle */
+    width: 15px;  /* Size of the button */
+    height: 15px; /* Size of the button */
+    cursor: pointer;
+    position: relative;
+    top: -7px;
+    left: 2px;
+}
+#playButton::before {
+    content: "";
+    position: absolute;
+    left: 4.25px;
+    top: 2.75px;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent; /* size of the triangle */
+    border-bottom: 3px solid transparent; /* size of the triangle */
+    border-left: 4.5px solid black; /* size and color of the triangle */
+}
+#playButton2 {
+    background-color: transparent; /* Makes the button background transparent */
+    border: 2px solid black; /* Black border */
+    border-radius: 50%; /* Keeps the button a circle */
+    width: 15px;  /* Size of the button */
+    height: 15px; /* Size of the button */
+    cursor: pointer;
+    position: relative;
+    top: -7px;
+    left: 2px;
+}
+#playButton2::before {
+    content: "";
+    position: absolute;
+    left: 4.25px;
+    top: 2.75px;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent; /* size of the triangle */
+    border-bottom: 3px solid transparent; /* size of the triangle */
+    border-left: 4.5px solid black; /* size and color of the triangle */
+}
+.OIorange {
+    color: #E69F00;
+}
+.OIskyBlue {
+    color: #56B4E9;
+}
+.OIgreen {
+    color: #009E73;
+}
+.OIyellow {
+    color: #F5C710;
+}
+.OIblue {
+    color: #0072B2;
+}
+.OIvermillion {
+    color: #D55E00;
+}
+.OIreddishPurple {
+    color: #CC79A7;
+}
+.p-proof a {
+  color: #ffffff;
+}
+.dark-mode .p-proof a {
+  color: #ffffff;
+}
+.tikz-cd img {
+    transition: transform 0.2s; /* Animation */
+    cursor: zoom-in;
+    background-color: #f2f2f2;
+    z-index: 1;
+    transform-origin: center; /* Ensure zoom centers on the image */
+    position: relative; /* Change position when zoomed */
+}
+.webcompile img {
+    transition: transform 0.2s; /* Animation */
+    cursor: zoom-in;
+    background-color: #f2f2f2;
+    z-index: 1;
+    transform-origin: center; /* Ensure zoom centers on the image */
+    position: relative; /* Change position when zoomed */
+}
+.webcompile img.zoomed {
+    position: relative; /* Change position when zoomed */
+    z-index: 1; /* Higher z-index to bring it to front */
+    cursor: zoom-out;
+}
+.zoomed-in {
+    z-index: 10000; /* Higher z-index to bring it to front */
+    cursor: zoom-out;
+}
+.zoom-container {
+  position: fixed; /* Fixed position to cover the screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 10000; /* High z-index */
+  cursor: zoom-out;
+}
+
+.zoom-container img {
+  transform: scale(2.0); /* Zoom the image */
+  background-color: #f2f2f2;
+}
+/* Default font size for larger screens (desktops/laptops) */
+ul#index-select li#index-invisible {
+  float: left;
+  width: 48%;
+  margin-left: 4px;
+  margin-bottom: 1em;
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0);
+}
+
+ul#index-select li#index-invisible span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  height: 4em;
+  line-height: 4em;
+}
+/* Hide the element by default */
+/*#mobileOnly {
+/*    display: none;
+/*}
+/*@media only screen and (max-width: 600px) {
+/*    html {
+/*        font-size: 10px; /* Smaller font size for screens smaller than 600px */
+/*    }
+/*    body {
+/*        font-size: 10pt; /* Smaller font size for screens smaller than 600px */
+/*    }
+/*    #mobileOnly {
+/*        display: block; /* or 'inline', 'inlne-block', etc., depending on your layout needs */
+/*        z-index: 10000;
+/*        visibility: visible;
+/*    }
+/*    div#burger-content {
+/*      display: none;
+/*      position: absolute;
+/*      width: calc(250rem / 14);
+/*      height: calc(225rem / 14);
+/*      top: calc(30rem / 14);
+/*      margin-left: calc(-225rem / 14);
+/*      padding: calc(5rem / 14);
+/*      background-color: #f9f8f4;
+/*      z-index: 2;
+/*      text-align: left;
+/*      border: 1px solid black;
+/*      border-radius: 6px;
+/*    }
+/*    div#burger-content div.toggle,
+/*    section#meta div.toggle {
+/*      margin-top: -2.5rem;
+/*      transform: translate(0px,80px);
+/*    }
+/*}
+/*
+/*@media only screen and (min-width: 900px) {
+/*    section#meta {
+/*      display: block !important; /* Use !important to override any other styles */
+/*    }
+/*}
+*/

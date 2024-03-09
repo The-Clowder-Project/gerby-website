@@ -114,10 +114,17 @@ def show_index():
       )
 
 
+@app.route("/scope")
+def show_scope():
+  return render_template("single/scope.html")
+
 @app.route("/about")
 def show_about():
   return render_template("single/about.html")
 
+@app.route("/changes")
+def show_changes():
+  return render_template("single/changes.html")
 
 @app.route("/statistics")
 def show_statistics():
@@ -179,3 +186,6 @@ import gerby.views.tag
 # Stacks project specific pages
 import gerby.views.stacks
 from pathlib import Path
+def sort_parts(parts):
+    return sorted(parts, key=lambda x: int(x.ref))  # Updated to use dot notation
+app.jinja_env.filters['sort_parts'] = sort_parts

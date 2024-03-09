@@ -30,7 +30,7 @@ div.html {
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  text-align: justify;
+  text-align: left;
   padding-right: 0.5rem;
 }
 
@@ -42,8 +42,8 @@ div.html div.equation::-webkit-scrollbar {
   display: none;
 }
 
-p + div.equation {
-  margin-top: -1rem;
+.env-footnotes p + div.equation {
+  margin-top: 0rem;
 }
 
 div.html h1 {
@@ -59,6 +59,11 @@ div.html h2 {
 
 div.html h3 {
   font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+div.html h4 {
+  font-size: 1.1rem;
   margin-bottom: 1rem;
 }
 /*
@@ -115,7 +120,7 @@ div.html article.env-lemma {
 div.html a.environment-identifier {
   font-style: normal;
   font-weight: bold;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -128,8 +133,8 @@ div.html a.environment-identifier span.named {
 }
 
 div.html article.env-proof {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 
 div.html article.env-proof span.qed {
@@ -256,7 +261,8 @@ li.tag-history a {
 }
 
 li.tag-statistics a {
-  background-image: url("../images/graph.svg");
+  /*background-image: url("../images/graph.svg");*/
+  background-image: none
 }
 
 li.tag-dependencies a {
@@ -298,7 +304,9 @@ button.clipboard:hover {
   background-color: #f5f5dc;
 }
 
+/*
 ul + span.qed,
 ol + span.qed {
   margin-top: -2.5rem !important;
 }
+*/

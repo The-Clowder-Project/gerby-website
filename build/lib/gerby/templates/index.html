@@ -2,21 +2,31 @@
 
 {% set index = true %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Index {% endblock %}
 
 {% block body %}
-  <p>Welcome! This is the web version of my <a href="https://topological-modular-forms.github.io/notes.html">notes</a><span class="footnote" data-content="The name “The Gigantic Mess Project” is a joke; I started calling my notes this because they originally started as <a href='https://apps.ankiweb.net/'>Anki</a> cards, and have always been a complete mess since."><a class="footnotemark footnote-offset" href="#footnote-example-1" id="footnote-example-1-mark"></a><a href="#footnote-example-1"><sup>[1]</sup></a></span>, including only the (mostly 100%) polished parts of them. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="Raymond Cheng">Raymond Cheng</a>.</p>
+  <p style="margin-bottom:1em">Welcome! This is the web version of my <a href="https://topological-modular-forms.github.io/notes.html">notes</a>, including only the mostly polished parts of them. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="Raymond Cheng">Raymond Cheng</a>.</p>
 
-  <p>This website is hosted via GitHub pages, and is thus completely static, in contrast to the <a href="https://stacks.math.columbia.edu/">Stacks project</a>, <a href="https://kerodon.net">Kerodon</a>, and the <a href="https://automorphic.jh.edu/">Automorphic project</a>. As such, certain features found in those projects are disabled for this site, including the search function and comments.</p>
-  <p>Comments are most welcome however; you can contact me by email at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com </a>.</p>
-  <p>There are lots of footnotes, due to how the original PDFs were created. They automatically expand when you hover your mouse over them; here's an example<span class="footnote" data-content="Most of the footnotes are quite unimportant and can be ignored, though."><a class="footnotemark footnote-offset" href="#footnote-example-2" id="footnote-example-2-mark"></a><a href="#footnote-example-2"><sup>[2]</sup></a></span>.</p>
-  <p><div class="warning_container"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Knuth%27s_dangerous_bend_symbol.svg" height="70px" width:"auto"><div><b>Warning: </b>These notes are quite informal and most likely contain lots of errors, so please use them at your own risk. There are also *lots* of nonstandard terminology in them, so please keep this in mind as well.</div></div></p> 
-  <p>
-  <hr class="rounded">
-  <h2>Footnotes</h2>
-  <div><a id="footnote-example-1" class="footnote-offset"></a><a href="#footnote-example-1-mark">[1]</a> The name “The Gigantic Mess Project” is a joke; I started calling my notes this because they originally started as <a href="https://apps.ankiweb.net/">Anki</a> cards, and have always been a complete mess since.</div> 
-  <div><a id="footnote-example-2" class="footnote-offset"></a><a href="#footnote-example-2-mark">[2]</a> Most of the footnotes are quite unimportant and can be ignored, though.</div>
-  </p>
+  <p style="margin-bottom:1em"><b>Scope. </b>The scope and planned content of this project is outlined in detail in the <a href="/scope">Scope</a> page. Succintly, this project is currently aiming to become a Stacks Project for category theory, although material from other areas will also be added in the future.</p>
+
+  <p style="margin-bottom:1em"><b>Comments. </b>Although the comments feature has been disable for this site, any and all comments, no matter how small (even things like bad typography or very small typos), are extremely welcome. If you'd like to get in touch, you can reach me at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com</a>.</p>
+
+  <p style="margin-bottom:1em"><b>Contributions. </b>Contributions are also extremely welcome: this project is meant to be massively collaborative in the same was as the Automorphic Project or the Stacks Project are.</p>
+
+  <p style="margin-bottom:1em"><b>Preferences. </b>You can change the font of the site, the style of the PDFs, as well as turn on dark mode by clicking the gear button at the top of the page.</p>
+
+  <p style="margin-bottom:1em"><b>Mobile. </b>This site is unfortunately broken on mobile. Please use a desktop computer or laptop to browse it or, alternatively, download the <a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf">PDF version</a>.</p>
+
+  <p style="margin-bottom:1em">See the <a href="/about">About</a> page for more details on how the site is organised, as well as various notes on its content.</p>
+
+  <hr>
+  <p style="margin-bottom:1em"><b>Notes on the Development Branch. </b>You are currently viewing the “development branch” of this project, which includes work in progress and is significantly more messy than the “stable branch”, the one that will eventually be publicly accessible and have more spaced and polished updates. Currently, most of the ongoing work is focused on:</p>
+  <ul>
+    <li>Polishing the work linearly from start to finish and filling in some of the omitted proofs. Currently at the Constructions With Sets, Powersets section.</li>
+    <li>Writing new material and figuring/working new things out. Currently focused on developing the chapters on Relations and Spans.</li>
+    <li>Converting the PDFs I have written to web version. Currently focused on converting PDFs for category theory, more specifically the Types of Morphisms in Categories chapter.</li>
+  </ul>
+  <p style="margin-bottom:1em">Any comments, suggestions, or contributions, no matter how small, are more than welcome. I hope you enjoy this project!</p>
 {% endblock %}
 
 {% block tagline %}
@@ -25,14 +35,16 @@
 
 {% block sidebar %}
   <ul id="index-select">
-    <li id="index-browse"><a href="/browse"><img src="/static/images/list-ordered.svg">Contents</a>
-    <li id="index-about"><a href="/about"><img src="/static/images/info.svg">About</a>
+    <li id="index-about"><a href="/about"><span class="dark-svg"><img src="/static/images/info.svg"></span>About</a>
     <!--<li id="index-search"><a href="/search">Search<img src="/static/images/search.svg"></a>-->
     <!--<li id="index-blog"><a href="https://www.math.columbia.edu/~dejong/wordpress/"><img src="/static/images/blog.svg">blog</a>-->
-    <li id="index-bibliography"><a href="/bibliography"><img src="/static/images/bibliography.svg">Bibliography</a>
-    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><img src="/static/images/github.svg">GitHub</a>
+    <li id="index-bibliography"><a href="/bibliography"><span class="dark-svg"><img src="/static/images/bibliography.svg"></span>References</a>
+    <li id="index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a>
+    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a>
     <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
-    <!--<li id="index-changes"><a href="/recent-changes"><img src="/static/images/diff.svg">recent changes</a>-->
+    <!--<li><a href="https://topological-modular-forms.github.io/notes.html"><span class="dark-svg"><img src="/static/images/blog.svg"></span>Nightly Ver.</a>-->
+    <li id="index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a>
+    <li id="index-invisible"><span></span>
   </ul>
   {% for update in updates %}
     <h3>{{ update.title | safe }}</h3>
@@ -51,4 +63,6 @@
       <li>{{ statistic | safe }}
     {% endfor %}
   </ul>
+  <hr>
+  <a id="book-pdf-link">Download the book as a PDF</a>
 {% endblock %}

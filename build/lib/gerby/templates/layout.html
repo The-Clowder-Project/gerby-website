@@ -9,92 +9,47 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <meta name="theme-color" content="#8c428a">
 
-<title>{% block title %}{% endblock %}&mdash;The Gigantic Mess project</title>
+<title>{% block title %}{% endblock %}&mdash; The Gigantic Mess Project</title>
 
-<meta name="description" content="my personal notes on math and physics">
+<meta name="description" content="a collection of personal notes on mathematics and physics">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/theorem-environments.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/list-spacing.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/preferences.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/print.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dark-mode.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 {% raw %}
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    extensions: ['tex2jax.js'],
-    jax: ['input/TeX','output/HTML-CSS'],
-    TeX: {
-      extensions: ['AMSmath.js', 'AMSsymbols.js', '/static/XyJax/extensions/TeX/xypic.js'],
-      Macros: {
-        linebreak: ["", 1, ""],
-        webleft: ["\\mathopen{}\\left #1", 1],
-        webright: ["\\right #1\\mathclose{}", 1]
-        },
-      TagSide: 'left'
-    },
-    tex2jax: {
-      inlineMath: [['$','$']],
-      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-    },
-    'HTML-CSS': { scale: 100 }
-  });
-</script>
-{% endraw %}
-{% raw %}
+<script src="https://kit.fontawesome.com/279c154e33.js" crossorigin="anonymous"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    var footnotes = document.querySelectorAll(".footnote");
-    var footnoteBox = document.getElementById("footnote-box");
-
-    footnotes.forEach(function(footnote) {
-        footnote.addEventListener("mouseover", function(event) {
-            var content = footnote.getAttribute("data-content");
-
-            // Replace newline characters with <br> tags
-            content = content.replace(/\n/g, "<br>");
-
-            document.getElementById("footnote-content").innerHTML = content;
-
-            // Set the position of the footnote box based on the hovered footnote's position
-            var rect = footnote.getBoundingClientRect();
-            footnoteBox.style.left = rect.left + "px";
-            footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
-            footnoteBox.classList.remove("hidden");
-
-            // Rerender MathJax after setting the content
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        });
-
-        footnote.addEventListener("mouseout", function() {
-            // Use setTimeout to add a small delay before hiding, giving the user time to hover over the box
-            setTimeout(() => {
-                if (!footnoteBox.matches(':hover')) {
-                    closeFootnote();
-                }
-            }, 100);
-        });
-    });
-
-    footnoteBox.addEventListener("mouseover", function() {
-        // Cancel the hiding action if the user hovers over the box
-        clearTimeout(closeFootnote);
-    });
-
-    footnoteBox.addEventListener("mouseout", function() {
-        closeFootnote();
-    });
-});
-
-function closeFootnote() {
-    document.getElementById("footnote-box").classList.add("hidden");
-}
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools','[tex]/require','[tex]/color','[tex]/configmacros']},
+  tex: {
+    macros: {
+      linebreak: ["", 1, ""],
+      webleft: ["\\mathopen{}\\left #1", 1],
+      webright: ["\\right #1\\mathclose{}", 1]
+    },
+    tagSide: 'right',
+    inlineMath: [['$','$']],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    packages: ['base', 'ams','mathtools','configmacros','require','color']
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
 </script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 {% endraw %}
-
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -108,71 +63,1002 @@ function closeFootnote() {
 
 {% block head %}{% endblock %}
 
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.dark-mode tr:nth-child(even) {
+  background-color: #1F1F1F;
+}
+</style>
 </head>
-
 <body>
-<div class="container-fluid bounded">
-  <div id="first-bar" class="row topbar inner-top top">
-    <header class="col">
-      <h1><a href="/">The Gigantic Mess Project</a></h1>
-    </header>
-
-    <nav id="header">
-      <ul id="quicklinks">
-        <li><a href="/bibliography">Bibliography</a>
-        <!--<li><a href="https://www.math.columbia.edu/~dejong/wordpress/">blog</a>-->
-      </ul>
-
-      <!--<form id="quicksearch" action="/search">-->
-      <!--  <span id="search-icon"><img src="/static/images/search.svg"></span>-->
-      <!--  <input type="search" name="query" size="16" placeholder="(this doesn't work)"{% if index %} autofocus{% endif %} value="{{ query }}">-->
-      <!--</form>-->
-    </nav>
-  </div>
-
-  <nav id="second-bar" class="row topbar sticky-top">
-    {% if self.breadcrumb() %}
-      <ul class="col-11 col-sm-11 col-md-11 col-lg-12 col-xl-12" id="crumbs">
-        <li><a href="/browse">Table of Contents</a></li>
-        {% block breadcrumb %}{% endblock %}
-      </ul>
-    {% endif %}
-
-    {% if self.hamburger() %}
-      <div class="col-1 col-sm-1 col-md-1" id="burger">
-        <input type="checkbox" id="burger-input"></input>
-
-        <label id="burger-icon" for="burger-input">
-          <span id="top-bun"></span>
-          <span id="meat"></span>
-          <span id="bottom-bun"></span>
-        </label>
-
-        <div id="burger-content">
-          {% block hamburger %}{% endblock %}
+<div id="preferencesMenu" class="preferences">
+    <div>
+        <div class="preferences-header">Preferences</div>
+        <button id="closeButton" class="close-btn">&times;</button>
+        <div class="btn-container">
+            <i class="fa fa-sun-o" aria-hidden="true"></i><div>  </div>
+            <label class="switch btn-color-mode-switch">
+                <input type="checkbox" name="color_mode" id="color_mode" value="0">
+                <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
+            </label>
+            <div>  </div><i class="fa fa-moon-o" aria-hidden="true"></i>
         </div>
-      </div>
-    {% endif %}
-
-    {% if self.tagline() %}
-      {% block tagline %}{% endblock %}
-    {% endif %}
-  </nav>
-
-  <div class="row" id="content">
-    <section id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-      {% block body %}{% endblock %}
-    </section>
-	  <div class="col-lg-4 col-xl-4">
-	    <section id="meta" class="row topbar sticky-top">
-        {% block sidebar %}{% endblock %}
-      </section>
+        <div class="preference-item"><div>Font: </div>
+            <select id="fontSelection">
+                <option value="Droid Sans">Droid Sans</option>
+                <option value="Alegreya Sans">Alegreya Sans</option>
+                <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
+                <option value="Alegreya">Alegreya</option>
+                <option value="Charis SIL">Charis SIL</option>
+                <option value="Crimson Pro">Crimson Pro</option>
+                <option value="Crimson Text">Crimson Text</option>
+                <option value="EB Garamond">EB Garamond</option>
+                <option value="PT Serif">PT Serif</option>
+            </select>
+        </div>
+        <div class="preference-item"><div>PDF Style: </div>
+            <select id="styleSelection">
+                <option value="Style1">Style 1</option>
+                <option value="Style2">Style 2</option>
+                <option value="Style3">Style 3</option>
+                <option value="Style4">Style 4</option>
+            </select>
+        </div>
+        <hr>
+        <p style="text-align:left;">Here's a breakdown of the differences between each PDF style:</p>
+        <table>
+          <tr>
+            <th>Style</th>
+            <th>Class</th>
+            <th>Font</th>
+            <th>Theorem Environments</th>
+          </tr>
+          <tr>
+            <td>Style 1</td>
+            <td><code>book</code></td>
+            <td>Alegreya Sans</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 2</td>
+            <td><code>book</code></td>
+            <td>Alegreya Sans</td>
+            <td><code>amsthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 3</td>
+            <td><code>book</code></td>
+            <td>Arno*</td>
+            <td><code>amsthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 4</td>
+            <td><code>stacks-project.cls</code></td>
+            <td>Computer Modern</td>
+            <td><code>amsthm</code></td>
+          </tr>
+        </table>
+        <p style="text-align:left;">*To be replaced with Linus Romer's <a href="https://typedrawers.com/discussion/2630/elemaints-a-serif-family-with-optical-sizes">Elemaints</a> when it is released.</p>
     </div>
+</div>
+<div class="main-content">
+  <div class="container-fluid bounded">
+    <div id="first-bar" class="row topbar inner-top top">
+      <header class="col">
+        <h1><a href="/"><div class="title">The Gigantic Mess Project</div></a></h1>
+      </header>
+  
+      <nav id="header">
+        <ul id="quicklinks">
+          <li><div class="push-up"><a href="/">Home</a></div>
+          <li><div class="push-up"><a href="/about">About</a></div>
+          <li><div class="push-up"><a href="/changes">Changes</a></div>
+          <li><div class="push-up"><a href="/bibliography">Bibliography</a></div>
+          <li><button id="settingsButton"><div class="material-icons">settings</div></button> <!-- Gear Symbol -->
+          <!--<li><a href="https://www.math.columbia.edu/~dejong/wordpress/">blog</a>-->
+        </ul>
+  
+        <!--<form id="quicksearch" action="/search">-->
+        <!--  <span id="search-icon"><img src="/static/images/search.svg"></span>-->
+        <!--  <input type="search" name="query" size="16" placeholder="(this doesn't work)"{% if index %} autofocus{% endif %} value="{{ query }}">-->
+        <!--</form>-->
+      </nav>
+    </div>
+  
+    <nav id="second-bar" class="row topbar sticky-top">
+      {% if self.breadcrumb() %}
+        <ul class="col-11 col-sm-11 col-md-11 col-lg-12 col-xl-12" id="crumbs">
+          <li><a href="/browse">Table of Contents</a></li>
+          {% block breadcrumb %}{% endblock %}
+        </ul>
+      {% endif %}
+  
+      {% if self.hamburger() %}
+        <div class="col-1 col-sm-1 col-md-1" id="burger">
+          <input type="checkbox" id="burger-input"></input>
+  
+          <label id="burger-icon" for="burger-input">
+            <span id="top-bun"></span>
+            <span id="meat"></span>
+            <span id="bottom-bun"></span>
+          </label>
+  
+          <div id="burger-content">
+            {% block hamburger %}{% endblock %}
+          </div>
+        </div>
+      {% endif %}
+  
+      {% if self.tagline() %}
+        {% block tagline %}{% endblock %}
+      {% endif %}
+    </nav>
+  
+    <div class="row" id="content">
+      <section id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+        {% block body %}{% endblock %}
+      </section>
+        <div class="col-lg-4 col-xl-4">
+          <section id="meta" class="row topbar sticky-top">
+          {% if tag is defined %}
+            <div class="right-interaction-box">
+          {% endif %}
+          {% block sidebar %}{% endblock %}
+          {% if tag is defined %}
+            </div>
+            <hr>
+            <div class="contact-box">
+                <p>Noticed something off, or have any comments? Feel free to reach out!</p>
+                <ul>
+                    <li><a class="no-bg" href="mailto:emily.de.oliveira.santos.tmf@gmail.com">Email <span class="dark-svg"><img class="email-icon" src="/static/images/email.svg"></span></a>
+                    <li><a href="https://twitter.com/emily_etale">Twitter <span class="dark-svg"><img class="twitter-icon" src="/static/images/twitter.svg"></span></a>
+                    <li><a class="discord-link" onclick="discord()">Discord <span class="dark-svg"><img class="discord-icon" src="/static/images/discord.svg"></span></a>
+                </ul>
+                <hr>
+                You can also use the contact form below:
+                <br>
+                <div class="contact-form-container">
+                  <div class="columns">
+                    <div class="column is-half">
+                      <form action="https://api.staticforms.xyz/submit" method="post" id="staticform">
+                        <input type="hidden" name="accessKey" value="406a3bad-091e-4921-87a3-1a564e044b6b">
+                        <input type="hidden" name="subject" value="New commend from the Gigantic Mess Project">
+                        <div class="field">
+                          <label class="contact-label">Name</label>
+                          <div class="control">
+                            <input class="input" type="text" name="name" placeholder="Enter Your Name" required>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <label class="contact-label">Email</label>
+                          <div class="control">
+                            <input class="input" type="email" name="email" placeholder="Enter Your Email" required>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <label class="contact-label">Message</label>
+                          <div class="control">
+                            <textarea class="textarea" name="message" placeholder="Enter Your Message" required></textarea>
+                          </div>
+                        </div>
+                        <button class="contact-form-submit-button button is-primary" type="Submit">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          {% endif %}
+        </section>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js" integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
   </div>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js" integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
+  <div id="footnote-box" class="hidden">
+      <span id="footnote-content"></span>
+  </div>
+  {% raw %}
+  <script>
+      function initializeCounters(parentElement) {
+          // Logic for updating counters
+          function updateCounters(ol, counter = 1, listType = 'decimal') {
+              for (const li of ol.children) {
+                  if (li.tagName === 'LI') {
+                      const counterInner = li.querySelector('.counter-inner, .counter-inner-no-pointer');
+                      if (counterInner) {
+                          let counterText;
+                          if (listType === 'decimal') {
+                              counterText = counter + '.';
+                          } else if (listType === 'alpha') {
+                              counterText = '(' + String.fromCharCode(96 + counter) + ')';
+                          } else if (listType === 'roman') {
+                              counterText = '(' + ['i', 'ii', 'iii', 'iv', 'v'][counter - 1] + ')';
+                          } else if (listType === 'uppercaseRoman') {
+                              counterText = '(' + ['I', 'II', 'III', 'IV', 'V'][counter - 1] + ')';
+                          }
+                          counterInner.textContent = counterText;
+                          counter++;
+                      }
+  
+                      for (const child of li.children) {
+                          if (child.tagName === 'OL') {
+                              let newListType = listType;
+                              if (child.className === 'sub-list') {
+                                  newListType = 'alpha';
+                              } else if (child.className === 'subsub-list') {
+                                  newListType = 'roman';
+                              } else if (child.className === 'subsubsub-list') {
+                                  newListType = 'uppercaseRoman';
+                              }
+                              updateCounters(child, 1, newListType);
+                          }
+                      }
+                  }
+              }
+          }
+  
+          // Finding and updating counters in the parent element.
+          const mainLists = parentElement.querySelectorAll('.main-list');
+          mainLists.forEach(ol => updateCounters(ol));
+      }
+  
+      // Initialize counters on document load.
+      document.addEventListener("DOMContentLoaded", function () {
+          initializeCounters(document);
+  
+          var footnotes = document.querySelectorAll(".footnote");
+          var footnoteBox = document.getElementById("footnote-box");
+  
+          footnotes.forEach(function (footnote) {
+              footnote.addEventListener("mouseover", function (event) {
+                  var content = footnote.getAttribute("data-content");
+                  document.getElementById("footnote-content").innerHTML = content;
+                  var rect = footnote.getBoundingClientRect();
+                  footnoteBox.style.left = rect.left + "px";
+                  footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
+                  footnoteBox.classList.remove("hidden");
+  
+                  // Initialize counters within the footnote content.
+                  initializeCounters(footnoteBox);
+                  // Rerender MathJax after setting the content
+                  MathJax.typeset();
+              });
+  
+              footnote.addEventListener("mouseout", function () {
+                  setTimeout(() => {
+                      if (!footnoteBox.matches(':hover')) {
+                          closeFootnote();
+                      }
+                  }, 100);
+              });
+          });
+  
+          footnoteBox.addEventListener("mouseover", function () {
+              clearTimeout(closeFootnote);
+          });
+  
+          footnoteBox.addEventListener("mouseout", function () {
+              closeFootnote();
+          });
+      });
+  
+      function closeFootnote() {
+          document.getElementById("footnote-box").classList.add("hidden");
+      }
+  </script>
+  <script>
+      window.onload = function() {
+          // Maximum allowed width for images
+          var maxWidth = 550; // You can adjust this value as per your requirement
+  
+          // Select all img tags within divs with class webcompile or tikzcd
+          var webcompile_images = document.querySelectorAll('.webcompile img');
+  
+          // Loop through each selected image
+          webcompile_images.forEach(function(img) {
+              // Resize the image to 225% of its original size
+              var newWidth = img.offsetWidth * 2.25;
+  
+              // Check if the new width exceeds the maximum allowed width
+              img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+          });
+  
+          var tikzcd_images = document.querySelectorAll('.tikz-cd img');
+  
+          // Loop through each selected image
+          tikzcd_images.forEach(function(img) {
+              // Resize the image
+              var newWidth = img.offsetWidth * 2.0;
+  
+              // Check if the new width exceeds the maximum allowed width
+              img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+          });
+      };
+  </script>
+  <script>
+  document.addEventListener('click', function(event) {
+      let menu = document.getElementById('preferencesMenu');
+      let button = document.getElementById('settingsButton');
+  
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+          menu.style.display = 'none';
+      }
+  });
+  document.addEventListener('keydown', function(event) {
+      if (event.key == 'Escape') {
+          let menu = document.getElementById('preferencesMenu');
+          let body = document.body;
+          var mainContent = document.querySelector('.main-content');
+          //
+          menu.style.display = 'none';
+          body.classList.remove('darkened'); // Restore body's original look
+          body.classList.remove('lightened'); // Restore body's original look
+          mainContent.style.pointerEvents = "auto";
+      }
+  });
+  </script>
+  <script>
+  // This function returns the font size based on the font name
+  function getFontSizeForFont(fontName) {
+      return {
+          title: {
+              'Alegreya Sans': '16pt',
+              'Alegreya': '15pt',
+              'Atkinson Hyperlegible': '14.5pt',
+              'Charis SIL': '14pt',
+              'Crimson Pro': '16pt',
+              'Crimson Text': '16pt',
+              'Droid Sans': '14pt',
+              'EB Garamond': '16pt',
+              'PT Serif': '14pt',
+          },
+          body: {
+              'Alegreya Sans': '14pt',
+              'Alegreya': '13pt',
+              'Atkinson Hyperlegible': '12.5pt',
+              'Charis SIL': '12pt',
+              'Crimson Pro': '14pt',
+              'Crimson Text': '14pt',
+              'Droid Sans': '12pt',
+              'EB Garamond': '14pt',
+              'PT Serif': '12pt',
+          },
+          preferencesMenu: {
+              'Alegreya Sans': '14pt',
+              'Alegreya': '13pt',
+              'Atkinson Hyperlegible': '12.5pt',
+              'Charis SIL': '12pt',
+              'Crimson Pro': '14pt',
+              'Crimson Text': '14pt',
+              'Droid Sans': '12pt',
+              'EB Garamond': '14pt',
+              'PT Serif': '12pt',
+          }
+      };
+  }
+  
+  function setFont(fontChoice) {
+    let fontSizes = getFontSizeForFont(fontChoice);
+
+    document.body.style.fontFamily = fontChoice;
+    document.body.style.fontSize = fontSizes.body[fontChoice];
+
+    let preferencesMenu = document.getElementById('preferencesMenu');
+    if (preferencesMenu) {
+        preferencesMenu.style.fontSize = fontSizes.preferencesMenu[fontChoice];
+    }
+  }
+  
+  if (localStorage.getItem('font')) {
+      let fontChoice = localStorage.getItem('font');
+      setFont(fontChoice);
+      document.getElementById('fontSelection').value = fontChoice;
+  }
+  
+  // Assuming you also have an event listener to change the font when the user selects a new font
+  document.getElementById('fontSelection').addEventListener('change', function() {
+      let selectedFont = this.value;
+      setFont(selectedFont);
+      localStorage.setItem('font', selectedFont);
+  });
+  
+  // Listener for settings button
+  document.getElementById('settingsButton').addEventListener('click', function(event) {
+      let menu = document.getElementById('preferencesMenu');
+      let body = document.body;
+  
+      if (menu.style.display === "none" || menu.style.display === "") {
+          menu.style.display = "block";
+          // Check if the body has the "dark-mode" class
+          if (body.classList.contains('dark-mode')) {
+              body.classList.add('darkened'); // Darken the body for dark mode
+          } else {
+              body.classList.add('lightened'); // Lighten the body for light mode
+          }
+          var mainContent = document.querySelector('.main-content');
+          mainContent.style.pointerEvents = "none";
+          event.stopPropagation();
+      }
+  });
+  
+  document.addEventListener('click', function(event) {
+      let menu = document.getElementById('preferencesMenu');
+      let button = document.getElementById('settingsButton');
+      let body = document.body;
+  
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+          menu.style.display = 'none';
+          body.classList.remove('darkened'); // Restore body's original look
+          body.classList.remove('lightened'); // Restore body's original look
+          var mainContent = document.querySelector('.main-content');
+          mainContent.style.pointerEvents = "auto";
+      }
+  });
+  
+  // Close button listener
+  document.getElementById('closeButton').addEventListener('click', function() {
+      let menu = document.getElementById('preferencesMenu');
+      let body = document.body;
+      menu.style.display = 'none';
+      body.classList.remove('lightened'); // Restore body's original look
+      body.classList.remove('darkened'); // Restore body's original look
+      var mainContent = document.querySelector('.main-content');
+      mainContent.style.pointerEvents = "auto";
+  });
+  </script>
+  {% endraw %}
 </div>
-<div id="footnote-box" class="hidden">
-    <span id="footnote-content"></span>
-</div>
+{% raw %}
+<script>
+$(document).ready(function() {
+    // Check initial state
+    colorModePreview($("#color_mode"));
+
+    $("#color_mode").on("change", function () {
+        colorModePreview(this);
+        $('body').removeClass('lightened');
+        $('body').removeClass('darkened');
+    });
+});
+
+function colorModePreview(ele) {
+    // Function to replace image src based on mode
+    function replaceImgSrc(content, isDarkMode) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(content, 'text/html');
+
+        doc.querySelectorAll('img').forEach(img => {
+            const tikzPath = '/static/tikzcd-images/';
+            const webCompilePath = '/static/webcompile-images/';
+
+            if (img.src.includes(tikzPath) && isDarkMode && !img.src.includes(tikzPath + 'dark-mode/')) {
+                img.src = img.src.replace(tikzPath, tikzPath + 'dark-mode/');
+            } else if (img.src.includes(tikzPath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(tikzPath + 'dark-mode/', tikzPath);
+            }
+
+            if (img.src.includes(webCompilePath) && isDarkMode && !img.src.includes(webCompilePath + 'dark-mode/')) {
+                img.src = img.src.replace(webCompilePath, webCompilePath + 'dark-mode/');
+            } else if (img.src.includes(webCompilePath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(webCompilePath + 'dark-mode/', webCompilePath);
+            }
+        });
+
+        const serializer = new XMLSerializer();
+        return serializer.serializeToString(doc.body);
+    }
+    function adjustImgSrcForDarkMode(selector, basePath, isDarkMode) {
+        $(selector).each(function() {
+            if (isDarkMode && this.src.includes(basePath) && !this.src.includes(basePath + 'dark-mode/')) {
+                this.src = this.src.replace(basePath, basePath + 'dark-mode/');
+            } else if (!isDarkMode && this.src.includes(basePath + 'dark-mode/')) {
+                this.src = this.src.replace(basePath + 'dark-mode/', basePath);
+            }
+        });
+    }
+
+    if($(ele).prop("checked") == true){
+        $('body').addClass('dark-mode');
+        $('body').removeClass('light-mode');
+        // Modify data-content for footnotes
+        const footnotes = document.querySelectorAll('.footnote');
+        footnotes.forEach(footnote => {
+            const content = footnote.getAttribute('data-content');
+            const updatedContent = replaceImgSrc(content, true);
+            footnote.setAttribute('data-content', updatedContent);
+        });
+        // Adjust img src in the actual DOM
+        adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', true);
+        adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', true);
+        //
+        let menu = document.getElementById('preferencesMenu');
+        if(menu.style.display == 'block') {
+            $('body').removeClass('lightened');
+            $('body').addClass('darkened');
+        }
+    }
+    else if($(ele).prop("checked") == false){
+        $('body').addClass('light-mode');
+        $('body').removeClass('dark-mode');
+        // Modify data-content for footnotes
+        const footnotes = document.querySelectorAll('.footnote');
+        footnotes.forEach(footnote => {
+            const content = footnote.getAttribute('data-content');
+            const updatedContent = replaceImgSrc(content, false);
+            footnote.setAttribute('data-content', updatedContent);
+        });
+        let imgElement = document.querySelector('.tikz-cd > img');
+        // Adjust img src in the actual DOM
+        adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', false);
+        adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', false);
+        //
+        let menu = document.getElementById('preferencesMenu');
+        if(menu.style.display == 'block') {
+            $('body').removeClass('darkened');
+            $('body').addClass('lightened');
+        }
+    }
+}
+$(document).ready(function() {
+    // Load user's theme preference from localStorage
+    const userPrefersDark = localStorage.getItem('theme') === 'dark';
+    $("#color_mode").prop("checked", userPrefersDark);
+    colorModePreview($("#color_mode"));
+
+    $("#color_mode").on("change", function () {
+        colorModePreview(this);
+        localStorage.setItem('theme', $(this).prop("checked") ? 'dark' : 'light');
+    });
+});
+</script>
+{% endraw %}
+{% if tag is defined %}
+<script>
+    // PDF Style Selection
+    if (localStorage.getItem('pdfStyle')) {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        setPDFStyle(pdfChoice);
+        document.getElementById('styleSelection').value = pdfChoice;
+    }
+    // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+    document.getElementById('styleSelection').addEventListener('change', function() {
+        let pdfChoice = this.value;
+        setPDFStyle(pdfChoice);
+        localStorage.setItem('pdfStyle', pdfChoice);
+    });
+    function setPDFStyle(pdfChoice) {
+        // Get the link element
+        var link = document.getElementById("part-pdf-link");
+
+        try  {
+            // Update the href attribute based on the selected value
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    }
+    // Get the dropdown menu element
+    var dropdown = document.getElementById("styleSelection");
+
+    // Add an event listener to detect changes in the selected value
+    dropdown.addEventListener("change", function() {
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("part-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+    window.addEventListener('load', function() {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("part-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+</script>
+{% endif %}
+{% raw %}
+<script>
+    // PDF Style Selection
+    if (localStorage.getItem('pdfStyle')) {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        setPDFStyle(pdfChoice);
+        document.getElementById('styleSelection').value = pdfChoice;
+    }
+    // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+    document.getElementById('styleSelection').addEventListener('change', function() {
+        let pdfChoice = this.value;
+        setPDFStyle(pdfChoice);
+        localStorage.setItem('pdfStyle', pdfChoice);
+    });
+    function setPDFStyle(pdfChoice) {
+        // Get the link element
+        var link = document.getElementById("book-pdf-link");
+
+        try  {
+            // Update the href attribute based on the selected value
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    }
+    // Get the dropdown menu element
+    var dropdown = document.getElementById("styleSelection");
+
+    // Add an event listener to detect changes in the selected value
+    dropdown.addEventListener("change", function() {
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("book-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+    window.addEventListener('load', function() {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("book-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+</script>
+{% endraw %}
+{% if tag is defined %}
+<script> // PDF Style Selection
+    if (localStorage.getItem('pdfStyle')) {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        setPDFStyle(pdfChoice);
+        document.getElementById('styleSelection').value = pdfChoice;
+    }
+    // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+    document.getElementById('styleSelection').addEventListener('change', function() {
+        let pdfChoice = this.value;
+        setPDFStyle(pdfChoice);
+        localStorage.setItem('pdfStyle', pdfChoice);
+    });
+    function setPDFStyle(pdfChoice) {
+        // Get the link element
+        var link = document.getElementById("chapter-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (pdfChoice === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (pdfChoice === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    }
+    // Get the dropdown menu element
+    var dropdown = document.getElementById("styleSelection");
+
+    // Add an event listener to detect changes in the selected value
+    dropdown.addEventListener("change", function() {
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("chapter-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+    window.addEventListener('load', function() {
+        let pdfChoice = localStorage.getItem('pdfStyle');
+        // Get the selected value
+        var selectedValue = dropdown.value;
+
+        // Get the link element
+        var link = document.getElementById("chapter-pdf-link");
+
+        // Update the href attribute based on the selected value
+        try {
+            if (selectedValue === "Style1") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style2") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style3") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            } else if (selectedValue === "Style4") {
+                link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/{{ filename }}.pdf#nameddest={{ tag.tag }}";
+            }
+        } catch(err) {
+            //do nothing
+        }
+    });
+</script>
+{% endif %}
+<script> // PDF Style Selection
+    var links = document.querySelectorAll('[id^="chapter-pdf-link-in-toc-"]');
+
+    links.forEach(function(link) {
+        var href = link.getAttribute("href");
+        console.log(href)
+
+        if (localStorage.getItem('pdfStyle')) {
+            let pdfChoice = localStorage.getItem('pdfStyle');
+            setPDFStyle(pdfChoice);
+            document.getElementById('styleSelection').value = pdfChoice;
+        }
+        // Assuming you also have an event listener to change the pdf style when the user selects a new pdf stlye
+        document.getElementById('styleSelection').addEventListener('change', function() {
+            let pdfChoice = this.value;
+            setPDFStyle(pdfChoice);
+            localStorage.setItem('pdfStyle', pdfChoice);
+        });
+        function setPDFStyle(pdfChoice) {
+            // Get the link element
+            //var link = document.getElementById("chapter-pdf-link-in-toc");
+
+            // Update the href attribute based on the selected value
+            try {
+                if (pdfChoice === "Style1") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+                } else if (pdfChoice === "Style2") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+                } else if (pdfChoice === "Style3") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+                } else if (pdfChoice === "Style4") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+                }
+            } catch(err) {
+                //do nothing
+            }
+        }
+        // Get the dropdown menu element
+        var dropdown = document.getElementById("styleSelection");
+
+        // Add an event listener to detect changes in the selected value
+        dropdown.addEventListener("change", function() {
+            // Get the selected value
+            var selectedValue = dropdown.value;
+
+            // Get the link element
+            //var link = document.getElementById("chapter-pdf-link-in-toc");
+
+            // Update the href attribute based on the selected value
+            try {
+                if (selectedValue === "Style1") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+                } else if (selectedValue === "Style2") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+                } else if (selectedValue === "Style3") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+                } else if (selectedValue === "Style4") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+                }
+            } catch(err) {
+                //do nothing
+            }
+        });
+        window.addEventListener('load', function() {
+            let pdfChoice = localStorage.getItem('pdfStyle');
+            // Get the selected value
+            var selectedValue = dropdown.value;
+
+            // Get the link element
+            //var link = document.getElementById("chapter-pdf-link-in-toc");
+
+            // Update the href attribute based on the selected value
+            try {
+                if (selectedValue === "Style1") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans-tcb/"+href+".pdf";
+                } else if (selectedValue === "Style2") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/alegreya-sans/"+href+".pdf";
+                } else if (selectedValue === "Style3") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/arno/"+href+".pdf";
+                } else if (selectedValue === "Style4") {
+                    link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-chapters/cm/"+href+".pdf";
+                }
+            } catch(err) {
+                //do nothing
+            }
+        });
+    });
+</script>
+<script>
+$(document).on('shown.bs.popover', '[data-toggle="popover"]', function() {
+    let fontChoice = localStorage.getItem('font');
+    var fontSizeBody = getFontSizeForFont(fontChoice).body;
+    var fontSizeTitle = getFontSizeForFont(fontChoice).title;
+    // Get the popover ID from aria-describedby attribute
+    var popoverId = $(this).attr('aria-describedby');
+    // Access the title and body elements and apply styles
+    $('#' + popoverId).find('.no-reference-popover-title').css({
+      'font-family': fontChoice,
+      'font-size': fontSizeTitle
+    });
+    $('#' + popoverId).find('.no-reference-popover-content').css({
+      'font-family': fontChoice,
+      'font-size': fontSizeBody
+    });
+});
+</script>
+<script>
+function discord() {
+    navigator.clipboard.writeText('yui_emily');
+    alert('You can message me on Discord using my username, "yui_emily", which has been copied to your clipboard.');
+}
+</script>
+<script>
+// find elements
+$("#staticform").submit(function(event) {
+  event.preventDefault();
+  $.ajax({
+    url: 'https://api.staticforms.xyz/submit', // url where to submit the request
+    type: "POST", // type of action POST || GET
+    dataType: 'json', // data type
+    data: $("#staticform").serialize(), // post data || get data
+    success: function(result) {
+      // you can see the result from the console
+      // tab of the developer tools
+      alert(JSON.parse(result));
+    },
+    error: function(xhr, resp, text) {
+      alert(xhr, resp, text);
+    }
+  })
+});
+</script>
+<script>
+  document.getElementById('playButton').addEventListener('click', function() {
+      togglePlay('audioPlayer');
+  });
+  
+  document.getElementById('playButton2').addEventListener('click', function() {
+      togglePlay('audioPlayer2');
+  });
+  function togglePlay(audioId) {
+      var audio = document.getElementById(audioId);
+      if (audio.paused) {
+          audio.play();
+      } else {
+          audio.pause();
+          audio.currentTime = 0;
+      }
+  }
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  let zoomedContainer = null;
+
+  // Select all div elements with class 'webcompile' or 'tikz-cd'
+  const divElements = document.querySelectorAll('.webcompile, .tikz-cd');
+
+  divElements.forEach(divElement => {
+    divElement.addEventListener('click', (event) => {
+      const image = divElement.querySelector('img');
+
+      if (!zoomedContainer) {
+        // Create a new container for the zoomed image
+        zoomedContainer = document.createElement('div');
+        zoomedContainer.className = 'zoom-container';
+        
+        // Move the image to the new container
+        const clonedImage = image.cloneNode(true);
+        zoomedContainer.appendChild(clonedImage);
+        document.body.appendChild(zoomedContainer);
+
+        // Add click listener to zoom out
+        zoomedContainer.addEventListener('click', () => {
+          // Restore the image to its original parent
+          divElement.appendChild(image);
+          document.body.removeChild(zoomedContainer);
+          zoomedContainer = null;
+        });
+      }
+      event.stopPropagation();
+    });
+  });
+});
+</script>
 </body>
 </html>

@@ -176,7 +176,7 @@ def show_tag(tag):
     old = re.search(r"id=\"" + label + "-mark\"><sup>([0-9]+)</sup>", html).group(1)
     html = html.replace(
         "id=\"" + label + "-mark\"><sup>" + old + "</sup>",
-        "id=\"" + label + "-mark\"></a><a href=\"#" + label + "\"><sup>" + str(number + 1) + "</sup>")
+        "id=\"" + label + "-mark\"></a><a href=\"#" + label + "\"><sup>[" + str(number + 1) + "]</sup>")
     # make the HTML pretty (and hide plasTeX id's)
     html = html.replace(label, "footnote-" + str(number + 1))
 
@@ -229,11 +229,14 @@ def show_tag(tag):
   #      parentComments.append([parent, count])
 
   if tag.type == "part":
-    filename = "part-" + tag.label.split("-part-")[1]
+    #filename = "part:" + tag.label.split("-part:")[1]
+    filename = "book.pdf"
   elif tag.type == "chapter":
-    filename = tag.label.split("-section-")[0]
+    #filename = tag.label.split(":section-")[0]
+    filename = tag.label.split(":")[0]
   else:
-    filename = tag.label.split("-" + tag.type)[0]
+    #filename = tag.label.split("-" + tag.type)[0]
+    filename = tag.label.split(":")[0]
 
   return render_template("tag.show.html",
                          tag=tag,

@@ -1018,44 +1018,51 @@ ul#index-select li#index-invisible span {
   line-height: 4em;
 }
 /* Hide the element by default */
-#mobileOnly {
-    display: none;
-}
-@media only screen and (max-width: 600px) {
-    html {
-        font-size: 10px; /* Smaller font size for screens smaller than 600px */
-    }
-    body {
-        font-size: 10pt; /* Smaller font size for screens smaller than 600px */
-    }
-    #mobileOnly {
-        display: block; /* or 'inline', 'inlne-block', etc., depending on your layout needs */
-        z-index: 10000;
-        visibility: visible;
-    }
-    div#burger-content {
-      display: none;
-      position: absolute;
-      width: calc(250rem / 14);
-      height: calc(225rem / 14);
-      top: calc(30rem / 14);
-      margin-left: calc(-225rem / 14);
-      padding: calc(5rem / 14);
-      background-color: #f9f8f4;
-      z-index: 2;
-      text-align: left;
-      border: 1px solid black;
-      border-radius: 6px;
-    }
-    div#burger-content div.toggle,
-    section#meta div.toggle {
-      margin-top: -2.5rem;
-      transform: translate(0px,80px);
-    }
-}
-
-@media only screen and (min-width: 900px) {
-    section#meta {
-      display: block !important; /* Use !important to override any other styles */
-    }
+/*#mobileOnly {
+/*    display: none;
+/*}
+/*@media only screen and (max-width: 600px) {
+/*    html {
+/*        font-size: 10px; /* Smaller font size for screens smaller than 600px */
+/*    }
+/*    body {
+/*        font-size: 10pt; /* Smaller font size for screens smaller than 600px */
+/*    }
+/*    #mobileOnly {
+/*        display: block; /* or 'inline', 'inlne-block', etc., depending on your layout needs */
+/*        z-index: 10000;
+/*        visibility: visible;
+/*    }
+/*    div#burger-content {
+/*      display: none;
+/*      position: absolute;
+/*      width: calc(250rem / 14);
+/*      height: calc(225rem / 14);
+/*      top: calc(30rem / 14);
+/*      margin-left: calc(-225rem / 14);
+/*      padding: calc(5rem / 14);
+/*      background-color: #f9f8f4;
+/*      z-index: 2;
+/*      text-align: left;
+/*      border: 1px solid black;
+/*      border-radius: 6px;
+/*    }
+/*    div#burger-content div.toggle,
+/*    section#meta div.toggle {
+/*      margin-top: -2.5rem;
+/*      transform: translate(0px,80px);
+/*    }
+/*}
+/*
+/*@media only screen and (min-width: 900px) {
+/*    section#meta {
+/*      display: block !important; /* Use !important to override any other styles */
+/*    }
+/*}
+*/
+.highlighted-warning-box {
+  background-color:yellow;
+  padding: 25px;
+  border: 5px solid black;
+  margin-bottom: 25px;
 }
