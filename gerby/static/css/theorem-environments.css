@@ -148,7 +148,7 @@
     bottom: 0; /* Align to the bottom of the div */
     left: 0; /* Align to the left of the div */
     width: 3px; /* Width of the strip */
-    background-color: #b00b69; /* color for the strip */
+    background-color: #B00B69; /* color for the strip */
 }
 .env-notation::after {
     content: ""; /* Empty content for the pseudo-element */
@@ -210,6 +210,32 @@
     padding-bottom: 0px; /* Space around the text inside the div */
     margin-top:     0px; /* Space around the text inside the div */
     margin-bottom:  0px; /* Space around the text inside the div */
+}
+.env-question {
+   background-color: #f2f2f2; /* Light grey background */
+   padding: 10px 15px 0.1px 15px; /* Space around the text */
+   position: relative; /* Needed for the strip positioning */
+}
+.env-question p {
+    margin-bottom: 0.75em; /* Space around the text inside the div */
+}
+.env-question::before {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    left: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
+    background-color: #00A3AF; /* color for the strip */
+}
+.env-question::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
+    background-color: #00A3AF; /* color for the strip */
 }
 .env-definition-header {
     background-color: #4D4D80; /* background color */
@@ -484,6 +510,34 @@
 }
 .env-proof a:hover {
   text-decoration: underline;
+}
+.env-question-header {
+    background-color: #00A3AF; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-question-footer {
+    background-color: #00A3AF; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
+}
+.env-question-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-question-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-question-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
 }
 .env-footnotes {
    background-color: #f2f2f2; /* Light grey background */
