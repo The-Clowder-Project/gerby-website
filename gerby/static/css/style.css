@@ -1066,3 +1066,14 @@ ul#index-select li#index-invisible span {
   border: 5px solid black;
   margin-bottom: 25px;
 }
+.contact-form-submit-button {
+    background-color: #BF0C00; /* Light grey background */
+    border-color: #BF0C00; /* Light grey background */
+    color: #FFFFFF;
+}
+.contact-form-submit-button:hover {
+    background-color: #B30B00; /* Light grey background */
+    border-color: #B30B00; /* Light grey background */
+    color: #FFFFFF;
+    cursor: pointer !important;
+}

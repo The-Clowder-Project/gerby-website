@@ -5,7 +5,7 @@
 {% block title %}Index {% endblock %}
 
 {% block body %}
-  <div class="highlighted-warning-box"><b>Important: </b>Currently, most chapters are empty placeholders, with the exception of the first 11 chapters, though chapter 7 is also empty.</div>
+  <!--<div class="highlighted-warning-box"><b>Important: </b>Currently, most chapters are empty placeholders, with the exception of the first 11 chapters, though chapter 7 is also empty.</div>-->
 
   <p style="margin-bottom:1em">Welcome to the Gigantic Mess Project!<span class="footnote" data-content="The name “The Gigantic Mess Project” is meant as a joke on how these notes seem to eternally remain a complete mess."><a class="footnotemark footnote-offset" href="#footnote-example-1" id="footnote-example-1-mark"></a><a href="#footnote-example-1"><sup>[1]</sup></a></span></p>
 
@@ -19,13 +19,13 @@
 
   <p style="margin-bottom:1em"><b>Comments. </b>Although the comments feature has been disabled for this site, any and all comments, no matter how small (even things like very small typos), are extremely welcome. If you'd like to get in touch, you can reach me at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com</a>.</p>
 
-  <p style="margin-bottom:1em"><b>Contributions. </b>Contributions are also extremely welcome: this project is meant to be massively collaborative in the same was as the Automorphic Project or the Stacks Project are.</p>
+  <p style="margin-bottom:1em"><b>Contributions. </b>Contributions are also extremely welcome: this project is meant to be massively collaborative in the same was as the <a href="https://automorphic.jh.edu/">Automorphic Project</a> or the <a href="https://stacks.math.columbia.edu/">Stacks Project</a> are.</p>
 
   <p style="margin-bottom:1em"><b>Placeholder Symbols and Future Style. </b>Currently, a number of macros have been defined using placeholder symbols, and look very ugly as a result.</p>
 
-  <p style="margin-bottom:1em">This is because I eventually plan to replace them with Darwin, a free and open-source typeface project I'm currently working on, which will eventually allow me more freedom in writing these notes:</p>
+  <p style="margin-bottom:1em">This is because I eventually plan to replace them with (the math font for) Darwin, a free and open-source typeface project I'm currently working on, which will eventually allow me more freedom in writing these notes:</p>
 
-  <img width="100%" src="/static/images/darwin.svg">
+  <span class="dark-svg"><img width="100%" src="/static/images/darwin.svg"></span>
 
   <p style="margin-bottom:1em">See the <a href="https://github.com/topological-modular-forms/Darwin-Typeface">repository for Darwin on GitHub</a> for more details.</p>
 
@@ -36,7 +36,7 @@
   <p style="margin-bottom:1em"><b>A Note on Style. </b>There are a few uncommon stylistic choices made and mantained throughout these notes:</p>
   <ul>
     <li>Every proposition, theorem, lemma, etc. needs to come with a proof, even if the latter simply reads “Omitted.”. This is to ensure results without proof are clearly labeled as such.</li>
-    <li>There's a bigger amount of repetition than usual in a math text: this is done with the intention of making the Gigantic Mess Project work also as a wiki, making individual sections and subsections more self-contained.</li>
+    <li>There's a considerably larger amount of repetition than is usual in a math text. This is done with the intention of making the Gigantic Mess Project work also as a wiki, making individual sections and subsections more self-contained.</li>
   </ul>
 
   <p style="margin-bottom:1em"><b>Preferences. </b>You can change the font of the site, the style of the PDFs, as well as turn on dark mode by clicking the gear button at the top of the page.</p>
@@ -76,6 +76,7 @@
   </table>
 
   <p style="margin-top:0.5em;text-align:left;margin-bottom:1em">*To be replaced with Linus Romer's <a href="https://typedrawers.com/discussion/2630/elemaints-a-serif-family-with-optical-sizes">Elemaints</a> when it is released.</p>
+  <!--
   <hr>
   <p style="margin-bottom:1em"><b>Notes on the Development Branch. </b>You are currently viewing the “development branch” of this project, which includes work in progress and is significantly more messy than the “stable branch”, the one that will eventually be publicly accessible and have more spaced and polished updates. Currently, most of the ongoing work is focused on:</p>
   <ul>
@@ -84,6 +85,7 @@
     <li>Converting the PDFs I have written to web version. Currently focused on converting PDFs for category theory, more specifically the Types of Morphisms in Categories chapter.</li>
   </ul>
   <p style="margin-bottom:1em">Any comments, suggestions, or contributions, no matter how small, are more than welcome. I hope you enjoy this project!</p>
+  -->
   <hr>
   <h2>Footnotes</h2>
   <div><a id="footnote-example-1" class="footnote-offset"></a><a href="#footnote-example-1-mark">[1]</a> The name “The Gigantic Mess Project” is meant as a joke on how these notes seem to eternally remain a complete mess.</div>
@@ -101,7 +103,7 @@
     <!--<li id="index-blog"><a href="https://www.math.columbia.edu/~dejong/wordpress/"><img src="/static/images/blog.svg">blog</a>-->
     <li id="index-bibliography"><a href="/bibliography"><span class="dark-svg"><img src="/static/images/bibliography.svg"></span>References</a>
     <li id="index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a>
-    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a>
+    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby-stable"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a>
     <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
     <!--<li><a href="https://topological-modular-forms.github.io/notes.html"><span class="dark-svg"><img src="/static/images/blog.svg"></span>Nightly Ver.</a>-->
     <li id="index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a>
@@ -118,7 +120,7 @@
 
   <h3><a href="/statistics">Statistics</a></h3>
 
-  <p class="mb-1">The Gigantic Mess project now consists of
+  <p class="mb-1">The Gigantic Mess Project now consists of
   <ul>
     {% for statistic in statistics %}
       <li>{{ statistic | safe }}

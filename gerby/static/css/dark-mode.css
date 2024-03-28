@@ -143,6 +143,9 @@ body.dark-mode {
 .dark-mode a[href*="gmail.com"] {
   background-image: url("../images/email-dark-mode.svg");
 }
+.dark-mode a[href^="https://github.com"] {
+  background-image: url("../images/icon.github-dark-mode.png");
+}
 .dark-mode .dark-svg {
     filter: invert(100%);
 }
@@ -279,6 +282,21 @@ body.dark-mode {
 .dark-mode .env-remark-footer {
     background-color: #245E24; /* color for the strip */
 }
+.dark-mode .env-notation {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-notation::before {
+    background-color: #91004B; /* color for the strip */
+}
+.dark-mode .env-notation::after {
+    background-color: #91004B; /* color for the strip */
+}
+.dark-mode .env-notation-header {
+    background-color: #91004B; /* color for the strip */
+}
+.dark-mode .env-notation-footer {
+    background-color: #91004B; /* color for the strip */
+}
 .dark-mode .env-proof {
     background-color: #343541; /* dark background color */
 }
@@ -352,4 +370,31 @@ body.dark-mode {
 .dark-mode .contact-box {
     background-color: #343541; /* Light grey background */
     color: #FFFFFF; /* Light grey background */
+}
+.dark-mode .contact-label {
+    color: #FFFFFF; /* Light grey background */
+}
+.dark-mode .input {
+    background-color: #494b5b; /* Light grey background */
+    border-color: #3b3d4a; /* Light grey background */
+    color: #FFFFFF; /* Light grey background */
+}
+.dark-mode .textarea {
+    background-color: #494b5b; /* Light grey background */
+    border-color: #3b3d4a; /* Light grey background */
+    color: #FFFFFF; /* Light grey background */
+}
+.dark-mode .contact-form-submit-button {
+    background-color: #91004B; /* Light grey background */
+    border-color: #91004B; /* Light grey background */
+    color: #FFFFFF;
+}
+.dark-mode .contact-form-submit-button:hover {
+    background-color: #B8005F; /* Light grey background */
+    border-color: #B8005F; /* Light grey background */
+    color: #FFFFFF;
+    cursor: pointer !important;
+}
+.dark-mode .webcompile img {
+  background-color: #343541; /* Set to your preferred dark mode color */
 }
