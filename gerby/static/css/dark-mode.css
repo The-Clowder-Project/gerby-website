@@ -231,6 +231,21 @@ body.dark-mode {
 .dark-mode .env-definition-footer {
     background-color: #3A3A61; /* color for the strip */
 }
+.dark-mode .env-theorem {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-theorem::before {
+    background-color: #730808; /* color for the strip */
+}
+.dark-mode .env-theorem::after {
+    background-color: #730808; /* color for the strip */
+}
+.dark-mode .env-theorem-header {
+    background-color: #730808; /* color for the strip */
+}
+.dark-mode .env-theorem-footer {
+    background-color: #730808; /* color for the strip */
+}
 .dark-mode .env-proposition {
     background-color: #343541; /* dark background color */
 }
@@ -296,6 +311,21 @@ body.dark-mode {
 }
 .dark-mode .env-notation-footer {
     background-color: #91004B; /* color for the strip */
+}
+.dark-mode .env-construction {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-construction::before {
+    background-color: #695303; /* color for the strip */
+}
+.dark-mode .env-construction::after {
+    background-color: #695303; /* color for the strip */
+}
+.dark-mode .env-construction-header {
+    background-color: #695303; /* color for the strip */
+}
+.dark-mode .env-construction-footer {
+    background-color: #695303; /* color for the strip */
 }
 .dark-mode .env-proof {
     background-color: #343541; /* dark background color */
@@ -421,4 +451,7 @@ body.dark-mode {
 .dark-mode .nav-link.active {
     background-color: #363847; /* dark background color */
     color: #FFFFFF; /* light text color for contrast */
+}
+.dark-mode .zoom-container img {
+    background-color: #2c2d36;
 }
