@@ -187,7 +187,7 @@ header h1 a {
   display: block;
   padding-left: calc(30rem / 14);
   height: 100%;
-  background-image: url('/static/mess.png');
+  background-image: url('/static/images/favicon.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: calc(24rem / 14);

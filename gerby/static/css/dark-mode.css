@@ -327,6 +327,21 @@ body.dark-mode {
 .dark-mode .env-construction-footer {
     background-color: #695303; /* color for the strip */
 }
+.dark-mode .env-question {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-question::before {
+    background-color: #01858f; /* color for the strip */
+}
+.dark-mode .env-question::after {
+    background-color: #01858f; /* color for the strip */
+}
+.dark-mode .env-question-header {
+    background-color: #01858f; /* color for the strip */
+}
+.dark-mode .env-question-footer {
+    background-color: #01858f; /* color for the strip */
+}
 .dark-mode .env-proof {
     background-color: #343541; /* dark background color */
 }
@@ -454,4 +469,15 @@ body.dark-mode {
 }
 .dark-mode .zoom-container img {
     background-color: #2c2d36;
+}
+.dark-mode header h1 a {
+  display: block;
+  padding-left: calc(30rem / 14);
+  height: 100%;
+  background-image: url('/static/images/favicon-dark.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: calc(24rem / 14);
+  color: black;
+  text-decoration: none;
 }

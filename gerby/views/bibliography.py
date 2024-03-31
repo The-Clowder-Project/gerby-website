@@ -2,7 +2,25 @@ from flask import render_template
 
 from gerby.application import app
 from gerby.database import *
-import re
+import re, time
+
+def reformatHowPublished(howpublished_field):
+    if (len(re.findall(r"\\url",howpublished_field)) >= 1):
+        howpublished_field = re.sub(r"\\url ","",howpublished_field)
+        howpublished_field = re.sub("&amp;","&",howpublished_field)
+        howpublished_field = re.sub("<span class=\"bibtex-protected\">(.*?)</span>","\g<1>",howpublished_field)
+        return howpublished_field
+    else:
+        return howpublished_field
+
+def reformatNote(note_field):
+    if (len(re.findall(r"\\url",note_field)) >= 1):
+        note_field = re.sub("&amp;","&",note_field)
+        note_field = re.sub(r"\\url ","",note_field)
+        note_field = re.sub("<span class=\"bibtex-protected\">(.*?)</span>","\g<1>",note_field)
+        return note_field
+    else:
+        return note_field
 
 def reformatAuthors(author_field, oxford_comma_on=False):
     # Split the authors on ' and '
@@ -67,6 +85,12 @@ def show_entry(key):
     if field.field == "author":
         updated_author = reformatAuthors(field.value)
         entry.fields[field.field] = updated_author
+    if field.field == "howpublished":
+        updated_howpublished = reformatHowPublished(field.value)
+        entry.fields[field.field] = updated_howpublished
+    if field.field == "note":
+        updated_note = reformatNote(field.value)
+        entry.fields[field.field] = updated_note
     else:
         entry.fields[field.field] = field.value
 
