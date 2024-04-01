@@ -1077,3 +1077,6 @@ ul#index-select li#index-invisible span {
     color: #FFFFFF;
     cursor: pointer !important;
 }
+.btn-container {
+    display: flex !important;
+}
