@@ -468,7 +468,7 @@ body.dark-mode {
     color: #FFFFFF; /* light text color for contrast */
 }
 .dark-mode .zoom-container img {
-    background-color: #2c2d36;
+    background-color: #343541;
 }
 .dark-mode header h1 a {
   display: block;
