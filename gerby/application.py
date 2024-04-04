@@ -33,9 +33,9 @@ app.config.from_object(__name__)
 
 feeds = {
   "github": {
-    "url": "https://github.com/topological-modular-forms/the-clowder-project/commits/main.atom",
+    "url": "https://github.com/topological-modular-forms/the-clowder-project-source/commits/main.atom",
     "title": "Recent commits",
-    "link": "https://github.com/topological-modular-forms/the-clowder-project/commits",
+    "link": "https://github.com/topological-modular-forms/the-clowder-project-source/commits",
   },
 }
 
