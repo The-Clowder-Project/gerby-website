@@ -1080,3 +1080,10 @@ ul#index-select li#index-invisible span {
 .btn-container {
     display: flex !important;
 }
+@font-face {
+  font-family: 'Brill Regular';
+  src: url("static/fonts/Brill-Regular.ttf");
+}
+.brill {
+    font-family: "Brill Regular";
+}

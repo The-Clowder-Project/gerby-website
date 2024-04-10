@@ -449,9 +449,9 @@ def show_chapter_message(chapter):
 @app.route("/tex/<string:filename>")
 def send_to_github(filename=""):
   if filename != "":
-    return redirect("https://github.com/topological-modular-forms/the-clowder-project/blob/master/%s" % filename)
+    return redirect("https://github.com/topological-modular-forms/the-clowder-project-source/blob/master/%s" % filename)
   else:
-    return redirect("https://github.com/topological-modular-forms/the-clowder-project")
+    return redirect("https://github.com/topological-modular-forms/the-clowder-project-source")
 
 
 @app.route("/download/<string:filename>")
