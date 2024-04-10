@@ -885,7 +885,7 @@ h3 + p {
   font-style: italic;
   text-align: right;
 }
-#playButton {
+#playButton,#playButton2,#playButtonWasureru1,#playButtonWasureru2,#playButtonWasureru3,#playButtonWasureru4 {
     background-color: transparent; /* Makes the button background transparent */
     border: 2px solid black; /* Black border */
     border-radius: 50%; /* Keeps the button a circle */
@@ -896,29 +896,7 @@ h3 + p {
     top: -7px;
     left: 2px;
 }
-#playButton::before {
-    content: "";
-    position: absolute;
-    left: 4.25px;
-    top: 2.75px;
-    width: 0;
-    height: 0;
-    border-top: 3px solid transparent; /* size of the triangle */
-    border-bottom: 3px solid transparent; /* size of the triangle */
-    border-left: 4.5px solid black; /* size and color of the triangle */
-}
-#playButton2 {
-    background-color: transparent; /* Makes the button background transparent */
-    border: 2px solid black; /* Black border */
-    border-radius: 50%; /* Keeps the button a circle */
-    width: 15px;  /* Size of the button */
-    height: 15px; /* Size of the button */
-    cursor: pointer;
-    position: relative;
-    top: -7px;
-    left: 2px;
-}
-#playButton2::before {
+#playButton::before,#playButton2::before,#playButtonWasureru1::before,#playButtonWasureru2::before,#playButtonWasureru3::before,#playButtonWasureru4::before {
     content: "";
     position: absolute;
     left: 4.25px;

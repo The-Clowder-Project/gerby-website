@@ -1009,13 +1009,48 @@ $("#staticform").submit(function(event) {
 });
 </script>
 <script>
-  document.getElementById('playButton').addEventListener('click', function() {
-      togglePlay('audioPlayer');
-  });
-  
-  document.getElementById('playButton2').addEventListener('click', function() {
-      togglePlay('audioPlayer2');
-  });
+  try  {
+    document.getElementById('playButton').addEventListener('click', function() {
+        togglePlay('audioPlayer');
+    });
+  } catch(err) {
+    //do nothing
+  }
+  try  {
+    document.getElementById('playButton2').addEventListener('click', function() {
+        togglePlay('audioPlayer2');
+    });
+  } catch(err) {
+    //do nothing
+  }
+  try  {
+    document.getElementById('playButtonWasureru1').addEventListener('click', function() {
+        togglePlay('audioPlayerWasureru1');
+    });
+  } catch(err) {
+    //do nothing
+  }
+  try  {
+    document.getElementById('playButtonWasureru2').addEventListener('click', function() {
+        togglePlay('audioPlayerWasureru2');
+    });
+  } catch(err) {
+    //do nothing
+  }
+  try  {
+    document.getElementById('playButtonWasureru3').addEventListener('click', function() {
+        togglePlay('audioPlayerWasureru3');
+    });
+  } catch(err) {
+    //do nothing
+  }
+  try  {
+    document.getElementById('playButtonWasureru4').addEventListener('click', function() {
+        togglePlay('audioPlayerWasureru4');
+    });
+  } catch(err) {
+    //do nothing
+  }
   function togglePlay(audioId) {
       var audio = document.getElementById(audioId);
       if (audio.paused) {
