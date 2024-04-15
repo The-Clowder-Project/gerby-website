@@ -1051,6 +1051,13 @@ $("#staticform").submit(function(event) {
   } catch(err) {
     //do nothing
   }
+  try  {
+    document.getElementById('playButtonYo').addEventListener('click', function() {
+        togglePlay('audioPlayerYo');
+    });
+  } catch(err) {
+    //do nothing
+  }
   function togglePlay(audioId) {
       var audio = document.getElementById(audioId);
       if (audio.paused) {

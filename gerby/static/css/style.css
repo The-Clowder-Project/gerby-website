@@ -885,7 +885,7 @@ h3 + p {
   font-style: italic;
   text-align: right;
 }
-#playButton,#playButton2,#playButtonWasureru1,#playButtonWasureru2,#playButtonWasureru3,#playButtonWasureru4 {
+#playButton,#playButton2,#playButtonWasureru1,#playButtonWasureru2,#playButtonWasureru3,#playButtonWasureru4,#playButtonYo {
     background-color: transparent; /* Makes the button background transparent */
     border: 2px solid black; /* Black border */
     border-radius: 50%; /* Keeps the button a circle */
@@ -896,7 +896,7 @@ h3 + p {
     top: -7px;
     left: 2px;
 }
-#playButton::before,#playButton2::before,#playButtonWasureru1::before,#playButtonWasureru2::before,#playButtonWasureru3::before,#playButtonWasureru4::before {
+#playButton::before,#playButton2::before,#playButtonWasureru1::before,#playButtonWasureru2::before,#playButtonWasureru3::before,#playButtonWasureru4::before,#playButtonYo::before {
     content: "";
     position: absolute;
     left: 4.25px;
