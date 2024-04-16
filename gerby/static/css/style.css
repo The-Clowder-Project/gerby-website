@@ -1065,3 +1065,6 @@ ul#index-select li#index-invisible span {
 .brill {
     font-family: "Brill Regular";
 }
+.index-page-body {
+    text-align: justify;
+}

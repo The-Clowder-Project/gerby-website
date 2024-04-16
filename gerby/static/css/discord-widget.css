@@ -1,0 +1,38 @@
+.discord-widget {
+  font-size: 18px;
+  font-style: bold;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #6276bd;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+.discord-widget {
+    text-decoration: none;
+}
+.discord-widget img {
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+}
+
+.discord-widget-content h3 {
+  margin: 0;
+}
+
+.discord-widget-content p {
+  margin: 4px 0 0 0;
+}
+
+.discord-server-title {
+  font-family: 'Alegreya Sans';
+  font-size: 12px;
+  font-style: bold;
+}
+.discord-server-description {
+  font-family: 'Alegreya Sans';
+  font-size: 8px;
+}
