@@ -24,7 +24,7 @@
       {% if part.name != "Secret Part" %}
         <li id="{{ part.tag }}" class="expanded">
           <a class="header-offset" id="{{ part.label }}"></a>
-          <strong><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</strong>
+          <span class="semibold"><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</span>
 
           {#
           {% set filename = part.label.split("-part-")[1] %}

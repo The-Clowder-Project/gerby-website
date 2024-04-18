@@ -126,7 +126,7 @@
     <li id="index-invisible"><span></span>
   </ul>
   {% for update in updates %}
-    <h3>{{ update.title | safe }}</h3>
+    <h3><span class="semibold">{{ update.title | safe }}</span></h3>
     <ul>
       {% for item  in update.entries %}
         <li>{{ item | safe }}
@@ -134,7 +134,7 @@
     </ul>
   {% endfor %}
 
-  <h3><a href="/statistics">Statistics</a></h3>
+  <h3><a href="/statistics"><span class="semibold">Statistics</span></a></h3>
 
   <p class="mb-1">The Clowder Project now consists of
   <ul>

@@ -561,6 +561,7 @@ ul.book-styles {
 }
 .title {
     transform: translate(0,-2px);
+    font-variation-settings: "wght" 550, "wdth" 93;
 }
 .equation {
     display: flex;
@@ -1068,4 +1069,7 @@ ul#index-select li#index-invisible span {
 }
 .index-page-body {
     text-align: justify;
+}
+.semibold {
+    font-variation-settings: "wght" 600, "wdth" 93;
 }
