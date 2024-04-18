@@ -1073,3 +1073,6 @@ ul#index-select li#index-invisible span {
 .semibold {
     font-variation-settings: "wght" 600, "wdth" 93;
 }
+.clowder-logo {
+    content:url("/static/images/clowder.png");
+}
