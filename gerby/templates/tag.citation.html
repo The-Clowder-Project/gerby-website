@@ -31,19 +31,19 @@
   <ul id="citations">
     <li>
     <button class="clipboard" data-clipboard-target="#cite-tag-link"><img class="dark-svg" src="/static/images/clippy.svg"></button>
-    <code id="cite-tag-link">\cite[\href{https://topological-modular-forms.github.io/the-clowder-project/tag/{{ tag.tag }}}{Tag {{ tag.tag }}}]{clowder-project}</code>
+    <code id="cite-tag-link">\cite[\href{https://clowderproject.com/tag/{{ tag.tag }}}{Tag {{ tag.tag }}}]{clowder-project}</code>
 
     <li>
     <button class="clipboard" data-clipboard-target="#cite-type-link"><img class="dark-svg" src="/static/images/clippy.svg"></button>
-    <code id="cite-type-link">\cite[\href{https://topological-modular-forms.github.io/the-clowder-project/tag/{{ tag.tag }}}{% raw %}{{% endraw %}{{ tag.type | capitalize }} {{ tag.tag }}{% raw %}}{% endraw %}]{clowder-project}</code>
+    <code id="cite-type-link">\cite[\href{https://clowderproject.com/tag/{{ tag.tag }}}{% raw %}{{% endraw %}{{ tag.type | capitalize }} {{ tag.tag }}{% raw %}}{% endraw %}]{clowder-project}</code>
 
     <li>
     <button class="clipboard" data-clipboard-target="#link-tag"><img class="dark-svg" src="/static/images/clippy.svg"></button>
-    <code id="link-tag">\href{https://topological-modular-forms.github.io/the-clowder-project/tag/{{ tag.tag }}}{The Clowder Project, Tag {{ tag.tag }}}</code>
+    <code id="link-tag">\href{https://clowderproject.com/tag/{{ tag.tag }}}{The Clowder Project, Tag {{ tag.tag }}}</code>
 
     <li>
     <button class="clipboard" data-clipboard-target="#link-type"><img class="dark-svg" src="/static/images/clippy.svg"></button>
-    <code id="link-type">\href{https://topological-modular-forms.github.io/the-clowder-project/tag/{{ tag.tag }}}{% raw %}{The Clowder Project, {% endraw %}{{ tag.type | capitalize }} {{ tag.tag }}}</code>
+    <code id="link-type">\href{https://clowderproject.com/tag/{{ tag.tag }}}{% raw %}{The Clowder Project, {% endraw %}{{ tag.type | capitalize }} {{ tag.tag }}}</code>
   </ul>
   <script type="text/javascript">
 new ClipboardJS(".clipboard");
@@ -53,7 +53,7 @@ new ClipboardJS(".clipboard");
   <pre><code>@misc{clowder-project,
   author       = {The {Clowder Project Authors}},
   title        = {\textit{The Clowder Project}},
-  howpublished = {\url{https://topological-modular-forms.github.io/the-clowder-project/}},
+  howpublished = {\url{https://clowderproject.com/}},
   year         = {% raw %}{{% endraw %}{{ time.year }}},
 }</code></pre>
   <p>You can also consider using the <code>@online</code> type in BibLaTeX, changing the the <code>howpublished</code> to <code>url</code>. Another neat trick in BibLaTeX is the <code>shorthand</code> field, which you could set to <code>Clowder</code>.
