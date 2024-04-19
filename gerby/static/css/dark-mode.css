@@ -297,6 +297,24 @@ body.dark-mode {
 .dark-mode .env-remark-footer {
     background-color: #245E24; /* color for the strip */
 }
+.dark-mode .env-warning {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-warning-header a {
+    color: #FFFFFF;
+}
+.dark-mode .env-warning::before {
+    background-color: #000000; /* color for the strip */
+}
+.dark-mode .env-warning::after {
+    background-color: #000000; /* color for the strip */
+}
+.dark-mode .env-warning-header {
+    background-color: #000000; /* color for the strip */
+}
+.dark-mode .env-warning-footer {
+    background-color: #000000; /* color for the strip */
+}
 .dark-mode .env-notation {
     background-color: #343541; /* dark background color */
 }
