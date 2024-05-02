@@ -1141,3 +1141,10 @@ ul#index-select li#index-invisible span {
   right: 250px;
   margin-bottom: 0.625rem;
 }
+.trace-table {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
