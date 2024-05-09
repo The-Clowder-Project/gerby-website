@@ -883,6 +883,7 @@ $(document).ready(function() {
 
     links.forEach(function(link) {
         var href = link.getAttribute("href");
+        href = href.slice(22)
         console.log(href)
 
         if (localStorage.getItem('pdfStyle')) {

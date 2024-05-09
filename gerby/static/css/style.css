@@ -332,6 +332,7 @@ ul#index-select {
   padding: 0;
   margin: 0 auto;
   max-width: calc(400rem / 14);
+  font-size: 95%;
 }
 
 ul#index-select li {
@@ -355,6 +356,49 @@ ul#index-select li a {
 ul#index-select li img {
   width: 2.5em;
   padding: 0 .4em;
+}
+
+ul#index-select li#index-browse img {
+  width: 2.25em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#index-select li#index-bibliography img {
+  width: 2.25em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#index-select li#index-contributors img {
+  width: 2.25em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#index-select li#index-changes img {
+  width: 2.2em;
+  padding-left: 0.4em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#index-select li#index-github img {
+  width: 2.225em;
+  padding-left: 0.375em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#index-select li#index-discord img {
+  width: 2.2em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 0em;
+  padding-bottom: 0em;
 }
 
 ul#index-select li#index-browse,
@@ -1147,4 +1191,131 @@ ul#index-select li#index-invisible span {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+}
+/* Show the div on mobile devices */
+@media (max-width: 767px) {
+  #mobile-div {
+    display: block;
+  }
+}
+/* Hide the div on larger screens */
+@media (min-width: 768px) {
+  #mobile-div {
+    display: none;
+  }
+}
+/* Show the list on mobile devices */
+@media (max-width: 767px) {
+  ul#mobile-index-select {
+    display: block;
+  }
+}
+
+/* Hide the list on larger screens */
+@media (min-width: 768px) {
+  ul#mobile-index-select {
+    display: none;
+  }
+}
+
+ul#mobile-index-select {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: calc(400rem / 14);
+  font-size: 95%;
+}
+
+ul#mobile-index-select li {
+  float: left;
+  width: 48%;
+  margin-left: 4px;
+  margin-bottom: 1em;
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px gray;
+}
+
+ul#mobile-index-select li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  height: 4em;
+  line-height: 4em;
+}
+
+ul#mobile-index-select li img {
+  width: 2.5em;
+  padding: 0 .4em;
+}
+
+ul#mobile-index-select li#mobile-index-browse img {
+  width: 2.25em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#mobile-index-select li#mobile-index-bibliography img {
+  width: 2.25em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#mobile-index-select li#mobile-index-contributors img {
+  width: 2.25em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#mobile-index-select li#mobile-index-changes img {
+  width: 2.2em;
+  padding-left: 0.4em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#mobile-index-select li#mobile-index-github img {
+  width: 2.225em;
+  padding-left: 0.375em;
+  padding-right: 0.3em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+ul#mobile-index-select li#mobile-index-discord img {
+  width: 2.2em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 0em;
+  padding-bottom: 0em;
+}
+
+ul#mobile-index-select li#mobile-index-browse,
+ul#mobile-index-select li#mobile-index-search,
+ul#mobile-index-select li#mobile-index-bibliography,
+ul#mobile-index-select li#mobile-index-comments {
+  text-align: left;
+}
+
+ul#mobile-index-select a {
+  background-image: none;
+}
+ul#mobile-index-select li#mobile-index-invisible {
+  float: left;
+  width: 48%;
+  margin-left: 4px;
+  margin-bottom: 1em;
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0);
+}
+
+ul#mobile-index-select li#mobile-index-invisible span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  height: 4em;
+  line-height: 4em;
 }

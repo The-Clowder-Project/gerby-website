@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Contributors{% endblock %}
+
+{% block breadcrumb %}
+  <li><a href="/contributors">Contributors</a>
+{% endblock %}
+
+{% block body %}
+  <h2>Contributors</h2>
+  So far <b>1 person</b> has contributed to the Clowder Project:
+  <ul>
+      <li><a href="https://topological-modular-forms.github.io/">Emily de Oliveira Santos</a> (main author and editor)
+  </ul>
+  <h2>Supporters</h2>
+  There is currently <b>1 monthly supporter</b> of the Clowder Project:
+  <ul>
+      <li><a href="https://github.com/0xEstelle">Estelle Sterrett</a></a>
+  </ul>
+{% endblock %}
+
+{% block sidebar %}
+  {{ macros.singlePageLinks() }}
+{% endblock %}
+
+

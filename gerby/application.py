@@ -33,9 +33,9 @@ app.config.from_object(__name__)
 
 feeds = {
   "github": {
-    "url": "https://github.com/topological-modular-forms/the-clowder-project-source/commits/main.atom",
+    "url": "https://github.com/topological-modular-forms/the-clowder-project/commits/main.atom",
     "title": "Recent commits",
-    "link": "https://github.com/topological-modular-forms/the-clowder-project-source/commits",
+    "link": "https://github.com/topological-modular-forms/the-clowder-project/commits",
   },
 }
 
@@ -113,10 +113,9 @@ def show_index():
       comments=comments,
       )
 
-
-@app.route("/scope")
-def show_scope():
-  return render_template("single/scope.html")
+@app.route("/contributors")
+def show_contributors_page():
+  return render_template("single/contributors.html")
 
 @app.route("/about")
 def show_about():
