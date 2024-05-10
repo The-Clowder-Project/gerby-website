@@ -1328,12 +1328,18 @@ ul#mobile-index-select li#mobile-index-invisible span {
     font-size: 90%;
   }
   .webcompile > img, .tikz-cd > img {
-    width: 80%;
     max-width: 100%;
   }
   .equation .MathJax {
     float: left;
     overflow-x: scroll;
     font-size: 82.4402308%;
+  }
+  div#burger-content {
+    height: 90px;
+  }
+  div#burger-content div.toggle,
+  section#meta div.toggle {
+    transform: translate(0px,0px);
   }
 }
