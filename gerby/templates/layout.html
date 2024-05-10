@@ -456,7 +456,14 @@ tr:nth-child(even) {
     let fontSizes = getFontSizeForFont(fontChoice);
 
     document.body.style.fontFamily = fontChoice;
-    document.body.style.fontSize = fontSizes.body[fontChoice];
+    // Check if the device is a mobile device
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    if (mediaQuery.matches) {
+      document.body.style.fontSize = fontSizes.body[fontChoice] * 0.7 + 'pt';
+    } else {
+      document.body.style.fontSize = fontSizes.body[fontChoice];
+    }
 
     let preferencesMenu = document.getElementById('preferencesMenu');
     if (preferencesMenu) {
