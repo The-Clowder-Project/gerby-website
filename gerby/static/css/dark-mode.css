@@ -502,3 +502,17 @@ body.dark-mode {
 .dark-mode .clowder-logo {
     content:url("/static/images/clowder-dark.png");
 }
+.dark-mode .slideshow-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #91004B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.dark-mode .slideshow-button:hover {
+    background-color: #B8005F;
+}

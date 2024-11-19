@@ -27,12 +27,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Alegreya:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 {% raw %}
-<script src="https://kit.fontawesome.com/279c154e33.js" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const codeBlock = button.previousElementSibling.querySelector('code');
+                const textArea = document.createElement('textarea');
+                textArea.textContent = codeBlock.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+                
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        });
+    });
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 <script>
 window.MathJax = {
-  loader: {load: ['[tex]/mathtools','[tex]/require','[tex]/color','[tex]/configmacros','[tex]/html']},
+  loader: {load: ['[tex]/mathtools','[tex]/require','[tex]/color','[tex]/configmacros','[tex]/html','[tex]/centernot']},
   tex: {
     macros: {
       linebreak: ["", 1, ""],
@@ -42,7 +64,7 @@ window.MathJax = {
     tagSide: 'right',
     inlineMath: [['$','$']],
     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-    packages: ['base', 'ams','mathtools','configmacros','require','color','html']
+    packages: ['base', 'ams', 'mathtools', 'configmacros', 'require', 'color', 'html', 'centernot']
   },
   options: {
     ignoreHtmlClass: 'tex2jax_ignore',
@@ -92,12 +114,12 @@ tr:nth-child(even) {
         <div class="preferences-header">Preferences</div>
         <button id="closeButton" class="close-btn">&times;</button>
         <div class="btn-container" style="display: flex !important;">
-            <i class="fa fa-sun-o" aria-hidden="true"></i><div>  </div>
+            <span id="sun" class="material-symbols-outlined"></span><div>  </div>
             <label class="switch btn-color-mode-switch">
                 <input type="checkbox" name="color_mode" id="color_mode" value="0">
                 <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
             </label>
-            <div>  </div><i class="fa fa-moon-o" aria-hidden="true"></i>
+            <div>  </div><span id="moon" class="material-symbols-outlined"></span>
         </div>
         <div class="preference-item"><div>Font: </div>
             <select id="fontSelection">
@@ -170,7 +192,7 @@ tr:nth-child(even) {
           <!--<li><div class="push-up"><a href="/about">About</a></div>-->
           <li><div class="push-up"><a href="/changes">Changes</a></div>
           <li><div class="push-up"><a href="/bibliography">Bibliography</a></div>
-          <li><button id="settingsButton"><div class="material-icons">settings</div></button> <!-- Gear Symbol -->
+          <li><button id="settingsButton"><span class="material-symbols-outlined"></span></button> <!-- Gear Symbol -->
           <!--<li><a href="https://www.math.columbia.edu/~dejong/wordpress/">blog</a>-->
         </ul>
   
@@ -273,93 +295,333 @@ tr:nth-child(even) {
       <span id="footnote-content"></span>
   </div>
   {% raw %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function initializeSlideshow(slideshowId) {
+                const container = document.getElementById(slideshowId);
+                const slideshowImage = container.querySelector('.slideshow-image');
+                const prevButton = container.querySelector('.slideshow-button-container #prev-slideshow-button');
+                const nextButton = container.querySelector('.slideshow-button-container #next-slideshow-button');
+
+                if (!slideshowImage || !prevButton || !nextButton) {
+                    return null;
+                }
+
+                let currentSlide = 1;
+
+                function padNumber(number) {
+                    return number.toString().padStart(2, '0');
+                }
+
+                function getImageUrl(slideNumber) {
+                    let currentSrc = slideshowImage.src;
+                    const isDarkMode = document.body.classList.contains('dark-mode');
+                    
+                    const parts = currentSrc.split('/');
+                    const fileName = parts.pop();
+                    let path = parts.join('/');
+
+                    if (isDarkMode) {
+                        if (!path.includes('/dark-mode')) {
+                            path += '/dark-mode';
+                        }
+                    } else {
+                        path = path.replace('/dark-mode', '');
+                    }
+
+                    const newFileName = fileName.replace(/^\d+/, padNumber(slideNumber));
+                    return `${path}/${newFileName}`;
+                }
+
+                function imageExists(url) {
+                    return new Promise((resolve) => {
+                        const img = new Image();
+                        img.onload = () => resolve(true);
+                        img.onerror = () => resolve(false);
+                        img.src = url;
+                    });
+                }
+
+                async function updateImage(direction) {
+                    const newSlide = direction === 'next' ? currentSlide + 1 : currentSlide - 1;
+                    const newImageUrl = getImageUrl(newSlide);
+
+                    if (await imageExists(newImageUrl)) {
+                        currentSlide = newSlide;
+                        slideshowImage.src = newImageUrl;
+                    }
+                }
+
+                async function nextSlide() {
+                    await updateImage('next');
+                }
+
+                async function prevSlide() {
+                    if (currentSlide > 1) {
+                        await updateImage('prev');
+                    }
+                }
+
+                async function updateImageForCurrentMode() {
+                    const newImageUrl = getImageUrl(currentSlide);
+                    if (await imageExists(newImageUrl)) {
+                        slideshowImage.src = newImageUrl;
+                    }
+                }
+
+                prevButton.addEventListener('click', prevSlide);
+                nextButton.addEventListener('click', nextSlide);
+
+                return { updateImageForCurrentMode };
+            }
+
+            // Initialize slideshows
+            const slideshowIds = ['slideshow-1', 'slideshow-2'];
+            const slideshows = slideshowIds.map(initializeSlideshow).filter(Boolean);
+
+            // Function to run whenever the "dark-mode" class is added or removed
+            function onDarkModeChange() {
+                slideshows.forEach(slideshow => slideshow.updateImageForCurrentMode());
+            }
+
+            // Create a new MutationObserver to watch for changes
+            const observer = new MutationObserver((mutationsList) => {
+                mutationsList.forEach(mutation => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        // Check if the dark-mode class has been added or removed
+                        if (mutation.target.classList.contains('dark-mode')) {
+                            console.log("Dark mode enabled");
+                        } else {
+                            console.log("Dark mode disabled");
+                        }
+                        onDarkModeChange();
+                    }
+                });
+            });
+
+            // Start observing the body element for attribute changes (in this case, class changes)
+            const body = document.querySelector('body');
+            observer.observe(body, {
+                attributes: true, // Observe changes to attributes
+                attributeFilter: ['class'] // Only observe the 'class' attribute
+            });
+            console.log("Slideshows initialized:", slideshows.length);
+        });
+    </script>
   <script>
-      function initializeCounters(parentElement) {
-          // Logic for updating counters
-          function updateCounters(ol, counter = 1, listType = 'decimal') {
-              for (const li of ol.children) {
-                  if (li.tagName === 'LI') {
-                      const counterInner = li.querySelector('.counter-inner, .counter-inner-no-pointer');
-                      if (counterInner) {
-                          let counterText;
-                          if (listType === 'decimal') {
-                              counterText = counter + '.';
-                          } else if (listType === 'alpha') {
-                              counterText = '(' + String.fromCharCode(96 + counter) + ')';
-                          } else if (listType === 'roman') {
-                              counterText = '(' + ['i', 'ii', 'iii', 'iv', 'v'][counter - 1] + ')';
-                          } else if (listType === 'uppercaseRoman') {
-                              counterText = '(' + ['I', 'II', 'III', 'IV', 'V'][counter - 1] + ')';
-                          }
-                          counterInner.textContent = counterText;
-                          counter++;
-                      }
-  
-                      for (const child of li.children) {
-                          if (child.tagName === 'OL') {
-                              let newListType = listType;
-                              if (child.className === 'sub-list') {
-                                  newListType = 'alpha';
-                              } else if (child.className === 'subsub-list') {
-                                  newListType = 'roman';
-                              } else if (child.className === 'subsubsub-list') {
-                                  newListType = 'uppercaseRoman';
-                              }
-                              updateCounters(child, 1, newListType);
-                          }
-                      }
-                  }
-              }
-          }
-  
-          // Finding and updating counters in the parent element.
-          const mainLists = parentElement.querySelectorAll('.main-list');
-          mainLists.forEach(ol => updateCounters(ol));
-      }
-  
-      // Initialize counters on document load.
-      document.addEventListener("DOMContentLoaded", function () {
-          initializeCounters(document);
-  
-          var footnotes = document.querySelectorAll(".footnote");
-          var footnoteBox = document.getElementById("footnote-box");
-  
-          footnotes.forEach(function (footnote) {
-              footnote.addEventListener("mouseover", function (event) {
-                  var content = footnote.getAttribute("data-content");
-                  document.getElementById("footnote-content").innerHTML = content;
-                  var rect = footnote.getBoundingClientRect();
-                  footnoteBox.style.left = rect.left + "px";
-                  footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
-                  footnoteBox.classList.remove("hidden");
-  
-                  // Initialize counters within the footnote content.
-                  initializeCounters(footnoteBox);
-                  // Rerender MathJax after setting the content
-                  MathJax.typeset();
-              });
-  
-              footnote.addEventListener("mouseout", function () {
-                  setTimeout(() => {
-                      if (!footnoteBox.matches(':hover')) {
-                          closeFootnote();
-                      }
-                  }, 100);
-              });
-          });
-  
-          footnoteBox.addEventListener("mouseover", function () {
-              clearTimeout(closeFootnote);
-          });
-  
-          footnoteBox.addEventListener("mouseout", function () {
-              closeFootnote();
-          });
-      });
-  
-      function closeFootnote() {
-          document.getElementById("footnote-box").classList.add("hidden");
-      }
+    document.addEventListener('DOMContentLoaded', () => {
+        const moonElement = document.getElementById('moon');
+        const sunElement = document.getElementById('sun');
+        if (document.body.classList.contains('dark-mode')) {
+            if (moonElement) {
+                moonElement.style.color = '#ffffff';
+                moonElement.style.textShadow = '0 0 8px #ffffff, 0 0 12px #ffffff, 0 0 16px rgba(173, 216, 230, 0.8)';
+                sunElement.style.color = '';
+                sunElement.style.textShadow = '';
+            }
+        } else {
+            if (moonElement) {
+                moonElement.style.color = '';
+                moonElement.style.textShadow = '';
+                sunElement.style.color = '#EB9B34';
+                sunElement.style.textShadow = '0 0 8px #EB9B34, 0 0 12px #ffffff, 0 0 16px rgba(173, 216, 230, 0.8)';
+            }
+        }
+    });
+    const observer = new MutationObserver(() => {
+        const moonElement = document.getElementById('moon');
+        const sunElement = document.getElementById('sun');
+        if (document.body.classList.contains('dark-mode')) {
+            if (moonElement) {
+                moonElement.style.color = '#ffffff';
+                moonElement.style.textShadow = '0 0 8px #ffffff, 0 0 12px #ffffff, 0 0 16px rgba(173, 216, 230, 0.8)';
+                sunElement.style.color = '';
+                sunElement.style.textShadow = '';
+            }
+        } else {
+            if (moonElement) {
+                moonElement.style.color = '';
+                moonElement.style.textShadow = '';
+                sunElement.style.color = '#EB9B34';
+                sunElement.style.textShadow = '0 0 8px #EB9B34, 0 0 12px #ffffff, 0 0 16px rgba(173, 216, 230, 0.8)';
+            }
+        }
+    });
+    
+    // Start observing the `body` for attribute changes
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  </script>
+  <script>
+    function initializeCounters() {
+        // Define counter types based on nesting depth
+        const counterTypes = ['decimal', 'alpha', 'roman', 'uppercaseRoman'];
+
+        // Helper function to get counter text based on type and value
+        function getCounterText(type, value) {
+            if (type === 'decimal') {
+                return value + '.';
+            } else if (type === 'alpha') {
+                // 'a' is 97 in ASCII
+                return '(' + String.fromCharCode(96 + value) + ')';
+            } else if (type === 'roman') {
+                const romanNumerals = [
+                    'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+                    'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx'
+                ];
+                return '(' + (romanNumerals[value - 1] || value) + ')';
+            } else if (type === 'uppercaseRoman') {
+                const upperRomanNumerals = [
+                    'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
+                    'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'
+                ];
+                return '(' + (upperRomanNumerals[value - 1] || value) + ')';
+            }
+            // Add more types if needed
+        }
+
+        // Global counters object
+        const counters = {};
+
+        // Variable to track whether we are inside an article
+        let insideArticle = false;
+
+        // Recursive function to process elements
+        function processElements(element, depth) {
+            // Check for article boundaries
+            if (element.tagName === 'ARTICLE') {
+                // When entering an article, reset counters
+                insideArticle = true;
+                resetAllCounters();
+            }
+
+            // Reset counters if <div class="p-proof"> or <div class="footnotes-section"> is encountered
+            if (
+                element.classList &&
+                (element.classList.contains('p-proof') || element.classList.contains('footnotes-section'))
+            ) {
+                resetAllCounters();
+            }
+
+            // Reset counters for index page
+            if (element.textContent && element.textContent.includes('who is thereby charged with')) {
+                resetAllCounters();
+            }
+
+            // Process child nodes
+            const childNodes = element.childNodes;
+            childNodes.forEach(child => {
+                if (child.nodeType === Node.ELEMENT_NODE) {
+                    // If the child is an <ol> or <ul>, process it as a list
+                    if (child.tagName === 'OL' || child.tagName === 'UL') {
+                        processList(child, depth);
+                    } else {
+                        // Recurse into child elements
+                        processElements(child, depth);
+                    }
+                }
+            });
+
+            // Check for article end
+            if (element.tagName === 'ARTICLE') {
+                // When exiting an article, reset counters
+                insideArticle = false;
+                resetAllCounters();
+            }
+        }
+
+        // Function to reset all counters
+        function resetAllCounters() {
+            for (let d = 1; d <= counterTypes.length; d++) {
+                counters[d] = 1;
+            }
+        }
+
+        // Recursive function to process a list
+        function processList(listElement, depth) {
+            if (depth > counterTypes.length) return; // Limit to defined counter types
+
+            const counterType = counterTypes[depth - 1];
+
+            // Initialize counter for this depth if not already
+            if (!counters.hasOwnProperty(depth)) {
+                counters[depth] = 1;
+            }
+
+            const items = listElement.children;
+            for (const item of items) {
+                if (item.tagName !== 'LI') continue;
+
+                // Reset counters for deeper levels when starting a new list item
+                for (let d = depth + 1; d <= counterTypes.length; d++) {
+                    counters[d] = 1;
+                }
+
+                // Assign counter text to elements with class 'counter-inner' or 'counter-inner-no-pointer'
+                const counterElements = item.querySelectorAll('.counter-inner, .counter-inner-no-pointer');
+                counterElements.forEach(element => {
+                    element.textContent = getCounterText(counterType, counters[depth]);
+                });
+
+                // Increment counter for current depth after assigning the counter text
+                counters[depth]++;
+
+                // Process any child elements (including nested lists and divs)
+                processElements(item, depth + 1);
+            }
+        }
+
+        // Start processing from the <section id="main">
+        const mainSection = document.getElementById('main');
+        if (mainSection) {
+            processElements(mainSection, 1);
+        } else {
+            console.warn('No element with id="main" found.');
+        }
+    }
+
+    // Initialize counters on document load
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeCounters();
+
+        // Footnote handling remains unchanged
+        var footnotes = document.querySelectorAll(".footnote");
+        var footnoteBox = document.getElementById("footnote-box");
+
+        footnotes.forEach(function(footnote) {
+            footnote.addEventListener("mouseover", function(event) {
+                var content = footnote.getAttribute("data-content");
+                document.getElementById("footnote-content").innerHTML = content;
+                var rect = footnote.getBoundingClientRect();
+                footnoteBox.style.left = rect.left + "px";
+                footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
+                footnoteBox.classList.remove("hidden");
+
+                // Process counters within the footnote content
+                initializeCounters();
+                MathJax.typeset();
+            });
+
+            footnote.addEventListener("mouseout", function() {
+                setTimeout(() => {
+                    if (!footnoteBox.matches(':hover')) {
+                        closeFootnote();
+                    }
+                }, 100);
+            });
+        });
+
+        footnoteBox.addEventListener("mouseover", function() {
+            clearTimeout(closeFootnote);
+        });
+
+        footnoteBox.addEventListener("mouseout", function() {
+            closeFootnote();
+        });
+    });
+
+    function closeFootnote() {
+        document.getElementById("footnote-box").classList.add("hidden");
+    }
   </script>
   <script>
       window.onload = function() {
