@@ -650,6 +650,18 @@ tr:nth-child(even) {
               // Check if the new width exceeds the maximum allowed width
               img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
           });
+
+          // Select all img tags within divs with class scalemath or tikzcd
+          var scalemath_images = document.querySelectorAll('.scalemath img');
+  
+          // Loop through each selected image
+          scalemath_images.forEach(function(img) {
+              // Resize the image to 225% of its original size
+              var newWidth = img.offsetWidth * 2.0;
+  
+              // Check if the new width exceeds the maximum allowed width
+              img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+          });
       };
   </script>
   <script>
@@ -814,6 +826,7 @@ function colorModePreview(ele) {
         doc.querySelectorAll('img').forEach(img => {
             const tikzPath = '/static/tikzcd-images/';
             const webCompilePath = '/static/webcompile-images/';
+            const scaleMathPath = '/static/scalemath-images/';
 
             if (img.src.includes(tikzPath) && isDarkMode && !img.src.includes(tikzPath + 'dark-mode/')) {
                 img.src = img.src.replace(tikzPath, tikzPath + 'dark-mode/');
@@ -825,6 +838,12 @@ function colorModePreview(ele) {
                 img.src = img.src.replace(webCompilePath, webCompilePath + 'dark-mode/');
             } else if (img.src.includes(webCompilePath + 'dark-mode/') && !isDarkMode) {
                 img.src = img.src.replace(webCompilePath + 'dark-mode/', webCompilePath);
+            }
+
+            if (img.src.includes(scaleMathPath) && isDarkMode && !img.src.includes(scaleMatPath + 'dark-mode/')) {
+                img.src = img.src.replace(scaleMatPath, scaleMatPath + 'dark-mode/');
+            } else if (img.src.includes(scaleMatPath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(scaleMatPath + 'dark-mode/', scaleMatPath);
             }
         });
 
@@ -854,6 +873,7 @@ function colorModePreview(ele) {
         // Adjust img src in the actual DOM
         adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', true);
         adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', true);
+        adjustImgSrcForDarkMode('.scalemath > img', '/static/scalemath-images/', true);
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {
@@ -875,6 +895,7 @@ function colorModePreview(ele) {
         // Adjust img src in the actual DOM
         adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', false);
         adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', false);
+        adjustImgSrcForDarkMode('.scalemath > img', '/static/scalemath-images/', false);
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {
@@ -1344,8 +1365,8 @@ $("#staticform").submit(function(event) {
 document.addEventListener('DOMContentLoaded', (event) => {
   let zoomedContainer = null;
 
-  // Select all div elements with class 'webcompile' or 'tikz-cd'
-  const divElements = document.querySelectorAll('.webcompile, .tikz-cd');
+  // Select all div elements with class 'scalemath', 'webcompile' or 'tikz-cd'
+  const divElements = document.querySelectorAll('.scalemath, .webcompile, .tikz-cd');
 
   divElements.forEach(divElement => {
     divElement.addEventListener('click', (event) => {
