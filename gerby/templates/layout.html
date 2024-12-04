@@ -114,14 +114,14 @@ tr:nth-child(even) {
         <div class="preferences-header">Preferences</div>
         <button id="closeButton" class="close-btn">&times;</button>
         <div class="btn-container" style="display: flex !important;">
-            <span id="sun" class="material-symbols-outlined"></span><div>  </div>
+            <span id="sun" class="material-symbols-outlined"></span><div>  </div>
             <label class="switch btn-color-mode-switch">
                 <input type="checkbox" name="color_mode" id="color_mode" value="0">
                 <label for="color_mode" data-on="Dark" data-off="Light" class="btn-color-mode-switch-inner"></label>
             </label>
-            <div>  </div><span id="moon" class="material-symbols-outlined"></span>
+            <div>  </div><span id="moon" class="material-symbols-outlined"></span>
         </div>
-        <div class="preference-item"><div>Font: </div>
+        <div class="preference-item"><div>Font: </div>
             <select id="fontSelection">
                 <option value="Noto Sans">Noto Sans</option>
                 <option value="Alegreya Sans">Alegreya Sans</option>
@@ -134,7 +134,7 @@ tr:nth-child(even) {
                 <option value="PT Serif">PT Serif</option>
             </select>
         </div>
-        <div class="preference-item"><div>PDF Style: </div>
+        <div class="preference-item"><div>PDF Style: </div>
             <select id="styleSelection">
                 <option value="Style1">Style 1</option>
                 <option value="Style2">Style 2</option>
@@ -376,8 +376,13 @@ tr:nth-child(even) {
             }
 
             // Initialize slideshows
-            const slideshowIds = ['slideshow-1', 'slideshow-2'];
-            const slideshows = slideshowIds.map(initializeSlideshow).filter(Boolean);
+            const slideshowIds = ['slideshow-1', 'slideshow-2', 'slideshow-3', 'slideshow-4'];
+
+            // Filter IDs for existing elements first, then initialize
+            const existingSlideshows = slideshowIds
+                .filter(id => document.getElementById(id))
+                .map(initializeSlideshow)
+                .filter(Boolean);
 
             // Function to run whenever the "dark-mode" class is added or removed
             function onDarkModeChange() {
