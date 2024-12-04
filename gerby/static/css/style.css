@@ -575,7 +575,7 @@ ul.UP > li:first-child::before {
 .tinysize {
   font-size: 8pt;
 }
-.webcompile {
+.webcompile, .scalemath {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
