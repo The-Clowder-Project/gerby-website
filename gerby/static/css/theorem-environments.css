@@ -90,29 +90,6 @@
     width: 3px; /* Width of the strip */
     background-color: #A60D0D; /* color for the strip */
 }
-.env-lemma {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-lemma::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 3px; /* Width of the strip */
-    background-color: #C4620C; /* color for the strip */
-}
-.env-lemma::after {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    right: 0; /* Align to the left of the div */
-    width: 3px; /* Width of the strip */
-    background-color: #C4620C; /* color for the strip */
-}
 .env-theorem {
    background-color: #f2f2f2; /* Light grey background */
    padding: 10px 15px 0.1px 15px; /* Space around the text */
@@ -228,29 +205,6 @@
     width: 3px; /* Width of the strip */
     background-color: #338033; /* color for the strip */
 }
-.env-oldtag {
-   background-color: #f2f2f2; /* Light grey background */
-   padding: 10px 15px 0.1px 15px; /* Space around the text */
-   position: relative; /* Needed for the strip positioning */
-}
-.env-oldtag::before {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    left: 0; /* Align to the left of the div */
-    width: 3px; /* Width of the strip */
-    background-color: #998965; /* color for the strip */
-}
-.env-oldtag::after {
-    content: ""; /* Empty content for the pseudo-element */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Align to the top of the div */
-    bottom: 0; /* Align to the bottom of the div */
-    right: 0; /* Align to the left of the div */
-    width: 3px; /* Width of the strip */
-    background-color: #998965; /* color for the strip */
-}
 .env-proof {
    background-color: #f2f2f2; /* Light grey background */
    padding: 10px 15px 0.1px 15px; /* Space around the text */
@@ -313,13 +267,12 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-definition-footer {
     background-color: #4D4D80; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-definition-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -342,13 +295,12 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-warning-footer {
     background-color: #000000; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-warning-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -371,13 +323,12 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-construction-footer {
     background-color: #806605; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-construction-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -400,13 +351,12 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-proposition-footer {
     background-color: #A60D0D; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-proposition-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -422,35 +372,6 @@
   color: #ffffff;
   text-decoration: underline; /* Remove Underline from Links */
 }
-.env-lemma-header {
-    background-color: #C4620C; /* background color */
-    color: #ffffff; /* White text color */
-    padding-left:   15px; /* Space around the text inside the div */
-    padding-right:  15px; /* Space around the text inside the div */
-    padding-top:    5px; /* Space around the text inside the div */
-    padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
-}
-.env-lemma-footer {
-    background-color: #C4620C; /* background color */
-    color: #ffffff; /* White text color */
-    padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
-}
-.env-lemma-header p {
-    padding-top:    0px; /* Space around the text inside the div */
-    padding-bottom: 0px; /* Space around the text inside the div */
-    margin-top:    0px; /* Space around the text inside the div */
-    margin-bottom: 0px; /* Space around the text inside the div */
-}
-.env-lemma-header a {
-  color: #ffffff;
-  text-decoration: none; /* Remove Underline from Links */
-}
-.env-lemma-header a:hover {
-  color: #ffffff;
-  text-decoration: underline; /* Remove Underline from Links */
-}
 .env-theorem-header {
     background-color: #A60D0D; /* background color */
     color: #ffffff; /* White text color */
@@ -463,7 +384,7 @@
     background-color: #A60D0D; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-theorem-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -486,13 +407,12 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-example-footer {
     background-color: #803300; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-example-header a {
   color: #ffffff;
@@ -515,7 +435,6 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-corollary-header a {
   color: #ffffff;
@@ -529,7 +448,7 @@
     background-color: #52007A; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-corollary-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -544,7 +463,6 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-notation-header a {
   color: #ffffff;
@@ -558,7 +476,7 @@
     background-color: #b00b69; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-notation-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -573,7 +491,6 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-remark-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -593,7 +510,7 @@
     background-color: #338033; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-proof-header {
     background-color: #595959; /* background color */
@@ -602,7 +519,7 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
+    margin-top: 1rem;
 }
 .env-proof-header a {
   color: #ffffff;
@@ -616,7 +533,7 @@
     background-color: #595959; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-proof-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -652,13 +569,12 @@
     padding-right:  15px; /* Space around the text inside the div */
     padding-top:    5px; /* Space around the text inside the div */
     padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
 }
 .env-question-footer {
     background-color: #00A3AF; /* background color */
     color: #ffffff; /* White text color */
     padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 .env-question-header p {
     padding-top:    0px; /* Space around the text inside the div */
@@ -688,33 +604,4 @@
     left: 0; /* Align to the left of the div */
     width: 5px; /* Width of the strip */
     background-color: #5BC0BE; /* color for the strip */
-}
-.env-oldtag-header {
-    background-color: #998965; /* background color */
-    color: #ffffff; /* White text color */
-    padding-left:   15px; /* Space around the text inside the div */
-    padding-right:  15px; /* Space around the text inside the div */
-    padding-top:    5px; /* Space around the text inside the div */
-    padding-bottom: 5px; /* Space around the text inside the div */
-    margin-top:     0.75rem;
-}
-.env-oldtag-footer {
-    background-color: #998965; /* background color */
-    color: #ffffff; /* White text color */
-    padding: 1.5px 10px; /* Space around the text inside the div */
-    margin-bottom: 0.75rem;
-}
-.env-oldtag-header p {
-    padding-top:    0px; /* Space around the text inside the div */
-    padding-bottom: 0px; /* Space around the text inside the div */
-    margin-top:    0px; /* Space around the text inside the div */
-    margin-bottom: 0px; /* Space around the text inside the div */
-}
-.env-oldtag-header a {
-  color: #ffffff;
-  text-decoration: none; /* Remove Underline from Links */
-}
-.env-oldtag-header a:hover {
-  color: #ffffff;
-  text-decoration: underline; /* Remove Underline from Links */
 }

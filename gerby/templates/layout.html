@@ -13,6 +13,8 @@
 
 <meta name="description" content="a collection of personal notes on mathematics and physics">
 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery.bonsai.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.bonsai.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/discord-widget.css') }}">
@@ -386,7 +388,11 @@ tr:nth-child(even) {
 
             // Function to run whenever the "dark-mode" class is added or removed
             function onDarkModeChange() {
-                slideshows.forEach(slideshow => slideshow.updateImageForCurrentMode());
+                if (typeof slideshows !== "undefined" && Array.isArray(slideshows)) {
+                    slideshows.forEach(slideshow => slideshow.updateImageForCurrentMode());
+                } else {
+                    console.log("slideshow is undefined");
+                }
             }
 
             // Create a new MutationObserver to watch for changes
@@ -410,7 +416,11 @@ tr:nth-child(even) {
                 attributes: true, // Observe changes to attributes
                 attributeFilter: ['class'] // Only observe the 'class' attribute
             });
-            console.log("Slideshows initialized:", slideshows.length);
+            if (typeof slideshows !== "undefined" && Array.isArray(slideshows)) {
+                console.log("Slideshows initialized:", slideshows.length);
+            } else {
+                console.log("Slideshows not initialized.");
+            }
         });
     </script>
   <script>

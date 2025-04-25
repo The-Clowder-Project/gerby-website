@@ -187,10 +187,10 @@ body.dark-mode {
     color: #e3cc83;  /* Semi-transparent white */
 }
 .dark-mode #first-bar {
-    background-color: #91004B;/*#3D0C5D;/*#B0005B/*D60270;*/
+    background-color: #9B3E00;/*#91004B;/*#3D0C5D;/*#B0005B/*D60270;*/
 }
 .dark-mode #second-bar {
-    background-color: #002673;/*#350C4E;/*#002B80/*0038A8;*/
+    background-color: #730045;/*#002673;/*#350C4E;/*#002B80/*0038A8;*/
 }
 .dark-mode #first-bar a {
     color: #FFFFFF; /* dark background color */
@@ -199,22 +199,22 @@ body.dark-mode {
     color: #FFFFFF; /* dark background color */
 }
 .dark-mode ul#crumbs li.active {
-    color: #C4C4C4; /* dark background color */
+    color: #FFFFFF; /* dark background color */
 }
 .dark-mode .preferences::before {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .preferences::after {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .preferences > div::before, .preferences > div::after {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .preferences-header {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .preferences-footer {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .env-definition {
     background-color: #343541; /* dark background color */
@@ -319,16 +319,16 @@ body.dark-mode {
     background-color: #343541; /* dark background color */
 }
 .dark-mode .env-notation::before {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .env-notation::after {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .env-notation-header {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .env-notation-footer {
-    background-color: #91004B; /* color for the strip */
+    background-color: #9B3E00;/*#91004B; /* color for the strip */
 }
 .dark-mode .env-construction {
     background-color: #343541; /* dark background color */
@@ -421,7 +421,7 @@ body.dark-mode {
     border-color: #000000;
 }
 .dark-mode .PDF-button {
-    background-color: #91004B;
+    background-color: #9B3E00;/*#91004B;*/
 }
 .dark-mode .PDF-button-container a[href*=".pdf"] {
     background-image: none;
@@ -448,8 +448,8 @@ body.dark-mode {
     color: #FFFFFF; /* Light grey background */
 }
 .dark-mode .contact-form-submit-button {
-    background-color: #91004B; /* Light grey background */
-    border-color: #91004B; /* Light grey background */
+    background-color: #9B3E00;/*#91004B; /* Light grey background */
+    border-color: #9B3E00;/*#91004B; /* Light grey background */
     color: #FFFFFF;
 }
 .dark-mode .contact-form-submit-button:hover {
@@ -502,17 +502,6 @@ body.dark-mode {
 .dark-mode .clowder-logo {
     content:url("/static/images/clowder-dark.png");
 }
-.dark-mode .slideshow-button {
-    font-size: 16px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    background-color: #91004B;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.dark-mode .slideshow-button:hover {
-    background-color: #B8005F;
+.dark-mode .material-symbols-outlined {
+    color: #FFFFFF; /* dark background color */
 }
