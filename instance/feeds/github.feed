@@ -4,8 +4,23 @@
   <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commits/main"/>
   <link type="application/atom+xml" rel="self" href="https://github.com/The-Clowder-Project/the-clowder-project/commits/main.atom"/>
   <title>Recent Commits to the-clowder-project:main</title>
-<<<<<<< HEAD
-  <updated>2025-04-26T19:12:45Z</updated>
+  <updated>2025-05-03T23:33:50Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9d8002389ae7e1b822c0a176741e50cf0a1327c1</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/9d8002389ae7e1b822c0a176741e50cf0a1327c1"/>
+    <title>
+        2025-05-03-17:03 Update
+    </title>
+    <updated>2025-05-03T23:33:50Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-03-17:03 Update&lt;/pre&gt;
+    </content>
+  </entry>
   <entry>
     <id>tag:github.com,2008:Grit::Commit/8430d9136b0506b3c1cebc931c112f8097dd3a9d</id>
     <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/8430d9136b0506b3c1cebc931c112f8097dd3a9d"/>
@@ -54,9 +69,6 @@
       &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-04-25-18:14 Update&lt;/pre&gt;
     </content>
   </entry>
-=======
-  <updated>2025-01-10T00:18:50Z</updated>
->>>>>>> 49c9b5c9346bff09e42fbc3df4418dca85c664ba
   <entry>
     <id>tag:github.com,2008:Grit::Commit/f6376d6003893ef83385d7f64a3c78bae8cfd5ed</id>
     <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/f6376d6003893ef83385d7f64a3c78bae8cfd5ed"/>
