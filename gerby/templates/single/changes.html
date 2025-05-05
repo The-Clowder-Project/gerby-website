@@ -5,8 +5,8 @@
 {% block head %}
   <script type="text/javascript" src="/static/js/toggle.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.css" integrity="sha384-U1uEPfU2/stCtBJ6oZS4XLX35g0MD+BZTTskUun0Vhv64RLEaTUXtcpxGScTbkUP" crossorigin="anonymous">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.min.js" integrity="sha384-ZKch/OmPYYZT/9GpxSgMqUIDdBjwYYuJ3+CfQytRQElwdBsCMJkEmcsynJlFlsCS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery.bonsai.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.bonsai.js') }}"></script>
   <style type="text/css">
 dl#history dt + dd {
   border-left: 1px solid black;
@@ -26,17 +26,67 @@ dl#history dt + dd {
 {% block body %}
 <section>
   <h1>Changes</h1>
-  <p>Below you find an overview of the major updates to the Clowder project.
+  <p>Below you find an overview of the updates to the Clowder project.
 
   <h1>2024</h1>
     <dl id="changes" class="row">
-        <dt class="col-sm-3">May 06</dt>
-        <dd class="col-sm-9"><ul><li>Initial release―yippee! 🥳</li></ul></dd>
+      <!-- December 04 Entry -->
+      <dt class="col-sm-3" style="margin-top:0.65em;">December 04</dt>
+      <dd class="col-sm-9">
+        <ul>
+          <li>Revised and added new material on moduli of monoidal structures to <a href="https://www.clowderproject.com/tag/01UF.html">Chapter 10: Constructions With Monoidal Categories</a>.</li>
+          <li>Revised <a href="https://www.clowderproject.com/tag/01QW.html">Tag 01QW</a>.</li>
+          <li>Added a completely 1-categorical proof of the universal property of the smash product of pointed sets, <a href="https://www.clowderproject.com/tag/01VY.html">Tag 01VY</a>, answering <a href="https://mathoverflow.net/questions/466593">MO 466593</a>.</li>
+        </ul>
+      </dd>
+      <!-- November 22 Entry -->
+      <dt class="col-sm-3" style="margin-top:0.75em;">November 22</dt>
+      <dd class="col-sm-9">
+        <ul>
+          <li>Added some missing proofs to <a href="https://www.clowderproject.com/tag/0098.html">Chapter 4: Pointed Sets</a>.</li>
+        </ul>
+      </dd>
+      <!-- November 19 Entry -->
+      <dt class="col-sm-3" style="margin-top:0.65em;">November 19</dt>
+      <dd class="col-sm-9">
+        <ul>
+          <li>Began a complete overhaul of all proofs which read “Clear.” and the like. All proofs must now read either “Omitted” or be properly justified, no matter how “trivial” the details are.</li>
+          <li>Footnote sections are now local with respect to each environment box.</li>
+          <li>Heavily modified <a href="https://www.clowderproject.com/tag/000J.html">Chapter 2: Constructions With Sets</a> (the chapter now has more than a hundred additional pages), adding new sections on:</li>
+            <ul>
+                <li>Inverse limits of sets, <a href="https://www.clowderproject.com/tag/01E3.html">Tag 01E3</a>.</li>
+                <li>Direct colimits of sets, <a href="https://www.clowderproject.com/tag/01F8.html">Tag 01F8</a>.</li>
+                <li>The internal Hom of a powerset, <a href="https://www.clowderproject.com/tag/01JS.html">Tag 01JS</a>.</li>
+                <li>Isbell duality for sets (turned out to not be very interesting), <a href="https://www.clowderproject.com/tag/01L0.html">Tag 01L0</a>.</li>
+                <li>A six-functor formalism for (power)sets, <a href="https://www.clowderproject.com/tag/01MY.html">Tag 01MY</a>.</li>
+            </ul>
+            Additionally, the following sections have been substantially rewritten and/or had additional material added:
+            <ul>
+              <li>Unions of Families of Subsets, <a href="https://www.clowderproject.com/tag/003E.html">Tag 003E</a>.</li>
+              <li>Intersections of Families of Subsets, <a href="https://www.clowderproject.com/tag/003V.html">Tag 003V</a>.</li>
+              <li>Most subsections of <a href="https://www.clowderproject.com/tag/002X.html">Section 2.3: Operations With Sets</a>.</li>
+              <li>All sections pertaining to powersets.</li>
+            </ul>
+          <li>A new chapter, <a href="https://www.clowderproject.com/tag/01NG.html">Chapter 3: Monoidal Structures on the Category of Sets</a>, has been added.</li>
+          <li>Two new sections have been added to <a href="https://www.clowderproject.com/tag/0098.html">Chapter 4: Pointed Sets</a>:</li>
+            <ul>
+              <li><a href="https://www.clowderproject.com/tag/01Q9.html">Subsection 4.1.5: Active and Inert Morphisms of Pointed Sets</a>.</li>
+              <li><a href="https://www.clowderproject.com/tag/01QN.html">Subsection 4.4.2: Deleting Basepoints</a>.</li>
+            </ul>
+          <li>Corrected a mistake pointed out by Naïm Camille Favier in <a href="https://www.clowderproject.com/tag/011U.html">Item 1</a> of <a href="https://www.clowderproject.com/tag/011T.html">Proposition 011T</a> of <a href="https://www.clowderproject.com/tag/011R.html">Section 011R</a> (and added them as a contributor — thank you so much, Naïm!). The corrected statement is now available as Tags <a href="https://www.clowderproject.com/tag/01YB.html">01YB</a> and <a href="https://www.clowderproject.com/tag/01YC.html">01YC</a>.</li>
+          <li>Sligthly reorganized <a href="https://www.clowderproject.com/tag/00W8.html">Chapter 15: Categories</a>.</li>
+          <li>A new chapter, <a href="https://www.clowderproject.com/tag/01UF.html">Chapter 10: Constructions With Monoidal Categories</a>, has been added. It currently consists only of a single nonempty section, which is required for <a href="https://www.clowderproject.com/tag/01P8.html">Tag 01P8</a>.</li>
+          <li>Finally, a number of changes to the website infrastructure were implemented.</li>
+        </ul>
+      </dd>
 
-        <!--
-        <dt class="col-sm-3">January 24</dt>
-        <dd class="col-sm-9"><ul><li>Added Section <a href="/tag/043P" data-tag="043P">8.2</a> on couplings of <script type="math/tex">\infty</script>-categories.</li><li>Substantial revisions to Section <a href="/tag/03LZ" data-tag="03LZ">8.3</a>.</li></ul></dd>
-        -->
+      <!-- May 06 Entry -->
+      <dt class="col-sm-3" style="margin-top:0.7em;">May 06</dt>
+      <dd class="col-sm-9">
+        <ul>
+          <li>Initial release — yippee! 🥳</li>
+        </ul>
+      </dd>
     </dl>
     </section>
 {% endblock %}

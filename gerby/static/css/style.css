@@ -575,7 +575,7 @@ ul.UP > li:first-child::before {
 .tinysize {
   font-size: 8pt;
 }
-.webcompile {
+.webcompile, .scalemath {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -615,6 +615,10 @@ ul.book-styles {
 }
 .equation img {
     margin: 0 auto;
+}
+.align-ptag-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .math-content {
     display: flex;
@@ -656,7 +660,7 @@ ul.book-styles {
     padding-bottom: 10px;
 }
 .PDF-button {
-    background-color: #BF0C00;/*#DB637C;/*#EC7089;/*#B35082;/*#BF0C00;*/
+    background-color: #D10D00;/*#DB637C;/*#EC7089;/*#B35082;/*#D10D00;*/
     padding: 10px 20px;
     border-radius: 5px;
     text-align: center;
@@ -762,7 +766,7 @@ section#meta {
 .invisible-svg {
     display: none;
 }
-.env-definition p:first-child, .env-construction p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-theorem p:first-child, .env-question p:first-child, .env-notation p:first-child , .env-remark p:first-child {
+.env-definition p:first-child, .env-construction p:first-child, .env-proposition p:first-child, .env-lemma p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-theorem p:first-child, .env-question p:first-child, .env-notation p:first-child , .env-remark p:first-child {
     margin-top: 0rem;
 }
 .warning_container {
@@ -811,7 +815,7 @@ section#meta {
   color: #0D1CB4 !important;
 }
 .contact-form-submit-button {
-    background-color: #BF0C00;/*#DB637C;/*#EC7089;/*#B35082;/*#BF0C00;*/
+    background-color: #D10D00;/*#DB637C;/*#EC7089;/*#B35082;/*#D10D00;*/
     padding: 5px 15px;
     border-radius: 5px;
     text-align: center;
@@ -876,6 +880,15 @@ ol ol ol {
     margin-top:    1rem;
     margin-bottom: 1rem;
 }
+ol ol ol li .counter-inner {
+  display: inline-block;
+  font-weight: bold;
+  text-align: right;
+  position: absolute;
+  margin-left: 0px;
+  left: -3em;
+  width: 2.5em;
+}
 ol ol ul {
     margin-top:    1rem;
     margin-bottom: 1rem;
@@ -884,7 +897,7 @@ p {
     margin-top: 0rem;
     margin-bottom: 0rem;
 }
-.env-definition p:last-child, .env-construction p:last-child, .env-proposition p:last-child, .env-example p:last-child, .env-corollary p:last-child, .env-theorem p:last-child, .env-question p:last-child, .env-notation p:last-child, .env-remark p:last-child, .env-warning p:last-child {
+.env-definition p:last-child, .env-construction p:last-child, .env-proposition p:last-child,.env-lemma p:last-child, .env-example p:last-child, .env-corollary p:last-child, .env-theorem p:last-child, .env-question p:last-child, .env-notation p:last-child, .env-remark p:last-child, .env-warning p:last-child, .env-oldtag p:last-child {
     margin-bottom: 0.625rem;
 }
 /*
@@ -900,7 +913,7 @@ h3 + p {
     margin-bottom: 0.5rem;
 }
 .ptag {
-  font-size: 11pt;
+  font-size: 90%;
 }
 .epigraph-container {
   display: flex;
@@ -1092,8 +1105,8 @@ ul#index-select li#index-invisible span {
   margin-bottom: 25px;
 }
 .contact-form-submit-button {
-    background-color: #BF0C00; /* Light grey background */
-    border-color: #BF0C00; /* Light grey background */
+    background-color: #D10D00; /* Light grey background */
+    border-color: #D10D00; /* Light grey background */
     color: #FFFFFF;
 }
 .contact-form-submit-button:hover {
@@ -1126,7 +1139,7 @@ ul#index-select li#index-invisible span {
   font-size: 30px;
   font-weight: bold;
   color: purple;
-  opacity: 0.1;
+  opacity: 0.05;
 }
 .gogogo-start-1 {
   top: 90px;
@@ -1342,4 +1355,84 @@ ul#mobile-index-select li#mobile-index-invisible span {
   section#meta div.toggle {
     transform: translate(0px,0px);
   }
+}
+.footnotes-section {
+    font-size: 85%;
+}
+.site-table-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.site-table {
+    display: inline-table;
+    /*transform: translateX(-1rem);*/
+    transform: translateX(0rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+blockquote {
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+.slideshow-container {
+    text-align: center;
+}
+.slideshow-image {
+    width: 90%;
+}
+.slideshow-button-container {
+    margin-top: 20px;
+}
+.slideshow-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #D10D00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.slideshow-button:hover {
+    background-color: #B30B00;
+}
+.code-container {
+    position: relative;
+}
+.code-block {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 40px 10px 10px; /* Added right padding for button */
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.copy-button:hover {
+    background-color: #45a049;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
