@@ -4,213 +4,325 @@
   <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commits/main"/>
   <link type="application/atom+xml" rel="self" href="https://github.com/The-Clowder-Project/the-clowder-project/commits/main.atom"/>
   <title>Recent Commits to the-clowder-project:main</title>
-  <updated>2025-05-03T23:33:50Z</updated>
+  <updated>2025-05-18T16:50:16Z</updated>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/9d8002389ae7e1b822c0a176741e50cf0a1327c1</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/9d8002389ae7e1b822c0a176741e50cf0a1327c1"/>
+    <id>tag:github.com,2008:Grit::Commit/61efed9446a30635b18a8884502dc924266e4324</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/61efed9446a30635b18a8884502dc924266e4324"/>
     <title>
-        2025-05-03-17:03 Update
+        2025-05-17-19:27 Update
     </title>
-    <updated>2025-05-03T23:33:50Z</updated>
+    <updated>2025-05-18T16:50:16Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-03-17:03 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-17-19:27 Update&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/8430d9136b0506b3c1cebc931c112f8097dd3a9d</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/8430d9136b0506b3c1cebc931c112f8097dd3a9d"/>
+    <id>tag:github.com,2008:Grit::Commit/837b1edb7125451430f31e5415150306396a5d36</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/837b1edb7125451430f31e5415150306396a5d36"/>
     <title>
-        2025-04-26-16:12 Update
+        2025-05-17-19:27 Update
     </title>
-    <updated>2025-04-26T19:12:45Z</updated>
+    <updated>2025-05-18T16:50:10Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-04-26-16:12 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-17-19:27 Update&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/9fa564f718b4db53fe1cacd8785a235d57d5e815</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/9fa564f718b4db53fe1cacd8785a235d57d5e815"/>
+    <id>tag:github.com,2008:Grit::Commit/457779451ff0b7ae0d942a0768e5382a646f7739</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/457779451ff0b7ae0d942a0768e5382a646f7739"/>
     <title>
-        2025-04-26-15:52 Update
+        Update build instructions (10)
     </title>
-    <updated>2025-04-26T18:55:35Z</updated>
+    <updated>2025-05-15T01:41:14Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-04-26-15:52 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (10)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/6469b9a00181e6f314e12921be53e108d42ffefa</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/6469b9a00181e6f314e12921be53e108d42ffefa"/>
+    <id>tag:github.com,2008:Grit::Commit/3a82840bba514bd2c068668bff1e933f518d98a0</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/3a82840bba514bd2c068668bff1e933f518d98a0"/>
     <title>
-        2025-04-25-18:14 Update
+        Update build instructions (9)
     </title>
-    <updated>2025-04-25T23:07:20Z</updated>
+    <updated>2025-05-15T01:40:33Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-04-25-18:14 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (9)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/f6376d6003893ef83385d7f64a3c78bae8cfd5ed</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/f6376d6003893ef83385d7f64a3c78bae8cfd5ed"/>
+    <id>tag:github.com,2008:Grit::Commit/aa8e996bcd76c3fbda9784a9d22db6844c1968dd</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/aa8e996bcd76c3fbda9784a9d22db6844c1968dd"/>
     <title>
-        2025-01-09-14:53 Update
+        Update build instructions (8)
     </title>
-    <updated>2025-01-10T00:18:50Z</updated>
+    <updated>2025-05-15T01:39:34Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-01-09-14:53 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (8)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/e366dff7dc7ae532ef3379d24f59614a59c659ed</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/e366dff7dc7ae532ef3379d24f59614a59c659ed"/>
+    <id>tag:github.com,2008:Grit::Commit/966d351570fb6fb118b0c502f529cdaf44064a37</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/966d351570fb6fb118b0c502f529cdaf44064a37"/>
     <title>
-        2024-12-04-14:29 Update
+        Update build instructions (7)
     </title>
-    <updated>2024-12-04T17:45:55Z</updated>
+    <updated>2025-05-15T01:38:57Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-12-04-14:29 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (7)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/6a238f5bf23c570870e6031bc48a62479b7c2707</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/6a238f5bf23c570870e6031bc48a62479b7c2707"/>
+    <id>tag:github.com,2008:Grit::Commit/878899381607d9fd879e50934c910a3d4d4e6c71</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/878899381607d9fd879e50934c910a3d4d4e6c71"/>
     <title>
-        2024-12-04-14:29 Update
+        Update build instructions (6)
     </title>
-    <updated>2024-12-04T17:45:38Z</updated>
+    <updated>2025-05-15T01:38:13Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-12-04-14:29 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (6)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/bd90083561235edb45a159b14b02ebdace84c33c</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/bd90083561235edb45a159b14b02ebdace84c33c"/>
+    <id>tag:github.com,2008:Grit::Commit/bfa52f9ab35157be72cbd9575eb810df2c1aae26</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/bfa52f9ab35157be72cbd9575eb810df2c1aae26"/>
     <title>
-        2024-12-04-14:29 Update
+        Update build instructions (5)
     </title>
-    <updated>2024-12-04T17:42:59Z</updated>
+    <updated>2025-05-15T01:38:01Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-12-04-14:29 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (5)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/698563e92b38882017ad1080af0908f339a641b7</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/698563e92b38882017ad1080af0908f339a641b7"/>
+    <id>tag:github.com,2008:Grit::Commit/9daf462daf15f5358c185e60615dcd82cd58a70d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/9daf462daf15f5358c185e60615dcd82cd58a70d"/>
     <title>
-        2024-12-04-14:29 Update
+        Update build instructions (4)
     </title>
-    <updated>2024-12-04T17:40:27Z</updated>
+    <updated>2025-05-15T01:37:19Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-12-04-14:29 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions (4)&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/6fc4a515b39db4d278bc3befda659e84943032f9</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/6fc4a515b39db4d278bc3befda659e84943032f9"/>
+    <id>tag:github.com,2008:Grit::Commit/cb28183b5386a41d0f23879fc542ecd09217ee1b</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/cb28183b5386a41d0f23879fc542ecd09217ee1b"/>
     <title>
-        2024-12-04-14:18 Update
+        Update build instructions, again
     </title>
-    <updated>2024-12-04T17:22:17Z</updated>
+    <updated>2025-05-15T01:36:27Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-12-04-14:18 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions, again&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/dbd6586c4b80421ad1277f5861f07d4a047885dd</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/dbd6586c4b80421ad1277f5861f07d4a047885dd"/>
+    <id>tag:github.com,2008:Grit::Commit/dd1d66509f5cb0403f3b5bb4bac7e23b2381f733</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/dd1d66509f5cb0403f3b5bb4bac7e23b2381f733"/>
     <title>
-        2024-11-22-17:01 Update
+        Update build instructions
     </title>
-    <updated>2024-11-22T20:02:30Z</updated>
+    <updated>2025-05-15T01:35:45Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-11-22-17:01 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update build instructions&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/9a900fa33365809bce03201348e52d3f693c9c08</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/9a900fa33365809bce03201348e52d3f693c9c08"/>
+    <id>tag:github.com,2008:Grit::Commit/7e9bfbc43004d90f8342f9b2bbb0a0878c9f0cff</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/7e9bfbc43004d90f8342f9b2bbb0a0878c9f0cff"/>
     <title>
-        2024-11-19-10:53 Update
+        Add build instructions
     </title>
-    <updated>2024-11-19T14:03:07Z</updated>
+    <updated>2025-05-15T01:35:15Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-11-19-10:53 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add build instructions&lt;/pre&gt;
     </content>
   </entry>
   <entry>
-    <id>tag:github.com,2008:Grit::Commit/3bd262a27691b41c3ab90cc15993cba787351b1f</id>
-    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/3bd262a27691b41c3ab90cc15993cba787351b1f"/>
+    <id>tag:github.com,2008:Grit::Commit/e7256c21a3c3530de40d43649ab21223028b8bd3</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/e7256c21a3c3530de40d43649ab21223028b8bd3"/>
     <title>
-        2024-05-03 Update
+        2025-05-14-17:25 Update
     </title>
-    <updated>2024-05-03T20:30:38Z</updated>
+    <updated>2025-05-15T01:27:26Z</updated>
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
     <author>
       <name>topological-modular-forms</name>
       <uri>https://github.com/topological-modular-forms</uri>
     </author>
     <content type="html">
-      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2024-05-03 Update&lt;/pre&gt;
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-17:25 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/bb296101db0fb2805bf9583514de9257f221b5f7</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/bb296101db0fb2805bf9583514de9257f221b5f7"/>
+    <title>
+        2025-05-14-17:44 Update
+    </title>
+    <updated>2025-05-15T01:26:38Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-17:44 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ea1ff5d152ea82f1d8bfd87623b9153f025f6704</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/ea1ff5d152ea82f1d8bfd87623b9153f025f6704"/>
+    <title>
+        2025-05-14-17:44 Update
+    </title>
+    <updated>2025-05-15T01:26:34Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-17:44 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/f1fe565413e62139533eb5306e30d717d9700963</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/f1fe565413e62139533eb5306e30d717d9700963"/>
+    <title>
+        2025-05-14-17:25 Update
+    </title>
+    <updated>2025-05-14T23:50:46Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-17:25 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/251d5f203812332c1ad961d7cc5033633942c61d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/251d5f203812332c1ad961d7cc5033633942c61d"/>
+    <title>
+        2025-05-14-17:25 Update
+    </title>
+    <updated>2025-05-14T23:50:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-17:25 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/760db0d5e44132f2244b330b5f7bfd169774dd45</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/760db0d5e44132f2244b330b5f7bfd169774dd45"/>
+    <title>
+        2025-05-14-17:25 Update
+    </title>
+    <updated>2025-05-14T20:25:19Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-17:25 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2453ac5af2eb03af38e65ba198aa1f69ad58a86c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/2453ac5af2eb03af38e65ba198aa1f69ad58a86c"/>
+    <title>
+        2025-05-14-16:56 Update
+    </title>
+    <updated>2025-05-14T19:56:52Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-14-16:56 Update&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/45cace107a47a45966a11f67b708d214d522f733</id>
+    <link type="text/html" rel="alternate" href="https://github.com/The-Clowder-Project/the-clowder-project/commit/45cace107a47a45966a11f67b708d214d522f733"/>
+    <title>
+        2025-05-11-18:24 Update
+    </title>
+    <updated>2025-05-11T22:25:27Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/95149992?s=30&amp;v=4"/>
+    <author>
+      <name>topological-modular-forms</name>
+      <uri>https://github.com/topological-modular-forms</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;2025-05-11-18:24 Update&lt;/pre&gt;
     </content>
   </entry>
 </feed>
