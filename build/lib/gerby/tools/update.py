@@ -297,6 +297,8 @@ def makeBibliography(files):
 
       for (field, value) in entry.persons.items():
         value = " and ".join([person.__str__() for person in value])
+        if re.match("^\\\href\{[^}]*\}\{[^}]*\}$",value):
+            value = re.sub("\\\href{([^}]+)}{([^}]+)}","<a href=\"\g<1>\">\g<2></a>",value)
         value = pybtex.richtext.Text.from_latex(value).render_as("text")
         BibliographyField.create(key=entry.key, field=field.lower(), value=value)
 

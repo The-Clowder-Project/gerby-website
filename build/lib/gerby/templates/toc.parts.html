@@ -5,8 +5,6 @@
 {% block head %}
   <script type="text/javascript" src="/static/js/toggle.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.css" integrity="sha384-U1uEPfU2/stCtBJ6oZS4XLX35g0MD+BZTTskUun0Vhv64RLEaTUXtcpxGScTbkUP" crossorigin="anonymous">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.2/jquery.bonsai.min.js" integrity="sha384-ZKch/OmPYYZT/9GpxSgMqUIDdBjwYYuJ3+CfQytRQElwdBsCMJkEmcsynJlFlsCS" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block hamburger %}
@@ -24,7 +22,7 @@
       {% if part.name != "Secret Part" %}
         <li id="{{ part.tag }}" class="expanded">
           <a class="header-offset" id="{{ part.label }}"></a>
-          <strong><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</strong>
+          <span class="semibold"><a href="/tag/{{ part.tag }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}</span>
 
           {#
           {% set filename = part.label.split("-part-")[1] %}
@@ -109,13 +107,13 @@ $("a.sidebar-link").click(function() {
   
           // Update the href attribute based on the selected value
           if (pdfChoice === "Style1") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans-tcb.pdf";
           } else if (pdfChoice === "Style2") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans.pdf";
           } else if (pdfChoice === "Style3") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/arno.pdf";
           } else if (pdfChoice === "Style4") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/cm.pdf";
           }
       }
       // Get the dropdown menu element
@@ -131,13 +129,13 @@ $("a.sidebar-link").click(function() {
   
           // Update the href attribute based on the selected value
           if (selectedValue === "Style1") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans-tcb.pdf";
           } else if (selectedValue === "Style2") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans.pdf";
           } else if (selectedValue === "Style3") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/arno.pdf";
           } else if (selectedValue === "Style4") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/cm.pdf";
           }
       });
       window.addEventListener('load', function() {
@@ -150,13 +148,13 @@ $("a.sidebar-link").click(function() {
   
           // Update the href attribute based on the selected value
           if (selectedValue === "Style1") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans-tcb.pdf";
           } else if (selectedValue === "Style2") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans.pdf";
           } else if (selectedValue === "Style3") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/arno.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/arno.pdf";
           } else if (selectedValue === "Style4") {
-              link.href = "https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/cm.pdf";
+              link.href = "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/cm.pdf";
           }
       });
   </script>

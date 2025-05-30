@@ -600,40 +600,40 @@ tr:nth-child(even) {
     document.addEventListener("DOMContentLoaded", function() {
         initializeCounters();
 
-        // Footnote handling remains unchanged
-        var footnotes = document.querySelectorAll(".footnote");
-        var footnoteBox = document.getElementById("footnote-box");
+        //// Footnote handling remains unchanged
+        //var footnotes = document.querySelectorAll(".footnote");
+        //var footnoteBox = document.getElementById("footnote-box");
 
-        footnotes.forEach(function(footnote) {
-            footnote.addEventListener("mouseover", function(event) {
-                var content = footnote.getAttribute("data-content");
-                document.getElementById("footnote-content").innerHTML = content;
-                var rect = footnote.getBoundingClientRect();
-                footnoteBox.style.left = rect.left + "px";
-                footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
-                footnoteBox.classList.remove("hidden");
+        //footnotes.forEach(function(footnote) {
+        //    footnote.addEventListener("mouseover", function(event) {
+        //        var content = footnote.getAttribute("data-content");
+        //        document.getElementById("footnote-content").innerHTML = content;
+        //        var rect = footnote.getBoundingClientRect();
+        //        footnoteBox.style.left = rect.left + "px";
+        //        footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
+        //        footnoteBox.classList.remove("hidden");
 
-                // Process counters within the footnote content
-                initializeCounters();
-                MathJax.typeset();
-            });
+        //        // Process counters within the footnote content
+        //        initializeCounters();
+        //        MathJax.typeset();
+        //    });
 
-            footnote.addEventListener("mouseout", function() {
-                setTimeout(() => {
-                    if (!footnoteBox.matches(':hover')) {
-                        closeFootnote();
-                    }
-                }, 100);
-            });
-        });
+        //    footnote.addEventListener("mouseout", function() {
+        //        setTimeout(() => {
+        //            if (!footnoteBox.matches(':hover')) {
+        //                closeFootnote();
+        //            }
+        //        }, 100);
+        //    });
+        //});
 
-        footnoteBox.addEventListener("mouseover", function() {
-            clearTimeout(closeFootnote);
-        });
+        //footnoteBox.addEventListener("mouseover", function() {
+        //    clearTimeout(closeFootnote);
+        //});
 
-        footnoteBox.addEventListener("mouseout", function() {
-            closeFootnote();
-        });
+        //footnoteBox.addEventListener("mouseout", function() {
+        //    closeFootnote();
+        //});
     });
 
     function closeFootnote() {

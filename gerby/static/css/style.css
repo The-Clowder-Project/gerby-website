@@ -503,9 +503,6 @@ label.toggle-off:active {
 }
 .footnote {
   text-decoration: none;
-  color: #1d5cb4;
-  transition: color 0.2s ease;
-  cursor: pointer;
 }
 ul {
   list-style-type: disc;

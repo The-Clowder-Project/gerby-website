@@ -5,49 +5,77 @@
 {% block title %}Index {% endblock %}
 
 {% block body %}
-  <p style="margin-bottom:1em">Welcome! This is the web version of my <a href="https://topological-modular-forms.github.io/notes.html">notes</a>, including only the mostly polished parts of them. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="Raymond Cheng">Raymond Cheng</a>.</p>
+  <div class="index-page-body">
+    <!--<div class="highlighted-warning-box"><b>Important: </b>Currently, most chapters are empty placeholders, with the exception of the first 11 chapters, though chapter 7 is also empty.</div>-->
 
-  <p style="margin-bottom:1em"><b>Scope. </b>The scope and planned content of this project is outlined in detail in the <a href="/scope">Scope</a> page. Succintly, this project is currently aiming to become a Stacks Project for category theory, although material from other areas will also be added in the future.</p>
+    <div align="center"><img width="100%" class="clowder-logo"></div>
 
-  <p style="margin-bottom:1em"><b>Comments. </b>Although the comments feature has been disable for this site, any and all comments, no matter how small (even things like bad typography or very small typos), are extremely welcome. If you'd like to get in touch, you can reach me at <a href="mailto:emily.de.oliveira.santos.tmf@gmail.com">emily.de.oliveira.santos.tmf@gmail.com</a>.</p>
+    <p style="text-align:center;margin-top:1.25em;margin-bottom:1em"><b>Welcome to the Clowder Project!</b></p>
+    
+    <div class="mobile-div">
+        <ul id="mobile-index-select">
+            <li id="mobile-index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a></li>
+            <li id="mobile-index-bibliography"><a href="/bibliography"><span class="dark-svg"><img src="/static/images/bibliography.svg"></span>References</a></li>
+            <li id="mobile-index-contributors"><a href="/contributors"><span class="dark-svg"><img src="/static/images/contributors.svg"></span>Contributors</a></li>
+            <li id="mobile-index-contributing"><a href="/contributing"><span class="dark-svg"><span style="font-size:32px;text-decoration:none;transform:translateY(10px);margin-left:3.5px;margin-right:4px;color:black;" class="material-symbols-outlined"></span></span>Contributing</a></li>
+            <li id="mobile-index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a></li>
+            <li id="mobile-index-github"><a href="https://github.com/topological-modular-forms/the-clowder-project"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a></li>
+            <li id="mobile-index-discord"><a href="https://discord.gg/b98uG2MWgc"><span class="dark-svg"><img src="/static/images/discord.svg"></span>Discord</a></li>
+            <li id="index-invisible"><span></span></li>
+        </ul>
+    </div>
 
-  <p style="margin-bottom:1em"><b>Contributions. </b>Contributions are also extremely welcome: this project is meant to be massively collaborative in the same was as the Automorphic Project or the Stacks Project are.</p>
+    <p style="margin-top:0.5em;margin-bottom:1em">The Clowder Project is an online reference work and wiki for category theory and ma&shy;the&shy;ma&shy;ti&shy;cs. It is built using <a href="https://gerby-project.github.io/">Gerby</a>, created by <a href="https://pbelmans.ncag.info/">Pieter Belmans</a> and <a href="https://chngr.github.io/">Raymond Cheng</a>, which is a fork of <a href="https://github.com/plastex/plastex">plas&shy;TeX</a>. The Clowder Project follows the massively collaborative model started by the <a href="https://stacks.math.columbia.edu/">Stacks Project</a>, and aims to become the equivalent of it for ca&shy;te&shy;go&shy;ry theory.</p>
 
-  <p style="margin-bottom:1em"><b>Preferences. </b>You can change the font of the site, the style of the PDFs, as well as turn on dark mode by clicking the gear button at the top of the page.</p>
+    <!--<p style="margin-bottom:1em">As a completely static website hosted on GitHub pages, there is currently no system for on-site co&shy;mments like those in the <a href="https://stacks.math.columbia.edu/">Stacks Project</a>, <a href="https://kerodon.net">Ke&shy;ro&shy;don</a>, or the <a href="https://automorphic.jh.edu/">Automorphic Project</a>.</p>-->
 
-  <p style="margin-bottom:1em"><b>Mobile. </b>This site is unfortunately broken on mobile. Please use a desktop computer or laptop to browse it or, alternatively, download the <a href="https://raw.githubusercontent.com/topological-modular-forms/mess-project-gerby-output/master/tags-book/alegreya-sans-tcb.pdf">PDF version</a>.</p>
+    <!--<p style="margin-bottom:1em">However, there's a dedicated Discord server, which you can join <a href="https://discord.gg/b98uG2MWgc">here</a>. There you'll find cha&shy;nnels for discussion and comments, hopefully partly making up for the lack of an in-site comment system. There's also an updates channel, re&shy;cor&shy;ding ma&shy;jor news and addi&shy;ti&shy;ons cu&shy;rren&shy;tly be&shy;ing worked on.</p>-->
 
-  <p style="margin-bottom:1em">See the <a href="/about">About</a> page for more details on how the site is organised, as well as various notes on its content.</p>
+    <p style="margin-bottom:1em">All comments, no matter how small, are ex&shy;tre&shy;me&shy;ly welcome, as are contributions.</p>
 
-  <hr>
-  <p style="margin-bottom:1em"><b>Notes on the Development Branch. </b>You are currently viewing the “development branch” of this project, which includes work in progress and is significantly more messy than the “stable branch”, the one that will eventually be publicly accessible and have more spaced and polished updates. Currently, most of the ongoing work is focused on:</p>
-  <ul>
-    <li>Polishing the work linearly from start to finish and filling in some of the omitted proofs. Currently at the Constructions With Sets, Powersets section.</li>
-    <li>Writing new material and figuring/working new things out. Currently focused on developing the chapters on Relations and Spans.</li>
-    <li>Converting the PDFs I have written to web version. Currently focused on converting PDFs for category theory, more specifically the Types of Morphisms in Categories chapter.</li>
-  </ul>
-  <p style="margin-bottom:1em">Any comments, suggestions, or contributions, no matter how small, are more than welcome. I hope you enjoy this project!</p>
+    <p style="margin-bottom:1em">For further notes on the Clowder Project, see the <a href="/about">About</a> page.</p>
+
+    <hr>
+
+    <p style="margin-bottom:0.8em">This project currently relies on donations, with its future still being uncertain. If you like this project and would like to su&shy;pport it, you can do so at Ko-Fi:</p>
+    <!-- Ko-fi button script -->
+    <div align="center" style="margin-bottom:1em">
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+    <script type='text/javascript'>
+      kofiwidget2.init('Support this project on Ko-fi', '#13C3FF', 'A0A8PKR0E');
+      kofiwidget2.draw();
+    </script>
+    </div>
+    <p style="margin-bottom:1em">Donations go to <a href="https://topological-modular-forms.github.io/">Emily de Oliveira Santos</a>, who is thereby charged with:
+    <ol class="main-list">
+        <li id="1" class="custom-item"><span class="counter"><span class="counter-inner-no-pointer">1.</span>Taking care of the te&shy;ch&shy;ni&shy;cal aspects of the project website, including hosting and in&shy;fra&shy;struc&shy;ture.</span></li>
+      <li id="2" class="custom-item"><span class="counter"><span class="counter-inner-no-pointer">2.</span>Continuously ex&shy;pan&shy;ding the project with new content on category theory and re&shy;la&shy;ted subjects.</span></li>
+      <li id="3" class="custom-item"><span class="counter"><span class="counter-inner-no-pointer">3.</span>Coordinating contributions and collaboration, ensuring the project is kept co&shy;he&shy;si&shy;ve.</span></li>
+    </ol>
+    <p style="margin-bottom:1em">The current monthly supporters are listed in the <a href="/contributors">Con&shy;tri&shy;bu&shy;tors</a> page.</p>
+  </div>
 {% endblock %}
 
 {% block tagline %}
-  <em style="display: block; margin: auto; text-align: center">a collection of personal notes on mathematics and physics</em>
+  <em style="display: block; margin: auto; text-align: center">an online resource for category theory and mathematics</em>
 {% endblock %}
 
 {% block sidebar %}
   <ul id="index-select">
-    <li id="index-about"><a href="/about"><span class="dark-svg"><img src="/static/images/info.svg"></span>About</a>
+      <!--<li id="index-about"><a href="/about"><span class="dark-svg"><img src="/static/images/info.svg"></span>About</a>-->
     <!--<li id="index-search"><a href="/search">Search<img src="/static/images/search.svg"></a>-->
-    <!--<li id="index-blog"><a href="https://www.math.columbia.edu/~dejong/wordpress/"><img src="/static/images/blog.svg">blog</a>-->
-    <li id="index-bibliography"><a href="/bibliography"><span class="dark-svg"><img src="/static/images/bibliography.svg"></span>References</a>
-    <li id="index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a>
-    <li id="index-github"><a href="https://github.com/topological-modular-forms/mess-project-gerby"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a>
-    <!--<li id="index-comments"><a href="/recent-comments">comments<img src="/static/images/comments.svg"></a>-->
-    <!--<li><a href="https://topological-modular-forms.github.io/notes.html"><span class="dark-svg"><img src="/static/images/blog.svg"></span>Nightly Ver.</a>-->
-    <li id="index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a>
-    <li id="index-invisible"><span></span>
+    <li id="index-browse"><a href="/browse"><span class="dark-svg"><img src="/static/images/list-ordered.svg"></span>Contents</a></li>
+    <li id="index-bibliography"><a href="/bibliography"><span class="dark-svg"><img src="/static/images/bibliography.svg"></span>References</a></li>
+    <li id="index-contributors"><a href="/contributors"><span class="dark-svg"><img src="/static/images/contributors.svg"></span>Contributors</a></li>
+    <li id="index-contributing"><a href="/contributing"><span class="dark-svg"><span style="font-size:32px;text-decoration:none;transform:translateY(10px);margin-left:3.5px;margin-right:4px;color:black;" class="material-symbols-outlined"></span></span>Contributing</a></li>
+    <li id="index-changes"><a href="/changes"><span class="dark-svg"><img src="/static/images/diff.svg"></span>Changes</a></li>
+    <li id="index-github"><a href="https://github.com/topological-modular-forms/the-clowder-project"><span class="dark-svg"><img src="/static/images/github.svg"></span>GitHub</a></li>
+    <li id="index-discord"><a href="https://discord.gg/b98uG2MWgc"><span class="dark-svg"><img src="/static/images/discord.svg"></span>Discord</a></li>
+    <li id="index-invisible"><span></span></li>
+    <!--<li id="index-invisible"><span></span>-->
   </ul>
   {% for update in updates %}
-    <h3>{{ update.title | safe }}</h3>
+    <h3><span class="semibold">{{ update.title | safe }}</span></h3>
     <ul>
       {% for item  in update.entries %}
         <li>{{ item | safe }}
@@ -55,9 +83,9 @@
     </ul>
   {% endfor %}
 
-  <h3><a href="/statistics">Statistics</a></h3>
+  <h3><a href="/statistics"><span class="semibold">Statistics</span></a></h3>
 
-  <p class="mb-1">The Gigantic Mess project now consists of
+  <p class="mb-1">The Clowder Project now consists of
   <ul>
     {% for statistic in statistics %}
       <li>{{ statistic | safe }}

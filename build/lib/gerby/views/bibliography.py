@@ -4,6 +4,33 @@ from gerby.application import app
 from gerby.database import *
 import re
 
+# Helper function to remove HTML tags for sorting purposes
+def strip_html(text):
+    """Removes HTML tags from a string."""
+    if not text:
+        return ""
+    # Basic regex, sufficient if author HTML is just simple <a> tags
+    # Consider libraries like BeautifulSoup for more complex/nested HTML
+    return re.sub('<[^>]*>', '', text).strip()
+
+def reformatHowPublished(howpublished_field):
+    if (len(re.findall(r"\\url",howpublished_field)) >= 1):
+        howpublished_field = re.sub(r"\\url ","",howpublished_field)
+        howpublished_field = re.sub("&amp;","&",howpublished_field)
+        howpublished_field = re.sub("<span class=\"bibtex-protected\">(.*?)</span>","\g<1>",howpublished_field)
+        return howpublished_field
+    else:
+        return howpublished_field
+
+def reformatNote(note_field):
+    if (len(re.findall(r"\\url",note_field)) >= 1):
+        note_field = re.sub("&amp;","&",note_field)
+        note_field = re.sub(r"\\url ","",note_field)
+        note_field = re.sub("<span class=\"bibtex-protected\">(.*?)</span>","\g<1>",note_field)
+        return note_field
+    else:
+        return note_field
+
 def reformatAuthors(author_field, oxford_comma_on=False):
     # Split the authors on ' and '
     authors = author_field.split(" and ")
@@ -47,11 +74,20 @@ def decorateEntries(entries):
 
 @app.route("/bibliography")
 def show_bibliography():
-  entries = BibliographyEntry.select()
-  entries = decorateEntries(entries)
-  entries = sorted(entries)
+  entries_query = BibliographyEntry.select() # Get the query
+  # Execute query and get list, then decorate
+  entries_list = decorateEntries(list(entries_query))
 
-  return render_template("bibliography.overview.html", entries=entries)
+  # Sort the list of decorated entry objects using the correct key
+  # The key uses the 'author' attribute (set by decorateEntries),
+  # strips HTML, and lowercases it for proper sorting.
+  # getattr(entry, 'author', '') handles cases where author might be missing.
+  entries_sorted = sorted(
+      entries_list,
+      key=lambda entry: strip_html(getattr(entry, 'author', '')).lower()
+  )
+
+  return render_template("bibliography.overview.html", entries=entries_sorted)
 
 @app.route("/bibliography/<string:key>")
 def show_entry(key):
@@ -60,36 +96,60 @@ def show_entry(key):
   except BibliographyEntry.DoesNotExist:
     return render_template("bibliography.notfound.html", key=key), 404
 
+  # Decorate the single entry to get fields like author etc.
+  # We can reuse decorateEntries by passing a list containing the single entry
+  decorated_entry_list = decorateEntries([entry])
+  if not decorated_entry_list: # Should not happen if entry exists
+      return "Error decorating entry", 500
+  entry = decorated_entry_list[0] # Get the decorated entry back
 
-  fields = BibliographyField.select().where(BibliographyField.key == entry.key)
-  entry.fields = dict()
-  for field in fields:
+  # Populate entry.fields dictionary (as the template seems to expect it)
+  entry.fields = {}
+  db_fields = BibliographyField.select().where(BibliographyField.key == entry.key)
+  for field in db_fields:
     if field.field == "author":
-        updated_author = reformatAuthors(field.value)
-        entry.fields[field.field] = updated_author
+        # Use the already reformatted author from the decorated entry object
+        entry.fields[field.field] = getattr(entry, 'author', '') # Use reformatted version
+    elif field.field == "howpublished":
+        entry.fields[field.field] = reformatHowPublished(field.value)
+    elif field.field == "note":
+        entry.fields[field.field] = reformatNote(field.value)
     else:
         entry.fields[field.field] = field.value
 
-  # it's too unpleasant to sort in SQL so we do it here, but the result might be a bit slow
-  entries = BibliographyEntry.select()
-  entries = decorateEntries(entries) # we need the author field to be present for sorting to work...
-  entries = sorted(entries)
+  # --- Find Neighbours ---
+  # Fetch all entries, decorate, and sort them *by author* to find neighbours correctly
+  all_entries_query = BibliographyEntry.select()
+  all_entries_list = decorateEntries(list(all_entries_query))
+  all_entries_sorted = sorted(
+      all_entries_list,
+      key=lambda e: strip_html(getattr(e, 'author', '')).lower()
+  )
 
   index = -1
-  for i in range(len(entries)):
-    if entries[i].key == entry.key:
+  for i, sorted_entry in enumerate(all_entries_sorted):
+    # Compare keys, assuming key is the unique identifier
+    if getattr(sorted_entry, 'key', None) == entry.key:
       index = i
+      break # Found the entry
 
   neighbours = [None, None]
   if index > 0:
-    neighbours[0] = entries[index-1]
-  if index < len(entries) - 1:
-    neighbours[1] = entries[index+1]
+    neighbours[0] = all_entries_sorted[index - 1]
+  if index != -1 and index < len(all_entries_sorted) - 1:
+    neighbours[1] = all_entries_sorted[index + 1]
+  # --- End Find Neighbours ---
 
-  citations = Citation.select().where(Citation.key == entry.key)
-  citations = sorted(citations)
+
+  # --- Citations ---
+  citations_query = Citation.select().where(Citation.key == entry.key)
+  # Decide how citations should be sorted (e.g., by tag or location)
+  # Assuming Citation object has relevant attributes like 'tag' or can be sorted by default
+  citations = sorted(list(citations_query)) # Using default sort for citations for now
+  # --- End Citations ---
+
 
   return render_template("bibliography.entry.html",
-                         entry=entry,
+                         entry=entry, # Pass the decorated entry
                          neighbours=neighbours,
                          citations=citations)

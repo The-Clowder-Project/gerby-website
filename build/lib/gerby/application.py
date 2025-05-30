@@ -33,9 +33,9 @@ app.config.from_object(__name__)
 
 feeds = {
   "github": {
-    "url": "https://github.com/topological-modular-forms/mess-project-gerby/commits/main.atom",
+    "url": "https://github.com/topological-modular-forms/the-clowder-project/commits/main.atom",
     "title": "Recent commits",
-    "link": "https://github.com/topological-modular-forms/mess-project-gerby/commits",
+    "link": "https://github.com/topological-modular-forms/the-clowder-project/commits",
   },
 }
 
@@ -61,7 +61,7 @@ def get_statistics():
   statistics.append(str(tags) + " tags")
   statistics.append(str(Tag.select().where(Tag.type == "section").count()) + " sections")
   statistics.append(str(Tag.select().where(Tag.type == "chapter").count()) + " chapters")
-  statistics.append(str(Slogan.select().count()) + " slogans")
+  #statistics.append(str(Slogan.select().count()) + " slogans")
 
   return statistics
 
@@ -113,10 +113,13 @@ def show_index():
       comments=comments,
       )
 
+@app.route("/contributors")
+def show_contributors_page():
+  return render_template("single/contributors.html")
 
-@app.route("/scope")
-def show_scope():
-  return render_template("single/scope.html")
+@app.route("/contributing")
+def show_contributing_page():
+  return render_template("single/contributing.html")
 
 @app.route("/about")
 def show_about():
