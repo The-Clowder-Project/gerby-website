@@ -469,176 +469,176 @@ tr:nth-child(even) {
     observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
   </script>
   <script>
-    function initializeCounters() {
-        // Define counter types based on nesting depth
-        const counterTypes = ['decimal', 'alpha', 'roman', 'uppercaseRoman'];
+    //function initializeCounters() {
+    //    // Define counter types based on nesting depth
+    //    const counterTypes = ['decimal', 'alpha', 'roman', 'uppercaseRoman'];
 
-        // Helper function to get counter text based on type and value
-        function getCounterText(type, value) {
-            if (type === 'decimal') {
-                return value + '.';
-            } else if (type === 'alpha') {
-                // 'a' is 97 in ASCII
-                return '(' + String.fromCharCode(96 + value) + ')';
-            } else if (type === 'roman') {
-                const romanNumerals = [
-                    'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
-                    'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx'
-                ];
-                return '(' + (romanNumerals[value - 1] || value) + ')';
-            } else if (type === 'uppercaseRoman') {
-                const upperRomanNumerals = [
-                    'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
-                    'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'
-                ];
-                return '(' + (upperRomanNumerals[value - 1] || value) + ')';
-            }
-            // Add more types if needed
-        }
+    //    // Helper function to get counter text based on type and value
+    //    function getCounterText(type, value) {
+    //        if (type === 'decimal') {
+    //            return value + '.';
+    //        } else if (type === 'alpha') {
+    //            // 'a' is 97 in ASCII
+    //            return '(' + String.fromCharCode(96 + value) + ')';
+    //        } else if (type === 'roman') {
+    //            const romanNumerals = [
+    //                'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+    //                'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx'
+    //            ];
+    //            return '(' + (romanNumerals[value - 1] || value) + ')';
+    //        } else if (type === 'uppercaseRoman') {
+    //            const upperRomanNumerals = [
+    //                'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
+    //                'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'
+    //            ];
+    //            return '(' + (upperRomanNumerals[value - 1] || value) + ')';
+    //        }
+    //        // Add more types if needed
+    //    }
 
-        // Global counters object
-        const counters = {};
+    //    // Global counters object
+    //    const counters = {};
 
-        // Variable to track whether we are inside an article
-        let insideArticle = false;
+    //    // Variable to track whether we are inside an article
+    //    let insideArticle = false;
 
-        // Recursive function to process elements
-        function processElements(element, depth) {
-            // Check for article boundaries
-            if (element.tagName === 'ARTICLE') {
-                // When entering an article, reset counters
-                insideArticle = true;
-                resetAllCounters();
-            }
+    //    // Recursive function to process elements
+    //    function processElements(element, depth) {
+    //        // Check for article boundaries
+    //        if (element.tagName === 'ARTICLE') {
+    //            // When entering an article, reset counters
+    //            insideArticle = true;
+    //            resetAllCounters();
+    //        }
 
-            // Reset counters if <div class="p-proof"> or <div class="footnotes-section"> is encountered
-            if (
-                element.classList &&
-                (element.classList.contains('p-proof') || element.classList.contains('footnotes-section'))
-            ) {
-                resetAllCounters();
-            }
+    //        // Reset counters if <div class="p-proof"> or <div class="footnotes-section"> is encountered
+    //        if (
+    //            element.classList &&
+    //            (element.classList.contains('p-proof') || element.classList.contains('footnotes-section'))
+    //        ) {
+    //            resetAllCounters();
+    //        }
 
-            // Reset counters for index page
-            if (element.textContent && element.textContent.includes('who is thereby charged with')) {
-                resetAllCounters();
-            }
+    //        // Reset counters for index page
+    //        if (element.textContent && element.textContent.includes('who is thereby charged with')) {
+    //            resetAllCounters();
+    //        }
 
-            // Process child nodes
-            const childNodes = element.childNodes;
-            childNodes.forEach(child => {
-                if (child.nodeType === Node.ELEMENT_NODE) {
-                    // If the child is an <ol> or <ul>, process it as a list
-                    if (child.tagName === 'OL' || child.tagName === 'UL') {
-                        processList(child, depth);
-                    } else {
-                        // Recurse into child elements
-                        processElements(child, depth);
-                    }
-                }
-            });
+    //        // Process child nodes
+    //        const childNodes = element.childNodes;
+    //        childNodes.forEach(child => {
+    //            if (child.nodeType === Node.ELEMENT_NODE) {
+    //                // If the child is an <ol> or <ul>, process it as a list
+    //                if (child.tagName === 'OL' || child.tagName === 'UL') {
+    //                    processList(child, depth);
+    //                } else {
+    //                    // Recurse into child elements
+    //                    processElements(child, depth);
+    //                }
+    //            }
+    //        });
 
-            // Check for article end
-            if (element.tagName === 'ARTICLE') {
-                // When exiting an article, reset counters
-                insideArticle = false;
-                resetAllCounters();
-            }
-        }
+    //        // Check for article end
+    //        if (element.tagName === 'ARTICLE') {
+    //            // When exiting an article, reset counters
+    //            insideArticle = false;
+    //            resetAllCounters();
+    //        }
+    //    }
 
-        // Function to reset all counters
-        function resetAllCounters() {
-            for (let d = 1; d <= counterTypes.length; d++) {
-                counters[d] = 1;
-            }
-        }
+    //    // Function to reset all counters
+    //    function resetAllCounters() {
+    //        for (let d = 1; d <= counterTypes.length; d++) {
+    //            counters[d] = 1;
+    //        }
+    //    }
 
-        // Recursive function to process a list
-        function processList(listElement, depth) {
-            if (depth > counterTypes.length) return; // Limit to defined counter types
+    //    // Recursive function to process a list
+    //    function processList(listElement, depth) {
+    //        if (depth > counterTypes.length) return; // Limit to defined counter types
 
-            const counterType = counterTypes[depth - 1];
+    //        const counterType = counterTypes[depth - 1];
 
-            // Initialize counter for this depth if not already
-            if (!counters.hasOwnProperty(depth)) {
-                counters[depth] = 1;
-            }
+    //        // Initialize counter for this depth if not already
+    //        if (!counters.hasOwnProperty(depth)) {
+    //            counters[depth] = 1;
+    //        }
 
-            const items = listElement.children;
-            for (const item of items) {
-                if (item.tagName !== 'LI') continue;
+    //        const items = listElement.children;
+    //        for (const item of items) {
+    //            if (item.tagName !== 'LI') continue;
 
-                // Reset counters for deeper levels when starting a new list item
-                for (let d = depth + 1; d <= counterTypes.length; d++) {
-                    counters[d] = 1;
-                }
+    //            // Reset counters for deeper levels when starting a new list item
+    //            for (let d = depth + 1; d <= counterTypes.length; d++) {
+    //                counters[d] = 1;
+    //            }
 
-                // Assign counter text to elements with class 'counter-inner' or 'counter-inner-no-pointer'
-                const counterElements = item.querySelectorAll('.counter-inner, .counter-inner-no-pointer');
-                counterElements.forEach(element => {
-                    element.textContent = getCounterText(counterType, counters[depth]);
-                });
+    //            // Assign counter text to elements with class 'counter-inner' or 'counter-inner-no-pointer'
+    //            const counterElements = item.querySelectorAll('.counter-inner, .counter-inner-no-pointer');
+    //            counterElements.forEach(element => {
+    //                element.textContent = getCounterText(counterType, counters[depth]);
+    //            });
 
-                // Increment counter for current depth after assigning the counter text
-                counters[depth]++;
+    //            // Increment counter for current depth after assigning the counter text
+    //            counters[depth]++;
 
-                // Process any child elements (including nested lists and divs)
-                processElements(item, depth + 1);
-            }
-        }
+    //            // Process any child elements (including nested lists and divs)
+    //            processElements(item, depth + 1);
+    //        }
+    //    }
 
-        // Start processing from the <section id="main">
-        const mainSection = document.getElementById('main');
-        if (mainSection) {
-            processElements(mainSection, 1);
-        } else {
-            console.warn('No element with id="main" found.');
-        }
-    }
+    //    // Start processing from the <section id="main">
+    //    const mainSection = document.getElementById('main');
+    //    if (mainSection) {
+    //        processElements(mainSection, 1);
+    //    } else {
+    //        console.warn('No element with id="main" found.');
+    //    }
+    //}
 
-    // Initialize counters on document load
-    document.addEventListener("DOMContentLoaded", function() {
-        initializeCounters();
+    //// Initialize counters on document load
+    //document.addEventListener("DOMContentLoaded", function() {
+    //    initializeCounters();
 
-        //// Footnote handling remains unchanged
-        //var footnotes = document.querySelectorAll(".footnote");
-        //var footnoteBox = document.getElementById("footnote-box");
+    //    //// Footnote handling remains unchanged
+    //    //var footnotes = document.querySelectorAll(".footnote");
+    //    //var footnoteBox = document.getElementById("footnote-box");
 
-        //footnotes.forEach(function(footnote) {
-        //    footnote.addEventListener("mouseover", function(event) {
-        //        var content = footnote.getAttribute("data-content");
-        //        document.getElementById("footnote-content").innerHTML = content;
-        //        var rect = footnote.getBoundingClientRect();
-        //        footnoteBox.style.left = rect.left + "px";
-        //        footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
-        //        footnoteBox.classList.remove("hidden");
+    //    //footnotes.forEach(function(footnote) {
+    //    //    footnote.addEventListener("mouseover", function(event) {
+    //    //        var content = footnote.getAttribute("data-content");
+    //    //        document.getElementById("footnote-content").innerHTML = content;
+    //    //        var rect = footnote.getBoundingClientRect();
+    //    //        footnoteBox.style.left = rect.left + "px";
+    //    //        footnoteBox.style.top = (rect.top + rect.height + window.scrollY) + "px";
+    //    //        footnoteBox.classList.remove("hidden");
 
-        //        // Process counters within the footnote content
-        //        initializeCounters();
-        //        MathJax.typeset();
-        //    });
+    //    //        // Process counters within the footnote content
+    //    //        initializeCounters();
+    //    //        MathJax.typeset();
+    //    //    });
 
-        //    footnote.addEventListener("mouseout", function() {
-        //        setTimeout(() => {
-        //            if (!footnoteBox.matches(':hover')) {
-        //                closeFootnote();
-        //            }
-        //        }, 100);
-        //    });
-        //});
+    //    //    footnote.addEventListener("mouseout", function() {
+    //    //        setTimeout(() => {
+    //    //            if (!footnoteBox.matches(':hover')) {
+    //    //                closeFootnote();
+    //    //            }
+    //    //        }, 100);
+    //    //    });
+    //    //});
 
-        //footnoteBox.addEventListener("mouseover", function() {
-        //    clearTimeout(closeFootnote);
-        //});
+    //    //footnoteBox.addEventListener("mouseover", function() {
+    //    //    clearTimeout(closeFootnote);
+    //    //});
 
-        //footnoteBox.addEventListener("mouseout", function() {
-        //    closeFootnote();
-        //});
-    });
+    //    //footnoteBox.addEventListener("mouseout", function() {
+    //    //    closeFootnote();
+    //    //});
+    //});
 
-    function closeFootnote() {
-        document.getElementById("footnote-box").classList.add("hidden");
-    }
+    //function closeFootnote() {
+    //    document.getElementById("footnote-box").classList.add("hidden");
+    //}
   </script>
   <script>
       window.onload = function() {
