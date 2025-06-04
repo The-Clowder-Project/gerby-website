@@ -7,3 +7,4 @@ gerby/static/tikzcd-images
 gerby/static/webcompile-images
 gerby/static/scalemath-images
 build
+instance/feeds/github.feed
