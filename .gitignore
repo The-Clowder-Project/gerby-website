@@ -1,4 +1,7 @@
 gerby/tools/stacks.sqlite
+gerby/tools/stacks.pdf
+gerby/tools/stacks.paux
+gerby/tools/stacks.tags
 stacks.sqlite
 gerby/static/tikzcd-images
 gerby/static/webcompile-images
