@@ -28,10 +28,13 @@ $(document).ready(function() {
     $("input.toggle").not($(this)).bootstrapToggle("toggle");
 
     // and save preference: use presence of tag class
-    if ($("*[data-tag]").hasClass("tag"))
+    if ($("*[data-tag]").hasClass("tag")) { // "Tags" mode is active (toggle is OFF)
       localStorage.setItem("toggle", "tag");
-    else
+      $(".counter-inner").css("left", "-2.5em");
+    } else { // "Numbers" mode is active (toggle is ON)
       localStorage.setItem("toggle", "numbers");
+      $(".counter-inner").css("left", "-2em");
+    }
   });
 
   // toggle if localStorage says so
