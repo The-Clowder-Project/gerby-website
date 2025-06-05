@@ -1448,3 +1448,7 @@ blockquote {
     margin-top:   -0.125rem;
     margin-bottom: 0.75rem;
 }
+tbody tr:first-child {
+    background-color: #A60D0D;
+    color: #FFFFFF;
+}
