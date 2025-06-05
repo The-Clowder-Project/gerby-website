@@ -1452,3 +1452,6 @@ tbody tr:first-child {
     background-color: #A60D0D;
     color: #FFFFFF;
 }
+.proofbox > a {
+    color: #FFFFFF;
+}
