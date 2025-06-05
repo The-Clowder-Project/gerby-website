@@ -505,7 +505,7 @@ label.toggle-off:active {
   text-decoration: none;
 }
 ul {
-  list-style-type: disc;
+  list-style-type: none;
 }
 ol {
   list-style-type: none;
@@ -1435,4 +1435,8 @@ blockquote {
 .footnotes {
     padding-left: 0px;
     font-size: 85%;
+}
+.local-footnotes > ol {
+    margin-top:   -0.125rem;
+    margin-bottom: 0.75rem;
 }
