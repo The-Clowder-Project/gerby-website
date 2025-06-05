@@ -83,14 +83,15 @@ def importTags(files):
     for type in ["tikzpicture", "tikzcd"]:
       environment_regex = re.compile(r'<div class="' + type + '">(.+?)<\/div>', flags=re.DOTALL)
 
-      for tikz in environment_regex.findall(entity.html):
-        filename_regex = re.compile(r'data="(.+?)"')
+      # We handle TikZ ourselves
+      #for tikz in environment_regex.findall(entity.html):
+      #  filename_regex = re.compile(r'data="(.+?)"')
 
-        filename = filename_regex.search(entity.html).group(1)
-        file = os.path.join(gerby.configuration.PATH, filename)
+      #  filename = filename_regex.search(entity.html).group(1)
+      #  file = os.path.join(gerby.configuration.PATH, filename)
 
-        with open(file) as f:
-          entity.html = entity.html.replace(tikz, f.read())
+      #  with open(file) as f:
+      #    entity.html = entity.html.replace(tikz, f.read())
 
 
     entity.save()

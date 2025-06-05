@@ -571,7 +571,7 @@ ul.UP > li:first-child::before {
 .tinysize {
   font-size: 8pt;
 }
-.webcompile, .scalemath {
+.webcompile, .scalemath, .tikz-cd {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -999,6 +999,14 @@ h3 + p {
     position: relative; /* Change position when zoomed */
 }
 .webcompile img {
+    transition: transform 0.2s; /* Animation */
+    cursor: zoom-in;
+    background-color: #f2f2f2;
+    z-index: 1;
+    transform-origin: center; /* Ensure zoom centers on the image */
+    position: relative; /* Change position when zoomed */
+}
+.scalemath img {
     transition: transform 0.2s; /* Animation */
     cursor: zoom-in;
     background-color: #f2f2f2;
