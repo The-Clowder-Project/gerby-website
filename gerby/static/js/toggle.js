@@ -33,7 +33,7 @@ $(document).ready(function() {
       $(".counter-inner").css("left", "-2.5em");
     } else { // "Numbers" mode is active (toggle is ON)
       localStorage.setItem("toggle", "numbers");
-      $(".counter-inner").css("left", "-2em");
+      $(".counter-inner").css("left", "");
     }
   });
 
