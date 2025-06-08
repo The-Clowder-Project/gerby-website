@@ -533,6 +533,14 @@ li {
   left: -2em;
   width: 1.5em;
 }
+.counter-inner-no-tag {
+  display: inline-block;
+  font-weight: bold;
+  text-align: right;
+  position: absolute;
+  left: -2em;
+  width: 1.5em;
+}
 .counter-link {
   text-decoration: none;
   color: black;
