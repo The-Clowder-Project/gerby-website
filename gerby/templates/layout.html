@@ -58,7 +58,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 <script>
 window.MathJax = {
-  loader: {load: ['[tex]/mathtools','[tex]/require','[tex]/color','[tex]/configmacros','[tex]/html','[tex]/centernot']},
+  loader: {load: ['[tex]/mathtools','[tex]/require','[tex]/color','[tex]/configmacros','[tex]/html','[tex]/centernot','[tex]/boldsymbol']},
   tex: {
     macros: {
       linebreak: ["", 1, ""],
@@ -68,13 +68,14 @@ window.MathJax = {
     tagSide: 'right',
     inlineMath: [['$','$']],
     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-    packages: ['base', 'ams', 'mathtools', 'configmacros', 'require', 'color', 'html', 'centernot']
+    packages: ['base', 'ams', 'mathtools', 'configmacros', 'require', 'color', 'html', 'centernot','boldsymbol']
   },
   options: {
     ignoreHtmlClass: 'tex2jax_ignore',
     processHtmlClass: 'tex2jax_process'
   }
 };
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 {% endraw %}

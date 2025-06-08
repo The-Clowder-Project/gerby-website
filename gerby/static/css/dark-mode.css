@@ -505,3 +505,6 @@ body.dark-mode {
 .dark-mode .material-symbols-outlined {
     color: #FFFFFF; /* dark background color */
 }
+.dark-mode .scalemath img {
+    background-color: #343541;
+}
