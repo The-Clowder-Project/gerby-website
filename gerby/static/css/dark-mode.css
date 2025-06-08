@@ -297,6 +297,24 @@ body.dark-mode {
 .dark-mode .env-remark-footer {
     background-color: #245E24; /* color for the strip */
 }
+.dark-mode .env-lemma {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-lemma-header a {
+    color: #FFFFFF;
+}
+.dark-mode .env-lemma::before {
+    background-color: #9B3E00; /* color for the strip */
+}
+.dark-mode .env-lemma::after {
+    background-color: #9B3E00; /* color for the strip */
+}
+.dark-mode .env-lemma-header {
+    background-color: #9B3E00; /* color for the strip */
+}
+.dark-mode .env-lemma-footer {
+    background-color: #9B3E00; /* color for the strip */
+}
 .dark-mode .env-warning {
     background-color: #343541; /* dark background color */
 }
