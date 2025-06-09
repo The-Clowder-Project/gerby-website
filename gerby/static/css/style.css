@@ -1459,7 +1459,7 @@ tbody tr:first-child {
     color: #000000;
 }
 .palign {
-    margin-top: 0.5rem;
+    margin-top: 0.35rem;
 }
 .palign td {
     border: 0px solid #000000;
@@ -1467,4 +1467,18 @@ tbody tr:first-child {
 }
 .palign p {
     padding-bottom: 0px;
+}
+.palign tr > td:nth-child(1) {
+  text-align: right;
+}
+.palign tr > td:nth-child(2) {
+  padding-left:  0.25em;
+  padding-right: 0.25em;
+}
+.palign tr > td:nth-child(3) {
+  text-align: left;
+}
+.palign tr > td:nth-child(4) {
+  text-align: right;
+  font-size: 95%;
 }
