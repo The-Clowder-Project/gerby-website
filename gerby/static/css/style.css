@@ -1454,3 +1454,17 @@ tbody tr:first-child {
 .proofbox > a {
     color: #FFFFFF;
 }
+.palign > table > tbody tr {
+    background-color: #f2f2f2;
+    color: #000000;
+}
+.palign {
+    margin-top: 0.5rem;
+}
+.palign td {
+    border: 0px solid #000000;
+    padding: 0px;
+}
+.palign p {
+    padding-bottom: 0px;
+}

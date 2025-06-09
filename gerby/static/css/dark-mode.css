@@ -526,3 +526,15 @@ body.dark-mode {
 .dark-mode .scalemath img {
     background-color: #343541;
 }
+
+.dark-mode tbody tr:first-child {
+    background-color: #730808;
+    color: #FFFFFF;
+}
+.proofbox > a {
+    color: #FFFFFF;
+}
+.dark-mode .palign > table > tbody tr {
+    background-color: #343541;
+    color: #FFFFFF;
+}
