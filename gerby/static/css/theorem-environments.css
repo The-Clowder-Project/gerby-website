@@ -593,7 +593,10 @@
     margin-bottom: 0px; /* Space around the text inside the div */
 }
 .env-proof {
-    padding-bottom: 8px
+    /*padding-bottom: 8px*/
+}
+.env-proof p:last-child {
+    padding-bottom: 8px;
 }
 .env-proof div.proofbox {
     background-color: gray;
