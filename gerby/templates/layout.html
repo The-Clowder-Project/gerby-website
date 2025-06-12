@@ -844,7 +844,8 @@ function colorModePreview(ele) {
         doc.querySelectorAll('img').forEach(img => {
             const tikzPath = '/static/tikzcd-images/';
             const webCompilePath = '/static/webcompile-images/';
-            const scaleMathPath = '/static/scalemath-images/';
+            const scalemathPath = '/static/scalemath-images/';
+            const gifsPath = '/static/gifs/';
 
             if (img.src.includes(tikzPath) && isDarkMode && !img.src.includes(tikzPath + 'dark-mode/')) {
                 img.src = img.src.replace(tikzPath, tikzPath + 'dark-mode/');
@@ -858,10 +859,16 @@ function colorModePreview(ele) {
                 img.src = img.src.replace(webCompilePath + 'dark-mode/', webCompilePath);
             }
 
-            if (img.src.includes(scaleMathPath) && isDarkMode && !img.src.includes(scaleMatPath + 'dark-mode/')) {
-                img.src = img.src.replace(scaleMatPath, scaleMatPath + 'dark-mode/');
-            } else if (img.src.includes(scaleMatPath + 'dark-mode/') && !isDarkMode) {
-                img.src = img.src.replace(scaleMatPath + 'dark-mode/', scaleMatPath);
+            if (img.src.includes(scalemathPath) && isDarkMode && !img.src.includes(scalemathPath + 'dark-mode/')) {
+                img.src = img.src.replace(scalemathPath, scalemathPath + 'dark-mode/');
+            } else if (img.src.includes(scalemathPath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(scalemathPath + 'dark-mode/', scalemathPath);
+            }
+
+            if (img.src.includes(gifsPath) && isDarkMode && !img.src.includes(gifsPath + 'dark-mode/')) {
+                img.src = img.src.replace(gifsPath, gifsPath + 'dark-mode/');
+            } else if (img.src.includes(gifsPath + 'dark-mode/') && !isDarkMode) {
+                img.src = img.src.replace(gifsPath + 'dark-mode/', gifsPath);
             }
         });
 
@@ -892,6 +899,7 @@ function colorModePreview(ele) {
         adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', true);
         adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', true);
         adjustImgSrcForDarkMode('.scalemath > img', '/static/scalemath-images/', true);
+        adjustImgSrcForDarkMode('.webgif > img', '/static/gifs/', true);
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {
@@ -914,6 +922,7 @@ function colorModePreview(ele) {
         adjustImgSrcForDarkMode('.tikz-cd > img', '/static/tikzcd-images/', false);
         adjustImgSrcForDarkMode('.webcompile > img', '/static/webcompile-images/', false);
         adjustImgSrcForDarkMode('.scalemath > img', '/static/scalemath-images/', false);
+        adjustImgSrcForDarkMode('.webgif > img', '/static/gifs/', false);
         //
         let menu = document.getElementById('preferencesMenu');
         if(menu.style.display == 'block') {

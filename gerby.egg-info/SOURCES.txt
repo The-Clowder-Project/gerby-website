@@ -13,6 +13,7 @@ gerby.egg-info/SOURCES.txt
 gerby.egg-info/dependency_links.txt
 gerby.egg-info/requires.txt
 gerby.egg-info/top_level.txt
+gerby/static/gifs.zip
 gerby/static/mess.ico
 gerby/static/mess.png
 gerby/static/robots.txt
@@ -233,6 +234,8 @@ gerby/static/scalemath-images/scalemath-000058.svg
 gerby/static/scalemath-images/scalemath-000059.svg
 gerby/static/scalemath-images/scalemath-000060.svg
 gerby/static/scalemath-images/scalemath-000061.svg
+gerby/static/scalemath-images/scalemath-000062.svg
+gerby/static/scalemath-images/scalemath-000063.svg
 gerby/static/scalemath-images/dark-mode/scalemath-000000.svg
 gerby/static/scalemath-images/dark-mode/scalemath-000001.svg
 gerby/static/scalemath-images/dark-mode/scalemath-000002.svg
@@ -295,6 +298,8 @@ gerby/static/scalemath-images/dark-mode/scalemath-000058.svg
 gerby/static/scalemath-images/dark-mode/scalemath-000059.svg
 gerby/static/scalemath-images/dark-mode/scalemath-000060.svg
 gerby/static/scalemath-images/dark-mode/scalemath-000061.svg
+gerby/static/scalemath-images/dark-mode/scalemath-000062.svg
+gerby/static/scalemath-images/dark-mode/scalemath-000063.svg
 gerby/static/slides/monoidal-left-unity-of-id-otimes-sets/01.svg
 gerby/static/slides/monoidal-left-unity-of-id-otimes-sets/02.svg
 gerby/static/slides/monoidal-left-unity-of-id-otimes-sets/03.svg
@@ -849,6 +854,11 @@ gerby/static/tikzcd-images/tikzcd-000495.svg
 gerby/static/tikzcd-images/tikzcd-000496.svg
 gerby/static/tikzcd-images/tikzcd-000497.svg
 gerby/static/tikzcd-images/tikzcd-000498.svg
+gerby/static/tikzcd-images/tikzcd-000499.svg
+gerby/static/tikzcd-images/tikzcd-000500.svg
+gerby/static/tikzcd-images/tikzcd-000501.svg
+gerby/static/tikzcd-images/tikzcd-000502.svg
+gerby/static/tikzcd-images/tikzcd-000503.svg
 gerby/static/tikzcd-images/dark-mode/tikzcd-000000.svg
 gerby/static/tikzcd-images/dark-mode/tikzcd-000001.svg
 gerby/static/tikzcd-images/dark-mode/tikzcd-000002.svg
@@ -1348,6 +1358,11 @@ gerby/static/tikzcd-images/dark-mode/tikzcd-000495.svg
 gerby/static/tikzcd-images/dark-mode/tikzcd-000496.svg
 gerby/static/tikzcd-images/dark-mode/tikzcd-000497.svg
 gerby/static/tikzcd-images/dark-mode/tikzcd-000498.svg
+gerby/static/tikzcd-images/dark-mode/tikzcd-000499.svg
+gerby/static/tikzcd-images/dark-mode/tikzcd-000500.svg
+gerby/static/tikzcd-images/dark-mode/tikzcd-000501.svg
+gerby/static/tikzcd-images/dark-mode/tikzcd-000502.svg
+gerby/static/tikzcd-images/dark-mode/tikzcd-000503.svg
 gerby/static/webcompile-images/webcompile-000000.svg
 gerby/static/webcompile-images/webcompile-000001.svg
 gerby/static/webcompile-images/webcompile-000002.svg
@@ -1642,6 +1657,7 @@ gerby/static/webcompile-images/webcompile-000290.svg
 gerby/static/webcompile-images/webcompile-000291.svg
 gerby/static/webcompile-images/webcompile-000292.svg
 gerby/static/webcompile-images/webcompile-000293.svg
+gerby/static/webcompile-images/webcompile-000294.svg
 gerby/static/webcompile-images/dark-mode/webcompile-000000.svg
 gerby/static/webcompile-images/dark-mode/webcompile-000001.svg
 gerby/static/webcompile-images/dark-mode/webcompile-000002.svg
@@ -1936,6 +1952,7 @@ gerby/static/webcompile-images/dark-mode/webcompile-000290.svg
 gerby/static/webcompile-images/dark-mode/webcompile-000291.svg
 gerby/static/webcompile-images/dark-mode/webcompile-000292.svg
 gerby/static/webcompile-images/dark-mode/webcompile-000293.svg
+gerby/static/webcompile-images/dark-mode/webcompile-000294.svg
 gerby/templates/bibliography.entry.html
 gerby/templates/bibliography.notfound.html
 gerby/templates/bibliography.overview.html
