@@ -1448,3 +1448,6 @@ tbody tr:first-child {
   height: 100px;
   position: absolute;
 }
+.webgif {
+    width: 100%;
+}
