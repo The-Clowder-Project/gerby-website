@@ -1142,65 +1142,25 @@ ul#index-select li#index-invisible span {
   font-size: 30px;
   font-weight: bold;
   color: purple;
-  opacity: 0.05;
+  opacity: 0.075;
 }
 .gogogo-start-1 {
-  top: 90px;
-  left: 10px;
+  transform: translate(-200%,-100%);
 }
 .gogogo-start-2 {
-  top: 75px;
-  left: 50px;
+  transform: translate(-300%,-40%);
 }
 .gogogo-start-3 {
-  top: 60px;
-  left: 90px;
+  transform: translate(-400%,20%);
 }
-.gogogo-start-4 {
-  top: 45px;
-  left: 130px;
-}
-.gogogo-start-5 {
-  top: 30px;
-  left: 170px;
-}
-.gogogo-start-6 {
-  top: 15px;
-  left: 210px;
-}
-.gogogo-start-7 {
-  top: 0px;
-  left: 250px;
-}
-
 .gogogo-end-1 {
-  bottom: 80px;
-  right:  10px;
+  transform: translate(1950%,-40%);
 }
 .gogogo-end-2 {
-  bottom: 65px;
-  right:  50px;
+  transform: translate(2050%,-90%);
 }
 .gogogo-end-3 {
-  bottom: 50px;
-  right:  90px;
-}
-.gogogo-end-4 {
-  bottom: 35px;
-  right: 130px;
-}
-.gogogo-end-5 {
-  bottom: 20px;
-  right: 170px;
-}
-.gogogo-end-6 {
-  bottom: 5px;
-  right: 210px;
-}
-.gogogo-end-7 {
-  bottom: -10px;
-  right: 250px;
-  margin-bottom: 0.625rem;
+  transform: translate(2150%,-140%);
 }
 .trace-table {
     display: flex;
@@ -1481,4 +1441,10 @@ tbody tr:first-child {
 .palign tr > td:nth-child(4) {
   text-align: right;
   font-size: 95%;
+}
+.warning-test {
+  background-image: url('static/images/dbend.svg');
+  transform: translateX(-110%);
+  height: 100px;
+  position: absolute;
 }
