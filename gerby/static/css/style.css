@@ -785,7 +785,7 @@ section#meta {
 .text-block {
     max-width: 600px;
 }
-.textdbend-content img {
+.textdbend-content > .textdbend-image {
     width: 30px;
     vertical-align: bottom;
 }
