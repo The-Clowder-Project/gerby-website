@@ -65,6 +65,9 @@ window.MathJax = {
       webleft: ["\\mathopen{}\\left #1", 1],
       webright: ["\\right #1\\mathclose{}", 1]
     },
+    environments: {
+      bgroup: ["", 1] // A dirty hack to bypass https://github.com/plastex/plastex/issues/384
+    },
     tagSide: 'right',
     inlineMath: [['$','$']],
     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
