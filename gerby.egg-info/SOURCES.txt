@@ -75,7 +75,9 @@ gerby/static/gifs/monoidal-left-unity-of-id-otimes-sets-star.gif
 gerby/static/gifs/monoidal-left-unity-of-id-otimes-sets.gif
 gerby/static/gifs/monoidal-right-unity-of-id-otimes-sets-star.gif
 gerby/static/gifs/monoidal-right-unity-of-id-otimes-sets.gif
+gerby/static/gifs/dark-mode/monoidal-left-unity-of-id-otimes-sets-star.gif
 gerby/static/gifs/dark-mode/monoidal-left-unity-of-id-otimes-sets.gif
+gerby/static/gifs/dark-mode/monoidal-right-unity-of-id-otimes-sets-star.gif
 gerby/static/gifs/dark-mode/monoidal-right-unity-of-id-otimes-sets.gif
 gerby/static/images/PDF-bold.png
 gerby/static/images/PDF-dark-mode.png

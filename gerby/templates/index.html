@@ -78,7 +78,7 @@
     <h3><span class="semibold">{{ update.title | safe }}</span></h3>
     <ul>
       {% for item  in update.entries %}
-        <li>{{ item | safe }}
+        <li><span class="counter-inner-no-tag">•</span>{{ item | safe }}
       {% endfor %}
     </ul>
   {% endfor %}
@@ -88,7 +88,7 @@
   <p class="mb-1">The Clowder Project now consists of
   <ul>
     {% for statistic in statistics %}
-      <li>{{ statistic | safe }}
+      <li><span class="counter-inner-no-tag">•</span>{{ statistic | safe }}
     {% endfor %}
   </ul>
   <hr>

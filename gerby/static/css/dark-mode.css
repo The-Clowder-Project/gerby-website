@@ -531,6 +531,9 @@ body.dark-mode {
     background-color: #730808;
     color: #FFFFFF;
 }
+.dark-mode .preferences tbody tr:first-child {
+    background-color: #9B3E00;
+}
 .proofbox > a {
     color: #FFFFFF;
 }

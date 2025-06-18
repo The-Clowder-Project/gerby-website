@@ -73,7 +73,7 @@ $("div.expand-all").click(function() {
   <ul>
   {% for part in parts|sort_parts %}
     {% if part.name != "Secret Part" %}
-      <li><a class="sidebar-link" data-for="{{ part.tag }}" href="#{{ part.label }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}
+      <li><span class="counter-inner-no-tag">•</span><a class="sidebar-link" data-for="{{ part.tag }}" href="#{{ part.label }}">Part <span data-tag="{{ part.tag }}">{{ part.ref }}</span></a>: {{ part.name }}
     {% endif %}
   {% endfor %}
   <script type="text/javascript">

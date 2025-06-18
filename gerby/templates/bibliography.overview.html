@@ -44,7 +44,7 @@
       {% endif %}
 
       {# Display the entry - use original author field with | safe to render HTML link #}
-      <li>{{ entry.author | safe }}, <a href="/bibliography/{{ entry.key }}">{{ entry.title | safe }}</a></li>
+      <li><span class="counter-inner-no-tag">•</span>{{ entry.author | safe }}, <a href="/bibliography/{{ entry.key }}">{{ entry.title | safe }}</a></li>
 
     {% endif %}{# End check for non-empty author_text #}
 
