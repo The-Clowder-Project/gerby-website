@@ -291,9 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPdfStyleSelection();
     initCopyButtons();
     initImageResizing();
-    initImageZoom();
-    initAudioPlayers();
-    initSlideshows();
     initContactForm();
     initPopovers();
 
@@ -514,118 +511,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function initImageZoom() {
-        let zoomedContainer = null;
-        const zoomableDivs = document.querySelectorAll('.scalemath, .webcompile, .tikz-cd');
-
-        zoomableDivs.forEach(div => {
-            div.addEventListener('click', () => {
-                if (zoomedContainer) return; // Already zoomed
-
-                zoomedContainer = document.createElement('div');
-                zoomedContainer.className = 'zoom-container';
-                
-                const clonedImage = div.querySelector('img').cloneNode(true);
-                zoomedContainer.appendChild(clonedImage);
-                document.body.appendChild(zoomedContainer);
-
-                zoomedContainer.addEventListener('click', () => {
-                    document.body.removeChild(zoomedContainer);
-                    zoomedContainer = null;
-                }, { once: true });
-            });
-        });
-    }
-
-    /**
-     * ------------------------------------------------------------------------
-     * Slideshow Functionality
-     * ------------------------------------------------------------------------
-     */
-    function initSlideshows() {
-        const slideshows = Array.from(document.querySelectorAll('[id^="slideshow-"]'))
-            .map(container => initializeSlideshow(container))
-            .filter(Boolean); // Filter out nulls if initialization fails
-
-        const themeObserver = new MutationObserver((mutations) => {
-            for (const mutation of mutations) {
-                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                    slideshows.forEach(slideshow => slideshow.updateImageForCurrentMode());
-                }
-            }
-        });
-
-        themeObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-
-        function initializeSlideshow(container) {
-            const image = container.querySelector('.slideshow-image');
-            const prevBtn = container.querySelector('.slideshow-button-container #prev-slideshow-button');
-            const nextBtn = container.querySelector('.slideshow-button-container #next-slideshow-button');
-
-            if (!image || !prevBtn || !nextBtn) return null;
-
-            let currentSlide = 1;
-            const pad = (num) => num.toString().padStart(2, '0');
-
-            const getImageUrl = (slideNumber) => {
-                let path = image.src.substring(0, image.src.lastIndexOf('/'));
-                const fileName = image.src.substring(image.src.lastIndexOf('/') + 1);
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                
-                if (isDarkMode && !path.includes('/dark-mode')) {
-                    path += '/dark-mode';
-                } else if (!isDarkMode) {
-                    path = path.replace('/dark-mode', '');
-                }
-                return `${path}/${fileName.replace(/^\d+/, pad(slideNumber))}`;
-            };
-
-            const imageExists = (url) => new Promise(resolve => {
-                const imgTest = new Image();
-                imgTest.onload = () => resolve(true);
-                imgTest.onerror = () => resolve(false);
-                imgTest.src = url;
-            });
-
-            async function updateImage(newSlide) {
-                const newUrl = getImageUrl(newSlide);
-                if (await imageExists(newUrl)) {
-                    currentSlide = newSlide;
-                    image.src = newUrl;
-                }
-            }
-
-            prevBtn.addEventListener('click', () => { if (currentSlide > 1) updateImage(currentSlide - 1); });
-            nextBtn.addEventListener('click', () => updateImage(currentSlide + 1));
-            
-            return {
-                updateImageForCurrentMode: () => updateImage(currentSlide)
-            };
-        }
-    }
-    
     /**
      * ------------------------------------------------------------------------
      * Miscellaneous Initializers
      * ------------------------------------------------------------------------
      */
-    function initAudioPlayers() {
-        document.querySelectorAll('button[id^="playButton"]').forEach(button => {
-            button.addEventListener('click', function() {
-                const audioId = this.id.replace('playButton', 'audioPlayer');
-                const audio = document.getElementById(audioId);
-                if (audio) {
-                    if (audio.paused) {
-                        audio.play();
-                    } else {
-                        audio.pause();
-                        audio.currentTime = 0;
-                    }
-                }
-            });
-        });
-    }
-
     function initContactForm() {
         const form = document.getElementById("staticform");
         if (!form) return;
@@ -734,6 +624,80 @@ document.addEventListener('DOMContentLoaded', () => {
     updateAllPdfLinks(storedStyle);
 });
 </script>
+<script>
+    window.onload = function() {
+        // Maximum allowed width for images
+        var maxWidth = 550; // You can adjust this value as per your requirement
 
+        // Select all img tags within divs with class webcompile or tikzcd
+        var webcompile_images = document.querySelectorAll('.webcompile img');
+
+        // Loop through each selected image
+        webcompile_images.forEach(function(img) {
+            // Resize the image to 225% of its original size
+            var newWidth = img.offsetWidth * 2.0;
+
+            // Check if the new width exceeds the maximum allowed width
+            img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+        });
+
+        var tikzcd_images = document.querySelectorAll('.tikz-cd img');
+
+        // Loop through each selected image
+        tikzcd_images.forEach(function(img) {
+            // Resize the image
+            var newWidth = img.offsetWidth * 2.0;
+
+            // Check if the new width exceeds the maximum allowed width
+            img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+        });
+
+        // Select all img tags within divs with class scalemath or tikzcd
+        var scalemath_images = document.querySelectorAll('.scalemath img');
+
+        // Loop through each selected image
+        scalemath_images.forEach(function(img) {
+            // Resize the image to 225% of its original size
+            var newWidth = img.offsetWidth * 2.0;
+
+            // Check if the new width exceeds the maximum allowed width
+            img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+        });
+    };
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  let zoomedContainer = null;
+
+  // Select all div elements with class 'scalemath', 'webcompile' or 'tikz-cd'
+  const divElements = document.querySelectorAll('.scalemath, .webcompile, .tikz-cd');
+
+  divElements.forEach(divElement => {
+    divElement.addEventListener('click', (event) => {
+      const image = divElement.querySelector('img');
+
+      if (!zoomedContainer) {
+        // Create a new container for the zoomed image
+        zoomedContainer = document.createElement('div');
+        zoomedContainer.className = 'zoom-container';
+        
+        // Move the image to the new container
+        const clonedImage = image.cloneNode(true);
+        zoomedContainer.appendChild(clonedImage);
+        document.body.appendChild(zoomedContainer);
+
+        // Add click listener to zoom out
+        zoomedContainer.addEventListener('click', () => {
+          // Restore the image to its original parent
+          divElement.appendChild(image);
+          document.body.removeChild(zoomedContainer);
+          zoomedContainer = null;
+        });
+      }
+      event.stopPropagation();
+    });
+  });
+});
+</script>
 </body>
 </html>
