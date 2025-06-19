@@ -989,29 +989,14 @@ h3 + p {
 .dark-mode .p-proof a {
   color: #ffffff;
 }
-.tikz-cd img {
+.tikz-cd img, .webcompile img, .scalemath img {
     transition: transform 0.2s; /* Animation */
     cursor: zoom-in;
     background-color: #f2f2f2;
     z-index: 1;
     transform-origin: center; /* Ensure zoom centers on the image */
     position: relative; /* Change position when zoomed */
-}
-.webcompile img {
-    transition: transform 0.2s; /* Animation */
-    cursor: zoom-in;
-    background-color: #f2f2f2;
-    z-index: 1;
-    transform-origin: center; /* Ensure zoom centers on the image */
-    position: relative; /* Change position when zoomed */
-}
-.scalemath img {
-    transition: transform 0.2s; /* Animation */
-    cursor: zoom-in;
-    background-color: #f2f2f2;
-    z-index: 1;
-    transform-origin: center; /* Ensure zoom centers on the image */
-    position: relative; /* Change position when zoomed */
+    display: block;
 }
 .webcompile img.zoomed {
     position: relative; /* Change position when zoomed */
