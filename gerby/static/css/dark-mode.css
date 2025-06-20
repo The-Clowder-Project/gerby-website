@@ -219,6 +219,9 @@ body.dark-mode {
 .dark-mode .env-definition {
     background-color: #343541; /* dark background color */
 }
+.dark-mode .env-definition {
+    background-color: #343541; /* dark background color */
+}
 .dark-mode .env-definition::before {
     background-color: #3A3A61; /* color for the strip */
 }
@@ -411,6 +414,24 @@ body.dark-mode {
 .dark-mode .env-footnotes {
     background-color: #343541; /* dark background color */
 }
+.dark-mode .env-oldtag {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-oldtag {
+    background-color: #343541; /* dark background color */
+}
+.dark-mode .env-oldtag::before {
+    background-color: #542; /* color for the strip */
+}
+.dark-mode .env-oldtag::after {
+    background-color: #542; /* color for the strip */
+}
+.dark-mode .env-oldtag-header {
+    background-color: #542; /* color for the strip */
+}
+.dark-mode .env-oldtag-footer {
+    background-color: #542; /* color for the strip */
+}
 
 .dark-mode div.btn-container i.fa-sun-o{
     color: #777;
@@ -540,4 +561,11 @@ body.dark-mode {
 .dark-mode .palign > table > tbody tr {
     background-color: #343541;
     color: #FFFFFF;
+}
+.dark-mode .code-block {
+    background-color: #343541;
+}
+.dark-mode code {
+    color: #FFFFFF;
+    text-shadow: 0 0px #fff;
 }

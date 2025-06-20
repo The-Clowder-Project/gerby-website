@@ -659,3 +659,54 @@
     width: 5px; /* Width of the strip */
     background-color: #5BC0BE; /* color for the strip */
 }
+.env-oldtag {
+   background-color: #f2f2f2; /* Light grey background */
+   padding: 10px 15px 0.1px 15px; /* Space around the text */
+   position: relative; /* Needed for the strip positioning */
+}
+.env-oldtag::before {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    left: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
+    background-color: #8E784E; /* color for the strip */
+}
+.env-oldtag::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Align to the top of the div */
+    bottom: 0; /* Align to the bottom of the div */
+    right: 0; /* Align to the left of the div */
+    width: 3px; /* Width of the strip */
+    background-color: #8E784E; /* color for the strip */
+}
+.env-oldtag-header {
+    background-color: #8E784E; /* background color */
+    color: #ffffff; /* White text color */
+    padding-left:   15px; /* Space around the text inside the div */
+    padding-right:  15px; /* Space around the text inside the div */
+    padding-top:    5px; /* Space around the text inside the div */
+    padding-bottom: 5px; /* Space around the text inside the div */
+}
+.env-oldtag-footer {
+    background-color: #8E784E; /* background color */
+    color: #ffffff; /* White text color */
+    padding: 1.5px 10px; /* Space around the text inside the div */
+    margin-bottom: 1rem;
+}
+.env-oldtag-header p {
+    padding-top:    0px; /* Space around the text inside the div */
+    padding-bottom: 0px; /* Space around the text inside the div */
+    margin-top:    0px; /* Space around the text inside the div */
+    margin-bottom: 0px; /* Space around the text inside the div */
+}
+.env-oldtag-header a {
+  color: #ffffff;
+  text-decoration: none; /* Remove Underline from Links */
+}
+.env-oldtag-header a:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Remove Underline from Links */
+}

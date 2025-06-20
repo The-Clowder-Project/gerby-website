@@ -289,7 +289,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPreferencesMenu();
     initFontSelection();
     initPdfStyleSelection();
-    initCopyButtons();
     initImageResizing();
     initContactForm();
     initPopovers();
@@ -463,28 +462,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const storedFont = localStorage.getItem('font') || 'Alegreya Sans';
         fontSelect.value = storedFont;
         setFont(storedFont);
-    }
-
-    /**
-     * ------------------------------------------------------------------------
-     * Copy to Clipboard Buttons
-     * ------------------------------------------------------------------------
-     */
-    function initCopyButtons() {
-        document.querySelectorAll('.copy-button').forEach(button => {
-            button.addEventListener('click', async () => {
-                const codeBlock = button.previousElementSibling.querySelector('code');
-                if (!codeBlock) return;
-                try {
-                    await navigator.clipboard.writeText(codeBlock.textContent);
-                    button.textContent = 'Copied!';
-                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
-                } catch (err) {
-                    button.textContent = 'Failed!';
-                    console.error('Failed to copy text: ', err);
-                }
-            });
-        });
     }
 
     /**
@@ -698,6 +675,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   });
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const codeBlock = button.previousElementSibling.querySelector('code');
+                const textArea = document.createElement('textarea');
+                textArea.textContent = codeBlock.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                textArea.remove();
+                
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        });
+    });
 </script>
 </body>
 </html>
