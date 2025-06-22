@@ -53,6 +53,12 @@ gerby/static/XyJax/single-file-build/README.md
 gerby/static/XyJax/test/ellip.png
 gerby/static/XyJax/test/sample-xyjax.html
 gerby/static/XyJax/test/test-xyjax.html
+gerby/static/audios/Dankovsky.mp3
+gerby/static/audios/wasureru-01.mp3
+gerby/static/audios/wasureru-02.mp3
+gerby/static/audios/wasureru-03.mp3
+gerby/static/audios/wasureru-04.mp3
+gerby/static/audios/Данковский.mp3
 gerby/static/css/AlegreyaSans-Regular.ttf
 gerby/static/css/bibliography.css
 gerby/static/css/browse.css

@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Loop through each selected image
         webcompile_images.forEach(function(img) {
             // Resize the image to 225% of its original size
-            var newWidth = img.offsetWidth * 2.0;
+            var newWidth = img.offsetWidth * 1.9;
 
             // Check if the new width exceeds the maximum allowed width
             img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
@@ -636,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Loop through each selected image
         tikzcd_images.forEach(function(img) {
             // Resize the image
-            var newWidth = img.offsetWidth * 2.0;
+            var newWidth = img.offsetWidth * 1.9;
 
             // Check if the new width exceeds the maximum allowed width
             img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
@@ -648,7 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Loop through each selected image
         scalemath_images.forEach(function(img) {
             // Resize the image to 225% of its original size
-            var newWidth = img.offsetWidth * 2.0;
+            var newWidth = img.offsetWidth * 1.9;
 
             // Check if the new width exceeds the maximum allowed width
             img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
