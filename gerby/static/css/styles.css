@@ -762,9 +762,6 @@ section#meta {
 .invisible-svg {
     display: none;
 }
-.env-definition p:first-child, .env-construction p:first-child, .env-proposition p:first-child, .env-example p:first-child, .env-corollary p:first-child, .env-theorem p:first-child, .env-question p:first-child, .env-notation p:first-child , .env-remark p:first-child {
-    margin-top: 0rem;
-}
 .warning_container {
     display: flex;
     margin-left: 0;
@@ -883,9 +880,6 @@ ol ol ul {
 p {
     margin-top: 0rem;
     margin-bottom: 0rem;
-}
-.env-definition p:last-child, .env-construction p:last-child, .env-proposition p:last-child, .env-example p:last-child, .env-corollary p:last-child, .env-theorem p:last-child, .env-question p:last-child, .env-notation p:last-child, .env-remark p:last-child, .env-warning p:last-child {
-    margin-bottom: 0.625rem;
 }
 /*
 p {
