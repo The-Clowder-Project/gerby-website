@@ -898,7 +898,7 @@ p + div.equation {
   margin-top: -1rem;
 }
 */
-h3 + p {
+h3 + p, h4 + p {
     margin-bottom: 0.5rem;
 }
 .ptag {
@@ -1534,6 +1534,6 @@ label {
     display: block;
 }
 .popover { background-color: #FFFFFF; border: 2px solid #4D4D80; border-radius: 10px;}
-.popover-header { background-color: #4D4D80; color: #000000; }
+.popover-header { background-color: #4D4D80; color: #000000; border-bottom: 0px;}
 .no-reference-popover-title { background-color: #4D4D80; color: #FFFFFF; }
 .no-reference-popover-content { background-color: #FFFFFF; color: #000000; }
