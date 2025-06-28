@@ -709,5 +709,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 </script>
+<script>
+// Waits for the HTML AND all resources (images, fonts, etc.)
+window.addEventListener('load', (event) => {
+    const targetElement = document.querySelector('.current-tag');
+    
+    // Using the proportional offset method we discussed
+    const proportionalOffset = 0.15; // 30% from the top
+
+    if (targetElement) {
+        const viewportHeight = window.innerHeight;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        const desiredPixelOffset = viewportHeight * proportionalOffset;
+        const finalScrollPosition = elementPosition - desiredPixelOffset;
+
+        window.scrollTo({
+            top: finalScrollPosition,
+            behavior: 'smooth' 
+        });
+    }
+});
+</script>
 </body>
 </html>
