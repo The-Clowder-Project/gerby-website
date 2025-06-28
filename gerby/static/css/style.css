@@ -1537,3 +1537,10 @@ label {
 .popover-header { background-color: #4D4D80; color: #000000; border-bottom: 0px;}
 .no-reference-popover-title { background-color: #4D4D80; color: #FFFFFF; }
 .no-reference-popover-content { background-color: #FFFFFF; color: #000000; }
+.current-tag-unfocused {
+  filter: blur(3px) brightness(0.9);
+  transition: filter 0.3s ease-in-out;
+  /* Prevent interaction with the blurred background */
+  pointer-events: none;
+}
+.current-tag-unfocused * { pointer-events: inherit; }
