@@ -332,7 +332,7 @@ ul#index-select {
   padding: 0;
   margin: 0 auto;
   max-width: calc(400rem / 14);
-  font-size: 95%;
+  font-size: 94%;
 }
 
 ul#index-select li {
@@ -934,28 +934,6 @@ h3 + p, h4 + p {
   font-style: italic;
   text-align: right;
 }
-#playButton,#playButton2,#playButtonWasureru1,#playButtonWasureru2,#playButtonWasureru3,#playButtonWasureru4,#playButtonYo {
-    background-color: transparent; /* Makes the button background transparent */
-    border: 2px solid black; /* Black border */
-    border-radius: 50%; /* Keeps the button a circle */
-    width: 15px;  /* Size of the button */
-    height: 15px; /* Size of the button */
-    cursor: pointer;
-    position: relative;
-    top: -7px;
-    left: 2px;
-}
-#playButton::before,#playButton2::before,#playButtonWasureru1::before,#playButtonWasureru2::before,#playButtonWasureru3::before,#playButtonWasureru4::before,#playButtonYo::before {
-    content: "";
-    position: absolute;
-    left: 4.25px;
-    top: 2.75px;
-    width: 0;
-    height: 0;
-    border-top: 3px solid transparent; /* size of the triangle */
-    border-bottom: 3px solid transparent; /* size of the triangle */
-    border-left: 4.5px solid black; /* size and color of the triangle */
-}
 .OIorange {
     color: #E69F00;
 }
@@ -1037,49 +1015,6 @@ ul#index-select li#index-invisible span {
   height: 4em;
   line-height: 4em;
 }
-/* Hide the element by default */
-/*#mobileOnly {
-/*    display: none;
-/*}
-/*@media only screen and (max-width: 600px) {
-/*    html {
-/*        font-size: 10px; /* Smaller font size for screens smaller than 600px */
-/*    }
-/*    body {
-/*        font-size: 10pt; /* Smaller font size for screens smaller than 600px */
-/*    }
-/*    #mobileOnly {
-/*        display: block; /* or 'inline', 'inlne-block', etc., depending on your layout needs */
-/*        z-index: 10000;
-/*        visibility: visible;
-/*    }
-/*    div#burger-content {
-/*      display: none;
-/*      position: absolute;
-/*      width: calc(250rem / 14);
-/*      height: calc(225rem / 14);
-/*      top: calc(30rem / 14);
-/*      margin-left: calc(-225rem / 14);
-/*      padding: calc(5rem / 14);
-/*      background-color: #f9f8f4;
-/*      z-index: 2;
-/*      text-align: left;
-/*      border: 1px solid black;
-/*      border-radius: 6px;
-/*    }
-/*    div#burger-content div.toggle,
-/*    section#meta div.toggle {
-/*      margin-top: -2.5rem;
-/*      transform: translate(0px,80px);
-/*    }
-/*}
-/*
-/*@media only screen and (min-width: 900px) {
-/*    section#meta {
-/*      display: block !important; /* Use !important to override any other styles */
-/*    }
-/*}
-*/
 .highlighted-warning-box {
   background-color:yellow;
   padding: 25px;
@@ -1556,3 +1491,29 @@ h1 { font-size: 2.0em; font-weight: bold; }
 .dark-mode .code-text2  { color: #918175; }
 .dark-mode .code-block  { background-color: #15161A; }
 .footnotes .equation { margin-left: 0px !important; }
+
+p + h4 {
+    margin-top: 1rem !important;
+}
+h3 + p + p {
+    margin-bottom: 0.5rem !important;
+}
+h4 + p + p {
+    margin-bottom: 0.5rem !important;
+}
+h3 + p + div + p + p {
+    margin-bottom: 1.0rem !important;
+}
+.icons-index {
+    text-decoration: none;
+    transform: scale(1.15) translateY(5px);
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+.icon-toc     { transform: scale(1.55) translateX(1.5px) translateY(4.0px) !important; }
+.icon-github  { transform: scale(1.15) translateX(4px) translateY(-2px) !important; }
+.icon-discord { transform: scale(1.15) translateX(4px) translateY(-2px) !important; }
+.github-text  { margin-left: 10.5px; }
+.discord-text { margin-left: 10.5px; }
+.contributors-text { font-size: 94% !important; }
