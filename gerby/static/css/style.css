@@ -1544,3 +1544,15 @@ label {
   pointer-events: none;
 }
 .current-tag-unfocused * { pointer-events: inherit; }
+h1 { font-size: 2.0em; font-weight: bold; }
+.code-type   { color: #098589; }
+.code-title  { color: #D95100; }
+.code-fields { color: #D20800; }
+.code-text   { color: black; }
+.dark-mode .code-type   { color: #0AAEB3; }
+.dark-mode .code-title  { color: #FF5F00; }
+.dark-mode .code-fields { color: #EF2F27; }
+.dark-mode .code-text   { color: white; }
+.dark-mode .code-text2  { color: #918175; }
+.dark-mode .code-block  { background-color: #15161A; }
+.footnotes .equation { margin-left: 0px !important; }

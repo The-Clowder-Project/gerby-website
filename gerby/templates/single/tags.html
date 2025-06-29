@@ -7,28 +7,31 @@
 {% endblock %}
 
 {% block body %}
-  <h2>The tag system</h2>
-  <p>Each tag refers to a unique item (section, lemma, theorem, etc.) in order for this project to be referenceable. These tags don't change even if the item moves within the text.
+  <h1 style="margin-top:0.25em;margin-bottom:0.0em">The Tag System</h1>
+  <hr>
+  <p style="margin-bottom:1em">Each tag refers to a unique item (section, lemma, theorem, etc.) in order for this project to be referenceable. These tags don't change even if the item moves within the text.
 
-  <h2>How to use it?</h2>
-  <p>To find the tag for an item, check the <a href="https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans-tcb.pdf">PDF file</a> or find the item from the <a href="/browse">table of contents</a>. See below for LaTeX instructions on how to reference a tag.
-  <!-- TODO don't mention the pdf as a means to search for a tag! -->
+  <h2 style="margin-bottom:0.5em">How to use it?</h2>
+  <p style="margin-bottom:1em">To find the tag for an item, check the <a href="https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/alegreya-sans-tcb.pdf">PDF file</a> or find the item from the <a href="/browse">table of contents</a>. See below for LaTeX instructions on how to reference a tag.
 
-  <h2>More information</h2>
-  <p>The tag system provides <strong>stable</strong> references to definitions, lemmas, propositions, theorems, remarks, examples, exercises, situations and even equations, sections and items. As the project grows, each of these gets a tag which will always point to the same mathematical result. The place of the lemma in the document may change, the lemma may be moved to a different chapter, but its tag always keeps pointing to it.</p>
-  <p>If it ever turns out that a lemma, theorem, etc. was wrong then we may remove it from the project. However, we will keep the tag, and there will be an explanation for its disappearance (in the file tags mentioned below).
+  <h2 style="margin-bottom:0.5em">More information</h2>
+  <p style="margin-bottom:1em">The tag system provides <strong>stable</strong> references to definitions, lemmas, propositions, theorems, remarks, examples, exercises, situations and even equations, sections and items. As the project grows, each of these gets a tag which will always point to the same mathematical result. The place of the lemma in the document may change, the lemma may be moved to a different chapter, but its tag always keeps pointing to it.</p>
+  <p style="margin-bottom:1em">If it ever turns out that a lemma, theorem, etc. was wrong then we may remove it from the project. However, we will keep the tag, and there will be an explanation for its disappearance (<a href="/tag/01VC">here</a>).
 
-  <h2 id="reference">How to reference tags</h2>
-  <p>In your BibTeX file put
-  <pre><code>@misc{clowder-project,
-    author       = {The {Clowder Project Authors}},
-    title        = {\textit{The Clowder Project}},
-    howpublished = {\url{https://clowderproject.com}},
-    year         = {2024},
-  }</code></pre>
-  <p>Then you can use the citation code we provide for every tag to <em>cite</em> and <em>link</em> the corresponding tag, for example by
-  <pre><code>\cite[\href{https://clowderproject.com}{Tag 0123}]{clowder-project}</code></pre>
-  <p>This can be changed according to your tastes. In order to make the <code>\url</code> and <code>\href</code> commands to work, one should use the <a href="https://ctan.org/pkg/hyperref"><code>hyperref</code></a> package.
+  <h2 style="margin-bottom:0.5em">How to reference tags</h2>
+  <p style="margin-bottom:1em">In your BibTeX file put
+  <div class="code-container">
+    <pre class="code-block"><code><span class="code-text">@</span><span class="code-type">misc</span><span class="code-text">{</span><span class="code-title">clowder-project</span><span class="code-text">,</span>
+    <span class="code-fields">AUTHOR</span>       <span class="code-text">= {The {Clowder Project Authors}},</span>
+    <span class="code-fields">TITLE</span>        <span class="code-text">= {\textit{The Clowder Project}},</span>
+    <span class="code-fields">HOWPUBLISHED</span> <span class="code-text">= {\url{https://clowderproject.com}},</span>
+    <span class="code-fields">YEAR</span>         <span class="code-text">= {2025},</span>
+}</code></pre>
+  <button class="copy-button" onclick="copyCode()">Copy</button>
+  </div>
+  <p style="margin-bottom:1em">Then you can use the citation code we provide for every tag to <em>cite</em> and <em>link</em> the corresponding tag, for example by
+  <div class="code-container"><pre class="code-block"><code><span class="code-fields">\cite</span><span class="code-text2">[</span>\href<span class="code-text2">{</span>https://clowderproject.com<span class="code-text2">}{</span>Tag 0123<span class="code-text2">}]{</span><span class="code-title">clowder-project</span><span class="code-text2">}</span></code></pre><button class="copy-button" onclick="copyCode()">Copy</button></div>
+  <p style="margin-bottom:1em">This can be changed according to your tastes. In order to make the <code class="color-code">\url</code> and <code class="color-code">\href</code> commands to work, one should use the <a href="https://ctan.org/pkg/hyperref"><code>hyperref</code></a> package.
 {% endblock %}
 
 {% block sidebar %}

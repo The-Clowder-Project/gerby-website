@@ -85,7 +85,6 @@
 .dark-mode .discord-link { color: #c46bff !important; }
 .dark-mode .discord-link:hover { color: #C75FC1 !important; }
 .dark-mode .counter-link { color: #FFFFFF; }
-.dark-mode code { color: #FFFFFF; }
 .dark-mode .material-icons,
 .dark-mode .material-symbols-outlined { color: #FFFFFF; }
 .dark-mode header h1 a { background-image: url('/static/images/favicon-dark.png'); }
@@ -110,11 +109,10 @@
 }
 .dark-mode .right-interaction-box,
 .dark-mode .contact-box,
-.dark-mode .code-block,
 .dark-mode .palign > table > tbody tr {
   background-color: #343541;
 }
-.dark-mode code { color: #FFFFFF; text-shadow: 0 0px #fff; }
+.dark-mode code[class*="language-"] { text-shadow: none !important; }
 .dark-mode .env-proof-header a { color: #FFFFFF; }
 .dark-mode .palign > table > tbody tr { background-color: #343541; color: #FFFFFF; }
 .dark-mode .preferences select { background-color: #343541;  color: #FFFFFF; }
@@ -198,3 +196,6 @@
 .dark-mode .bs-popover-bottom { background-color: #343541; color: #FFFFFF; }
 
 .dark-mode .copy-button {background-color: #9B3E00;}
+
+.dark-mode code { color: #FFFFFF; }
+.dark-mode .color-code { color: #FF6CB0; }

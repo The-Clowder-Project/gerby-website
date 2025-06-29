@@ -129,6 +129,10 @@ def show_about():
 def show_changes():
   return render_template("single/changes.html")
 
+@app.route("/donations")
+def show_donations():
+  return render_template("single/donations.html")
+
 @app.route("/statistics")
 def show_statistics():
   total = Tag.select().count()
