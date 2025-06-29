@@ -1517,3 +1517,5 @@ h3 + p + div + p + p {
 .github-text  { margin-left: 10.5px; }
 .discord-text { margin-left: 10.5px; }
 .contributors-text { font-size: 94% !important; }
+.codeColor { color: #E83E8C; font-family: monospace; }
+.dark-mode .codeColor { color: #FFF99B; }
