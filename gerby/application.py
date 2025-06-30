@@ -117,10 +117,6 @@ def show_index():
 def show_contributors_page():
   return render_template("single/contributors.html")
 
-@app.route("/contributing")
-def show_contributing_page():
-  return render_template("single/contributing.html")
-
 @app.route("/about")
 def show_about():
   return render_template("single/about.html")
