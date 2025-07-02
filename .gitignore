@@ -12,3 +12,4 @@ gerby/static/gifs
 gerby/static/tikzcd-images
 gerby/static/webcompile-images
 gerby/static/scalemath-images
+gerby/__pycache__
