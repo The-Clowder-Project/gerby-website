@@ -1519,3 +1519,4 @@ h3 + p + div + p + p {
 .contributors-text { font-size: 94% !important; }
 .codeColor { color: #E83E8C; font-family: monospace; }
 .dark-mode .codeColor { color: #FFF99B; }
+.figure { display: flex; justify-content: center;}
