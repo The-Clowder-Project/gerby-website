@@ -90,7 +90,7 @@
             </label>
             <div>  </div><span id="moon" class="material-symbols-outlined" style="margin-left: 1rem"></span>
         </div>
-        <div class="preference-item"><div>Font: </div>
+        <div class="preference-item"><div>Typeface:&nbsp;</div>
             <select id="fontSelection">
                 <option value="Noto Sans">Noto Sans</option>
                 <option value="Alegreya Sans">Alegreya Sans</option>
@@ -103,7 +103,7 @@
                 <option value="PT Serif">PT Serif</option>
             </select>
         </div>
-        <div class="preference-item"><div>PDF Style: </div>
+        <div class="preference-item"><div>PDF&nbsp;Style:&nbsp;</div>
             <select id="styleSelection">
                 <option value="Style1">Style 1</option>
                 <option value="Style2">Style 2</option>
@@ -112,6 +112,11 @@
                 <option value="Style5">Style 5</option>
                 <option value="Style6">Style 6</option>
                 <option value="Style7">Style 7</option>
+                <option value="Style8">Style 8</option>
+                <option value="Style9">Style 9</option>
+                <option value="Style10">Style 10</option>
+                <option value="Style11">Style 11</option>
+                <option value="Style12">Style 12</option>
             </select>
         </div>
         <hr>
@@ -132,35 +137,65 @@
           <tr>
             <td>Style 2</td>
             <td><code>book</code></td>
+            <td>Alegreya</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 3</td>
+            <td><code>book</code></td>
+            <td>EB Garamond</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 4</td>
+            <td><code>book</code></td>
+            <td>Crimson Pro</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 5</td>
+            <td><code>book</code></td>
+            <td>XCharter</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 6</td>
+            <td><code>book</code></td>
+            <td>Computer Modern</td>
+            <td><code>tcbthm</code></td>
+          </tr>
+          <tr>
+            <td>Style 7</td>
+            <td><code>book</code></td>
             <td>Alegreya Sans</td>
             <td><code>amsthm</code></td>
           </tr>
           <tr>
-            <td>Style 3</td>
+            <td>Style 8</td>
             <td><code>book</code></td>
             <td>Alegreya</td>
             <td><code>amsthm</code></td>
           </tr>
           <tr>
-            <td>Style 4</td>
+            <td>Style 9</td>
             <td><code>book</code></td>
             <td>EB Garamond</td>
             <td><code>amsthm</code></td>
           </tr>
           <tr>
-            <td>Style 5</td>
+            <td>Style 10</td>
             <td><code>book</code></td>
             <td>Crimson Pro</td>
             <td><code>amsthm</code></td>
           </tr>
           <tr>
-            <td>Style 6</td>
+            <td>Style 11</td>
             <td><code>book</code></td>
             <td>XCharter</td>
             <td><code>amsthm</code></td>
           </tr>
           <tr>
-            <td>Style 7</td>
+            <td>Style 12</td>
             <td><code>book</code></td>
             <td>Computer Modern</td>
             <td><code>amsthm</code></td>
@@ -550,13 +585,18 @@ document.addEventListener('DOMContentLoaded', () => {
             chapter: "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-chapters/"
         },
         styleMap: {
-            "Style1": { book: "alegreya-sans-tcb.pdf", chapterDir: "alegreya-sans-tcb" },
-            "Style2": { book: "alegreya-sans.pdf",     chapterDir: "alegreya-sans" },
-            "Style3": { book: "alegreya.pdf",          chapterDir: "alegreya" },
-            "Style4": { book: "eb-garamond.pdf",       chapterDir: "eb-garamond" },
-            "Style5": { book: "crimson-pro.pdf",       chapterDir: "crimson-pro" },
-            "Style6": { book: "xcharter.pdf",          chapterDir: "xcharter" },
-            "Style7": { book: "cm.pdf",                chapterDir: "cm" }
+            "Style1":  { book: "alegreya-sans-tcb.pdf", chapterDir: "alegreya-sans-tcb" },
+            "Style2":  { book: "alegreya-tcb.pdf",      chapterDir: "alegreya-tcb" },
+            "Style3":  { book: "eb-garamond-tcb.pdf",   chapterDir: "eb-garamond-tcb" },
+            "Style4":  { book: "crimson-pro-tcb.pdf",   chapterDir: "crimson-pro-tcb" },
+            "Style5":  { book: "xcharter-tcb.pdf",      chapterDir: "xcharter-tcb" },
+            "Style6":  { book: "cm-tcb.pdf",            chapterDir: "cm-tcb" }
+            "Style7":  { book: "alegreya-sans.pdf",     chapterDir: "alegreya-sans" },
+            "Style8":  { book: "alegreya.pdf",          chapterDir: "alegreya" },
+            "Style9":  { book: "eb-garamond.pdf",       chapterDir: "eb-garamond" },
+            "Style10": { book: "crimson-pro.pdf",       chapterDir: "crimson-pro" },
+            "Style11": { book: "xcharter.pdf",          chapterDir: "xcharter" },
+            "Style12": { book: "cm.pdf",                chapterDir: "cm" }
         }
     };
 
