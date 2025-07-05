@@ -91,11 +91,15 @@ def getNeighbours(tag):
   # up
   up = ".".join(map(str, pieces[:-1]))
   try:
-    if tag.type in headings: # for now we don't deal with this, Kerodon might need this though
+    if tag.type in headings:
       #up = None
       up = Tag.get(Tag.ref == up, Tag.type != "item")
     else:
-      up = Tag.get(Tag.ref == up, Tag.type != "item")
+      pieces = tag.ref.split(".")
+      refs = [".".join(pieces[0:i]) for i in range(len(pieces) + 1)]
+      tags = Tag.select().where(Tag.ref << refs, ~(Tag.type << ["item", "part"]))
+      tags = sorted(tags)
+      up = tags[-2]
   except Tag.DoesNotExist:
     up = None
 
