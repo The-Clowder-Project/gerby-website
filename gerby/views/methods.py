@@ -100,7 +100,6 @@ def getBreadcrumb(tag):
 
   pieces = tag.ref.split(".")
   refs = [".".join(pieces[0:i]) for i in range(len(pieces) + 1)]
-  print(tag)
 
   tags = Tag.select().where(Tag.ref << refs, ~(Tag.type << ["item", "part"]))
   tags = sorted(tags)

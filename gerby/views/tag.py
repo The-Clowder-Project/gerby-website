@@ -176,7 +176,8 @@ def show_tag(tag):
 
   # it's a tag (maybe with proofs)
   else:
-    html = tag.html + "".join([proof.html for proof in tag.proofs.order_by(Proof.number)])
+    html = tag.html# + "".join([proof.html for proof in tag.proofs.order_by(Proof.number)])
+    #html = tag.html + "".join([proof.html for proof in tag.proofs.order_by(Proof.number)])
 
   # handle footnotes: relabeling the labels to actual numbers
   pattern = re.compile("class=\"footnotemark\" href=\"#(a[0-9]+)\"")
