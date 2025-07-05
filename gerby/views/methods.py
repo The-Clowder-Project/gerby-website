@@ -40,14 +40,12 @@ def sfm(comment):
 
 
 def getBreadcrumb(tag):
-  if tag.type == "item":
-    return [tag]
-
   if tag.type == "part":
     return [tag]
 
   pieces = tag.ref.split(".")
   refs = [".".join(pieces[0:i]) for i in range(len(pieces) + 1)]
+  print(refs)
 
   tags = Tag.select().where(Tag.ref << refs, ~(Tag.type << ["item", "part"]))
   tags = sorted(tags)
@@ -59,5 +57,3 @@ def getBreadcrumb(tag):
     tags.insert(0, part)
 
   return tags
-
-

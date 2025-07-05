@@ -197,5 +197,6 @@
 
 .dark-mode .copy-button {background-color: #9B3E00;}
 
-.dark-mode code { color: #FFFFFF; }
+.dark-mode code { color: #69F8FF; }
 .dark-mode .color-code { color: #FF6CB0; }
+.dark-mode button.clipboard { background-color: #000000; }

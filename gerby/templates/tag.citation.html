@@ -50,12 +50,15 @@ new ClipboardJS(".clipboard");
   </script>
 
   <p>You can use the following in your BibTeX file.
-  <pre><code>@misc{clowder-project,
-  author       = {The {Clowder Project Authors}},
-  title        = {\textit{The Clowder Project}},
-  howpublished = {\url{https://clowderproject.com/}},
-  year         = {% raw %}{{% endraw %}{{ time.year }}},
+  <div class="code-container">
+    <pre class="code-block"><code><span class="code-text">@</span><span class="code-type">misc</span><span class="code-text">{</span><span class="code-title">clowder-project</span><span class="code-text">,</span>
+    <span class="code-fields">AUTHOR</span>       <span class="code-text">= {The {Clowder Project Authors}},</span>
+    <span class="code-fields">TITLE</span>        <span class="code-text">= {\textit{The Clowder Project}},</span>
+    <span class="code-fields">HOWPUBLISHED</span> <span class="code-text">= {\url{https://clowderproject.com}},</span>
+    <span class="code-fields">YEAR</span>         <span class="code-text">= {% raw %}{{% endraw %}{{ time.year }}},</span>
 }</code></pre>
+  <button class="copy-button" onclick="copyCode()">Copy</button>
+  </div>
   <p>You can also consider using the <code>@online</code> type in BibLaTeX, changing the the <code>howpublished</code> to <code>url</code>. Another neat trick in BibLaTeX is the <code>shorthand</code> field, which you could set to <code>Clowder</code>.
 {% endblock %}
 
