@@ -146,7 +146,21 @@ def show_tag(tag):
 
   # if the tag is section-like: decide whether we output a table of contents or generate all output
   # the second case is just like an ordinary tag, but with tags glued together, and is treated as such
-  if tag.type in headings:
+  if tag.type == "subsubsection":
+    ANCESTOR_MAP = load_ancestors()
+    if tag.tag in ANCESTOR_MAP:
+      parent_id = ANCESTOR_MAP[tag.tag]
+      parent_tag = Tag.get_or_none(Tag.tag == parent_id)
+      #
+      html = "<div class=\"current-tag-unfocused\">" + parent_tag.html
+      tags = Tag.select().where(Tag.ref.startswith(parent_tag.ref + "."), Tag.type << headings)
+      for item in sorted(tags):
+          if item == tag:
+              html = html + "</div><span class=\"current-tag\">" + item.html + "</span><div class=\"current-tag-unfocused\">"
+          else:
+              html = html + item.html
+      html += "</div>"
+  elif tag.type in headings:
     html = tag.html
 
     # if we are below the cutoff: generate all data below it too
