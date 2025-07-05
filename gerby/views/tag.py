@@ -57,8 +57,12 @@ def combine(tags):
 
 def getNeighbours(tag):
   # items cannot be dealt with appropriately, so we just don't
+  ANCESTOR_MAP = load_ancestors()
   if tag.type == "item":
-    return (None, None)
+    if tag.tag in ANCESTOR_MAP:
+      parent_id = ANCESTOR_MAP[tag.tag]
+      parent_tag = Tag.get_or_none(Tag.tag == parent_id)
+    return (None, None, parent_tag)
 
   pieces = tag.ref.split(".")
   try:
