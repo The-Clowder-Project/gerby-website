@@ -120,7 +120,7 @@
 .dark-mode .preferences { background-color: #343541; color: #FFFFFF; }
 .dark-mode .preferences::before { background-color: #9B3E00; }
 .dark-mode .preferences::after { background-color: #9B3E00; }
-.dark-mode .preferences > div::before, .preferences > div::after { background-color: #9B3E00; }
+.dark-mode .preferences > div::before, .dark-mode .preferences > div::after { background-color: #9B3E00; }
 .dark-mode .preferences-header { background-color: #9B3E00; }
 .dark-mode .preferences-footer { background-color: #9B3E00; }
 .dark-mode tbody tr:first-child { background-color: #730808; color: #FFFFFF; }
