@@ -13,3 +13,4 @@ gerby/static/tikzcd-images
 gerby/static/webcompile-images
 gerby/static/scalemath-images
 gerby/__pycache__
+gerby/views/__pycache__
