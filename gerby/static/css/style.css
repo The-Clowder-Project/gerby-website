@@ -141,8 +141,8 @@ div#burger-content div.interaction {
 
 div#burger-content div.toggle,
 section#meta div.toggle {
-  margin-top: -2.5rem;
-  transform: translate(0px,-120px);
+  margin-top: -0.0rem;
+  transform: translate(0px,-0px);
 }
 
 div#burger-content ul.tag-info {
@@ -688,7 +688,7 @@ ul.book-styles {
     color: #FFFFFF;
     background-color: #B30B00;/*#DB637C;/*#A03C6E;/*#B30B00;*/
 }
-.previous-button,.next-button {
+.previous-button, .next-button, .up-button {
   display: block;
   width: 80px;
   height: 30px;
@@ -1520,3 +1520,6 @@ h3 + p + div + p + p {
 .codeColor { color: #E83E8C; font-family: monospace; }
 .dark-mode .codeColor { color: #FFF99B; }
 .figure { display: flex; justify-content: center;}
+div.toggle, div.toggle:hover { display: relative; margin: 0;}
+.toggle-box { display: flex; justify-content: right; padding-bottom: 1rem; }
+.PDF-button-container { padding-bottom: 0.5rem; }

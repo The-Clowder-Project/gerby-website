@@ -1,5 +1,16 @@
 {% macro neighbours(neighbours, modifier, tag) %}
 
+    <div class="up-nav">
+      {% if neighbours[2] %}
+        <div class="arrow-container">
+          <a class="up-button" href="/tag/{{ neighbours[2].tag }}{{ modifier }}">
+            <span class="dark-svg"><img style="transform:rotate(-90deg);" class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+            <div class="arrow-text">Up</div>
+          </a>
+        </div>
+        <br>
+      {% endif %}
+    </div>
     <div class="previous-next-nav">
       {% if neighbours[0] %}
         <div class="arrow-container">
@@ -9,14 +20,6 @@
           </a>
         </div>
         <!--<a class="previous-button" href="/tag/{{ neighbours[0].tag }}{{ modifier }}"><span class="dark-svg"><img style="filter: invert(100%);" height="12px" width="auto" src="/static/images/previous.svg"></span> Previous</a>-->
-      {% endif %}
-      {% if neighbours[0] and neighbours[2]%}
-        <div class="arrow-container">
-          <a class="up-button" href="/tag/{{ neighbours[2].tag }}{{ modifier }}">
-            <span class="dark-svg"><img style="transform:rotate(-90deg);" class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
-            <div class="arrow-text">Up</div>
-          </a>
-        </div>
       {% endif %}
       {% if neighbours[0] and neighbours[1]%}
         <div class="arrow-container">
@@ -49,6 +52,11 @@
 {% endmacro %}
 
 {% macro tagInformation(tag, dependencies) %}
+    <br>
+    <div class="statistics-cite">
+      <a class="statistics-link" href="/tag/{{ tag.tag }}/statistics"><span class="dark-svg"><img class="statistics-img" src="/static/images/graph.svg"></span> Statistics</a>
+      <a class="cite-link" href="/tag/{{ tag.tag }}/cite">Cite  <span class="dark-svg"><img class="cite-img" src="/static/images/cite.svg"></span></a>
+    </div>
     {% if dependencies | length > 0 %}
     <div class="dependencies">
       <a href="/tag/{{ tag.tag }}/statistics#dependencies">{{ dependencies | length }} tag{% if dependencies | length > 1 %}s{% endif %} refer{% if dependencies | length == 1 %}s{% endif %} to this tag</a>
@@ -76,7 +84,6 @@
     <div class="interaction">
       {{ neighbours(neighboursList, neighboursModifier, tag) }}
     </div>
-    <br>
     <hr style="height:5px">
     <div class="PDF-button-container">
       {% if tag.type == "part" %}
@@ -84,6 +91,7 @@
       {% else %}
       <a class="PDF-button" id="chapter-pdf-link">View {{ tag.type | capitalize }} <span data-tag="{{ tag.tag }}">{{ tag.ref }}</span> as PDF <img class="pdf-img" height="15px" width="auto" src="/static/images/PDF-bold.png"></a>
     </div>
+    <input class="toggle" name="toggle" type="checkbox" checked data-toggle="toggle" data-on="Numbers" data-off="Tags" data-size="small" data-width="90" data-onstyle="default">
     {% endif %}
 
     {% if tag.type in ["part", "chapter", "section", "subsection", "subsubsection", "definition", "example", "exercise", "lemma", "proposition", "remark", "remarks", "situation", "theorem", "corollary", "item", "question", "notation", "conjecture", "axiom", "item"] %}

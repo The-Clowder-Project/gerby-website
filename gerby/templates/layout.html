@@ -182,6 +182,10 @@
           {% endif %}
           {% block sidebar %}{% endblock %}
           {% if tag is defined %}
+            <div class="statistics-cite">
+              <a class="statistics-link" href="/tag/{{ tag.tag }}/statistics"><span class="dark-svg"><img class="statistics-img" src="/static/images/graph.svg"></span> Statistics</a>
+              <a class="cite-link" href="/tag/{{ tag.tag }}/cite">Cite  <span class="dark-svg"><img class="cite-img" src="/static/images/cite.svg"></span></a>
+            </div>
             </div>
             <hr>
             <div class="contact-box">
