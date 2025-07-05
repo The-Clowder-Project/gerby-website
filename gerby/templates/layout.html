@@ -90,7 +90,7 @@
             </label>
             <div>  </div><span id="moon" class="material-symbols-outlined" style="margin-left: 1rem"></span>
         </div>
-        <div class="preference-item"><div>Typeface:&nbsp;</div>
+        <div class="preference-item"><div><b>Website&nbsp;Typeface:&nbsp;</b></div>
             <select id="fontSelection">
                 <option value="Noto Sans">Noto Sans</option>
                 <option value="Alegreya Sans">Alegreya Sans</option>
@@ -103,104 +103,26 @@
                 <option value="PT Serif">PT Serif</option>
             </select>
         </div>
-        <div class="preference-item"><div>PDF&nbsp;Style:&nbsp;</div>
-            <select id="styleSelection">
-                <option value="Style1">Style 1</option>
-                <option value="Style2">Style 2</option>
-                <option value="Style3">Style 3</option>
-                <option value="Style4">Style 4</option>
-                <option value="Style5">Style 5</option>
-                <option value="Style6">Style 6</option>
-                <option value="Style7">Style 7</option>
-                <option value="Style8">Style 8</option>
-                <option value="Style9">Style 9</option>
-                <option value="Style10">Style 10</option>
-                <option value="Style11">Style 11</option>
-                <option value="Style12">Style 12</option>
+        <hr>
+        <p style="text-align:left;">The following options control the appearance of downloadable PDF files:</p>
+        <div class="preference-item"><div><b>PDF&nbsp;Theorem&nbsp;Style:&nbsp;</b></div>
+            <select id="theoremStyleSelection">
+                <option value="tcbthm">Standard (tcbthm)</option>
+                <option value="amsthm">Simple (amsthm)</option>
             </select>
         </div>
-        <hr>
-        <p style="text-align:left;">Here's a breakdown of the differences between each PDF style:</p>
-        <table>
-          <tr>
-            <th>Style</th>
-            <th>Class</th>
-            <th>Typeface</th>
-            <th>Theorem Environments</th>
-          </tr>
-          <tr>
-            <td>Style 1</td>
-            <td><code>book</code></td>
-            <td>Alegreya Sans</td>
-            <td><code>tcbthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 2</td>
-            <td><code>book</code></td>
-            <td>Alegreya</td>
-            <td><code>tcbthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 3</td>
-            <td><code>book</code></td>
-            <td>EB Garamond</td>
-            <td><code>tcbthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 4</td>
-            <td><code>book</code></td>
-            <td>Crimson Pro</td>
-            <td><code>tcbthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 5</td>
-            <td><code>book</code></td>
-            <td>XCharter</td>
-            <td><code>tcbthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 6</td>
-            <td><code>book</code></td>
-            <td>Computer Modern</td>
-            <td><code>tcbthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 7</td>
-            <td><code>book</code></td>
-            <td>Alegreya Sans</td>
-            <td><code>amsthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 8</td>
-            <td><code>book</code></td>
-            <td>Alegreya</td>
-            <td><code>amsthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 9</td>
-            <td><code>book</code></td>
-            <td>EB Garamond</td>
-            <td><code>amsthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 10</td>
-            <td><code>book</code></td>
-            <td>Crimson Pro</td>
-            <td><code>amsthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 11</td>
-            <td><code>book</code></td>
-            <td>XCharter</td>
-            <td><code>amsthm</code></td>
-          </tr>
-          <tr>
-            <td>Style 12</td>
-            <td><code>book</code></td>
-            <td>Computer Modern</td>
-            <td><code>amsthm</code></td>
-          </tr>
-        </table>
+        <div class="preference-item"><div><b>PDF&nbsp;Typeface:&nbsp;</b></div>
+            <select id="pdfTypefaceSelection">
+                <option value="alegreya-sans">Alegreya Sans</option>
+                <option value="alegreya">Alegreya</option>
+                <option value="eb-garamond">EB Garamond</option>
+                <option value="crimson-pro">Crimson Pro</option>
+                <option value="xcharter">XCharter</option>
+                <option value="cm">Computer Modern</option>
+            </select>
+        </div>
+        <p style="text-align:left;margin-bottom:0.25em;">“Theorem Style” toggles between boxed environments (<code>tcbthm</code>) and simple layouts (<code>amsthm</code>).</p>
+        <p style="text-align:left;"><i>The default option is Alegreya Sans with <code>tcbthm</code> environments.</i></p>
     </div>
 </div>
 <div class="main-content">
@@ -570,90 +492,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 {% endraw %}
-
-<!-- 
-    PDF Style Selection Logic
-    This section is separate because it needs to be processed by Jinja to access
-    page-specific variables like `tag` and `filename`.
--->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Central configuration for all PDF styles and links
-    const PDF_CONFIG = {
-        baseUrls: {
-            book: "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/",
-            chapter: "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-chapters/"
-        },
-        styleMap: {
-            "Style1":  { book: "alegreya-sans-tcb.pdf", chapterDir: "alegreya-sans-tcb" },
-            "Style2":  { book: "alegreya-tcb.pdf",      chapterDir: "alegreya-tcb" },
-            "Style3":  { book: "eb-garamond-tcb.pdf",   chapterDir: "eb-garamond-tcb" },
-            "Style4":  { book: "crimson-pro-tcb.pdf",   chapterDir: "crimson-pro-tcb" },
-            "Style5":  { book: "xcharter-tcb.pdf",      chapterDir: "xcharter-tcb" },
-            "Style6":  { book: "cm-tcb.pdf",            chapterDir: "cm-tcb" }
-            "Style7":  { book: "alegreya-sans.pdf",     chapterDir: "alegreya-sans" },
-            "Style8":  { book: "alegreya.pdf",          chapterDir: "alegreya" },
-            "Style9":  { book: "eb-garamond.pdf",       chapterDir: "eb-garamond" },
-            "Style10": { book: "crimson-pro.pdf",       chapterDir: "crimson-pro" },
-            "Style11": { book: "xcharter.pdf",          chapterDir: "xcharter" },
-            "Style12": { book: "cm.pdf",                chapterDir: "cm" }
-        }
-    };
-
-    const styleDropdown = document.getElementById("styleSelection");
-
-    // This function updates ALL PDF links on the page based on the selected style.
-    function updateAllPdfLinks(style) {
-        const selectedStyle = PDF_CONFIG.styleMap[style];
-        if (!selectedStyle) return;
-
-        // 1. Update main book link
-        const bookLink = document.getElementById("book-pdf-link");
-        if (bookLink) {
-            bookLink.href = PDF_CONFIG.baseUrls.book + selectedStyle.book;
-        }
-
-        // 2. Update part link (if it exists on the page)
-        const partLink = document.getElementById("part-pdf-link");
-        {% if tag is defined %}
-        if (partLink) {
-            partLink.href = `${PDF_CONFIG.baseUrls.book}${selectedStyle.book}#nameddest={{ tag.tag }}`;
-        }
-        {% endif %}
-
-        // 3. Update chapter link (if it exists on the page)
-        const chapterLink = document.getElementById("chapter-pdf-link");
-        {% if tag is defined and filename is defined %}
-        if (chapterLink && selectedStyle.chapterDir) {
-            chapterLink.href = `${PDF_CONFIG.baseUrls.chapter}${selectedStyle.chapterDir}/{{ filename }}.pdf#nameddest={{ tag.tag }}`;
-        }
-        {% endif %}
-
-        // 4. Update all chapter links in the Table of Contents
-        const tocLinks = document.querySelectorAll('[id^="chapter-pdf-link-in-toc-"]');
-        tocLinks.forEach(link => {
-            // Extract the filename from the link's original href
-            const href = link.getAttribute("href");
-            const filename = href.substring(href.lastIndexOf('/') + 1).replace('.pdf', '');
-            if (filename && selectedStyle.chapterDir) {
-                link.href = `${PDF_CONFIG.baseUrls.chapter}${selectedStyle.chapterDir}/${filename}.pdf`;
-            }
-        });
-    }
-
-    // Event listener for the dropdown
-    styleDropdown.addEventListener("change", function() {
-        const newStyle = this.value;
-        localStorage.setItem('pdfStyle', newStyle);
-        updateAllPdfLinks(newStyle);
-    });
-
-    // Initial load: set dropdown and update links from localStorage or default
-    const storedStyle = localStorage.getItem('pdfStyle') || 'Style1';
-    styleDropdown.value = storedStyle;
-    updateAllPdfLinks(storedStyle);
-});
-</script>
 <script>
     window.onload = function() {
         // Maximum allowed width for images
@@ -768,6 +606,98 @@ window.addEventListener('load', (event) => {
             behavior: 'smooth' 
         });
     }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Central configuration for PDF links
+    const PDF_CONFIG = {
+        baseUrls: {
+            book: "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-book/",
+            chapter: "https://raw.githubusercontent.com/topological-modular-forms/clowder-project-output/master/tags-chapters/"
+        }
+    };
+
+    const theoremStyleDropdown = document.getElementById("theoremStyleSelection");
+    const typefaceDropdown = document.getElementById("pdfTypefaceSelection");
+
+    // This function updates ALL PDF links on the page based on the selected styles.
+    function updateAllPdfLinks() {
+        if (!theoremStyleDropdown || !typefaceDropdown) return; // Exit if elements aren't on the page
+
+        const theoremStyle = theoremStyleDropdown.value;
+        const typeface = typefaceDropdown.value;
+
+        // Determine the base filename (stem) from the selections
+        let fileStem = typeface;
+        if (theoremStyle === 'tcbthm') {
+            fileStem += '-tcb';
+        }
+        
+        const bookPdfName = fileStem + '.pdf';
+        const chapterDirName = fileStem;
+
+        // 1. Update main book link
+        const bookLink = document.getElementById("book-pdf-link");
+        if (bookLink) {
+            bookLink.href = PDF_CONFIG.baseUrls.book + bookPdfName;
+        }
+
+        // 2. Update part link (if it exists on the page)
+        const partLink = document.getElementById("part-pdf-link");
+        {% if tag is defined %}
+        if (partLink) {
+            partLink.href = `${PDF_CONFIG.baseUrls.book}${bookPdfName}#nameddest={{ tag.tag }}`;
+        }
+        {% endif %}
+
+        // 3. Update chapter link (if it exists on the page)
+        const chapterLink = document.getElementById("chapter-pdf-link");
+        {% if tag is defined and filename is defined %}
+        if (chapterLink) {
+            chapterLink.href = `${PDF_CONFIG.baseUrls.chapter}${chapterDirName}/{{ filename }}.pdf#nameddest={{ tag.tag }}`;
+        }
+        {% endif %}
+
+        // 4. Update all chapter links in the Table of Contents
+        const tocLinks = document.querySelectorAll('[id^="chapter-pdf-link-in-toc-"]');
+        tocLinks.forEach(link => {
+            const currentHref = link.getAttribute("href");
+            // Extract the base filename (e.g., "01-introduction.pdf") from the end of the URL
+            const baseFilename = currentHref.substring(currentHref.lastIndexOf('/') + 1);
+            if (baseFilename) {
+                 link.href = `${PDF_CONFIG.baseUrls.chapter}${chapterDirName}/${baseFilename}`;
+            }
+        });
+    }
+    
+    // Function to handle changes in the dropdowns
+    function handlePreferenceChange() {
+        localStorage.setItem('pdfTheoremStyle', theoremStyleDropdown.value);
+        localStorage.setItem('pdfTypeface', typefaceDropdown.value);
+        updateAllPdfLinks();
+    }
+
+    // Initial load: set dropdowns and update links from localStorage or defaults
+    function initializePdfPreferences() {
+        if (!theoremStyleDropdown || !typefaceDropdown) return;
+
+        // Attach event listeners
+        theoremStyleDropdown.addEventListener("change", handlePreferenceChange);
+        typefaceDropdown.addEventListener("change", handlePreferenceChange);
+        
+        // Retrieve stored preferences or set defaults
+        const storedTheoremStyle = localStorage.getItem('pdfTheoremStyle') || 'tcbthm';
+        const storedTypeface = localStorage.getItem('pdfTypeface') || 'alegreya-sans';
+        
+        theoremStyleDropdown.value = storedTheoremStyle;
+        typefaceDropdown.value = storedTypeface;
+
+        // Apply preferences on initial load
+        updateAllPdfLinks();
+    }
+    
+    initializePdfPreferences();
 });
 </script>
 </body>

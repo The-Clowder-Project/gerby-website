@@ -53,7 +53,7 @@
     height: 50px; /* 80px tall header */
     background-color: #4D4D80; /* background color */
     color: #ffffff; /* White text color */
-    line-height: 50px; /* Center text vertically */
+    line-height: 37px; /* Center text vertically */
     text-align: center;
     font-size: 1.5rem;
 }
