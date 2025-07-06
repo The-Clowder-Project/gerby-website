@@ -76,6 +76,8 @@
     tr:nth-child(even) { background-color: #dddddd; }
     .dark-mode tr:nth-child(even) { background-color: #1F1F1F; }
     </style>
+    <style id="code-dynamic-style">
+    </style>
 </head>
 <body>
 <div id="preferencesMenu" class="preferences" style="display: none;">
@@ -93,13 +95,13 @@
         <div class="preference-item"><div><b>Website&nbsp;Typeface:&nbsp;</b></div>
             <select id="fontSelection">
                 <option value="Alegreya Sans">Alegreya Sans</option>
-                <option value="Noto Sans">Noto Sans</option>
                 <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
                 <option value="Alegreya">Alegreya</option>
                 <option value="Charis SIL">Charis SIL</option>
                 <option value="Crimson Pro">Crimson Pro</option>
                 <option value="Crimson Text">Crimson Text</option>
                 <option value="EB Garamond">EB Garamond</option>
+                <option value="Noto Sans">Noto Sans</option>
                 <option value="PT Serif">PT Serif</option>
             </select>
         </div>
@@ -392,19 +394,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // This configuration now includes a 'mathjax' key for custom scaling.
         // Adjust the percentage values here to fine-tune the look for each font.
         const fontConfig = {
-            'Alegreya Sans':        { body: '14pt',   preferencesMenu: '14pt',   mathjax: '105%' },
-            'Alegreya':             { body: '13pt',   preferencesMenu: '13pt',   mathjax: '110%' },
-            'Atkinson Hyperlegible':{ body: '12.5pt', preferencesMenu: '12.5pt', mathjax: '115%' },
-            'Charis SIL':           { body: '12pt',   preferencesMenu: '12pt',   mathjax: '117.5%' },
-            'Crimson Pro':          { body: '14pt',   preferencesMenu: '14pt',   mathjax: '102.5%' },
-            'Crimson Text':         { body: '14pt',   preferencesMenu: '14pt',   mathjax: '102.5%' },
-            'Noto Sans':            { body: '12pt',   preferencesMenu: '12pt',   mathjax: '121.4%' },
-            'EB Garamond':          { body: '14pt',   preferencesMenu: '14pt',   mathjax: '100%' },
-            'PT Serif':             { body: '12pt',   preferencesMenu: '12pt',   mathjax: '115%' },
+            'Alegreya Sans':        { body: '14pt',   preferencesMenu: '14pt',   mathjax: '105%', code: '85%' },
+            'Alegreya':             { body: '13pt',   preferencesMenu: '13pt',   mathjax: '110%', code: '90%'  },
+            'Atkinson Hyperlegible':{ body: '12.5pt', preferencesMenu: '12.5pt', mathjax: '115%', code: '93%'  },
+            'Charis SIL':           { body: '12pt',   preferencesMenu: '12pt',   mathjax: '117.5%', code: '92%'  },
+            'Crimson Pro':          { body: '14pt',   preferencesMenu: '14pt',   mathjax: '102.5%', code: '86%'  },
+            'Crimson Text':         { body: '14pt',   preferencesMenu: '14pt',   mathjax: '102.5%', code: '83%'  },
+            'Noto Sans':            { body: '12pt',   preferencesMenu: '12pt',   mathjax: '121.4%', code: '100%'  },
+            'EB Garamond':          { body: '14pt',   preferencesMenu: '14pt',   mathjax: '100%', code: '80%'  },
+            'PT Serif':             { body: '12pt',   preferencesMenu: '12pt',   mathjax: '115%', code: '95%'  },
         };
 
         const fontSelect = document.getElementById('fontSelection');
         const mathjaxStyleElement = document.getElementById('mathjax-dynamic-style');
+        const codeStyleElement = document.getElementById('code-dynamic-style');
 
         const setFont = (fontName) => {
             const config = fontConfig[fontName];
@@ -424,6 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     mjx-container {
                         font-size: ${config.mathjax} !important;
                     }
+                `;
+            }
+            // 3. Update code font size
+            if (codeStyleElement && config.code) {
+                codeStyleElement.innerHTML = `
+                    .codeColor { font-size: ${config.code} !important; }
                 `;
             }
         };
