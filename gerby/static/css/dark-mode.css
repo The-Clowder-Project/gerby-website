@@ -200,3 +200,5 @@
 .dark-mode code { color: #69F8FF; }
 .dark-mode .color-code { color: #FF6CB0; }
 .dark-mode button.clipboard { background-color: #000000; }
+.dark-mode .statistics-color { color: white; }
+.dark-mode .statistics-table tr:first-child { background-color: rgba(0,0,0,.05); }

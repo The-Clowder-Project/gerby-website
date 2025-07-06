@@ -1523,3 +1523,4 @@ h3 + p + div + p + p {
 div.toggle, div.toggle:hover { display: relative; margin: 0;}
 .toggle-box { display: flex; justify-content: right; padding-bottom: 1rem; }
 .PDF-button-container { padding-bottom: 0.5rem; }
+.statistics-color { color: black; }
