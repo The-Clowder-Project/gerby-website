@@ -15,3 +15,4 @@ gerby/static/scalemath-images
 gerby/__pycache__
 gerby/views/__pycache__
 gerby/tag_ancestors_2.json
+gerby/static/gifs
