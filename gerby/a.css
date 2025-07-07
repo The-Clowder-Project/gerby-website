@@ -1,0 +1,49 @@
+/* =================================================================== */
+/* NAVIGATION STYLES (RESPONSIVE)                                      */
+/* =================================================================== */
+
+/* --- Base Styles for All Screens --- */
+
+
+/* Style for the settings icon */
+#settingsButton .material-symbols-outlined {
+    font-size: 24px;
+}
+
+/* The "Settings" text is now hidden on ALL screen sizes */
+#settingsButton .link-text {
+    display: none;
+}
+
+
+/* --- Mobile-Specific Styles (screen width <= 767px) --- */
+@media (max-width: 767px) {
+
+    /* Center the site title on mobile */
+    #first-bar {
+      flex-wrap: wrap;
+    }
+    
+    header.col {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.5em; /* Reduced bottom margin */
+    }
+
+    /* Keep the nav container on the same line but ensure it's positioned correctly */
+    nav#header {
+      width: 100%;
+      justify-content: flex-end; /* Push the single icon to the right */
+    }
+
+    /* 1. By default, hide ALL navigation items on mobile */
+    ul#quicklinks > li {
+        display: none;
+    }
+
+    /* 2. Create an EXCEPTION to show ONLY the settings item */
+    ul#quicklinks > li#settings-nav-item {
+        display: list-item !important; /* Or 'block' works too */
+        margin: 0; /* Remove margin for the single item */
+    }
+}

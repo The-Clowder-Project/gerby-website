@@ -1524,3 +1524,38 @@ div.toggle, div.toggle:hover { display: relative; margin: 0;}
 .toggle-box { display: flex; justify-content: right; padding-bottom: 1rem; }
 .PDF-button-container { padding-bottom: 0.5rem; }
 .statistics-color { color: black; }
+nav#header ul#quicklinks > li#settings-nav-item { display: list-item !important; }
+.bar-icon     { transform: scale(1.1) translateX(0px) translateY(-7.0px) !important; }
+.bar-text:hover { text-decoration: underline; !important; }
+nav#header { flex-grow: 1; display: flex; justify-content: flex-end; /* Always align to the right */ }
+ul#quicklinks { list-style-type: none; padding: 0; margin: 0; display: flex; align-items: center; }
+ul#quicklinks li { margin-left: 1rem; }
+ul#quicklinks li a, ul#quicklinks li button { display: flex; align-items: center; gap: 0.5em; text-decoration: none; color: inherit; background-color: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 0.5em 0; }
+ul#quicklinks a:hover .link-text { text-decoration: underline; }
+@media (max-width: 767px) {
+
+    /* Keep the nav container on the same line but ensure it's positioned correctly */
+    nav#header {
+      width: 100%;
+      justify-content: flex-end; /* Push the single icon to the right */
+    }
+    /* 1. By default, hide ALL navigation items on mobile */
+    ul#quicklinks > li {
+        display: none;
+    }
+    /* 2. Create an EXCEPTION to show ONLY the settings item */
+    ul#quicklinks > li#settings-nav-item {
+        display: list-item !important; /* Or 'block' works too */
+        margin: 0; /* Remove margin for the single item */
+    }
+}
+/* Hide the list on larger screens */
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none;
+  }
+  .bar-text     { margin: 0; }
+  ul#quicklinks li button { padding: 0; }
+  .bar-icon { transform: scale(1.1) translateX(10px) translateY(-27.0px) !important; }
+  .bar-text { transform: scale(1.1) translateX(10px) translateY(-27.0px) !important; }
+}
