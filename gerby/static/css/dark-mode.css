@@ -202,3 +202,4 @@
 .dark-mode button.clipboard { background-color: #000000; }
 .dark-mode .statistics-color { color: white; }
 .dark-mode .statistics-table tr:first-child { background-color: rgba(0,0,0,.05); }
+.dark-mode .line { border-bottom: 1px solid #FFF; }
