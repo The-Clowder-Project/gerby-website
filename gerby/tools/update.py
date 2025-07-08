@@ -303,6 +303,9 @@ def makeBibliography(files):
               BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=value)
           if field.lower() in ["fjournal"]:
               BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=value)
+          if field.lower() in ["howpublished"] and re.match(r"^\\url{[^}]*}$",value):
+              url = re.sub(r"\\url{([^}]+)}","<a href=\"\g<1>\">\g<1></a>",value)
+              BibliographyField.create(key=entry.key, field=field.lower() + "_rich", value=url)
 
       for (field, value) in entry.persons.items():
         if field.lower() in ["author"]:

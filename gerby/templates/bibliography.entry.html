@@ -210,9 +210,14 @@
           <dd><a href="https://doi.org/{{ entry.fields["doi"] }}"><code>doi:{{ entry.fields["doi"] }}</code></a>
         {% endif %}
 
-        {% if "howpublished" in entry.fields %}
+        {% if "howpublished" in entry.fields and not "howpublished_rich" in entry.fields %}
           <dt>Source</dt>
-          <dd>{{ entry.fields["howpublished"] }}</dd>
+          <dd>{{ entry.fields["howpublished"] | safe }}</dd>
+        {% endif %}
+
+        {% if "howpublished_rich" in entry.fields %}
+          <dt>Source</dt>
+          <dd>{{ entry.fields["howpublished_rich"] | safe }}</dd>
         {% endif %}
 
         {% if "organization" in entry.fields %}
