@@ -153,11 +153,11 @@
 {% if "year" in entry.fields -%}
 <span class="code-fields">    YEAR</span>         <span class="code-text"> = { {{- entry.fields["year"] | safe -}} },</span>
 {% endif -%}
-{% if "journal" in entry.fields and not "fjournal" in entry.fields -%}
-<span class="code-fields">    JOURNAL</span>      <span class="code-text"> = { {{- entry.fields["jornal"] | safe -}} },</span>
+{% if "fjournal_source" in entry.fields -%}
+<span class="code-fields">    FJOURNAL</span>     <span class="code-text"> = { {{- entry.fields["fjournal_source"] | safe -}} },</span>
 {% endif -%}
-{% if "fjournal" in entry.fields -%}
-<span class="code-fields">    JOURNAL</span>      <span class="code-text"> = { {{- entry.fields["fjornal"] | safe -}} },</span>
+{% if "journal_source" in entry.fields -%}
+<span class="code-fields">    JOURNAL</span>      <span class="code-text"> = { {{- entry.fields["journal_source"] | safe -}} },</span>
 {% endif -%}
 {% if "publisher" in entry.fields -%}
 <span class="code-fields">    PUBLISHER</span>    <span class="code-text"> = { {{- entry.fields["publisher"] | safe -}} },</span>

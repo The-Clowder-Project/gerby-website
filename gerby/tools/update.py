@@ -299,6 +299,10 @@ def makeBibliography(files):
 
           if field.lower() in ["shorthand"]:
               BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=value)
+          if field.lower() in ["journal"]:
+              BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=value)
+          if field.lower() in ["fjournal"]:
+              BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=value)
 
       for (field, value) in entry.persons.items():
         if field.lower() in ["author"]:
