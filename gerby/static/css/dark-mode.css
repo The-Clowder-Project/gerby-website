@@ -107,6 +107,7 @@
   background-color: #2c2d36;
   border-color: #474747;
 }
+.dark-mode .bib-interaction-box,
 .dark-mode .right-interaction-box,
 .dark-mode .contact-box,
 .dark-mode .palign > table > tbody tr {
