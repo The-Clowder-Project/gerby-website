@@ -1570,5 +1570,5 @@ ul#quicklinks a:hover .link-text { text-decoration: underline; }
     font-size: 14px;
     line-height: 1.4;
 }
-.bib-code-button > .copy-button { top: 8.5rem; }
 dl.entry { padding-top: 1rem; }
+.bib-code-button > .copy-button { bottom: 6%; top: auto; }
