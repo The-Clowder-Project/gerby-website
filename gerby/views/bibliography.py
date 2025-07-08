@@ -65,6 +65,7 @@ def decorateEntries(entries):
     # make the fields accessible in Jinja
     for field in fields:
       if field.field == "author":
+        setattr(entry, 'original_author', field.value)
         updated_author = reformatAuthors(field.value)
         setattr(entry, field.field, updated_author)
       else:

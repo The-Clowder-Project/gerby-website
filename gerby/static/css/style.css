@@ -1304,7 +1304,7 @@ blockquote {
     font-size: 14px;
 }
 .copy-button:hover {
-    background-color: #45a049;
+    background-color: #B30B00;
 }
 .material-symbols-outlined {
   font-variation-settings:
@@ -1489,7 +1489,7 @@ h1 { font-size: 2.0em; font-weight: bold; }
 .dark-mode .code-fields { color: #EF2F27; }
 .dark-mode .code-text   { color: white; }
 .dark-mode .code-text2  { color: #918175; }
-.dark-mode .code-block  { background-color: #15161A; }
+.dark-mode .code-block, .dark-mode .bib-code-block  { background-color: #15161A; }
 .footnotes .equation { margin-left: 0px !important; }
 
 p + h4 {
@@ -1559,3 +1559,16 @@ ul#quicklinks a:hover .link-text { text-decoration: underline; }
   .bar-icon { transform: scale(1.1) translateX(10px) translateY(-27.0px) !important; }
   .bar-text { transform: scale(1.1) translateX(10px) translateY(-27.0px) !important; }
 }
+.bib-code-block {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 40px 10px 10px; /* Added right padding for button */
+    font-family: monospace;
+    white-space: pre;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.bib-code-button > .copy-button { top: 8.5rem; }
+dl.entry { padding-top: 1rem; }

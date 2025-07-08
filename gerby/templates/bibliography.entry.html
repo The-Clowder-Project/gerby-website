@@ -139,13 +139,77 @@
       </dl>
     </div>
 
-    <div class="tab-pane" id="entry-code" role="tabpanel">
-      <pre><code>
-{{ entry.code }}
-      </code></pre>
+    <div class="tab-pane bib-code-button" id="entry-code" role="tabpanel">
+      <pre class="bib-code-block"><code><span class="code-text">@</span><span class="code-type">{{- entry.entrytype -}}</span><span class="code-text">{</span><span class="code-title">{{- entry.key -}}</span><span class="code-text">,</span>
+{% if "author" in entry.fields -%}
+<span class="code-fields">    AUTHOR</span>       <span class="code-text"> = { {{- entry.original_author | safe -}} },</span>
+{% endif -%}
+{% if "title" in entry.fields -%}
+<span class="code-fields">    TITLE</span>        <span class="code-text"> = { {{- entry.fields["title"] | safe -}} },</span>
+{% endif -%}
+{% if "booktitle" in entry.fields -%}
+<span class="code-fields">    BOOKTITLE</span>    <span class="code-text"> = { {{- entry.fields["booktitle"] | safe -}} },</span>
+{% endif -%}
+{% if "year" in entry.fields -%}
+<span class="code-fields">    YEAR</span>         <span class="code-text"> = { {{- entry.fields["year"] | safe -}} },</span>
+{% endif -%}
+{% if "journal" in entry.fields and not "fjournal" in entry.fields -%}
+<span class="code-fields">    JOURNAL</span>      <span class="code-text"> = { {{- entry.fields["jornal"] | safe -}} },</span>
+{% endif -%}
+{% if "fjournal" in entry.fields -%}
+<span class="code-fields">    JOURNAL</span>      <span class="code-text"> = { {{- entry.fields["fjornal"] | safe -}} },</span>
+{% endif -%}
+{% if "publisher" in entry.fields -%}
+<span class="code-fields">    PUBLISHER</span>    <span class="code-text"> = { {{- entry.fields["publisher"] | safe -}} },</span>
+{% endif -%}
+{% if "series" in entry.fields -%}
+<span class="code-fields">    SERIES</span>       <span class="code-text"> = { {{- entry.fields["series"] | safe -}} },</span>
+{% endif -%}
+{% if "volume" in entry.fields -%}
+<span class="code-fields">    VOLUME</span>       <span class="code-text"> = { {{- entry.fields["volume"] | safe -}} },</span>
+{% endif -%}
+{% if "number" in entry.fields -%}
+<span class="code-fields">    NUMBER</span>       <span class="code-text"> = { {{- entry.fields["number"] | safe -}} },</span>
+{% endif -%}
+{% if "pages" in entry.fields -%}
+<span class="code-fields">    PAGES</span>        <span class="code-text"> = { {{- entry.fields["pages"] | safe -}} },</span>
+{% endif -%}
+{% if "eprint" in entry.fields -%}
+<span class="code-fields">    EPRINT</span>       <span class="code-text"> = { {{- entry.fields["eprint"] | safe -}} },</span>
+{% endif -%}
+{% if "url" in entry.fields -%}
+<span class="code-fields">    URL</span>          <span class="code-text"> = { {{- entry.fields["url"] | safe -}} },</span>
+{% endif -%}
+{% if "mrclass" in entry.fields -%}
+<span class="code-fields">    MRCLASS</span>      <span class="code-text"> = { {{- entry.fields["mrclass"] | safe -}} },</span>
+{% endif -%}
+{% if "mrnumber" in entry.fields -%}
+<span class="code-fields">    MRNUMBER</span>     <span class="code-text"> = { {{- entry.fields["mrnumber"] | safe -}} },</span>
+{% endif -%}
+{% if "howpublished" in entry.fields -%}
+<span class="code-fields">    HOWPUBLISHED</span> <span class="code-text"> = { {{- entry.fields["howpublished"] | safe -}} },</span>
+{% endif -%}
+{% if "doi" in entry.fields -%}
+<span class="code-fields">    DOI</span>          <span class="code-text"> = { {{- entry.fields["doi"] | safe -}} },</span>
+{% endif -%}
+{% if "shorthand" in entry.fields -%}
+<span class="code-fields">    SHORTHAND</span>    <span class="code-text"> = { {{- entry.fields["shorthand"] | safe -}} },</span>
+{% endif -%}
+{% if "organization" in entry.fields -%}
+<span class="code-fields">    ORGANIZATION</span> <span class="code-text"> = { {{- entry.fields["organization"] | safe -}} },</span>
+{% endif -%}
+{% if "issn" in entry.fields -%}
+<span class="code-fields">    ISSN</span>         <span class="code-text"> = { {{- entry.fields["issn"] | safe -}} },</span>
+{% endif -%}
+{% if "isbn" in entry.fields -%}
+<span class="code-fields">    ISBN</span>         <span class="code-text"> = { {{- entry.fields["isbn"] | safe -}} },</span>
+{% endif -%}
+{% if "month" in entry.fields -%}
+<span class="code-fields">    MONTH</span>        <span class="code-text"> = { {{- entry.fields["month"] | safe -}} },</span>
+{% endif -%}
+}</code></pre><button class="copy-button" onclick="copyCode()">Copy</button>
     </div>
   </div>
-
   <!--<div id="citations-main">
     {{ citationsMacro(citations) }}
   </div>-->
