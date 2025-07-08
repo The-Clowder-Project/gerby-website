@@ -67,9 +67,9 @@
   <div class="tab-content" id="entry-content">
     <div class="tab-pane show active " id="entry-table" role="tabpanel">
       <dl class="entry">
-        {% if "author" in entry.fields %}
+        {% if "author_rich" in entry.fields %}
           <dt>Author</dt>
-          <dd>{{ entry.fields["author"] | safe }}</dd>
+          <dd>{{ entry.fields["author_rich"] | safe }}</dd>
         {% endif %}
 
         {% if "title" in entry.fields %}
@@ -141,8 +141,8 @@
 
     <div class="tab-pane bib-code-button" id="entry-code" role="tabpanel">
       <pre class="bib-code-block"><code><span class="code-text">@</span><span class="code-type">{{- entry.entrytype -}}</span><span class="code-text">{</span><span class="code-title">{{- entry.key -}}</span><span class="code-text">,</span>
-{% if "author" in entry.fields -%}
-<span class="code-fields">    AUTHOR</span>       <span class="code-text"> = { {{- entry.original_author | safe -}} },</span>
+{% if "author_source" in entry.fields -%}
+<span class="code-fields">    AUTHOR</span>       <span class="code-text"> = { {{- entry.fields["author_source"] | safe -}} },</span>
 {% endif -%}
 {% if "title" in entry.fields -%}
 <span class="code-fields">    TITLE</span>        <span class="code-text"> = { {{- entry.fields["title"] | safe -}} },</span>
@@ -192,8 +192,8 @@
 {% if "doi" in entry.fields -%}
 <span class="code-fields">    DOI</span>          <span class="code-text"> = { {{- entry.fields["doi"] | safe -}} },</span>
 {% endif -%}
-{% if "shorthand" in entry.fields -%}
-<span class="code-fields">    SHORTHAND</span>    <span class="code-text"> = { {{- entry.fields["shorthand"] | safe -}} },</span>
+{% if "shorthand_source" in entry.fields -%}
+<span class="code-fields">    SHORTHAND</span>    <span class="code-text"> = { {{- entry.fields["shorthand_source"] | safe -}} },</span>
 {% endif -%}
 {% if "organization" in entry.fields -%}
 <span class="code-fields">    ORGANIZATION</span> <span class="code-text"> = { {{- entry.fields["organization"] | safe -}} },</span>

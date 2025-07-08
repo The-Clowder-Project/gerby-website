@@ -293,10 +293,20 @@ def makeBibliography(files):
       BibliographyEntry.create(entrytype=entry.type, key=entry.key, code=data.to_string("bibtex"))
 
       for (field, value) in entry.fields.items():
-        value = pybtex.richtext.Text.from_latex(value).render_as("html")
-        BibliographyField.create(key=entry.key, field=field.lower(), value=value)
+          # Create and save the plain-text version first
+          plain_value = pybtex.richtext.Text.from_latex(value).render_as("html")
+          BibliographyField.create(key=entry.key, field=field.lower(), value=plain_value)
+
+          if field.lower() in ["shorthand"]:
+              BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=value)
 
       for (field, value) in entry.persons.items():
+        if field.lower() in ["author"]:
+            key_value = ""
+            for person in value:
+                key_value += str(person) + " AND "
+            key_value = re.sub(" AND $","",key_value)
+            BibliographyField.create(key=entry.key, field=field.lower() + "_source", value=key_value)
         value = " and ".join([person.__str__() for person in value])
         if re.match("^\\\href\{[^}]*\}\{[^}]*\}$",value):
             value = re.sub("\\\href{([^}]+)}{([^}]+)}","<a href=\"\g<1>\">\g<2></a>",value)
