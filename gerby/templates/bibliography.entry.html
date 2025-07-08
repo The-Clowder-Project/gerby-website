@@ -44,14 +44,72 @@
 
 {% macro neighboursMacro(neighbours) %}
 
-<ul class="neighbours">
+<div class="bib-interaction-box">
+  <div class="previous-next-nav">
+    {% if neighbours[0] %}
+      <div class="arrow-container">
+        <a class="previous-button" href="/bibliography/{{ neighbours[0].key }}">
+          <span class="dark-svg"><img class="previous-arrow-img" height="30px" width="auto" src="/static/images/previous.svg"></span>
+          <div class="arrow-text">Previous</div>
+        </a>
+      </div>
+    {% endif %}
+    {% if not neighbours[0]%}
+      <div class="arrow-container">
+      </div>
+      <div class="arrow-container">
+        <span class="next-button" href="/bibliography/{{ neighbours[1].key }}">
+          <span class="invisible-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+          <div class="arrow-text"></div>
+        </span>
+      </div>
+    {% endif %}
+    {% if neighbours[0] and neighbours[1]%}
+      <div class="arrow-container">
+        <a class="next-button" href="/bibliography/{{ neighbours[1].key }}">
+          <span class="dark-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+          <div class="arrow-text">Next</div>
+        </a>
+      </div>
+    {% endif %}
+    {% if not neighbours[0] and neighbours[1] %}
+      <div class="arrow-container">
+      </div>
+      <div class="arrow-container">
+        <a class="next-button" href="/bibliography/{{ neighbours[1].key }}">
+          <span class="dark-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+          <div class="arrow-text">Next</div>
+        </a>
+      </div>
+    {% endif %}
+    {% if not neighbours[0] and not neighbours[1] %}
+      <div class="arrow-container">
+      </div>
+      <div class="arrow-container">
+          <span class="invisible-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+          <div class="arrow-text"> </div>
+      </div>
+    {% endif %}
+    {% if not neighbours[1]%}
+      <div class="arrow-container">
+      </div>
+      <div class="arrow-container">
+        <span class="next-button" href="/bibliography/{{ neighbours[1].key }}">
+          <span class="invisible-svg"><img class="next-arrow-img" height="30px" width="auto" src="/static/images/next.svg"></span>
+          <div class="arrow-text"></div>
+        </span>
+      </div>
+    {% endif %}
+  </div>
+</div>
+<!--<ul class="neighbours">
 {% if neighbours[0] %}
   <li class="left"><a href="/bibliography/{{ neighbours[0].key }}">previous entry</a>
 {% endif %}
 {% if neighbours[1] %}
   <li class="right"><a href="/bibliography/{{ neighbours[1].key }}">next entry</a>
 {% endif %}
-</ul>
+</ul>-->
 {% if neighbours[0] or neighbours[1] %}<br style="clear:both">{% endif %}
 
 {% endmacro %}
@@ -67,9 +125,9 @@
   <div class="tab-content" id="entry-content">
     <div class="tab-pane show active " id="entry-table" role="tabpanel">
       <dl class="entry">
-        {% if "author_rich" in entry.fields %}
+        {% if "author" in entry.fields %}
           <dt>Author</dt>
-          <dd>{{ entry.fields["author_rich"] | safe }}</dd>
+          <dd>{{ entry.fields["author"] | safe }}</dd>
         {% endif %}
 
         {% if "title" in entry.fields %}
@@ -77,9 +135,19 @@
           <dd>{{ entry.fields["title"] | safe }}</dd>
         {% endif %}
 
+        {% if "booktitle" in entry.fields -%}
+          <dt>Book Title</dt>
+          <dd>{{ entry.fields["booktitle"] | safe }}</dd>
+        {% endif -%}
+
         {% if "year" in entry.fields %}
           <dt>Year</dt>
           <dd>{{ entry.fields["year"] }}</dd>
+        {% endif %}
+
+        {% if "month" in entry.fields %}
+          <dt>Month</dt>
+          <dd>{{ entry.fields["month"] }}</dd>
         {% endif %}
 
         {% if "journal" in entry.fields and not "fjournal" in entry.fields %}
@@ -127,14 +195,39 @@
           <dd><a href="{{ entry.fields["url"] }}">{{ entry.fields["url"] }}</a></dd>
         {% endif %}
 
+        {% if "mrclass" in entry.fields %}
+          <dt>MathSciNet Class</dt>
+          <dd><a href="https://mathscinet.ams.org/mathscinet-getitem?mr={{ entry.fields["mrclass"] }}">MR{{ entry.fields["mrclass"] }}</a>
+        {% endif %}
+
         {% if "mrnumber" in entry.fields %}
-          <dt>MathSciNet
+          <dt>MathSciNet</dt>
           <dd><a href="https://mathscinet.ams.org/mathscinet-getitem?mr={{ entry.fields["mrnumber"] }}">MR{{ entry.fields["mrnumber"] }}</a>
         {% endif %}
 
         {% if "doi" in entry.fields %}
-          <dt><abbr title="Document Object Identifier">DOI</abbr>
-          <dd><a href="https://doi.org/{{ entry.fields["doi"] }}"><code>doi:{{ entry.fields["mrnumber"] }}</code></a>
+          <dt><abbr title="Document Object Identifier">DOI</abbr></dt>
+          <dd><a href="https://doi.org/{{ entry.fields["doi"] }}"><code>doi:{{ entry.fields["doi"] }}</code></a>
+        {% endif %}
+
+        {% if "howpublished" in entry.fields %}
+          <dt>Source</dt>
+          <dd>{{ entry.fields["howpublished"] }}</dd>
+        {% endif %}
+
+        {% if "organization" in entry.fields %}
+          <dt>Organization</dt>
+          <dd>{{ entry.fields["organization"] }}</dd>
+        {% endif %}
+
+        {% if "issn" in entry.fields %}
+          <dt>ISSN</dt>
+          <dd>{{ entry.fields["issn"] }}</dd>
+        {% endif %}
+
+        {% if "isbn" in entry.fields %}
+          <dt>ISBN</dt>
+          <dd>{{ entry.fields["isbn"] }}</dd>
         {% endif %}
       </dl>
     </div>

@@ -34,7 +34,7 @@
               {% if chapter.name != "To Do List" %}
                 <li><p><a href="/tag/{{ chapter.tag }}">Chapter <span data-tag="{{ chapter.tag }}">{{ chapter.ref }}</span></a>: {{ chapter.name }}
                 {% set filename = chapter.label.split(":section-")[0] %}</p>
-                <a id="chapter-pdf-link-in-toc-{{ filename }}" class="pdf-link" href="{{ filename }}">PDF</a>
+                <a id="chapter-pdf-link-in-toc-{{ filename }}" class="pdf-link" href="{{ filename }}.pdf">PDF</a>
               {% endif %}
             {% endfor %}
           </ul>

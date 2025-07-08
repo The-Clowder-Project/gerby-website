@@ -59,6 +59,7 @@
   text-decoration: none;
 }
 [class$="-header"] a:hover {
+  color: inherit;
   text-decoration: underline;
 }
 
