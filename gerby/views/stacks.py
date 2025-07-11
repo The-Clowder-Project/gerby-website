@@ -25,7 +25,7 @@ def md5_processor():
 
 @app.route("/tags")
 def show_tags():
-  return render_template("single/tags.html")
+  return render_template("single/tags.html",time=datetime.datetime.utcnow())
 
 
 @app.route("/todo")
