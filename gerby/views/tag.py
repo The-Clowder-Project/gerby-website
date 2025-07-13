@@ -56,7 +56,7 @@ def combine(tags):
   return output
 
 def getNeighbours(tag):
-  # items cannot be dealt with appropriately, so we just don't
+  # items can be dealt with semi-appropriately, so we kinda do
   ANCESTOR_MAP = load_ancestors()
   if tag.type == "item":
     if tag.tag in ANCESTOR_MAP:
