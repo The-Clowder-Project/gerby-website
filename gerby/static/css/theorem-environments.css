@@ -1,4 +1,5 @@
 /* --- 1. Define Theme Colors with Custom Properties --- */
+.env-motivation, .env-motivation-header, .env-motivation-footer       { --env-color: #0062B9; }
 .env-definition, .env-definition-header, .env-definition-footer       { --env-color: #4D4D80; }
 .env-warning, .env-warning-header, .env-warning-footer                { --env-color: #000000; }
 .env-construction, .env-construction-header, .env-construction-footer { --env-color: #806605; }
