@@ -1573,3 +1573,4 @@ ul#quicklinks a:hover .link-text { text-decoration: underline; }
 dl.entry { padding-top: 1rem; }
 .bib-code-button > .copy-button { bottom: 6%; top: auto; }
 .bib-interaction-box { background-color: #f2f2f2; padding-top: 0.5rem; height: 6.75rem; width: auto; border-color: #000000; padding-bottom: 5px; }
+tbody td { border: 1px solid #000000; }

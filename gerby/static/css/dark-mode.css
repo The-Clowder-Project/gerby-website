@@ -207,3 +207,4 @@
 .dark-mode .line { border-bottom: 1px solid white; }
 .dark-mode .gogogo-text { color: #c850ff; opacity: 0.25; }
 .dark-mode ul#index-select li { border: 1px solid white; }
+.dark-mode tbody td { border: 1px solid #555555 !important; }
