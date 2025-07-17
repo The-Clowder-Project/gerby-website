@@ -1037,7 +1037,7 @@ ul#index-select li#index-invisible span {
 }
 @font-face {
   font-family: 'Brill Regular';
-  src: url("static/fonts/Brill-Regular.ttf");
+  src: url("../fonts/Brill-Regular.ttf");
 }
 .brill {
     font-family: "Brill Regular";
