@@ -1226,12 +1226,13 @@ ul#mobile-index-select li#mobile-index-invisible span {
     font-size: 82.4402308%;
   }
   div#burger-content {
-    height: 90px;
+    height: 135px;
   }
   div#burger-content div.toggle,
   section#meta div.toggle {
     transform: translate(0px,0px);
   }
+  div.toggle:active { margin: 0rem; }
 }
 .footnotes-section {
     font-size: 85%;
