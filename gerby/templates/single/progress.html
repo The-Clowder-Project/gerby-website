@@ -11,9 +11,18 @@
   <hr>
   <p style="margin-bottom:1em">In this page we discuss the current state of the project and what is planned for the future.</p>
   <h2 style="margin-top:0.375em;margin-bottom:0.55em">How Clowder Began</h2>
-  <p style="margin-bottom:1em">Bizzarely enough, Clowder indirectly started from a set of <a href="https://ankiweb.net/about">Anki</a> flashcards on a number of subjects back in 2018. As the flashcards grew and grew, it became necessary to organize them in PDF format instead. Then, from 2018 until 2023, the notes kept growing.</p>
-  <p style="margin-bottom:1em">As before, they eventually grew too large, and organizing them in PDF kept getting more and more difficult. For instance, at its last year, compilation was taking 8 hours, and LuaLaTeX had to be recompiled specifically to increase certain built-in limits.</p>
-  <p style="margin-bottom:1em">Beginning in late 2023, the notes started to be reorganized in what became the current version of Clowder.</p>
+  <p style="margin-bottom:1em">Bizzarely enough, Clowder (indirectly) started from a set of <a href="https://ankiweb.net/about">Anki</a> flashcards for a couple different subjects in physics and mathematics, all the way back in 2018. As the flashcards grew and grew, it became necessary to do away with the flashcard format in favour of PDFs. Then, from 2018 until 2023, the notes kept growing.</p>
+  <p style="margin-bottom:1em">Eventually, they too grew too large for their format, as had happened before. Organizing them in PDF form kept getting more and more difficult. For instance, during its last year, compilation was taking 8 hours, and LuaLaTeX had to be recompiled specifically to increase certain built-in limits. Indeed, the last compiled PDF of the project ran at 10566 pages.</p>
+  <p style="margin-bottom:1em">It was thus time for reorganizing them yet again, and <a href="https://gerby-project.github.io/">Gerby</a> felt like a natural choice since it's made specifically for this purpose. Beginning in late 2023, the notes started to be reorganized in what became the current version of Clowder. After almost a year of work and several infrastructure improvements, Clowder finally had a decent infrastructure with the July 06, 2025 update.</p>
+  <h2 style="margin-top:0.375em;margin-bottom:0.55em">What has been done already</h2>
+  <p style="margin-bottom:1em">The original notes on which Clowder is based upon tackle most subjects in category theory. For instance, here's what part of the notes in categories looked like:</p>
+  <img style="width: 645px;" src="/static/images/toc-01.png"></img>
+  <p style="margin-top:1rem; margin-bottom:1rem;">Eventually, many subjects get covered, such as e.g. bicategories:</p>
+  <img style="width: 645px;" src="/static/images/toc-02.png"></img>
+  <h2 style="margin-top:0.375em;margin-bottom:0.55em">What remains to be done</h2>
+  <p style="margin-top:1rem; margin-bottom:1rem;">Right now, the original PDF notes are being reworked into Gerby's tag-based format, allowing them to be rendered also in web format. Additionally, a huge amount of polishing and expansion is underway. Our hope is to eventually arive at more or less definitive versions of the material as we convert the PDF notes into the current wiki format.</p>
+  <p style="margin-top:0rem; margin-bottom:1rem;">So far, only the very elementary preliminary material on sets and related subjects has been reworked, apart from a single chapter on categories. Thus, most of the current version of project ended up being about admittedly not terribly interesting subjects, as such preliminary material serves mostly as stepping stones, examples, and sometimes of some utility elsewhere.</p>
+  <p style="margin-top:0rem; margin-bottom:1rem;">Moving forward, our plan is to gradually add more and more material on category theory first, until there's a decent coverage of the basics of the subject (this will likely last for the next one or two thousand pages). See also <a href="https://www.clowderproject.com/tag/01X8.html">Tag 01X8</a> for some extra information on what content is currently planned for Clowder.</p>
 {% endblock %}
 
 {% block sidebar %}
