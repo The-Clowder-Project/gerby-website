@@ -147,24 +147,23 @@
 /* --- 4. Dark Mode Environment Theming --- */
 /* 4a. Override the --env-color variable for each environment type. */
 /* The general rules from the main stylesheet will automatically pick these up. */
-.dark-mode .env-motivation,   .dark-mode .env-motivation-header,   .dark-mode .env-motivation-footer   { --env-color: #005753; }
-.dark-mode .env-motivation,   .dark-mode .env-motivation-header,   .dark-mode .env-motivation-footer   { --env-color: #004582; }
-.dark-mode .env-definition,   .dark-mode .env-definition-header,   .dark-mode .env-definition-footer   { --env-color: #3A3A61; }
-.dark-mode .env-warning,      .dark-mode .env-warning-header,      .dark-mode .env-warning-footer      { --env-color: #000000; }
-.dark-mode .env-construction, .dark-mode .env-construction-header, .dark-mode .env-construction-footer { --env-color: #695303; }
+.dark-mode .env-explanation,   .dark-mode .env-explanation-header,   .dark-mode .env-explanation-footer   { --env-color: #005753; }
+.dark-mode .env-motivation,   .dark-mode .env-motivation-header,   .dark-mode .env-motivation-footer      { --env-color: #004582; }
+.dark-mode .env-definition,   .dark-mode .env-definition-header,   .dark-mode .env-definition-footer      { --env-color: #3A3A61; }
+.dark-mode .env-warning,      .dark-mode .env-warning-header,      .dark-mode .env-warning-footer         { --env-color: #000000; }
+.dark-mode .env-construction, .dark-mode .env-construction-header, .dark-mode .env-construction-footer    { --env-color: #695303; }
 .dark-mode .env-proposition,  .dark-mode .env-proposition-header,  .dark-mode .env-proposition-footer,
-.dark-mode .env-theorem,      .dark-mode .env-theorem-header,      .dark-mode .env-theorem-footer      { --env-color: #730808; }
-.dark-mode .env-example,      .dark-mode .env-example-header,      .dark-mode .env-example-footer      { --env-color: #632800; }
-.dark-mode .env-remark,       .dark-mode .env-remark-header,       .dark-mode .env-remark-footer       { --env-color: #245E24; }
-.dark-mode .env-lemma,        .dark-mode .env-lemma-header,        .dark-mode .env-lemma-footer        { --env-color: #9B3E00; }
-.dark-mode .env-question,     .dark-mode .env-question-header,     .dark-mode .env-question-footer     { --env-color: #01858f; }
-.dark-mode .env-proof,        .dark-mode .env-proof-header,        .dark-mode .env-proof-footer        { --env-color: #404040; }
-.dark-mode .env-oldtag,       .dark-mode .env-oldtag-header,       .dark-mode .env-oldtag-footer       { --env-color: #554422; } /* #542 is not a valid 6-digit hex */
-/* The following were not in your dark-mode.css, but I've added them with placeholder colors for completeness. */
-.dark-mode .env-corollary,    .dark-mode .env-corollary-header,    .dark-mode .env-corollary-footer    { --env-color: #4A006A; } /* Placeholder */
-.dark-mode .env-notation,     .dark-mode .env-notation-header,     .dark-mode .env-notation-footer     { --env-color: #8C0A54; } /* Placeholder */
-.dark-mode .env-gap,          .dark-mode .env-gap-header,          .dark-mode .env-gap-footer          { --env-color: #8A2A49; } /* Placeholder */
-.dark-mode .env-footnotes                                                                              { --env-color: #4A9A98; } /* Placeholder */
+.dark-mode .env-theorem,      .dark-mode .env-theorem-header,      .dark-mode .env-theorem-footer         { --env-color: #730808; }
+.dark-mode .env-example,      .dark-mode .env-example-header,      .dark-mode .env-example-footer         { --env-color: #632800; }
+.dark-mode .env-remark,       .dark-mode .env-remark-header,       .dark-mode .env-remark-footer          { --env-color: #245E24; }
+.dark-mode .env-lemma,        .dark-mode .env-lemma-header,        .dark-mode .env-lemma-footer           { --env-color: #9B3E00; }
+.dark-mode .env-question,     .dark-mode .env-question-header,     .dark-mode .env-question-footer        { --env-color: #01858f; }
+.dark-mode .env-proof,        .dark-mode .env-proof-header,        .dark-mode .env-proof-footer           { --env-color: #404040; }
+.dark-mode .env-oldtag,       .dark-mode .env-oldtag-header,       .dark-mode .env-oldtag-footer          { --env-color: #554422; }
+.dark-mode .env-corollary,    .dark-mode .env-corollary-header,    .dark-mode .env-corollary-footer       { --env-color: #4A006A; }
+.dark-mode .env-notation,     .dark-mode .env-notation-header,     .dark-mode .env-notation-footer        { --env-color: #8C0A54; }
+.dark-mode .env-gap,          .dark-mode .env-gap-header,          .dark-mode .env-gap-footer             { --env-color: #8A2A49; }
+.dark-mode .env-footnotes                                                                                 { --env-color: #4A9A98; }
 
 /* 4b. Set the common background for all environment containers in dark mode. */
 .dark-mode [class^="env-"]:not([class*="-header"]):not([class*="-footer"]) {
