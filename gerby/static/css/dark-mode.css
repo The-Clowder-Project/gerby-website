@@ -147,6 +147,7 @@
 /* --- 4. Dark Mode Environment Theming --- */
 /* 4a. Override the --env-color variable for each environment type. */
 /* The general rules from the main stylesheet will automatically pick these up. */
+.dark-mode .env-motivation,   .dark-mode .env-motivation-header,   .dark-mode .env-motivation-footer   { --env-color: #005753; }
 .dark-mode .env-motivation,   .dark-mode .env-motivation-header,   .dark-mode .env-motivation-footer   { --env-color: #004582; }
 .dark-mode .env-definition,   .dark-mode .env-definition-header,   .dark-mode .env-definition-footer   { --env-color: #3A3A61; }
 .dark-mode .env-warning,      .dark-mode .env-warning-header,      .dark-mode .env-warning-footer      { --env-color: #000000; }
