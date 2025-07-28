@@ -123,7 +123,7 @@
   text-decoration: underline;
 }
 .env-proof div.proofbox {
-  background-color: gray;
+  background-color: grey;
   color: white;
   padding: 7.5px 10px;
   margin: 5px 0;
@@ -134,4 +134,26 @@
 /* Links inside the proof box should be white (from style.css) */
 .env-proof div.proofbox > a {
   color: #ffffff;
+}
+.proofbox > a {
+    color: #FFFFFF;
+}
+.subproofbox > a {
+    color: #FFFFFF;
+}
+.env-proof div.subproofbox {
+  background-color: #A60A00;
+  color: white;
+  padding: 7.5px 10px;
+  margin: 5px 0;
+  border-radius: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+}
+.subproofbox > a:hover {
+  color: inherit;
 }
