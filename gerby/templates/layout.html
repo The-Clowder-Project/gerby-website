@@ -170,9 +170,9 @@
         }
     
         function updateImageSources(isDarkMode) {
-            const imageSelectors = '.webcompile img, .webprooftree img, .tikz-cd img, .scalemath img, .webgif img';
+            const imageSelectors = '.webcompile img, .webprooftree img, .scalewebprooftree img, .tikz-cd img, .scalemath img, .webgif img';
             document.querySelectorAll(imageSelectors).forEach(img => {
-                const pathParts = ['/dark-mode/', '/static/tikzcd-images/', '/static/webprooftree-images/', '/static/webcompile-images/', '/static/scalemath-images/', '/static/gifs/'];
+                const pathParts = ['/dark-mode/', '/static/tikzcd-images/', '/static/scalewebprooftree-images/', '/static/webprooftree-images/', '/static/webcompile-images/', '/static/scalemath-images/', '/static/gifs/'];
                 let currentPath = img.src;
                 let basePath = pathParts.find(p => currentPath.includes(p) && p !== '/dark-mode/');
                 
@@ -326,7 +326,7 @@
         function initImageResizing() {
             const maxWidth = 500;
             const resizeFactor = 1.1;
-            const imageSelectors = '.webprooftree img, .webcompile img, .tikz-cd img, .scalemath img';
+            const imageSelectors = '.webprooftree img, .scalewebprooftree img, .webcompile img, .tikz-cd img, .scalemath img';
             
             document.querySelectorAll(imageSelectors).forEach(img => {
                 const setWidth = () => {
@@ -543,7 +543,18 @@
         // Maximum allowed width for images
         var maxWidth = 500; // You can adjust this value as per your requirement
 
-        // Select all img tags within divs with class webprooftree, scalemath, webcompile or tikzcd
+        // Select all img tags within divs with class scalewebprooftree, webprooftree, scalemath, webcompile or tikzcd
+
+        var scalewebprooftree_images = document.querySelectorAll('.scalewebprooftree img');
+
+        // Loop through each selected image
+        scalewebprooftree_images.forEach(function(img) {
+            // Resize the image to 225% of its original size
+            var newWidth = img.offsetWidth * 1.9;
+
+            // Check if the new width exceeds the maximum allowed width
+            img.style.width = (newWidth > maxWidth ? maxWidth : newWidth) + 'px';
+        });
 
         var webprooftree_images = document.querySelectorAll('.webprooftree img');
 
@@ -597,7 +608,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let zoomedContainer = null;
 
   // Select all div elements with class 'scalemath', 'webcompile' or 'tikz-cd'
-  const divElements = document.querySelectorAll('.scalemath, .webcompile, .webprooftree, .tikz-cd');
+  const divElements = document.querySelectorAll('.scalemath, .webcompile, .webprooftree, .scalewebprooftree, .tikz-cd');
 
   divElements.forEach(divElement => {
     divElement.addEventListener('click', (event) => {
