@@ -5,6 +5,7 @@ gerby/static/scalemath-images
 gerby/static/tikzcd-images
 gerby/static/webcompile-images
 gerby/static/webprooftree-images
+gerby/static/scalewebprooftree-images
 gerby/tag_ancestors_2.json
 gerby/tools/stacks.paux
 gerby/tools/stacks.pdf
