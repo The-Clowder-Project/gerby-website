@@ -961,7 +961,7 @@ h3 + p, h4 + p {
 .dark-mode .p-proof a {
   color: #ffffff;
 }
-.tikz-cd img, .webcompile img, .scalemath img {
+.tikz-cd img, .webcompile img, .webprooftree img, .scalewebprooftree img, .scalemath img {
     transition: transform 0.2s; /* Animation */
     cursor: zoom-in;
     background-color: #f2f2f2;
@@ -994,7 +994,7 @@ h3 + p, h4 + p {
 }
 
 .zoom-container img {
-  transform: scale(2.0); /* Zoom the image */
+  transform: scale(1.75); /* Zoom the image */
   background-color: #f2f2f2;
 }
 /* Default font size for larger screens (desktops/laptops) */
