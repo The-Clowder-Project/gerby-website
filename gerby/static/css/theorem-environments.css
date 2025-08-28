@@ -7,6 +7,7 @@
 .env-proposition, .env-proposition-header, .env-proposition-footer,
 .env-theorem, .env-theorem-header, .env-theorem-footer                { --env-color: #A60D0D; }
 .env-example, .env-example-header, .env-example-footer                { --env-color: #803300; }
+.env-convention, .env-convention-header, .env-convention-footer       { --env-color: #934343; }
 .env-corollary, .env-corollary-header, .env-corollary-footer          { --env-color: #49006C; }
 .env-notation, .env-notation-header, .env-notation-footer             { --env-color: #B00B69; }
 .env-remark, .env-remark-header, .env-remark-footer                   { --env-color: #338033; }
@@ -123,7 +124,7 @@
   text-decoration: underline;
 }
 .env-proof div.proofbox {
-  background-color: #646464;
+  background-color: rgb(25%,25%,25%);
   color: white;
   padding: 7.5px 10px;
   margin: 5px 0;
@@ -142,7 +143,7 @@
     color: #FFFFFF;
 }
 .env-proof div.subproofbox {
-  background-color: #8A8A8A;
+  background-color: rgb(37.5%,37.5%,37.5%);
   color: white;
   padding: 7.5px 10px;
   margin: 5px 0;
@@ -157,6 +158,26 @@
 .subproofbox > a:hover {
   color: inherit;
 }
-.dark-mode div.proofbox { background-color: #515151; }
-.dark-mode div.subproofbox { background-color: #6F6F6F; }
 
+.subsubproofbox > a {
+    color: #FFFFFF;
+}
+.env-proof div.subsubproofbox {
+  background-color: rgb(55%,55%,55%);
+  color: white;
+  padding: 7.5px 10px;
+  margin: 5px 0;
+  border-radius: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  clip-path: polygon(0px 50%, 10px 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, calc(100% - 20px) 100%, 10px 100%);
+}
+.subsubproofbox > a:hover {
+  color: inherit;
+}
+.dark-mode div.proofbox       { background-color: rgb(55%,55%,55%); }
+.dark-mode div.subproofbox    { background-color: rgb(45%,45%,45%); }
+.dark-mode div.subsubproofbox { background-color: rgb(32.5%,32.5%,32.5%); }

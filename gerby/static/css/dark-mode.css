@@ -155,6 +155,7 @@
 .dark-mode .env-proposition,  .dark-mode .env-proposition-header,  .dark-mode .env-proposition-footer,
 .dark-mode .env-theorem,      .dark-mode .env-theorem-header,      .dark-mode .env-theorem-footer         { --env-color: #730808; }
 .dark-mode .env-example,      .dark-mode .env-example-header,      .dark-mode .env-example-footer         { --env-color: #632800; }
+.dark-mode .env-convention,   .dark-mode .env-convention-header,   .dark-mode .env-convention-footer      { --env-color: #682f2f; }
 .dark-mode .env-remark,       .dark-mode .env-remark-header,       .dark-mode .env-remark-footer          { --env-color: #245E24; }
 .dark-mode .env-lemma,        .dark-mode .env-lemma-header,        .dark-mode .env-lemma-footer           { --env-color: #9B3E00; }
 .dark-mode .env-question,     .dark-mode .env-question-header,     .dark-mode .env-question-footer        { --env-color: #01858f; }
